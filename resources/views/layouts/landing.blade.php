@@ -19,6 +19,7 @@
                 @include('includes_landing.footer')
         </div>
     </div>
+    @include('sweetalert::alert')
 </body>
 
 @include('includes.js')

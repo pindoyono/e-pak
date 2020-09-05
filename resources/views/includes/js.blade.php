@@ -40,3 +40,6 @@
 <script src="{{asset('material/js/material-dashboard.js')}}"></script>
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
 <script src="{{asset('material/js/demo.js')}}"></script>
+
+
+@yield("js") 

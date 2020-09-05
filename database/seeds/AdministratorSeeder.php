@@ -16,7 +16,6 @@ class AdministratorSeeder extends Seeder
         $administrator->username = "administrator";
         $administrator->name = "Site Administrator";
         $administrator->email = "administrator@cikal.test";
-        $administrator->roles = json_encode(["ADMIN"]);
         $administrator->password = \Hash::make("cikal12345");
         $administrator->avatar = "saat-ini-tidak-ada-file.png";
         $administrator->address = "Sarmili, Bintaro, Tangerang Selatan";

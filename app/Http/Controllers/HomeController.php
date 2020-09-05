@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use RealRashid\SweetAlert\Facades\Alert;
+
 class HomeController extends Controller
 {
     /**
@@ -24,5 +28,8 @@ class HomeController extends Controller
     public function index()
     {
         return view('dashboard.dashboard');
+
+        // $user = Role::all()->pluck('name');
+        // return $user;
     }
 }

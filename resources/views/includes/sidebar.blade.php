@@ -44,9 +44,21 @@
                 </div>
                 <ul class="nav">
                     <li class="active">
-                        <a href="dashboard.html">
+                        <a href="home">
                             <i class="material-icons">dashboard</i>
                             <p>Dashboard</p>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="{{route('users.index')}}">
+                            <i class="material-icons">settings</i>
+                            <p>Managemen Pengguna</p>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="{{route('users.index')}}">
+                            <i class="material-icons">settings</i>
+                            <p>Managemen Role</p>
                         </a>
                     </li>
                     <li>

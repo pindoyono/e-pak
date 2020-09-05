@@ -21,7 +21,7 @@
 
         </div>
     </div>
-
+    @include('sweetalert::alert')
 </body>
 @include('includes.js')
 <script type="text/javascript">
