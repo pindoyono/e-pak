@@ -30,7 +30,7 @@
                         <script>
                             document.write(new Date().getFullYear())
                         </script>
-                        <a href="/home">PindoyonoPatan</a>, made with love for a better web
+                        <a href="/home">P T P N</a>, made with love for a better web
                     </p>
                 </div>
             </footer>

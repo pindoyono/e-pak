@@ -29,7 +29,7 @@
 <!--  DataTables.net Plugin    -->
 <script src="{{asset('material/js/jquery.datatables.js')}}"></script>
 <!-- Sweet Alert 2 plugin -->
-<script src="{{asset('material/js/sweetalert2.js')}}"></script>
+<!-- <script src="{{asset('material/js/sweetalert2.js')}}"></script> -->
 <!--	Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
 <script src="{{asset('material/js/jasny-bootstrap.min.js')}}"></script>
 <!--  Full Calendar Plugin    -->
@@ -40,6 +40,7 @@
 <script src="{{asset('material/js/material-dashboard.js')}}"></script>
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
 <script src="{{asset('material/js/demo.js')}}"></script>
+<script src="{{asset('material/js/sweetalert2.all.min.js')}}"></script>
 
 
 @yield("js") 

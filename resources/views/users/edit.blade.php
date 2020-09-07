@@ -10,7 +10,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header card-header-text" data-background-color="green">
-                    <h4 class="card-title">Form Tambah Pengguna</h4>
+                    <h4 class="card-title">Form Edit Pengguna</h4>
                 </div>
                 <div class="card-content">
                     <div class="col-12 text-right">
@@ -25,19 +25,17 @@
                             </ul>
                         </div>
                     @endif
-                    <form enctype="multipart/form-data" class="form-horizontal"  action="{{route('users.store')}}" method="POST">
-
+                    <form enctype="multipart/form-data" class="form-horizontal"  action="{{route('users.update', [$user->id])}}" method="POST">
+                    
+                    <input type="hidden" value="PUT" name="_method">
                         @csrf
                         <div class="row">
                             <label class="col-sm-2 label-on-left">Nama</label>
                             <div class="col-sm-7">
                                 <div class="form-group label-floating is-empty">
                                     <label class="control-label"></label>
-                                    <input class="form-control" {{$errors->first('address') ? "is-invalid" : ""}} placeholder="Nama Lengkap" type="text" name="name"  required="true" aria-required="true">
+                                    <input class="form-control" placeholder="Nama Lengkap" value="{{$user->name}}" type="text" name="name"  required="true" aria-required="true">
                                     <span class="material-input"></span>
-                                    <div class="invalid-feedback">
-                                        {{$errors->first('address')}}
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -46,11 +44,8 @@
                             <div class="col-sm-7">
                                 <div class="form-group label-floating is-empty">
                                     <label class="control-label"></label>
-                                    <input class="form-control" {{$errors->first('username') ? "is-invalid" : ""}} placeholder="Nomor Induk Pegawai sebagai Username" type="text" name="nip"  required="true" number="true">
+                                    <input class="form-control" placeholder="Nomor Induk Pegawai" value="{{$user->nip}}" type="text" name="nip"  required="true" number="true">
                                     <span class="material-input"></span></div>
-                                    <div class="invalid-feedback">
-                                        {{$errors->first('address')}}
-                                    </div>
                             </div>
                         </div>
                         <div class="row">
@@ -58,12 +53,8 @@
                             <div class="col-sm-7">
                                 <div class="form-group label-floating is-empty">
                                     <label class="control-label"></label>
-                                    <input class="form-control" {{$errors->first('email') ? "is-invalid" : ""}} placeholder="Alamat Email"  type="text" name="email" email="true">
-                                    <span class="material-input"></span>
-                                    <div class="invalid-feedback">
-                                        {{$errors->first('address')}}
-                                    </div>
-                                </div>
+                                    <input class="form-control" placeholder="Alamat Email" value="{{$user->email}}"  type="text" name="email" email="true">
+                                <span class="material-input"></span></div>
                             </div>
                         </div>
                         <div class="col-sm-2 ">
@@ -77,24 +68,25 @@
                                     <div class="col-sm-12 checkbox-radios">
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox" name="roles[]"  id="roles" value="{{ $role['name'] }}">{{ $role['name'] }}
+                                                @if(!empty($user->getRoleNames()))
+                                                    <input type="checkbox" {{in_array($role['name'], json_decode($user->getRoleNames())) ? "checked" : ""}} name="roles[]"  id="roles" value="{{ $role['name'] }}">{{ $role['name'] }}    
+                                                @else
+                                                  Role Belum Dibuat
+                                                @endif
                                             </label>
                                         </div>
                                     </div>
                                 @endforeach
                             @endif
                         </div>
+
                         <div class="row">
                             <label class="col-sm-2 label-on-left">Password</label>
                             <div class="col-sm-7">
                                 <div class="form-group label-floating column-sizing is-empty">
                                     <label class="control-label"></label>
-                                    <input class="form-control" {{$errors->first('email') ? "is-invalid" : ""}}  placeholder="Password"  type="password"  name="password" id="password">
-                                    <span class="material-input"></span>
-                                    <div class="invalid-feedback">
-                                        {{$errors->first('address')}}
-                                    </div>
-                                </div>
+                                    <input class="form-control"  placeholder="Password"  type="password"  name="password" id="password">
+                                <span class="material-input"></span></div>
                             </div>
                         </div>
                         <div class="row">
@@ -103,14 +95,30 @@
                                 <div class="form-group label-floating column-sizing is-empty">
                                     <label class="control-label"></label>
                                     <input class="form-control" placeholder="Konfirmasi Password" type="password" name="password_confirmation" id="password_confirmation">
-                                    <span class="material-input"></span>
-                                </div>
+                                <span class="material-input"></span></div>
                             </div>
                         </div>
 
                         <div class="row">
                             <label class="col-sm-2 label-on-left">Foto Profil</label>
                             <div class="col-md-4 col-sm-4">
+                            @if($user->avatar)
+                                <!-- <legend>Regular Image</legend> -->
+                                <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                    <div class="fileinput-new thumbnail">
+                                        <img src="{{asset('storage/'.$user->avatar)}}"  alt="...">
+                                    </div>
+                                    <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                                    <div>
+                                        <span class="btn btn-rose btn-round btn-file">
+                                            <span class="fileinput-new">Select image</span>
+                                            <span class="fileinput-exists">Change </span>
+                                            <input id="avatar"  name="avatar" value="{{$user->avatar}}" type="file">
+                                        </span>
+                                        <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                    </div>
+                                </div>
+                            @else 
                                 <!-- <legend>Regular Image</legend> -->
                                 <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                                     <div class="fileinput-new thumbnail">
@@ -125,10 +133,8 @@
                                         </span>
                                         <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                     </div>
-                                    <div class="invalid-feedback">
-                                        {{$errors->first('address')}}
-                                    </div>
                                 </div>
+                            @endif
                             </div>
                         </div>
                         <input class="btn btn-primary" type="submit" value="Save"/>

@@ -51,12 +51,12 @@
                     </li>
                     <li class="">
                         <a href="{{route('users.index')}}">
-                            <i class="material-icons">settings</i>
+                            <i class="material-icons">group</i>
                             <p>Managemen Pengguna</p>
                         </a>
                     </li>
                     <li class="">
-                        <a href="{{route('users.index')}}">
+                        <a href="{{route('roles.index')}}">
                             <i class="material-icons">settings</i>
                             <p>Managemen Role</p>
                         </a>

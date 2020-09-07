@@ -14,14 +14,13 @@ class AdministratorSeeder extends Seeder
         //
         $administrator = new \App\User;
         $administrator->username = "administrator";
-        $administrator->name = "Site Administrator";
+        $administrator->nip = "Site Administrator";
         $administrator->email = "administrator@cikal.test";
         $administrator->password = \Hash::make("cikal12345");
-        $administrator->avatar = "saat-ini-tidak-ada-file.png";
-        $administrator->address = "Sarmili, Bintaro, Tangerang Selatan";
+        $administrator->avatar = "avatars/saat-ini-tidak-ada-file.png";
 
         $administrator->save();
-
+        $administrator->assignRole('super admin');
         $this->command->info("User Admin berhasil diinsert");
     }
 }
