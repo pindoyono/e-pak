@@ -16,7 +16,6 @@ class PenyesuaianTableUsers extends Migration
         //
         Schema::table('users', function (Blueprint $table) {
             $table->string("nip")->unique();
-            $table->string("roles");
             $table->string("avatar")->nullable();
             $table->enum("status", ["ACTIVE", "INACTIVE"]);
         });
