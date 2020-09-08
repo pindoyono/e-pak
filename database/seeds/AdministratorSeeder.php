@@ -19,10 +19,10 @@ class AdministratorSeeder extends Seeder
         $administrator->name = "Site Administrator";
         $administrator->email = "administrator@cikal.test";
         $administrator->password = \Hash::make("cikal12345");
-        $administrator->avatar = "avatars/saat-ini-tidak-ada-file.png";
+        $administrator->avatar = "avatars/saat-ini-tidak-ada-file.jpg";
 
         $administrator->save();
-        $role = Role::create(['name' => 'super admin']);
+        // $role = Role::create(['name' => 'super admin']);
         $administrator->assignRole('super admin');
         $this->command->info("User Admin berhasil diinsert");
     }

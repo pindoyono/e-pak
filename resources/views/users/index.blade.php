@@ -54,7 +54,7 @@
                                         @endif
                                     </td>
                                     <td>{{$user->name}}</td>
-                                    <td>{{$user->username}}</td>
+                                    <td>{{$user->nip}}</td>
                                     <td>{{$user->email}}</td>
                                     <td>
                                         @if(!empty($user->getRoleNames()))
@@ -64,7 +64,7 @@
                                         @endif
                                     </td>
                                     <td class="td-actions text-right">
-                                            <form onsubmit="return confirm('Delete this user permanently?')"  action="{{route('users.destroy', [$user->id])}}"  method="POST">
+                                            <form onsubmit="return confirm('Apakah Akan Menghapus Data Secara Permanen?')"  action="{{route('users.destroy', [$user->id])}}"  method="POST">
                                                 @csrf
                                                 <!-- <button type="button" rel="tooltip" class="btn btn-info" data-original-title="" title="">
                                                     <i class="material-icons">zoom_in</i>

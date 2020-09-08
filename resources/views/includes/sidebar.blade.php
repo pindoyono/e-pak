@@ -12,11 +12,11 @@
             <div class="sidebar-wrapper">
                 <div class="user">
                     <div class="photo">
-                        <img src="{{asset('material/img/faces/avatar.jpg')}}" />
+                        <img src="{{asset('storage/'.Auth::user()->avatar)}}" />
                     </div>
                     <div class="info">
                         <a data-toggle="collapse" href="#collapseExample" class="collapsed">
-                            Tania Andrew
+                            {{Auth::user()->name}}
                             <b class="caret"></b>
                         </a>
                         <div class="collapse" id="collapseExample">
@@ -45,41 +45,45 @@
                 <ul class="nav">
                     <li class="active">
                         <a href="home">
-                            <i class="material-icons">dashboard</i>
+                            <i class="fas fa-tachometer-alt"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
-                    <li class="">
-                        <a href="{{route('users.index')}}">
-                            <i class="material-icons">group</i>
-                            <p>Managemen Pengguna</p>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="{{route('roles.index')}}">
-                            <i class="material-icons">settings</i>
-                            <p>Managemen Role</p>
-                        </a>
-                    </li>
+                    @role('super admin')
                     <li>
                         <a data-toggle="collapse" href="#pagesExamples">
-                            <i class="material-icons">image</i>
-                            <p>Pages
+                            <!-- <i class="material-icons">miscellaneous_services</i> -->
+                            <i class="fas fa-cogs"></i>
+                            <p>Pengaturan
                                 <b class="caret"></b>
                             </p>
                         </a>
                         <div class="collapse" id="pagesExamples">
                             <ul class="nav">
                                 <li>
-                                    <a href="pages/pricing.html">Pricing</a>
+                                    <a href="{{route('sekolahs.index')}}">
+                                        <i class="fas fa-school"></i>
+                                        <p>Sekolah</p>
+                                        
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="pages/timeline.html">Timeline</a>
+                                    <a href="{{route('roles.index')}}">
+                                        
+                                        <i class="fas fa-user-tag"></i>
+                                        <p>Role</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{route('users.index')}}">
+                                        <i class="fas fa-users"></i>
+                                        <p>Pengguna</p>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
                     </li>
-
+                    @endrole
                     <li class="">
                         <a class="" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

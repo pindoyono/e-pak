@@ -12,6 +12,13 @@ use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
+    function __construct()
+    {
+         $this->middleware('role:super admin');
+        //  $this->middleware('permission:role-create', ['only' => ['create','store']]);
+        //  $this->middleware('permission:role-edit', ['only' => ['edit','update']]);
+        //  $this->middleware('permission:role-delete', ['only' => ['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -139,7 +146,6 @@ class UserController extends Controller
           $validator = Validator::make($request->all(), [
             "name" => "required|min:5|max:100",
             'nip' => 'min:18|numeric|unique:users,nip,' . $id,
-            // "nip" => 'required|min:18|numeric|unique:users'.$id,
             'email' => 'required|email|unique:users,email,'.$id,
         ]);
 
@@ -153,7 +159,7 @@ class UserController extends Controller
         $user->name = $request->get('name');
         $user->nip = $request->get('nip');
         $user->email = $request->get('email');
-        if( $user->password ){
+        if( $request->get('password') ){
             $user->password = \Hash::make($request->get('password'));
         }
  

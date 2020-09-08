@@ -40,3 +40,15 @@
     <!--     Fonts and icons     -->
     <link href="{{asset('material/css/font-awesome.css')}}" rel="stylesheet" />
     <link href="{{asset('material/css/google-roboto-300-700.css')}}" rel="stylesheet" />
+
+    <link href="{{asset('fontawesome/css/fontawesome.css')}}" rel="stylesheet" />
+    <link href="{{asset('fontawesome/css/brands.css')}}" rel="stylesheet" />
+    <link href="{{asset('fontawesome/css/solid.css')}}" rel="stylesheet" />
+    
+    <link href="{{asset('fontawesome/js/brands.js')}}" rel="stylesheet" />
+    <link href="{{asset('fontawesome/js/solid.js')}}" rel="stylesheet" />
+    <link href="{{asset('fontawesome/js/fontawesome.js')}}" rel="stylesheet" />
+
+
+
+    
