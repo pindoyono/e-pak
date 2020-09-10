@@ -1,10 +1,7 @@
 @extends('layouts.global')
-@section('title')
-    Managemen Pengguna
-@endsection
- 
+
 @section('badge')
-    Managemen Pengguna
+    Managemen Roles
 @endsection
 
 @section('content')      

@@ -18,13 +18,13 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->unsignedInteger('sekolah_id')->nullable();
+            // $table->unsignedInteger('sekolah_id')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
             
             
-            $table->foreign("sekolah_id")->references("id")->on("sekolahs");
+            // $table->foreign("sekolah_id")->references("id")->on("sekolahs");
         });
     }
 

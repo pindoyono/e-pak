@@ -1,10 +1,6 @@
 @extends('layouts.global')
 @section('title')
-    Managemen Pengguna
-@endsection
- 
-@section('badge')
-    Managemen Pengguna
+    Managemen Sekolah
 @endsection
 
 @section('content')      

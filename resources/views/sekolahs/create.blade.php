@@ -1,7 +1,8 @@
 @extends("layouts.global")
 
-@section("title") Form Tambah Pengguna @endsection
-
+@section('title')
+    Managemen Sekolah
+@endsection
 @section("content")
 
 

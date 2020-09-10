@@ -49,6 +49,8 @@
     <link href="{{asset('fontawesome/js/solid.js')}}" rel="stylesheet" />
     <link href="{{asset('fontawesome/js/fontawesome.js')}}" rel="stylesheet" />
 
+    <link href="{{asset('select2/dist/css/select2.min.css')}}" rel="stylesheet" />
+
 
 
     

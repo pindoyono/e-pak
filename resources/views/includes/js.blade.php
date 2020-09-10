@@ -43,4 +43,8 @@
 <script src="{{asset('material/js/sweetalert2.all.min.js')}}"></script>
 
 
+<script src="{{asset('select2/dist/js/select2.min.js')}}"></script>
+
+
+
 @yield("js") 

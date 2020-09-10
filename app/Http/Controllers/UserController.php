@@ -12,13 +12,7 @@ use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
-    function __construct()
-    {
-         $this->middleware('role:super admin');
-        //  $this->middleware('permission:role-create', ['only' => ['create','store']]);
-        //  $this->middleware('permission:role-edit', ['only' => ['edit','update']]);
-        //  $this->middleware('permission:role-delete', ['only' => ['destroy']]);
-    }
+
     /**
      * Display a listing of the resource.
      *
@@ -30,6 +24,14 @@ class UserController extends Controller
         // $users = \App\User::paginate(10);
 
         $users = \App\User::orderBy('id','DESC')->get();
+
+
+        // $users = \App\User::
+        //             join('sekolahs', 'sekolahs.id', '=', 'users.sekolah_id')
+        //             ->select('users.*', 'sekolahs.nama')
+        //             ->orderBy('id','DESC')->get();
+        // echo '<pre>';  var_dump($users); echo '</pre>';
+        // exit;
         return view('users.index', ['users' => $users]);
 
     }
@@ -42,7 +44,10 @@ class UserController extends Controller
     public function create(){
         
         $roles = Role::all();
-        return view("users.create", ['roles' => $roles]);
+        $sekolah = \App\Sekolah::all();
+        return view("users.create", ['roles' => $roles,
+                                    'sekolahs' => $sekolah
+                                    ]);
     }
 
     /**
@@ -85,8 +90,10 @@ class UserController extends Controller
         $new_user->name = $request->get('name');
         $new_user->nip = $request->get('nip');
         $new_user->email = $request->get('email');
+        // $new_user->sekolah_id = $request->get('sekolah_id');
         $new_user->password = \Hash::make($request->get('password'));
         $new_user->assignRole($request->get('roles'));
+        $new_user->givePermissionTo($request->get('roles'));
 
         if($request->file('avatar')){
             $file = $request->file('avatar')->store('avatars', 'public');
@@ -120,8 +127,29 @@ class UserController extends Controller
     {
         $user = \App\User::findOrFail($id);
         $roles = Role::all();
-        return view('users.edit',   ['user' => $user],
-                                    ['roles' => $roles]
+        $sekolah = \App\Sekolah::all();
+
+
+        return view('users.edit',   ['user' => $user,
+                                    'roles' => $roles,
+                                    'sekolahs' => $sekolah
+                                    ]
+                                );
+    }
+
+    public function profile($id)
+    {
+        $user = \App\User::findOrFail($id);
+        $user->getAllPermissions();
+        echo '<pre>';  var_dump($user); echo '</pre>';
+        exit;
+        $roles = Role::all();
+        $sekolah = \App\Sekolah::all();
+
+        return view('users.edit',   ['user' => $user,
+                                    'roles' => $roles,
+                                    'sekolahs' => $sekolah
+                                    ]
                                 );
     }
 
@@ -158,6 +186,7 @@ class UserController extends Controller
 
         $user->name = $request->get('name');
         $user->nip = $request->get('nip');
+        // $user->sekolah_id = $request->get('sekolah_id');
         $user->email = $request->get('email');
         if( $request->get('password') ){
             $user->password = \Hash::make($request->get('password'));
@@ -171,6 +200,9 @@ class UserController extends Controller
         $user->update();
         DB::table('model_has_roles')->where('model_id',$id)->delete();
         $user->assignRole($request->get('roles'));
+        DB::table('model_has_permissions')->where('model_id',$id)->delete();
+        $user->givePermissionTo($request->get('roles'));
+
 
         return redirect()->route('users.edit', [$id])->with('toast_success', 'Berhasil Merubah Data Pengguna');
     }

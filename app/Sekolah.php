@@ -12,7 +12,5 @@ class Sekolah extends Model
     ];
     
 
-    public function sekolah(){
-        return $this->hasMany("App\Users");
-      }
+    
 }

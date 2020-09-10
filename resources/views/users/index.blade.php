@@ -2,10 +2,6 @@
 @section('title')
     Managemen Pengguna
 @endsection
- 
-@section('badge')
-    Managemen Pengguna
-@endsection
 
 @section('content')      
 <div class="container-fluid">
@@ -33,7 +29,7 @@
                                     <th class="disabled-sorting text-right">Actions</th>
                                 </tr>
                             </thead>
-                            <tfoot>
+                            <!-- <tfoot>
                                 <tr>
                                     <th>Foto</th>
                                     <th>Nama</th>
@@ -42,7 +38,7 @@
                                     <th>Role</th>
                                     <th class="text-right">Actions</th>
                                 </tr>
-                            </tfoot>
+                            </tfoot> -->
                             <tbody>
                                 @foreach($users as $user)
                                 <tr>
@@ -96,7 +92,6 @@
     <!-- end row -->
 </div>         
 @endsection
-
 @section('js')
 <script type="text/javascript">
     $(document).ready(function() {

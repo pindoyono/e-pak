@@ -1,5 +1,7 @@
 @extends('layouts.global')
-
+@section('title')
+    Dashboard
+@endsection
 @section('content')      
 <div class="container-fluid">
     <div class="row">

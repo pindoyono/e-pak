@@ -22,7 +22,9 @@ class AdministratorSeeder extends Seeder
         $administrator->avatar = "avatars/saat-ini-tidak-ada-file.jpg";
 
         $administrator->save();
-        // $role = Role::create(['name' => 'super admin']);
+        $role = Role::create(['name' => 'super admin']);
+        $permission = Permission::create(['name' => 'super admin']);
+        $role->syncPermissions($permission);
         $administrator->assignRole('super admin');
         $this->command->info("User Admin berhasil diinsert");
     }

@@ -30,10 +30,7 @@ class PenyesuaianTableUsers extends Migration
     {
         //
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn("nip");
-            $table->dropColumn("avatar");
-            $table->dropColumn("status");
-            $table->dropColumn("sekolah_id");
+            Schema::dropIfExists('users');
         });
     }
 }

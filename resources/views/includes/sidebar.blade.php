@@ -22,10 +22,7 @@
                         <div class="collapse" id="collapseExample">
                             <ul class="nav">
                                 <li>
-                                    <a href="#">My Profile</a>
-                                </li>
-                                <li>
-                                    <a href="#">Edit Profile</a>
+                                    <a href="{{ route('users.profile', Auth::user()->id) }}">Profile</a>
                                 </li>
                                 <li>
                                     <a class="" href="{{ route('logout') }}"
@@ -88,7 +85,7 @@
                         <a class="" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                            <i class="material-icons">power_settings_new</i>
+                            <i class="fas fa-power-off"></i>
                             <p>Logout</p>
                         </a>
 

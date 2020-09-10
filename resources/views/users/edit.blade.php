@@ -1,6 +1,8 @@
 @extends("layouts.global")
 
-@section("title") Form Tambah Pengguna @endsection
+@section('title')
+    Managemen Pengguna
+@endsection
 
 @section("content")
 
@@ -48,6 +50,21 @@
                                     <span class="material-input"></span></div>
                             </div>
                         </div>
+                        <!-- <div class="row">
+                            <label class="col-sm-2 label-on-left">Nama Sekolah</label>
+                            <div class="col-sm-7">
+                                <div class="col-lg-5 col-md-6 col-sm-3">
+                                    <select class="js-example-basic-single form-control"  width="70%" name="sekolah_id" >
+                                    <option value="">Pilih Sekolah</option>
+                                    @if(!empty($sekolahs))
+                                        @foreach ($sekolahs as $sekolah)
+                                            <option {{$user->sekolah_id == $sekolah->id ? "selected" : ""}} value="{{$sekolah->id}}">{{$sekolah->nama}} </option>
+                                        @endforeach
+                                    @endif
+                                    </select>
+                                </div>
+                            </div>
+                        </div> -->
                         <div class="row">
                             <label class="col-sm-2 label-on-left">Email</label>
                             <div class="col-sm-7">
@@ -147,4 +164,12 @@
     <!-- end row -->
 </div>   
 
+@endsection
+
+@section('js')
+<script>
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2();
+    });
+</script>
 @endsection
