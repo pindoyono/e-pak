@@ -3,16 +3,38 @@
     Managemen Pengguna
 @endsection
 
+
 @section('content')      
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
+        @if(count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
             <div class="card">
                 <div class="card-header card-header-icon" data-background-color="green">
                     <i class="material-icons">group</i>
                 </div>
                 <div class="card-content">
                     <h4 class="card-title">Pengguna</h4>
+                    <form action="{{ route('users.import') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="col-md-12 col-sm-12">
+                            <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                <input type="file" name="file">
+                            </div>
+                        </div>
+                        <br>
+                        <button class="btn btn-success">Import User Data</button>
+                        <a class="btn btn-warning" href="{{ route('users.export') }}">Export User Data</a>
+                    </form>
+
                         <div class="col-12 text-right">
                             <a href="{{route('users.create')}}" class="btn btn-success">Tambah Pengguna <div class="ripple-container"></div></a>
                         </div>

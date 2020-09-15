@@ -29,7 +29,7 @@
                     @endif
                     <form enctype="multipart/form-data" class="form-horizontal"  action="{{route('users.update', [$user->id])}}" method="POST">
                     
-                    <input type="hidden" value="PUT" name="_method">
+                        <input type="hidden" value="PUT" name="_method">
                         @csrf
                         <div class="row">
                             <label class="col-sm-2 label-on-left">Nama</label>
@@ -74,6 +74,7 @@
                                 <span class="material-input"></span></div>
                             </div>
                         </div>
+                        @role('super admin')
                         <div class="col-sm-2 ">
                         </div>
                         <div class="row col-sm-10">
@@ -96,6 +97,7 @@
                                 @endforeach
                             @endif
                         </div>
+                        @endrole
 
                         <div class="row">
                             <label class="col-sm-2 label-on-left">Password</label>

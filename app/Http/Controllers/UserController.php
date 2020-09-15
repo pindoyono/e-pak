@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
@@ -9,6 +10,9 @@ use RealRashid\SweetAlert\Facades\Alert;
 use DB;
 use Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Exports\UsersExport;
+use App\Imports\UsersImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
 {
@@ -80,9 +84,6 @@ class UserController extends Controller
             "avatar" => "required"
         ]);
 
-        if ($validator->fails()) {
-            return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
-        }
 
 
         // return $request;
@@ -139,16 +140,18 @@ class UserController extends Controller
 
     public function profile($id)
     {
+        // $user->getAllPermissions();
+        // echo '<pre>';  var_dump($user); echo '</pre>';
+        // exit;
         $user = \App\User::findOrFail($id);
-        $user->getAllPermissions();
-        echo '<pre>';  var_dump($user); echo '</pre>';
-        exit;
         $roles = Role::all();
         $sekolah = \App\Sekolah::all();
+        $jabatans = \App\Jabatan::all();
 
-        return view('users.edit',   ['user' => $user,
+        return view('users.profile',   ['user' => $user,
                                     'roles' => $roles,
-                                    'sekolahs' => $sekolah
+                                    'sekolahs' => $sekolah,
+                                    'jabatans' => $jabatans
                                     ]
                                 );
     }
@@ -196,7 +199,12 @@ class UserController extends Controller
             \Storage::delete('public/'.$user->avatar);
             $file = $request->file('avatar')->store('avatars', 'public');
             $user->avatar = $file;
+        }elseif(!empty($request->file('avatar'))){
+            $file = $request->file('avatar')->store('avatars', 'public');
+            $user->avatar = $file;
         }
+        
+
         $user->update();
         DB::table('model_has_roles')->where('model_id',$id)->delete();
         $user->assignRole($request->get('roles'));
@@ -205,6 +213,50 @@ class UserController extends Controller
 
 
         return redirect()->route('users.edit', [$id])->with('toast_success', 'Berhasil Merubah Data Pengguna');
+    }
+
+    public function update_profile(Request $request, $id)
+    {
+
+        // var_dump($request->file('avatar'));
+        // exit;
+        // $validation = \Validator::make($request->all(),[
+        //     "name" => "required|min:5|max:100",
+        //     "username" => "required|min:5|max:20|unique:users",
+        //     "avatar" => "required",
+        //     "email" => "required|email|unique:users",
+        //   ])->validate();
+          $validator = Validator::make($request->all(), [
+            "name" => "required|min:5|max:100",
+            'nip' => 'min:18|numeric|unique:users,nip,' . $id,
+            'email' => 'required|email|unique:users,email,'.$id,
+        ]);
+
+        if ($validator->fails()) {
+            return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
+        }
+
+        $user = \App\User::findOrFail($id);
+
+        $user->name = $request->get('name');
+        $user->nip = $request->get('nip');
+        // $user->sekolah_id = $request->get('sekolah_id');
+        $user->email = $request->get('email');
+        if( $request->get('password') ){
+            $user->password = \Hash::make($request->get('password'));
+        }
+ 
+        if( !empty($request->file('avatar')) && $user->avatar && file_exists(storage_path('app/public/' . $user->avatar))){
+            \Storage::delete('public/'.$user->avatar);
+            $file = $request->file('avatar')->store('avatars', 'public');
+            $user->avatar = $file;
+        }elseif(!empty($request->file('avatar'))){
+            $file = $request->file('avatar')->store('avatars', 'public');
+            $user->avatar = $file;
+        }
+        
+        $user->update();
+        return redirect()->route('users.profile', [$id])->with('toast_success', 'Berhasil Merubah Data Pengguna');
     }
 
     /**
@@ -223,6 +275,35 @@ class UserController extends Controller
         DB::table('model_has_roles')->where('model_id',$id)->delete();
         $user->delete();
         return redirect()->route('users.index')->with('success', 'Berhasil Menghapus data Pengguna');
+    }
+
+   
+    public function export() 
+    {
+        return Excel::download(new UsersExport, 'users.xlsx');
+    }
+   
+    public function import(Request $request) 
+    {
+          $validator = Validator::make($request->all(), [
+            "file" => "required",
+        ]);
+
+        if ($validator->fails()) {
+            return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
+        }
+
+        $file = $request->file('file')->store('import');
+
+        $import = new UsersImport;
+        $import->import($file);
+
+        if ($import->failures()->isNotEmpty()) {
+            return back()->withFailures($import->failures());
+        }
+
+
+        return back()->withStatus('Import in queue, we will send notification after import finished.');
     }
 
 }

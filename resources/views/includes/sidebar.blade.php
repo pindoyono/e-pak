@@ -1,18 +1,22 @@
 <div class="sidebar" data-active-color="rose" data-background-color="black" data-image="{{asset('material/img/sidebar-1.jpg')}}">
             <div class="logo">
-                <a href="/home" class="simple-text">
+                <a href="{{route('home')}}" class="simple-text">
                     <img width="10%" src="{{asset('material/img/kaltara.png')}}"/>  e-Pak Kaltara
                 </a>
             </div>
             <div class="logo logo-mini">
-                <a href="/home" class="simple-text">
+                <a href="{{route('home')}}" class="simple-text">
                     e pak
                 </a>
             </div>
             <div class="sidebar-wrapper">
                 <div class="user">
                     <div class="photo">
+                    @if(Auth::user()->avatar)
                         <img src="{{asset('storage/'.Auth::user()->avatar)}}" />
+                    @else
+                        <img src="{{asset('material/img/placeholder.jpg')}}" alt="...">
+                    @endif
                     </div>
                     <div class="info">
                         <a data-toggle="collapse" href="#collapseExample" class="collapsed">
@@ -41,7 +45,7 @@
                 </div>
                 <ul class="nav">
                     <li class="active">
-                        <a href="home">
+                        <a href="{{route('home')}}">
                             <i class="fas fa-tachometer-alt"></i>
                             <p>Dashboard</p>
                         </a>
@@ -77,10 +81,34 @@
                                         <p>Pengguna</p>
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="{{route('jabatans.index')}}">
+                                        <i class="fas fa-chart-line"></i>
+                                        <p>Nilai AK</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{route('kegiatans.index')}}">
+                                        <i class="fas fa-layer-group"></i>
+                                        <p>Kegiatan</p>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </li>
                     @endrole
+                    <li class="">
+                        @role('super admin')
+                        <a href="{{route('home')}}">
+                        @endrole
+                        @role('guru')
+                        <a href="{{route('biodatas.create_biodata',Auth::user()->id   )}}">
+                        @endrole
+                            <i class="fas fa-id-card"></i>
+                            <p>Biodata</p>
+                        </a>
+                    </li>
+                    
                     <li class="">
                         <a class="" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

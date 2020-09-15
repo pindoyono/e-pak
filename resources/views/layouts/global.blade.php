@@ -3,7 +3,7 @@
 <head>
     @include('includes.head')
 </head>
-    
+<!-- oncontextmenu="return false" onkeydown="return false;" onmousedown="return false; -->
 <body>
     <div class="wrapper">
         @include('includes.sidebar')
@@ -24,13 +24,5 @@
     @include('sweetalert::alert')
 </body>
 @include('includes.js')
-<script type="text/javascript">
-    $(document).ready(function() {
 
-        // Javascript method's body can be found in assets/js/demos.js
-        demo.initDashboardPageCharts();
-
-        demo.initVectorMap();
-    });
-</script>
 </html>
