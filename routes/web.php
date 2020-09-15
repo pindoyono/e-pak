@@ -35,8 +35,10 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource("jabatans", "JabatanControler")->middleware('role:super admin');
     Route::resource("sekolahs", "SekolahController")->middleware('role:super admin');
     Route::resource("kegiatans", "KegiatanController")->middleware('role:super admin');
-    // user
-    Route::get('/profile/{id}', 'UserController@profile')->name('users.profile')->middleware('role:guru');
+    Route::resource("kepegawaians", "KepegawaianController");
+   
+    //user
+    Route::get('/profile/{id}', 'UserController@profile')->name('users.profile')->middleware('role:guru|super admin');
     Route::put('/update_profile/{id}', 'UserController@update_profile')->name('users.update_profile')->middleware('role:guru');
     // biodata
     Route::get('/create_biodata/{id}', 'BiodataController@create_biodata')->name('biodatas.create_biodata')->middleware('role:guru');

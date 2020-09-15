@@ -27,8 +27,8 @@
                         </div>
                     @endif
 
-                    <form enctype="multipart/form-data" class="form-horizontal"  action="{{route('users.update_profile', [$user->id])}}" method="POST">
-                    
+                    <form enctype="multipart/form-data" class="form-horizontal"  action="{{route('users.update_profile', Crypt::encrypt($user->id) )}}" method="POST">
+
                         <input type="hidden" value="PUT" name="_method">
                         @csrf
                         <div class="row">

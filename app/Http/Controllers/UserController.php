@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Exports\UsersExport;
 use App\Imports\UsersImport;
 use Maatwebsite\Excel\Facades\Excel;
+use Crypt; 
 
 class UserController extends Controller
 {
@@ -46,7 +47,6 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(){
-        
         $roles = Role::all();
         $sekolah = \App\Sekolah::all();
         return view("users.create", ['roles' => $roles,
@@ -83,6 +83,10 @@ class UserController extends Controller
             "password_confirmation" => "required|same:password",
             "avatar" => "required"
         ]);
+
+        if ($validator->fails()) {
+            return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
+        }
 
 
 
@@ -140,6 +144,7 @@ class UserController extends Controller
 
     public function profile($id)
     {
+        $id = Crypt::decrypt($id); 
         // $user->getAllPermissions();
         // echo '<pre>';  var_dump($user); echo '</pre>';
         // exit;
@@ -218,6 +223,9 @@ class UserController extends Controller
     public function update_profile(Request $request, $id)
     {
 
+        $id = Crypt::decrypt($id); 
+        // dd($id); 
+
         // var_dump($request->file('avatar'));
         // exit;
         // $validation = \Validator::make($request->all(),[
@@ -256,7 +264,7 @@ class UserController extends Controller
         }
         
         $user->update();
-        return redirect()->route('users.profile', [$id])->with('toast_success', 'Berhasil Merubah Data Pengguna');
+        return redirect()->route('users.profile',  Crypt::encrypt($id))->with('toast_success', 'Berhasil Merubah Data Pengguna');
     }
 
     /**

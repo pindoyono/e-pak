@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Crypt;
 
 class BiodataController extends Controller
 {
@@ -85,6 +86,9 @@ class BiodataController extends Controller
     public function create_biodata(Request $request, $id)
     {
         //
+
+        $id = Crypt::decrypt($id);
+
         $jabatans = \App\Jabatan::orderBy('target','asc')->get();
         $biodatas = \App\Biodata::where('user_id',$id)->get();
         $sekolah = \App\Sekolah::all();
@@ -127,6 +131,7 @@ class BiodataController extends Controller
 
     public function create_or_update(Request $request, $id)
     {
+        $id =  Crypt::decrypt($id);
         // echo '<pre>';
         // var_dump($request->all());
         // echo '</pre>';
@@ -183,9 +188,11 @@ class BiodataController extends Controller
             // return view('biodatas.create_or_update',['jabatans' => $jabatans,
             //                                         'biodatas' => json_decode(json_encode($biodatas)), 
             //                                     ]);
+                $id = Crypt::encrypt($id);
                 return redirect()->route('biodatas.create_biodata',$id)->with('toast_success', 'Task Update Successfully!');
             
             }else{
+                $id = Crypt::encrypt($id);
                 $biodata_id = \App\Biodata::where('user_id',$id)->get();
                 return redirect()->route('biodatas.create_biodata',$id)->with('toast_success', 'Task Update Successfully!');
                 // return view('biodatas.create_or_update',['jabatans' => $jabatans,

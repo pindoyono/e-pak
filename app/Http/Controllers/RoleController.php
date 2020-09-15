@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use DB;
+use Illuminate\Support\Facades\Validator;
+
 
 class RoleController extends Controller
 {
@@ -49,10 +51,14 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $validator = Validator::make($request->all(), [
             'name' => 'required|unique:roles,name',
             // 'permission' => 'required',
         ]);
+
+        if ($validator->fails()) {
+            return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
+        }
     
         $role = Role::create(['name' => $request->input('name')]);
         $permission = Permission::create(['name' => $request->input('name')]);
@@ -103,10 +109,14 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
+        $validator = Validator::make($request->all(), [
             'name' => 'required',
             'permission' => 'required',
         ]);
+
+        if ($validator->fails()) {
+            return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
+        }
     
         $role = Role::find($id);
         $role->name = $request->input('name');

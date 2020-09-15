@@ -26,7 +26,7 @@
                         <div class="collapse" id="collapseExample">
                             <ul class="nav">
                                 <li>
-                                    <a href="{{ route('users.profile', Auth::user()->id) }}">Profile</a>
+                                    <a href="{{ route('users.profile', Crypt::encrypt(Auth::user()->id)) }}">Profile</a>
                                 </li>
                                 <li>
                                     <a class="" href="{{ route('logout') }}"
@@ -96,18 +96,28 @@
                             </ul>
                         </div>
                     </li>
-                    @endrole
                     <li class="">
-                        @role('super admin')
                         <a href="{{route('home')}}">
-                        @endrole
-                        @role('guru')
-                        <a href="{{route('biodatas.create_biodata',Auth::user()->id   )}}">
-                        @endrole
                             <i class="fas fa-id-card"></i>
                             <p>Biodata</p>
                         </a>
                     </li>
+                    @endrole
+                    
+                    @role('guru')
+                    <li class="">
+                        <a href="{{route('biodatas.create_biodata', Crypt::encrypt(Auth::user()->id)   )}}">
+                            <i class="fas fa-id-card"></i>
+                            <p>Biodata</p>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="{{route('kepegawaians.index' )}}">
+                            <i class="fas fa-files-o "></i>
+                            <p>Berkas Kepegawaian</p>
+                        </a>
+                    </li>
+                    @endrole
                     
                     <li class="">
                         <a class="" href="{{ route('logout') }}"

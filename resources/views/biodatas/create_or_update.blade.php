@@ -24,7 +24,7 @@
                             </ul>
                         </div>
                     @endif
-                    <form enctype="multipart/form-data" class="form-horizontal"  action="{{route('biodatas.create_or_update',Auth::user()->id)}}" method="POST">
+                    <form enctype="multipart/form-data" class="form-horizontal"  action="{{route('biodatas.create_or_update', Crypt::encrypt(Auth::user()->id) )}}" method="POST">
 
                         <input type="hidden" value="PUT" name="_method">
                         @csrf
