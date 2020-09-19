@@ -51,6 +51,6 @@
 
     <link href="{{asset('select2/dist/css/select2.min.css')}}" rel="stylesheet" />
 
-
+    @yield("css") 
 
     

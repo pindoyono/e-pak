@@ -33,8 +33,8 @@
                             </div>
                         </div>
                         <br>
-                        <button class="btn btn-success">Import User Data</button>
-                        <a class="btn btn-warning" href="{{ route('kegiatans.export') }}">Export User Data</a>
+                        <button class="btn btn-success">Import Kegiatan</button>
+                        <a class="btn btn-warning" href="{{ route('kegiatans.export') }}">Export Kegiatan</a>
                     </form>
                     <div class="col-7 text-right">
                         <a href="{{route('kegiatans.create')}}" class="btn btn-success">Tambah Kegiatan <div class="ripple-container"></div></a>

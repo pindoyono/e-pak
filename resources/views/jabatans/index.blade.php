@@ -16,6 +16,15 @@
                     <div class="col-7 text-right">
                         <a href="{{route('jabatans.create')}}" class="btn btn-success">Tambah Jabatan <div class="ripple-container"></div></a>
                     </div>
+                    @if(count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <div class="table-responsive">
                         <table class="table">
                             <thead>

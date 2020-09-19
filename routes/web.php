@@ -35,14 +35,15 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource("jabatans", "JabatanControler")->middleware('role:super admin');
     Route::resource("sekolahs", "SekolahController")->middleware('role:super admin');
     Route::resource("kegiatans", "KegiatanController")->middleware('role:super admin');
-    Route::resource("kepegawaians", "KepegawaianController");
+    Route::resource("kepegawaians", "KepegawaianController")->middleware('role:guru|penilai');
+    Route::resource("dupaks", "DupakController")->middleware('role:guru|penilai');
    
     //user
-    Route::get('/profile/{id}', 'UserController@profile')->name('users.profile')->middleware('role:guru|super admin');
-    Route::put('/update_profile/{id}', 'UserController@update_profile')->name('users.update_profile')->middleware('role:guru');
+    Route::get('/profile/{id}', 'UserController@profile')->name('users.profile')->middleware('role:guru|super admin|penilai');
+    Route::put('/update_profile/{id}', 'UserController@update_profile')->name('users.update_profile')->middleware('role:guru|penilai');
     // biodata
-    Route::get('/create_biodata/{id}', 'BiodataController@create_biodata')->name('biodatas.create_biodata')->middleware('role:guru');
-    Route::put('/create_or_update/{id}', 'BiodataController@create_or_update')->name('biodatas.create_or_update')->middleware('role:guru');
+    Route::get('/create_biodata/{id}', 'BiodataController@create_biodata')->name('biodatas.create_biodata')->middleware('role:guru|penilai|super admin ');
+    Route::put('/create_or_update/{id}', 'BiodataController@create_or_update')->name('biodatas.create_or_update')->middleware('role:guru|penilai|super admin');
 
 
 

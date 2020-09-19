@@ -97,7 +97,7 @@
                         </div>
                     </li>
                     <li class="">
-                        <a href="{{route('home')}}">
+                        <a href="{{route('biodatas.create_biodata', Crypt::encrypt(Auth::user()->id)   )}}">
                             <i class="fas fa-id-card"></i>
                             <p>Biodata</p>
                         </a>
@@ -115,6 +115,21 @@
                         <a href="{{route('kepegawaians.index' )}}">
                             <i class="fas fa-files-o "></i>
                             <p>Berkas Kepegawaian</p>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="{{route('dupaks.index' )}}">
+                            <i class="fas fa-clipboard-list "></i>
+                            <p>Usul Dupak</p>
+                        </a>
+                    </li>
+                    @endrole
+
+                    @role('penilai')
+                    <li class="">
+                        <a href="{{route('biodatas.create_biodata', Crypt::encrypt(Auth::user()->id)   )}}">
+                            <i class="fas fa-id-card"></i>
+                            <p>Biodata</p>
                         </a>
                     </li>
                     @endrole

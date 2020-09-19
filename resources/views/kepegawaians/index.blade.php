@@ -1,6 +1,6 @@
 @extends('layouts.global')
 @section('title')
-    Managemen Sekolah
+    Berkas Kepegawaian
 @endsection
 
 @section('content')      
