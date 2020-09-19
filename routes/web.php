@@ -40,7 +40,7 @@ Route::group(['middleware' => ['auth']], function() {
    
     //user
     Route::get('/profile/{id}', 'UserController@profile')->name('users.profile')->middleware('role:guru|super admin|penilai');
-    Route::put('/update_profile/{id}', 'UserController@update_profile')->name('users.update_profile')->middleware('role:guru|penilai');
+    Route::put('/update_profile/{id}', 'UserController@update_profile')->name('users.update_profile')->middleware('role:guru|penilai|super admin');
     // biodata
     Route::get('/create_biodata/{id}', 'BiodataController@create_biodata')->name('biodatas.create_biodata')->middleware('role:guru|penilai|super admin ');
     Route::put('/create_or_update/{id}', 'BiodataController@create_or_update')->name('biodatas.create_or_update')->middleware('role:guru|penilai|super admin');
