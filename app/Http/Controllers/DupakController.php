@@ -16,7 +16,7 @@ class DupakController extends Controller
         //
         // $jabatans = \App\Dupak::orderBy('id','asc')->get();
         $kegiatans = \App\Kegiatan::orderBy('kode','asc')->get();
-        return view('dupaks.create', ['kegiatans' => $kegiatans]);
+        return view('dupaks.index', ['kegiatans' => $kegiatans]);
     }
 
     /**

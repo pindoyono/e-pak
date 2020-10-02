@@ -1,7 +1,7 @@
 <div class="sidebar" data-active-color="rose" data-background-color="black" data-image="{{asset('material/img/sidebar-1.jpg')}}">
             <div class="logo">
                 <a href="{{route('home')}}" class="simple-text">
-                    <img width="10%" src="{{asset('material/img/kaltara.png')}}"/>  e-Pak Kaltara
+                    <img width="10%" src="{{asset('material/img/kaltara.png')}}"/>  e-Pak Guru
                 </a>
             </div>
             <div class="logo logo-mini">

@@ -280,6 +280,8 @@
 @endsection
 
 @section('js')
+<script src="{{asset('material/js/demo.js')}}"></script>
+
 <script type="text/javascript">
     $(document).ready(function() {
 

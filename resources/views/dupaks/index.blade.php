@@ -5,52 +5,45 @@
 
 @section('content')      
 <div class="container-fluid">
-<div class="row">
+    <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header card-header-text" data-background-color="green">
-                    <h4 class="card-title">Form Tambah Sekolah</h4>
+                <div class="card-header card-header-icon" data-background-color="rose">
+                    <i class="material-icons">assignment</i>
                 </div>
                 <div class="card-content">
-                    <div class="col-12 text-right">
-                        <a href="{{route('kepegawaians.index')}}" class="btn btn-success">List Sekolah <div class="ripple-container"></div></a>
-                    </div>
-                    @if(count($errors) > 0)
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                    <form enctype="multipart/form-data" class="form-horizontal"  action="" method="POST">
+                    <h4 class="card-title">Simple Table</h4>
+                    <div id="app">
+  <div>
+    <form-wizard @on-complete="onComplete" shape="circle" color="#20a0ff" error-color="#ff4949">
+      <tab-content title="Personal details" icon="ti-user" :before-change="validateFirstStep">
+        <el-form :inline="true" :model="formInline" class="demo-form-inline" :rules="rules" ref="ruleForm">
+          <el-form-item label="Approved by" prop="user">
+            <el-input v-model="formInline.user" placeholder="Approved by"></el-input>
+          </el-form-item>
+          <el-form-item label="Activity zone" prop="region">
+            <el-select v-model="formInline.region" placeholder="Activity zone">
+              <el-option label="Zone one" value="shanghai"></el-option>
+              <el-option label="Zone two" value="beijing"></el-option>
+            </el-select>
+          </el-form-item>
+        </el-form>
 
-                        <input type="hidden" value="PUT" name="_method">
-                        <div class="table-responsive"> 
-                            <table class="table table-bordered" id="dynamic_field">  
-                                <tr>
-                                    <td>PENETAPAN ANGKA KREDIT</td>
-                                    <td>LAMA</td>
-                                    <td>BARU</td>
-                                    <td>JUMLAH</td>
-                                    <td><button type="button" name="add" id="add" class="btn btn-success">Add More</button>                                
-                                    </td>
-                                </tr>
-                                <tr>  
-                                    <td><input type="text" name="name[]" placeholder="Enter your Name" class="form-control name_list" /></td>  
-                                    <td>LAMA</td>
-                                    <td>BARU</td>
-                                    <td>JUMLAH</td>
-                                </tr>  
-                                
-                            </table>  
-                            <input type="button" name="submit" id="submit" class="btn btn-info" value="Submit" />  
-                        </div>
-    
-                        <!-- <input class="btn btn-primary" type="submit" value="Save"/> -->
-                    </form>
-                <div>
+      </tab-content>
+      <tab-content title="Additional Info" icon="ti-settings">
+        Second tab
+      </tab-content>
+      <tab-content title="Last step" icon="ti-check">
+        Yuhuuu! This seems pretty damn simple
+      </tab-content>
+
+      <el-button type="primary" slot="prev">Back</el-button>
+      <el-button type="primary" slot="next">Next</el-button>
+      <el-button type="primary" slot="finish">Finish</el-button>
+    </form-wizard>
+  </div>
+</div>
+                </div>
             </div>
         </div>
         <!-- end col-md-12 -->
@@ -61,108 +54,46 @@
 
 @section('js')
 
-<script type="text/javascript">
+<script>
+  export default {
+     data() {
+       return {
+         formInline: {
+           user: '',
+           region: ''
+         },
+         rules: {
+           user: [{
+             required: true,
+             message: 'Please input Activity name',
+             trigger: 'blur'
+           }, {
+             min: 3,
+             max: 5,
+             message: 'Length should be 3 to 5',
+             trigger: 'blur'
+           }],
+           region: [{
+             required: true,
+             message: 'Please select Activity zone',
+             trigger: 'change'
+           }],
+         }
+        }
+       },
+       methods: {
+         onComplete: function() {
+           alert('Yay. Done!');
+         },
+         validateFirstStep() {
+           return new Promise((resolve, reject) => {
+             this.$refs.ruleForm.validate((valid) => {
+               resolve(valid);
+             });
+           })
 
-$(document).ready(function(){      
-
-  var postURL = "<?php echo url('addmore'); ?>";
-  var i=1;  
-  $('#add').click(function(){  
-
-       i++;  
-
-       $('#dynamic_field').append('<tr id="row'+i+'" class="dynamic-added"><td><input type="text" name="name[]" placeholder="Enter your Name" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');  
-
-  });  
-
-
-
-  $(document).on('click', '.btn_remove', function(){  
-
-       var button_id = $(this).attr("id");   
-
-       $('#row'+button_id+'').remove();  
-
-  });  
-
-
-
-  $.ajaxSetup({
-
-      headers: {
-
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-
-      }
-
-  });
-
-
-
-  $('#submit').click(function(){            
-
-       $.ajax({  
-
-            url:postURL,  
-
-            method:"POST",  
-
-            data:$('#add_name').serialize(),
-
-            type:'json',
-
-            success:function(data)  
-
-            {
-
-                if(data.error){
-
-                    printErrorMsg(data.error);
-
-                }else{
-
-                    i=1;
-
-                    $('.dynamic-added').remove();
-
-                    $('#add_name')[0].reset();
-
-                    $(".print-success-msg").find("ul").html('');
-
-                    $(".print-success-msg").css('display','block');
-
-                    $(".print-error-msg").css('display','none');
-
-                    $(".print-success-msg").find("ul").append('<li>Record Inserted Successfully.</li>');
-
-                }
-
-            }  
-
-       });  
-
-  });  
-
-
-
-  function printErrorMsg (msg) {
-
-     $(".print-error-msg").find("ul").html('');
-
-     $(".print-error-msg").css('display','block');
-
-     $(".print-success-msg").css('display','none');
-
-     $.each( msg, function( key, value ) {
-
-        $(".print-error-msg").find("ul").append('<li>'+value+'</li>');
-
-     });
-
+         }
+       }
   }
-
-});  
-
 </script>
-
 @endsection

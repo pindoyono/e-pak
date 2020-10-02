@@ -57,11 +57,12 @@
                                     <label class="control-label"></label>
                                     <input class="form-control" placeholder="contoh S1 Pendidikan Kimia" type="text" name="pendidikan" value="{{$biodatas->pendidikan}}"  required="true" aria-required="true">
                                     <span class="material-input"></span>
+                                    <span>***Sesuai dengan SK terakhir</span>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <label class="col-sm-2 label-on-left">Jenis Guru</label>
+                            <label class="col-sm-2 label-on-left">Mengajar Mapel</label>
                             <div class="col-sm-7">
                                 <div class="form-group label-floating is-empty">
                                     <label class="control-label"></label>
@@ -164,11 +165,11 @@
                             </div>
                         </div>
                         <div class="row">
-                            <label class="col-sm-2 label-on-left">No SK CPNS</label>
+                            <label class="col-sm-2 label-on-left">No SK Terakhir</label>
                             <div class="col-sm-7">
                                 <div class="form-group label-floating is-empty">
                                     <label class="control-label"></label>
-                                    <input class="form-control" placeholder="No SK CPNS" value="{{$biodatas->no_sk_cpns}}" type="text" name="no_sk_cpns" required="true" aria-required="true">
+                                    <input class="form-control" placeholder="No SK Terakhir" value="{{$biodatas->no_sk_cpns}}" type="text" name="no_sk_cpns" required="true" aria-required="true">
                                     <span class="material-input"></span>
                                 </div>
                             </div>
@@ -235,7 +236,7 @@
                             <div class="col-sm-7">
                                 <div class="form-group label-floating is-empty">
                                     <label class="control-label"></label>
-                                    <input class="form-control" placeholder="No Kartu Suami/Istri"  type="text" name="karsu" value="{{$biodatas->karsu}}"  required="true" aria-required="true">
+                                    <input class="form-control" placeholder="No Kartu Suami/Istri"  type="text" name="karsu" value="{{$biodatas->karsu}}" >
                                     <span class="material-input"></span>
                                 </div>
                             </div>
@@ -245,7 +246,7 @@
                             <div class="col-sm-7">
                                 <div class="form-group label-floating is-empty">
                                     <label class="control-label"></label>
-                                    <input class="form-control" placeholder="No Handphone" type="text" name="no_hp" value="{{$biodatas->no_hp}}"  required="true" aria-required="true">
+                                    <input class="form-control" placeholder="No Handphone" type="text" name="no_hp" value="{{$biodatas->no_hp}}" >
                                     <span class="material-input"></span>
                                 </div>
                             </div>

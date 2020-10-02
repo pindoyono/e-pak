@@ -159,5 +159,8 @@
 </script>
 
 
+<!--  DataTables.net Plugin    -->
+<script src="{{asset('material/js/jquery.datatables.js')}}"></script>
+
 
 @endsection

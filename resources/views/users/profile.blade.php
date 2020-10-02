@@ -38,6 +38,7 @@
                                     <label class="control-label"></label>
                                     <input class="form-control" placeholder="Nama Lengkap" value="{{$user->name}}" type="text" name="name"  required="true" aria-required="true">
                                     <span class="material-input"></span>
+                                    <span>***Nama lengkap Beserta Gelar</span>
                                 </div>
                             </div>
                         </div>
