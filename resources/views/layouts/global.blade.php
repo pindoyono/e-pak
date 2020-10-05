@@ -23,7 +23,10 @@
     </div>
 
 </body>
+
 @include('includes.js')
+
+@include('sweetalert::alert')
 
 
 <!-- Mirrored from demos.creative-tim.com/material-dashboard-pro/examples/tables/regular.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 20 Mar 2017 21:33:58 GMT -->

@@ -27,9 +27,10 @@ class CreateBiodatasTable extends Migration
             $table->string("pangkat_golongan")->nullable();
             $table->string("kartu_pegawai")->nullable();
             $table->string("karsu")->nullable();
-            $table->string("no_hp")->unique();
-            $table->string("jenis_guru")->unique();
-            $table->string("pendidikan")->unique();
+            $table->string("no_hp")->nullable();
+            $table->string("jenis_guru")->nullable();
+            $table->string("tugas_tambahan")->nullable();
+            $table->string("pendidikan")->nullable();
             $table->unsignedInteger('sekolah_id')->nullable();
             $table->unsignedInteger("user_id")->unique();
             $table->timestamps();

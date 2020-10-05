@@ -72,6 +72,16 @@
                             </div>
                         </div>
                         <div class="row">
+                            <label class="col-sm-2 label-on-left">Tugas Tambahan</label>
+                            <div class="col-sm-7">
+                                <div class="form-group label-floating is-empty">
+                                    <label class="control-label"></label>
+                                    <input class="form-control" placeholder="Walikelas/Wakil Kepsek dll" type="text" name="tugas_tambahan" value="{{$biodatas->jenis_guru}}"  required="true" aria-required="true">
+                                    <span class="material-input"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
                             <label class="col-sm-2 label-on-left">Jenis Kelamin</label>
                             <div class="col-sm-7">
                                 <div class="radio">

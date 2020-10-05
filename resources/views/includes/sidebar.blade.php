@@ -96,12 +96,12 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="">
+                    <!-- <li class="">
                         <a href="{{route('biodatas.create_biodata', Crypt::encrypt(Auth::user()->id)   )}}">
                             <i class="fas fa-id-card"></i>
                             <p>Biodata</p>
                         </a>
-                    </li>
+                    </li> -->
                     @endrole
                     
                     @role('guru')
