@@ -15,8 +15,11 @@ class CreateKepegawaiansTable extends Migration
     {
         Schema::create('kepegawaians', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('berkas');
+            $table->string('sk_cpns')->nullable();
+            $table->string('sk_pangkat')->nullable();
+            $table->string('sk_jafung')->nullable();
+            $table->string('ijazah')->nullable();
+            $table->string('karpeg')->nullable();
             $table->unsignedInteger("user_id");
             
             $table->foreign("user_id")->references("id")->on("users");

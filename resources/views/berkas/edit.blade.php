@@ -16,7 +16,7 @@
                 </div>
                 <div class="card-content">
                     <div class="col-12 text-right">
-                        <a href="{{route('berkas.bukti', Crypt::encrypt($dupak_id))}}" class="btn btn-success">List Bukti Fisik <div class="ripple-container"></div></a>
+                        <a href="{{route('berkas.bukti', Crypt::encrypt($berkas->id))}}" class="btn btn-success">List Bukti Fisik <div class="ripple-container"></div></a>
                     </div>
                     @if(count($errors) > 0)
                         <div class="alert alert-danger">
@@ -27,7 +27,7 @@
                             </ul>
                         </div>
                     @endif
-                    <form enctype="multipart/form-data" class="form-horizontal"  action="{{route('berkas.simpan', Crypt::encrypt( $dupak_id ))}}" method="POST">
+                    <form enctype="multipart/form-data" class="form-horizontal"  action="{{route('berkas.update', Crypt::encrypt( $berkas->id ))}}" method="POST">
 
                         <input type="hidden" value="PUT" name="_method">
                         @csrf
@@ -36,7 +36,7 @@
                             <div class="col-sm-7">
                                 <div class="form-group label-floating is-empty">
                                     <label class="control-label"></label>
-                                    <input class="form-control" placeholder="Nama Bukti Fisik"  type="text" name="nama" required="true" aria-required="true">
+                                    <input class="form-control" placeholder="Nama Bukti Fisik" value="{{$berkas->nama}}"  type="text" name="nama" required="true" aria-required="true">
                                     <span class="material-input"></span>
                                 </div>
                             </div>
@@ -45,7 +45,7 @@
                             <label class="col-sm-4 label-on-left"> <h3>Berkas </h3></label>
                             <div class="col-sm-7">
                                     <label class="control-label"></label>
-                                    <input type="file" style="margin-top:6%" name="berkas">
+                                    <input type="file" style="margin-top:6%" value="{{$berkas->berkas}}" name="berkas">
                             </div>
                         </div>
                         

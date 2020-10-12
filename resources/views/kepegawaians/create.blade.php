@@ -31,20 +31,40 @@
 
                         @csrf
                         <div class="row">
-                            <label class="col-sm-2 label-on-left">Nama File/Berkas</label>
-                            <div class="col-sm-7">
-                                <div class="form-group label-floating is-empty">
+                            <div class="row">
+                            <label class="col-sm-4 label-on-left">SK CPNS</label>
+                            <div class="col-sm-8">
                                     <label class="control-label"></label>
-                                    <input class="form-control" placeholder="Nama File/Berkas" type="text" name="nama"  required="true" aria-required="true">
-                                    <span class="material-input"></span>
-                                </div>
+                                    <input type="file" name="sk_cpns">
                             </div>
-                        </div>
-                        <div class="row">
-                            <label class="col-sm-2 label-on-left">Nama File/Berkas</label>
-                            <div class="col-sm-7">
+                            </div>
+                            <div class="row">
+                            <label class="col-sm-4 label-on-left">SK Pangkat Terakhir</label>
+                            <div class="col-sm-8">
                                     <label class="control-label"></label>
-                                    <input type="file" name="berkas">
+                                    <input type="file" name="sk_pangkat">
+                            </div>
+                            </div>
+                            <div class="row">
+                            <label class="col-sm-4 label-on-left">SK Jafung Terakhir</label>
+                            <div class="col-sm-8">
+                                    <label class="control-label"></label>
+                                    <input type="file" name="sk_jafung">
+                            </div>
+                            </div>
+                            <div class="row">
+                            <label class="col-sm-4 label-on-left">Ijazah</label>
+                            <div class="col-sm-8">
+                                    <label class="control-label"></label>
+                                    <input type="file" name="ijazah">
+                            </div>
+                            </div>
+                            <div class="row">
+                            <label class="col-sm-4 label-on-left">Kartu Pegawai</label>
+                            <div class="col-sm-8">
+                                    <label class="control-label"></label>
+                                    <input type="file" name="karpeg">
+                            </div>
                             </div>
                         </div>
                         

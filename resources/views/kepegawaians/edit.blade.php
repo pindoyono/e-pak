@@ -12,11 +12,11 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header card-header-text" data-background-color="green">
-                    <h4 class="card-title">Form Tambah Sekolah</h4>
+                    <h4 class="card-title">Form Edit Berkas</h4>
                 </div>
                 <div class="card-content">
                     <div class="col-12 text-right">
-                        <a href="{{route('kepegawaians.index')}}" class="btn btn-success">List Sekolah <div class="ripple-container"></div></a>
+                        <a href="{{route('kepegawaians.index')}}" class="btn btn-success">List Kepegawaian <div class="ripple-container"></div></a>
                     </div>
                     @if(count($errors) > 0)
                         <div class="alert alert-danger">
@@ -27,25 +27,16 @@
                             </ul>
                         </div>
                     @endif
-                    <form enctype="multipart/form-data" class="form-horizontal"  action="{{route('kepegawaians.update', Crypt::encrypt($kepegawaian->id) )}}" method="POST">
+                    <form enctype="multipart/form-data" class="form-horizontal"  action="{{route('kepegawaians.update', Crypt::encrypt($kolom) )}}" method="POST">
 
                         <input type="hidden" value="PUT" name="_method">
                         @csrf
                         <div class="row">
-                            <label class="col-sm-2 label-on-left">Nama File/Berkas </label>
-                            <div class="col-sm-7">
-                                <div class="form-group label-floating is-empty">
-                                    <label class="control-label"></label>
-                                    <input class="form-control"  type="text" name="nama"  required="true" value="{{$kepegawaian->nama}}"  >
-                                    <span class="material-input"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <label class="col-sm-2 label-on-left">Nama File/Berkas</label>
+
+                            <label class="col-sm-4 label-on-left"> <h3>Perbaikan Berkas </h3></label>
                             <div class="col-sm-7">
                                     <label class="control-label"></label>
-                                    <input type="file" value={{$kepegawaian->berkas}} name="berkas">
+                                    <input type="file" style="margin-top:6%" name="berkas">
                             </div>
                         </div>
                         

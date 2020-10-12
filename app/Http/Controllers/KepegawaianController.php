@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Storage;
 use Crypt;
+use DB;
 
 
 class KepegawaianController extends Controller
@@ -19,7 +20,9 @@ class KepegawaianController extends Controller
     public function index()
     {
         $kepegawaians = \App\Kepegawaian::where('user_id',Auth::user()->id)->get();
-        return view('kepegawaians.index', ['kepegawaians' => $kepegawaians]);
+        $jumlah = \App\Kepegawaian::where('user_id',Auth::user()->id)->count();
+        
+        return view('kepegawaians.index', ['kepegawaians' => $kepegawaians, 'jumlah' => $jumlah, ]);
     }
 
     /**
@@ -43,25 +46,51 @@ class KepegawaianController extends Controller
     {
         //
         $validator = Validator::make($request->all(), [
-            "nama" => "required",
-            "berkas" => "required|mimes:pdf|max:2048"
+            "sk_cpns" => "required|mimes:pdf|max:2048",
+            "sk_pangkat" => "required|mimes:pdf|max:2048",
+            "sk_jafung" => "required|mimes:pdf|max:2048",
+            "ijazah" => "required|mimes:pdf|max:2048",
+            "karpeg" => "required|mimes:pdf|max:2048",
         ]);
         if ($validator->fails()) {
             return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
         }
 
         $kepegawaian = new \App\Kepegawaian;
-        $kepegawaian->nama = $request->get('nama');
+        $kepegawaian->sk_cpns = $request->get('sk_cpns');
+        $kepegawaian->sk_pangkat = $request->get('sk_pangkat');
+        $kepegawaian->sk_jafung = $request->get('sk_jafung');
+        $kepegawaian->ijazah = $request->get('ijazah');
+        $kepegawaian->karpeg = $request->get('karpeg');
+
         $kepegawaian->user_id = Auth::user()->id;
-        if($request->file('berkas')){
-            $file = $request->file('berkas')->store('berkas/'.Auth::user()->nip, 'public');
-            $kepegawaian->berkas = $file;
+        if($request->file('sk_cpns')){
+            $file = $request->file('sk_cpns')->store('kepegawaian/'.Auth::user()->nip, 'public');
+            $kepegawaian->sk_cpns = $file;
         } 
+        if($request->file('sk_pangkat')){
+            $file = $request->file('sk_pangkat')->store('kepegawaian/'.Auth::user()->nip, 'public');
+            $kepegawaian->sk_pangkat = $file;
+        } 
+        if($request->file('sk_jafung')){
+            $file = $request->file('sk_jafung')->store('kepegawaian/'.Auth::user()->nip, 'public');
+            $kepegawaian->sk_jafung = $file;
+        }  
+        if($request->file('ijazah')){
+            $file = $request->file('ijazah')->store('kepegawaian/'.Auth::user()->nip, 'public');
+            $kepegawaian->ijazah = $file;
+        }
+        if($request->file('karpeg')){
+            $file = $request->file('karpeg')->store('kepegawaian/'.Auth::user()->nip, 'public');
+            $kepegawaian->karpeg = $file;
+        } 
+
+
 
         $kepegawaian->save();
 
         // return redirect()->route('users.create')->with('status', 'User successfully created');
-        return redirect()->route('kepegawaians.create')->with('toast_success', 'Task Created Successfully!');
+        return redirect()->route('kepegawaians.index')->with('toast_success', 'Task Created Successfully!');
     }
 
     /**
@@ -82,14 +111,14 @@ class KepegawaianController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    { 
         //
-        $kepegawaian = \App\Kepegawaian::findOrFail($id);
-        return view('kepegawaians.edit',   ['kepegawaian' => $kepegawaian
+        $kolom =  Crypt::decrypt($id);
+        $kepegawaian = \App\Kepegawaian::where('user_id', Auth::id() )->first();
+        return view('kepegawaians.edit',   ['kepegawaian' => $kepegawaian, 'kolom' => $kolom,
                                     ]
                                 );
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -105,23 +134,24 @@ class KepegawaianController extends Controller
             // "nama" => "required",
             "berkas" => "mimes:pdf|max:2048"
         ]);
+
         if ($validator->fails()) {
             return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
         }
 
-        $kepegawaian = \App\Kepegawaian::findOrFail($id);
-        $kepegawaian->nama = $request->get('nama');
+        $kepegawaian = \App\Kepegawaian::where('user_id', Auth::id() )->first();
 
-        if( !empty($request->file('berkas')) && $kepegawaian->berkas && file_exists(storage_path('app/public/' . $kepegawaian->berkas))){
+
+        if( !empty($request->file('berkas')) && file_exists(storage_path('app/public/' . $kepegawaian->berkas))){
             \Storage::delete('public/'.$kepegawaian->berkas);
             $file = $request->file('berkas')->store('berkas/'.Auth::user()->nip, 'public');
-            $kepegawaian->berkas = $file;
-        }elseif(!empty($request->file('avatar'))){
+            DB::table('kepegawaians')->where('user_id', Auth::id() )->update([ $id => $file ]); 
+        }elseif(!empty($request->file('berkas'))){
             $file = $request->file('berkas')->store('berkas/'.Auth::user()->nip, 'public');
-            $kepegawaian->berkas = $file;
+            DB::table('kepegawaians')->where('user_id', Auth::id() )->update([ $id => $file ]); 
         }
 
-        $kepegawaian->update();
+          
 
         // return redirect()->route('users.create')->with('status', 'User successfully created');
         return redirect()->route('kepegawaians.index')->with('toast_success', 'Task Created Successfully!');

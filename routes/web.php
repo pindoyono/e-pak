@@ -39,7 +39,15 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource("dupaks", "DupakController")->middleware('role:guru|penilai');
     Route::resource("berkas", "BerkasController")->middleware('role:guru|penilai');
     Route::get('/upload/{id}', 'BerkasController@upload')->name('upload')->middleware('role:guru|super admin|penilai');
-   
+    
+    
+    Route::get('/bukti/{id}', 'BerkasController@bukti')->name('berkas.bukti')->middleware('role:guru|penilai');
+    Route::put('/berkas/simpan/{id}', 'BerkasController@simpan')->name('berkas.simpan')->middleware('role:guru|penilai');
+    Route::get('/berkas/buat/{id}','BerkasController@buat')->name('berkas.buat')->middleware('role:guru|penilai');
+    
+    Route::get('/dupaks/ubah/{id}/{name}','DupakController@ubah')->name('dupaks.ubah')->middleware('role:guru|penilai');
+    Route::put('/dupaks/update_ubah/{id}','DupakController@update_ubah')->name('dupaks.update_ubah')->middleware('role:guru|penilai');
+
     //user
     Route::get('/profile/{id}', 'UserController@profile')->name('users.profile')->middleware('role:guru|super admin|penilai');
     Route::put('/update_profile/{id}', 'UserController@update_profile')->name('users.update_profile')->middleware('role:guru|penilai|super admin');
@@ -57,3 +65,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('import', 'KegiatanController@import')->name('kegiatans.import')->middleware('role:super admin');
 
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

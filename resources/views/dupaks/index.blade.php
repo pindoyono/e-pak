@@ -22,9 +22,10 @@
                 </div>
                 <div class="card-content">
                     <h4 class="card-title">Daftar Usulan Pak</h4>
+                    
                     <div class="col-12 text-right">
-                            <a href="{{route('dupaks.create')}}" class="btn btn-success">Tambah Usulan <div class="ripple-container"></div></a>
-                        </div>
+                        <a href="{{route('dupaks.create')}}" class="btn btn-success">Tambah Usulan <div class="ripple-container"></div></a>
+                    </div>
                     <div class="material-datatables">
                         <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                             <thead>
@@ -36,16 +37,6 @@
                                     <th class="disabled-sorting text-right">Actions</th>
                                 </tr>
                             </thead>
-                            <!-- <tfoot>
-                                <tr>
-                                    <th>Foto</th>
-                                    <th>Nama</th>
-                                    <th>NIP</th>
-                                    <th>Email</th>
-                                    <th>Role</th>
-                                    <th class="text-right">Actions</th>
-                                </tr>
-                            </tfoot> -->
                             <tbody>
                                 @foreach($dupaks as $key => $dupak)
                                 <tr>
@@ -53,20 +44,20 @@
                                     <td>{{ tgl_indo($dupak->awal) .' s/d '.tgl_indo($dupak->akhir)}}</td>
                                     <td>{{$dupak->status}}</td>
                                     <td class="td-actions text-right">
-                                    <a href="{{route('berkas.edit', Crypt::encrypt($dupak->id))}}">
+                                    <a href="{{route('berkas.bukti', Crypt::encrypt($dupak->id))}}">
                                       <button class="btn btn-info btn-round btn-sm">
-                                        Upload Berkas
+                                        Upload Bukti Fisik
                                       </button>
                                     </a>
                                     <a href="{{route('dupaks.edit', Crypt::encrypt($dupak->id))}}">
-                                        <button type="button" rel="tooltip" class="btn btn-warning" data-original-title="" title="">
+                                        <button type="button" rel="tooltip" class="btn btn-warning btn-round btn-sm" data-original-title="" title="">
                                             <i class="material-icons">edit</i>
                                         </button>
                                     </a>
                                     <form  style="display:inline" onsubmit="return confirm('Apakah Akan Menghapus Data Secara Permane?')"  action="{{route('dupaks.destroy', Crypt::encrypt($dupak->id)   )}}"  method="POST">
                                       @csrf
                                       <input  type="hidden"  name="_method" value="DELETE">
-                                      <button type="submit" rel="tooltip" class="btn btn-danger" data-original-title="" title="">
+                                      <button type="submit" rel="tooltip" class="btn btn btn-danger btn-round btn-sm" data-original-title="" title="">
                                           <i data-id="{{$dupak->id}}" class="material-icons">close</i>
                                       </button>
                                     </form>

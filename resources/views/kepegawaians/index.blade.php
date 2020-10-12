@@ -13,49 +13,114 @@
                 </div>
                 <div class="card-content">
                     <h4 class="card-title">Sekolah</h4>
+                        @if($jumlah==0)
                         <div class="col-12 text-right">
-                            <a href="{{route('kepegawaians.create')}}" class="btn btn-success">Tambah Berkas <div class="ripple-container"></div></a>
+                            <a href="{{route('kepegawaians.create')}}" class="btn btn-success">Upload Berkas <div class="ripple-container"></div></a>
                         </div>
-                    <div class="material-datatables">
-                        <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
-                            <thead>
-                                <tr>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Nama</th>
-                                    <th>Berkas</th>
-                                    <th class="disabled-sorting text-right">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($kepegawaians as $key => $kepegawaian )
-                                <tr>
-                                    <td>{{ $key+1 }}</td>
-                                    <td>{{$kepegawaian->nama}}</td>
-                                    <td><i class="fas fa-file"></i><a target="_blank" href="{{asset('storage/'.$kepegawaian->berkas)}}">Download</a></td>
-                                    <td class="td-actions text-right">
-                                            <form onsubmit="return confirm('Apakah Akan Menghapus Data Secara Permane?')"  action="{{route('kepegawaians.destroy', $kepegawaian->id)}}"  method="POST">
-                                                @csrf
-                                                <!-- <button type="button" rel="tooltip" class="btn btn-info" data-original-title="" title="">
-                                                    <i class="material-icons">zoom_in</i>
-                                                <div class="ripple-container"></div></button> -->
-                                                <a href="{{route('kepegawaians.edit',$kepegawaian->id)}}">
-                                                    <button type="button" rel="tooltip" class="btn btn-warning" data-original-title="" title="">
-                                                        <i class="material-icons">edit</i>
+                        @endif
+                        @foreach($kepegawaians as $key => $kepegawaian )
+                        <div class="col-md-12">
+                            <div class="table-responsive table-sales">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                NO
+                                            </td>
+                                            <td>
+                                                Nama Berkas
+                                            </td>
+                                            <td>Data</td>
+                                            <td class="text-right">
+                                                Action
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                1                                            
+                                            </td>
+                                            <td>
+                                                SK CPNS
+                                            </td>
+                                            <td><a target="_blank" href="{{asset('storage/'.$kepegawaian->sk_cpns)}}">Download</a></td>
+                                            <td class="text-right">
+                                                <a href="{{route('kepegawaians.edit', Crypt::encrypt('sk_cpns'))}}">
+                                                    <button class="btn btn-info btn-round btn-sm">
+                                                        edit
                                                     </button>
                                                 </a>
-                                                <input  type="hidden"  name="_method" value="DELETE">
-                                                <button type="submit" rel="tooltip" class="btn btn-danger" data-original-title="" title="">
-                                                <!-- <input  type="submit"  value="Delete" class="btn btn-danger btn-sm"> -->
-                                                    <i data-id="{{$kepegawaian->id}}" class="material-icons">close</i>
-                                                </button>
-                                            </form>
-                                    </td>
-                                </tr>
-                                @endforeach 
-                            </tbody>
-                        </table>
-                    </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                2                                            
+                                            </td>
+                                            <td>
+                                                SK Pangkat Terakhir
+                                            </td>
+                                            <td><a target="_blank" href="{{asset('storage/'.$kepegawaian->sk_pangkat)}}">Download</a></td>
+                                            <td class="text-right">
+                                                <a href="{{route('kepegawaians.edit', Crypt::encrypt('sk_pangkat'))}}">
+                                                    <button class="btn btn-info btn-round btn-sm">
+                                                        edit
+                                                    </button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                3                                            
+                                            </td>
+                                            <td>
+                                                SK Jafung Terakhir
+                                            </td>
+                                            <td><a target="_blank" href="{{asset('storage/'.$kepegawaian->sk_jafung)}}">Download</a></td>
+                                            <td class="text-right">
+                                                <a href="{{route('kepegawaians.edit', Crypt::encrypt('sk_jafung'))}}">
+                                                    <button class="btn btn-info btn-round btn-sm">
+                                                        edit
+                                                    </button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                4                                            
+                                            </td>
+                                            <td>
+                                                IJAZAH
+                                            </td>
+                                            <td><a target="_blank" href="{{asset('storage/'.$kepegawaian->ijazah)}}">Download</a></td>
+                                            <td class="text-right">
+                                                <a href="{{route('kepegawaians.edit', Crypt::encrypt('ijazah'))}}">
+                                                    <button class="btn btn-info btn-round btn-sm">
+                                                        edit
+                                                    </button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                5                                            
+                                            </td>
+                                            <td>
+                                                Kartu Pegawai
+                                            </td>
+                                            <td><a target="_blank" href="{{asset('storage/'.$kepegawaian->karpeg)}}">Download</a></td>
+                                            <td class="text-right">
+                                                <a href="{{route('kepegawaians.edit', Crypt::encrypt('karpeg'))}}">
+                                                    <button class="btn btn-info btn-round btn-sm">
+                                                        edit
+                                                    </button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        @endforeach 
                 </div>
                 <!-- end content-->
             </div>

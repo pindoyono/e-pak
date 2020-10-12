@@ -14,6 +14,16 @@ class Berkas extends Migration
     public function up()
     {
         //
+        Schema::create('berkas', function (Blueprint $table) {
+            
+        $table->id();
+        $table->string("nama")->nullable();
+        $table->string("berkas")->nullable();
+        $table->unsignedInteger("dupak_id");
+        $table->foreign("dupak_id")->references("id")->on("dupaks");    
+        $table->timestamps();
+
+        });
     }
 
     /**
@@ -24,5 +34,6 @@ class Berkas extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('berkas');
     }
 }
