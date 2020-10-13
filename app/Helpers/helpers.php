@@ -35,3 +35,43 @@ if (! function_exists('tgl_indo')) {
         return  $pecahkan[2].' '.$bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
     }
 }
+
+if (! function_exists('nama_sekolah')) {
+    function nama_sekolah($id){
+        $sekolah = \App\Sekolah::findOrFail($id);
+        return $sekolah;
+    }
+}
+
+if (! function_exists('pangkat')) {
+    function pangkat($id){
+        $jabatan = \App\Jabatan::findOrFail($id);
+        return $jabatan;
+    }
+}
+
+if (! function_exists('tgl_indo_tahun')) {
+    function tgl_indo_tahun($tanggal){
+        $bulan = array (
+            1 =>   'Januari',
+            'Februari',
+            'Maret',
+            'April',
+            'Mei',
+            'Juni',
+            'Juli',
+            'Agustus',
+            'September',
+            'Oktober',
+            'November',
+            'Desember'
+        );
+        $pecahkan = explode('-', $tanggal);
+        
+        // variabel pecahkan 0 = tanggal
+        // variabel pecahkan 1 = bulan
+        // variabel pecahkan 2 = tahun
+     
+        return  $pecahkan[0];
+    }
+}

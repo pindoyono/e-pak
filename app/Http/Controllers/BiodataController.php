@@ -133,10 +133,7 @@ class BiodataController extends Controller
     public function create_or_update(Request $request, $id)
     {
         $id =  Crypt::decrypt($id);
-        // echo '<pre>';
-        // var_dump($request->all());
-        // echo '</pre>';
-        // exit;
+        
         // $data = 
         //
           $biodata = \App\Biodata::updateOrCreate([
@@ -163,6 +160,8 @@ class BiodataController extends Controller
             'pendidikan' => $request->get('pendidikan'),
             'sekolah_id' => $request->get('sekolah_id'),
         ]);
+
+ 
 
         $jabatans = \App\Jabatan::orderBy('target','asc')->get();
         $biodatas = \App\Biodata::orderBy('id','asc')->get();

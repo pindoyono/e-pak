@@ -7,6 +7,7 @@
                 <div class="card-header text-center" data-background-color="rose">
                     <img style="width: 20%;" src="{{asset('material/img/kaltara.png')}}"/>
                     <h4 class="card-title">Penilaian Angka Kredit</h4>
+                    <h4 class="card-title">GURU</h4>
                 </div>
                 <form method="POST" action="{{ route('login') }}">
                     <div class="card-content">

@@ -70,7 +70,7 @@ class SekolahController extends Controller
         $sekolah->npsn = $request->get('npsn');
         $sekolah->nama = $request->get('nama');
         $sekolah->alamat = $request->get('alamat');
-        $sekolah->alamat = $request->get('jenis');
+        $sekolah->jenis = $request->get('jenis');
         $sekolah->status = $request->get('status');
 
 
@@ -135,7 +135,7 @@ class SekolahController extends Controller
         $sekolah->npsn = $request->get('npsn');
         $sekolah->nama = $request->get('nama');
         $sekolah->alamat = $request->get('alamat');
-        $sekolah->alamat = $request->get('jenis');
+        $sekolah->jenis = $request->get('jenis');
         $sekolah->status = $request->get('status');
 
 

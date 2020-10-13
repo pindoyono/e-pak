@@ -21,11 +21,7 @@
                     <i class="material-icons">assignment</i>
                 </div>
                 <div class="card-content">
-                    <h4 class="card-title">Daftar Usulan Pak</h4>
-                    
-                    <div class="col-12 text-right">
-                        <a href="{{route('dupaks.create')}}" class="btn btn-success">Tambah Usulan <div class="ripple-container"></div></a>
-                    </div>
+                    <h4 class="card-title">Daftar Usulan PAK</h4>
                     <div class="material-datatables">
                         <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                             <thead>
@@ -44,36 +40,16 @@
                                     <td>{{ tgl_indo($dupak->awal) .' s/d '.tgl_indo($dupak->akhir)}}</td>
                                     <td>{{$dupak->status}}</td>
                                     <td class="td-actions text-right">
-                                    @if($dupak->status=="Usulan Baru")
-                                    <a onclick="return confirm('Pastikan Usulan Anda Sudah Lengkap.. jika Sudah Submit Tidak bisa di rubah lagi')" href="{{route('dupaks.submit', Crypt::encrypt($dupak->id))}}">
-                                      <button class="btn btn-primary btn-round">
-                                        submit
+                                    <a href="{{route('dupaks_penilai.berita_acara', Crypt::encrypt($dupak->id))}}">
+                                      <button class="btn btn-info btn-round">
+                                        Berita Acara
                                       </button>
                                     </a>
-                                    <a href="{{route('berkas.bukti', Crypt::encrypt($dupak->id))}}">
-                                      <button class="btn btn-info btn-round ">
-                                        Upload Bukti Fisik
-                                      </button>
-                                    </a>
-                                    <a href="{{route('dupaks.edit', Crypt::encrypt($dupak->id))}}">
-                                        <button type="button" rel="tooltip" class="btn btn-warning btn-round btn-sm" data-original-title="" title="">
-                                            <i class="material-icons">edit</i>
-                                        </button>
-                                    </a>
-                                    <form  style="display:inline" onsubmit="return confirm('Apakah Akan Menghapus Data Secara Permane?')"  action="{{route('dupaks.destroy', Crypt::encrypt($dupak->id)   )}}"  method="POST">
-                                      @csrf
-                                      <input  type="hidden"  name="_method" value="DELETE">
-                                      <button type="submit" rel="tooltip" class="btn btn btn-danger btn-round btn-sm" data-original-title="" title="">
-                                          <i data-id="{{$dupak->id}}" class="material-icons">close</i>
-                                      </button>
-                                    </form>
-                                    @endif
-                                    <a href="{{route('dupaks.detail', Crypt::encrypt($dupak->id))}}">
+                                    <a href="{{route('dupaks_penilai.show', Crypt::encrypt($dupak->id))}}">
                                       <button class="btn btn-success btn-round">
                                         Lihat Detail
                                       </button>
                                     </a>
-
                                     </td>
                                 </tr>
                                 @endforeach 

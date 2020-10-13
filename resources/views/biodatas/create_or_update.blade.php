@@ -76,7 +76,7 @@
                             <div class="col-sm-7">
                                 <div class="form-group label-floating is-empty">
                                     <label class="control-label"></label>
-                                    <input class="form-control" placeholder="Walikelas/Wakil Kepsek dll" type="text" name="tugas_tambahan" value="{{$biodatas->jenis_guru}}"  required="true" aria-required="true">
+                                    <input class="form-control" placeholder="Walikelas/Wakil Kepsek dll" type="text" name="tugas_tambahan" value="{{$biodatas->tugas_tambahan}}"  required="true" aria-required="true">
                                     <span class="material-input"></span>
                                 </div>
                             </div>
@@ -224,7 +224,7 @@
                                     <select class="js-example-basic-single form-control"  name="pangkat_golongan"  width="70%" name="pangkat" >
                                        @if(!empty($jabatans))
                                             @foreach ($jabatans as $jabatan)
-                                                <option {{$jabatan->pangkat == $biodatas->pangkat_golongan ? "selected" : ""}} value="{{$jabatan->pangkat}}">{{$jabatan->pangkat}}</option>
+                                                <option {{$jabatan->pangkat == $biodatas->pangkat_golongan ? "selected" : ""}} value="{{$jabatan->id}}">{{$jabatan->pangkat}}</option>
                                             @endforeach
                                         @endif
                                     </select>

@@ -1,5 +1,6 @@
 <?php
-
+// Usulan Baru
+// submit
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -19,7 +20,7 @@ class DupakController extends Controller
     {
         //
         // $jabatans = \App\Dupak::orderBy('id','asc')->get();
-        $dupaks = \App\Dupak::orderBy('id','asc')->get();
+        $dupaks = \App\Dupak::where('user_id', Auth::user()->id )->orderBy('id','asc')->get();
         return view('dupaks.index', ['dupaks' => $dupaks]);
     }
 
@@ -158,6 +159,42 @@ class DupakController extends Controller
 
     }
 
+
+    
+    public function detail($id){
+        
+        $id =  Crypt::decrypt($id);
+        $dupak = \App\Dupak::where('id', $id )->first();
+        $berkas = \App\Berkas::where('dupak_id', $id )->get();
+        $user = \App\User::findOrFail(Auth::user()->id);
+        $biodatas = \App\Biodata::where('user_id', Auth::user()->id)->first();
+        $kepegawaians = \App\Kepegawaian::where('user_id',Auth::user()->id)->get();
+
+        return view('dupaks.detail',   [    'dupak' => $dupak,
+                                            'biodatas' => $biodatas,
+                                            'users' => $user,
+                                            'kepegawaians' => $kepegawaians,
+                                            'berkas' => $berkas,
+                                    ]
+                                );
+
+    }
+
+    public function submit($id)
+    {
+
+        $id = Crypt::decrypt($id); 
+        // var_dump($id);
+        // exit;
+
+        $dupak = \App\Dupak::where('id', $id )->first();
+        $dupak->status = "submit";
+        $dupak->update();
+
+        return redirect()->route('dupaks.index')->with('success', 'Usulan Anda Telah Di Kirim');
+
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -216,7 +253,6 @@ class DupakController extends Controller
             return redirect()->route('dupaks.index')->with('success', 'Silahkan Hapus Semua Berkas Bukti Fisik yg Terkait Dengan Usulan ini terlebih Dahulu');
         }
 
-        
         $dupak = \App\Dupak::findOrFail($id);
         if($dupak->surat_pengantar && file_exists(storage_path('app/public/' . $dupak->surat_pengantar))){
             \Storage::delete('public/'.$dupak->surat_pengantar);
