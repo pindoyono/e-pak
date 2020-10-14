@@ -50,19 +50,21 @@ class UsersImport implements
             "*.name" => "required|min:5|max:100",
             "*.nip" => "required|min:18|max:19|unique:users",
             "*.email" => "required|email|unique:users",
-            "*.password" => "required",
+            "*.avatar" => "required",
+            "*.role" => "required",
         ])->validate();
 
-        if ($validator->fails()) {
-            return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
-        }
+        // if ($validator->fails()) {
+        //    return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
+        // }
 
 
         foreach ($rows as $row) {
             $user = User::create([
                 'name' => $row['name'],
-                'email' => $row['email'],
                 'nip' => $row['nip'],
+                'email' => $row['email'],
+                'avatar' => $row['avatar'],
                 'password' => Hash::make($row['nip'])
             ]);
 
@@ -73,10 +75,12 @@ class UsersImport implements
     public function rules(): array
     {
         return [
-            '*.email' => 'unique:users,email',
+            '*.name' => ['required'],
             '*.nip' => 'unique:users,email',
+            '*.email' => 'unique:users,email',
+            '*.avatar' => ['required'],
             '*.password' => ['required'],
-            '*.name' => ['required']
+            '*.role' => ['required'],
         ];
     }
 
