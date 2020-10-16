@@ -182,6 +182,23 @@
                                         </a>
                                     </div>
                                 </div>
+
+                                <label class="col-sm-4 label-on-left">SKP</label>
+                                <div class="col-sm-8">
+                                <div class="row" style="padding:2%">
+                                        <a class="col-sm-2" target="_blank" href="{{asset('storage/'.$dupaks->skp)}}">
+                                            <span class="btn btn-info btn-sm">
+                                                lihat
+                                            </span>
+                                        </a>
+                                        <a href="{{route('dupaks.ubah',['id'=>Crypt::encrypt($dupaks->id),'name'=>Crypt::encrypt('skp')])}}">
+                                            <span class="btn btn-primary btn-sm">
+                                                edit
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+
                         </div>
                             <div class="col-md-12">
                                 <div id="sliderRegular" style="display:none" class="slider"></div>

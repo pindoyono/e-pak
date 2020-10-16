@@ -12,7 +12,7 @@
                     <i class="fas fa-files-o"></i>
                 </div>
                 <div class="card-content">
-                    <h4 class="card-title">Sekolah</h4>
+                    <h4 class="card-title">Berkas Kepegawaian</h4>
                         @if($jumlah==0)
                         <div class="col-12 text-right">
                             <a href="{{route('kepegawaians.create')}}" class="btn btn-success">Upload Berkas <div class="ripple-container"></div></a>
@@ -116,6 +116,24 @@
                                                 </a>
                                             </td>
                                         </tr>
+                                        @if($tahun_nip<='2017')
+                                        <tr>
+                                            <td>
+                                                6                                            
+                                            </td>
+                                            <td>
+                                                SK Penyesuaian
+                                            </td>
+                                            <td><a target="_blank" href="{{asset('storage/'.$kepegawaian->sk_penyesuaian)}}">Download</a></td>
+                                            <td class="text-right">
+                                                <a href="{{route('kepegawaians.edit', Crypt::encrypt('sk_penyesuaian'))}}">
+                                                    <button class="btn btn-info btn-round btn-sm">
+                                                        edit
+                                                    </button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        @endif
                                     </tbody>
                                 </table>
                             </div>

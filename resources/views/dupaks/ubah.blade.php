@@ -47,6 +47,8 @@
                         <label class="col-sm-4 label-on-left">PAK Terakhir </label>
                         @elseif($kolom=='pkg')
                         <label class="col-sm-4 label-on-left">Laporan / form PKG </label>
+                        @elseif($kolom=='skp')
+                        <label class="col-sm-4 label-on-left">SKP </label>
                         @endif
                             <div class="col-sm-7">
                                     <label class="control-label"></label>

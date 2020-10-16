@@ -49,13 +49,14 @@ class DupakController extends Controller
             "awal" => "required",
             "akhir" => "required",
             "surat_pengantar" => "required|mimes:pdf|max:2048",
-            "dupak" => "required|mimes:pdf|max:2048",
+            "dupak" => "required|mimes:pdf|max:10048",
             "surat_pernyataan1" => "required|mimes:pdf|max:2048",
             "surat_pernyataan2" => "required|mimes:pdf|max:2048",
             "surat_pernyataan3" => "required|mimes:pdf|max:2048",
-            "pembagian_tugas" => "required|mimes:pdf|max:2048",
+            "pembagian_tugas" => "required|mimes:pdf|max:10048",
             "pak" => "required|mimes:pdf|max:2048",
             "pkg" => "required|mimes:pdf|max:2048",
+            "skp" => "required|mimes:pdf|max:2048",
         ]);
         if ($validator->fails()) {
             return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
@@ -79,6 +80,10 @@ class DupakController extends Controller
         if($request->file('surat_pengantar')){
             $file = $request->file('surat_pengantar')->store('dupak/'.Auth::user()->nip, 'public');
             $dupak->surat_pengantar = $file;
+        } 
+        if($request->file('skp')){
+            $file = $request->file('skp')->store('dupak/'.Auth::user()->nip, 'public');
+            $dupak->skp = $file;
         } 
         if($request->file('dupak')){
             $file = $request->file('dupak')->store('dupak/'.Auth::user()->nip, 'public');

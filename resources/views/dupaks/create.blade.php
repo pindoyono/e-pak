@@ -123,6 +123,13 @@
                                     <input type="file" name="pkg">
                             </div>
                             </div>
+                            <div class="row">
+                            <label class="col-sm-4 label-on-left">SKP</label>
+                            <div class="col-sm-8">
+                                    <label class="control-label"></label>
+                                    <input type="file" name="skp">
+                            </div>
+                            </div>
                         </div>
                         
                         <input class="btn btn-primary" type="submit" value="Save"/>

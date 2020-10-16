@@ -21,8 +21,12 @@ class KepegawaianController extends Controller
     {
         $kepegawaians = \App\Kepegawaian::where('user_id',Auth::user()->id)->get();
         $jumlah = \App\Kepegawaian::where('user_id',Auth::user()->id)->count();
+
+         //199106102018021001
+         $nip = Auth::user()->nip;
+         $tahun_nip = substr($nip,8,4);
         
-        return view('kepegawaians.index', ['kepegawaians' => $kepegawaians, 'jumlah' => $jumlah, ]);
+        return view('kepegawaians.index', ['kepegawaians' => $kepegawaians, 'jumlah' => $jumlah, 'tahun_nip' => $tahun_nip, ]);
     }
 
     /**
@@ -32,8 +36,11 @@ class KepegawaianController extends Controller
      */
     public function create()
     {
-        //
-        return view("kepegawaians.create");
+        //199106102018021001
+        $nip = Auth::user()->nip;
+        $tahun_nip = substr($nip,8,4);
+
+        return view("kepegawaians.create",['tahun_nip' => $tahun_nip, ]);
     }
 
     /**
@@ -62,11 +69,16 @@ class KepegawaianController extends Controller
         $kepegawaian->sk_jafung = $request->get('sk_jafung');
         $kepegawaian->ijazah = $request->get('ijazah');
         $kepegawaian->karpeg = $request->get('karpeg');
+        $kepegawaian->sk_penyesuaian = $request->get('sk_penyesuaian');
 
         $kepegawaian->user_id = Auth::user()->id;
         if($request->file('sk_cpns')){
             $file = $request->file('sk_cpns')->store('kepegawaian/'.Auth::user()->nip, 'public');
             $kepegawaian->sk_cpns = $file;
+        } 
+        if($request->file('sk_penyesuaian')){
+            $file = $request->file('sk_penyesuaian')->store('kepegawaian/'.Auth::user()->nip, 'public');
+            $kepegawaian->sk_penyesuaian = $file;
         } 
         if($request->file('sk_pangkat')){
             $file = $request->file('sk_pangkat')->store('kepegawaian/'.Auth::user()->nip, 'public');
@@ -85,9 +97,16 @@ class KepegawaianController extends Controller
             $kepegawaian->karpeg = $file;
         } 
 
+        // echo "<prev>";
+        // var_dump($kepegawaian);
+        // echo "</prev>";
 
+        // exit;
+        
 
         $kepegawaian->save();
+
+        
 
         // return redirect()->route('users.create')->with('status', 'User successfully created');
         return redirect()->route('kepegawaians.index')->with('toast_success', 'Task Created Successfully!');

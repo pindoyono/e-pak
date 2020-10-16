@@ -66,6 +66,17 @@
                                     <input type="file" name="karpeg">
                             </div>
                             </div>
+                            </div>
+                            @if($tahun_nip<='2017')
+                            <div class="row">
+                                <label class="col-sm-4 label-on-left">SK Penyesuaian</label>
+                                <div class="col-sm-8">
+                                    <label class="control-label"></label>
+                                    <input type="file" name="sk_penyesuaian" required >
+                                </div>
+                            </div>
+                            @endif
+                        
                         </div>
                         
                         <input class="btn btn-primary" type="submit" value="Save"/>

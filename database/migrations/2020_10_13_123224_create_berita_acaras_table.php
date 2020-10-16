@@ -40,6 +40,6 @@ class CreateBeritaAcarasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('berita_acara');
+        Schema::dropIfExists('berita_acaras');
     }
 }
