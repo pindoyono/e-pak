@@ -241,7 +241,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <!-- <div class="row">
                             <label class="col-sm-2 label-on-left">No Kartu Suami/Istri</label>
                             <div class="col-sm-7">
                                 <div class="form-group label-floating is-empty">
@@ -250,7 +250,7 @@
                                     <span class="material-input"></span>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="row">
                             <label class="col-sm-2 label-on-left">No Handphone</label>
                             <div class="col-sm-7">

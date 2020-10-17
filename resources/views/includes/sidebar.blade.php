@@ -44,7 +44,7 @@
             </div>
         </div>
         <ul class="nav">
-            <li class="active">
+            <li class=" (request()->is('home')) ? 'active' : '' ">
                 <a href="{{route('home')}}">
                     <i class="fas fa-tachometer-alt"></i>
                     <p>Dashboard</p>
