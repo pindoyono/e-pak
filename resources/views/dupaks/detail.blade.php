@@ -37,7 +37,7 @@
                                                     <th width=50%></th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
+                                            <!-- <tbody>
                                                 <tr>
                                                     <td>Nama</td>
                                                     <td>{{$users->name}}</td>
@@ -110,7 +110,7 @@
                                                     <td>No HP</td>
                                                     <td>{{$biodatas->no_hp}}</td>
                                                 </tr>
-                                            </tbody>
+                                            </tbody> -->
                                         </table>
                                     </div>
                                 </div>
