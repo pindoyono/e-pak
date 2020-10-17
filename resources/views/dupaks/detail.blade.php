@@ -52,7 +52,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>Jenis Kelamin</td>
-                                                    <!-- <td>{{$biodatas->jenis_kelamin}}</td> -->
+                                                    <td>{{$biodatas->jenis_kelamin}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Nama Sekolah</td>
