@@ -104,10 +104,17 @@
                             </div>
                             </div>
                             <div class="row">
-                            <label class="col-sm-4 label-on-left">SK Pembagian Tugas</label>
+                            <label class="col-sm-4 label-on-left">SK Pembagian Tugas Ganjil</label>
                             <div class="col-sm-8">
                                     <label class="control-label"></label>
                                     <input type="file" name="pembagian_tugas">
+                            </div>
+                            </div>
+                            <div class="row">
+                            <label class="col-sm-4 label-on-left">SK Pembagian Tugas Genap</label>
+                            <div class="col-sm-8">
+                                    <label class="control-label"></label>
+                                    <input type="file" name="pembagian_tugas_genap">
                             </div>
                             </div>
                             <div class="row">
@@ -123,7 +130,7 @@
                                     <label class="control-label"></label>
                                     <input type="file" name="pkg">
                                     <span>*** LAPORAN/FORM PKG DI PISAH GANJIL GENAP DAN YG DI UPLOAD SUMATIF</span>
-                                    <span>*** FORM PERSETUJUAN, FORM 1C DAN 1D</span>
+                                   <br> <span>*** FORM PERSETUJUAN, FORM 1C DAN 1D</span>
                             </div>
                             </div>
                             <div class="row">

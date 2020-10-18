@@ -42,13 +42,15 @@
                         @elseif($kolom=='surat_pernyataan3')
                         <label class="col-sm-4 label-on-left">Surat Pernyataan Melaksanakan PKB </label>
                         @elseif($kolom=='pembagian_tugas')
-                        <label class="col-sm-4 label-on-left">SK Pembagian Tugas </label>
+                        <label class="col-sm-4 label-on-left">SK Pembagian Tugas Ganjil</label>
                         @elseif($kolom=='pak')
                         <label class="col-sm-4 label-on-left">PAK Terakhir </label>
                         @elseif($kolom=='pkg')
                         <label class="col-sm-4 label-on-left">Laporan / form PKG </label>
                         @elseif($kolom=='skp')
                         <label class="col-sm-4 label-on-left">SKP </label>
+                        @elseif($kolom=='pembagian_tugas_genap')
+                        <label class="col-sm-4 label-on-left">SK Pembagian Tugas Genap </label>
                         @endif
                             <div class="col-sm-7">
                                     <label class="control-label"></label>

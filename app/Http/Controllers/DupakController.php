@@ -63,20 +63,16 @@ class DupakController extends Controller
         }
 
         $dupak = new \App\Dupak;
-        $dupak->awal =  date('y-m-d',strtotime($request->get('awal')));
-        $dupak->akhir =  date('y-m-d',strtotime($request->get('akhir')));
-        $dupak->surat_pengantar = $request->get('surat_pengantar');
-        $dupak->dupak = $request->get('dupak');
-        $dupak->surat_pernyataan1 = $request->get('surat_pernyataan1');
-        $dupak->surat_pernyataan2 = $request->get('surat_pernyataan2');
-        $dupak->surat_pernyataan3 = $request->get('surat_pernyataan3');
-        $dupak->pembagian_tugas = $request->get('pembagian_tugas');
-        $dupak->pak = $request->get('pak');
-        $dupak->pkg = $request->get('pkg');
         $dupak->status = "Usulan Baru";
+        $dupak->awal =date('y-m-d',strtotime($request->get('awal')));
+        $dupak->akhir = date('y-m-d',strtotime($request->get('akhir')));
 
         $dupak->user_id = Auth::user()->id;
 
+        if($request->file('pembagian_tugas_genap')){
+            $file = $request->file('pembagian_tugas_genap')->store('dupak/'.Auth::user()->nip, 'public');
+            $dupak->pembagian_tugas_genap = $file;
+        } 
         if($request->file('surat_pengantar')){
             $file = $request->file('surat_pengantar')->store('dupak/'.Auth::user()->nip, 'public');
             $dupak->surat_pengantar = $file;

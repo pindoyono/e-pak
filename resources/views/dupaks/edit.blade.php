@@ -137,7 +137,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <label class="col-sm-4 label-on-left">SK Pembagian Tugas</label>
+                                <label class="col-sm-4 label-on-left">SK Pembagian Tugas Ganjil</label>
                                 <div class="col-sm-8">
                                 <div class="row" style="padding:2%">
                                         <a class="col-sm-2" target="_blank" href="{{asset('storage/'.$dupaks->pembagian_tugas)}}">
@@ -146,6 +146,21 @@
                                             </span>
                                         </a>
                                         <a href="{{route('dupaks.ubah',['id'=>Crypt::encrypt($dupaks->id),'name'=>Crypt::encrypt('pembagian_tugas')])}}">
+                                            <span class="btn btn-primary btn-sm">
+                                                edit
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <label class="col-sm-4 label-on-left">SK Pembagian Tugas Genap</label>
+                                <div class="col-sm-8">
+                                <div class="row" style="padding:2%">
+                                        <a class="col-sm-2" target="_blank" href="{{asset('storage/'.$dupaks->pembagian_tugas_genap)}}">
+                                            <span class="btn btn-info btn-sm">
+                                                lihat
+                                            </span>
+                                        </a>
+                                        <a href="{{route('dupaks.ubah',['id'=>Crypt::encrypt($dupaks->id),'name'=>Crypt::encrypt('pembagian_tugas_genap')])}}">
                                             <span class="btn btn-primary btn-sm">
                                                 edit
                                             </span>
