@@ -48,7 +48,7 @@ class UsersImport implements
     {
         $validator = Validator::make($rows->toArray(), [
             "*.name" => "required|min:5|max:100",
-            "*.nip" => "required|min:18|max:19|unique:users",
+            "*.nip" => "required|min:17|max:19|unique:users",
             "*.email" => "required|email|unique:users",
             "*.avatar" => "required",
             "*.role" => "required",

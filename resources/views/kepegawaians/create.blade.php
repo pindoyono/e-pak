@@ -15,6 +15,15 @@
                     <h4 class="card-title">Form Tambah Berkas Kepegawaian</h4>
                 </div>
                 <div class="card-content">
+                <div class="alert alert-warning">
+                        <button type="button" aria-hidden="true" class="close">
+                            <i class="material-icons">close</i>
+                        </button>
+                        <span>
+                            <b> Warning - </b>
+                            Untuk Mengunggah file yg di izin kan dalam bentuk PDF dan berukuran Maksimal 2 Mb 
+                            </span>
+                    </div>
                     <div class="col-12 text-right">
                         <a href="{{route('kepegawaians.index')}}" class="btn btn-success">List Berkas <div class="ripple-container"></div></a>
                     </div>

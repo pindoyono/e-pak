@@ -100,7 +100,7 @@
                             <label class="col-sm-2 label-on-left">Nama Sekolah</label>
                             <div class="col-sm-7">
                                 <div class="col-lg-5 col-md-6 col-sm-3">
-                                    <select class="js-example-basic-single form-control"  width="70%" name="sekolah_id" >
+                                    <select class="js-example-basic-single form-control" required="true" width="70%" name="sekolah_id" >
                                     <option value="">Pilih Sekolah</option>
                                     @if(!empty($sekolahs))
                                         @foreach ($sekolahs as $sekolah)
@@ -119,7 +119,8 @@
                                         <div class="form-group label-floating is-empty">
                                             <label class="control-label"></label>
                                             <input type="text" name="tempat_lahir" value="{{$biodatas->tempat_lahir}}" class="form-control" placeholder="">
-                                        <span class="material-input"></span></div>
+                                            <span class="material-input"></span></div>
+                                            <span>***Sesuai dengan SK terakhir</span>
                                     </div>
                                     <div class="col-md-2">
                                         <label class="label-on-left">Tanggal Lahir</label>
@@ -146,6 +147,8 @@
                                     <label class="control-label"></label>
                                     <textarea cols="10" rows="3" class="form-control" name="alamat" id="input-description" type="text" placeholder="" required="true" aria-required="true">{{$biodatas->alamat}}</textarea>
                                     <span class="material-input"></span>
+                                    <span>***Alamat Rumah Tempat Tinggal</span>
+
                                 </div>
                             </div>
                         </div>
@@ -160,6 +163,7 @@
                                         <option {{ $biodatas->agama == "KATHOLIK" ? "selected" : ""}} value="KATHOLIK">KATHOLIK</option>
                                         <option {{ $biodatas->agama == "HINDU" ? "selected" : ""}} value="HINDU">HINDU</option>
                                         <option {{ $biodatas->agama == "BUDHA" ? "selected" : ""}} value="BUDHA">BUDHA</option>
+                                        <option {{ $biodatas->agama == "KONGHUCU" ? "selected" : ""}} value="KONGHUCU">KONGHUCU</option>
                                     </select>
                                 </div>
                             </div>
@@ -169,7 +173,7 @@
                             <div class="col-sm-7">
                                 <div class="form-group label-floating is-empty">
                                     <label class="control-label"></label>
-                                    <input class="form-control" placeholder="NUPTK" value="{{$biodatas->nuptk}}"  type="text" name="nuptk" required="true" aria-required="true">
+                                    <input class="form-control" placeholder="NUPTK" value="{{$biodatas->nuptk}}"  type="text" name="nuptk" aria-required="true">
                                     <span class="material-input"></span>
                                 </div>
                             </div>
@@ -192,9 +196,9 @@
                                         <div class="form-group label-floating is-empty">
                                             <label class="control-label"></label>
                                             @if($biodatas->tanggal_lahir=='')
-                                                <input type="text" name="tmt_cpns" value="" class="form-control datepicker"/>
+                                                <input type="text" name="tmt_cpns" value="" required="true" class="form-control datepicker"/>
                                             @else
-                                                <input type="text" name="tmt_cpns" value="{{date('m/d/y',strtotime($biodatas->tmt_cpns))}}" class="form-control datepicker"/>
+                                                <input type="text" name="tmt_cpns" required="true" value="{{date('m/d/y',strtotime($biodatas->tmt_cpns))}}" class="form-control datepicker"/>
                                             @endif
                                             <span class="material-input"></span></div>
                                     </div>
@@ -221,7 +225,7 @@
                             <div class="col-sm-7">
                                 <div class="form-group label-floating is-empty">
                                     <label class="control-label"></label>
-                                    <select class="js-example-basic-single form-control"  name="pangkat_golongan"  width="70%" name="pangkat" >
+                                    <select class="js-example-basic-single form-control" required="true"  name="pangkat_golongan"  width="70%" name="pangkat" >
                                        @if(!empty($jabatans))
                                             @foreach ($jabatans as $jabatan)
                                                 <option {{$jabatan->pangkat == $biodatas->pangkat_golongan ? "selected" : ""}} value="{{$jabatan->id}}">{{$jabatan->pangkat}}</option>
@@ -232,11 +236,11 @@
                             </div>
                         </div>
                         <div class="row">
-                            <label class="col-sm-2 label-on-left">No Kartu Pengawai</label>
+                            <label class="col-sm-2 label-on-left">No KARPEG</label>
                             <div class="col-sm-7">
                                 <div class="form-group label-floating is-empty">
                                     <label class="control-label"></label>
-                                    <input class="form-control" placeholder="No Kartu Pengawai" value="{{$biodatas->kartu_pegawai}}" type="text" name="kartu_pegawai" required="true" aria-required="true">
+                                    <input class="form-control" placeholder="No Kartu Pengawai" value="{{$biodatas->kartu_pegawai}}" type="text" name="kartu_pegawai" aria-required="true">
                                     <span class="material-input"></span>
                                 </div>
                             </div>
@@ -256,7 +260,7 @@
                             <div class="col-sm-7">
                                 <div class="form-group label-floating is-empty">
                                     <label class="control-label"></label>
-                                    <input class="form-control" placeholder="No Handphone" type="text" name="no_hp" value="{{$biodatas->no_hp}}" >
+                                    <input class="form-control" placeholder="No Handphone" type="text" required="true" name="no_hp" value="{{$biodatas->no_hp}}" >
                                     <span class="material-input"></span>
                                 </div>
                             </div>
