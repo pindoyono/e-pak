@@ -19,7 +19,9 @@ class BerkasController extends Controller
     {
         //
         $berkas = \App\Berkas::orderBy('id','asc')->get();
-        return view('berkas.index', ['berkas' => $berkas]);
+        $kegiatans = \App\Kegiatan::orderBy('id','asc')->get();
+
+        return view('berkas.index', ['berkas' => $berkas, 'kegiatans' => $kegiatans]);
     }
 
     public function bukti($id)
@@ -40,14 +42,18 @@ class BerkasController extends Controller
         //
         $dupak_id =  Crypt::decrypt($dupak_id);
         $dupaks = \App\Dupak::findOrFail($dupak_id);
-        return view("berkas.create",   ['dupaks' => $dupaks]);
+        $kegiatans = \App\Kegiatan::orderBy('id','asc')->get();
+
+        return view("berkas.create",   ['dupaks' => $dupaks, 'kegiatans' => $kegiatans]);
     }
 
     public function buat($id)
     {
         //
         $id =  Crypt::decrypt($id);
-        return view("berkas.create",   ['dupak_id' => $id]);
+        $kegiatans = \App\Kegiatan::orderBy('id','asc')->get();
+
+        return view("berkas.create",   ['dupak_id' => $id , 'kegiatans' => $kegiatans]);
     }
 
     public function simpan(Request $request, $id)
@@ -56,7 +62,7 @@ class BerkasController extends Controller
 
         $validator = Validator::make($request->all(), [
             "nama" => "required",
-            "berkas" => "mimes:pdf|max:2048"
+            "berkas" => "mimes:pdf|max:10048"
         ]);
 
         if ($validator->fails()) {
@@ -71,11 +77,9 @@ class BerkasController extends Controller
             $berkas->berkas = $file;
         } 
 
-        
-
-
 
         $berkas->save();
+        
 
         // return redirect()->route('users.create')->with('status', 'User successfully created');
         return redirect()->route('berkas.bukti', Crypt::encrypt($id) )->with('toast_success', 'Task Created Successfully!');
@@ -114,7 +118,9 @@ class BerkasController extends Controller
         //
         $id =  Crypt::decrypt($id);
         $berkas = \App\Berkas::findOrFail($id);
-        return view("berkas.edit",   ['berkas' => $berkas]);
+        $kegiatans = \App\Kegiatan::orderBy('id','asc')->get();
+
+        return view("berkas.edit",   ['berkas' => $berkas,'kegiatans' => $kegiatans]);
     }
 
     /**
@@ -131,7 +137,7 @@ class BerkasController extends Controller
 
         $validator = Validator::make($request->all(), [
             "nama" => "required",
-            // "berkas" => "mimes:pdf|max:2048"
+            "berkas" => "mimes:pdf|max:10048"
         ]);
 
         if ($validator->fails()) {
@@ -155,7 +161,7 @@ class BerkasController extends Controller
         $berkas->save();
 
         // return redirect()->route('users.create')->with('status', 'User successfully created');
-        return redirect()->route('berkas.bukti', Crypt::encrypt($id) )->with('toast_success', 'Task Created Successfully!');
+        return redirect()->route('berkas.bukti', Crypt::encrypt($berkas->dupak_id) )->with('toast_success', 'Task Created Successfully!');
    
     }
 

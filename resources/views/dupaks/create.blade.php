@@ -22,6 +22,7 @@
                         <span>
                             <b> Warning - </b>
                             Untuk Mengunggah file yg di izin kan dalam bentuk PDF dan berukuran Maksimal 2 Mb 
+                            Khusus untuk SK Pembagian Tugas Maksimal 5 Mb
                             </span>
                     </div>
                     <div class="col-12 text-right">
@@ -117,10 +118,12 @@
                             </div>
                             </div>
                             <div class="row">
-                            <label class="col-sm-4 label-on-left">Laporan / form PKG</label>
+                            <label class="col-sm-4 label-on-left">Laporan / form PKG/PKKS</label>
                             <div class="col-sm-8">
                                     <label class="control-label"></label>
                                     <input type="file" name="pkg">
+                                    <span>*** LAPORAN/FORM PKG DI PISAH GANJIL GENAP DAN YG DI UPLOAD SUMATIF</span>
+                                    <span>*** FORM PERSETUJUAN, FORM 1C DAN 1D</span>
                             </div>
                             </div>
                             <div class="row">

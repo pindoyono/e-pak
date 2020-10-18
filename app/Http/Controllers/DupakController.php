@@ -185,6 +185,32 @@ class DupakController extends Controller
 
     }
 
+    public function update(Request $request, $id)
+    {
+        $id = Crypt::decrypt($id); 
+
+        $validator = Validator::make($request->all(), [
+            "awal" => "required",
+            "akhir" => "required",
+        ]);
+
+        if ($validator->fails()) {
+            return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
+        }
+
+        $dupak = \App\Dupak::findOrFail($id);
+
+
+        
+        $dupak->awal =date('y-m-d',strtotime($request->get('awal')));
+        $dupak->akhir = date('y-m-d',strtotime($request->get('akhir')));
+
+        $dupak->update();
+
+        return redirect()->route('dupaks.index')->with('success', 'Berhasil Merubah Periode Usulan');
+    
+    }
+ 
     public function submit($id)
     {
 

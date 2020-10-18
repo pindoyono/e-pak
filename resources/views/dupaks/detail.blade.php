@@ -38,6 +38,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @if(!empty($biodatas))
                                                 <tr>
                                                     <td>Nama</td>
                                                     <td>{{$users->name}}</td>
@@ -106,6 +107,17 @@
                                                     <td>No HP</td>
                                                     <td>{{$biodatas->no_hp}}</td>
                                                 </tr>
+                                                @else
+                                                <div class="alert alert-warning">
+                                                    <button type="button" aria-hidden="true" class="close">
+                                                        <i class="material-icons">close</i>
+                                                    </button>
+                                                    <span>
+                                                        <b> Warning - </b>
+                                                          Silahkan Lengkapi Biodata Anda terlebih dahulu 
+                                                        </span>
+                                                </div>
+                                                @endif
                                             </tbody>
                                         </table>
                                     </div>
@@ -346,7 +358,7 @@
                                     @foreach($berkas as $key => $berkas)
                                     <tr>
                                         <td>{{$key+1}}</td>
-                                        <td>{{$berkas->nama}}</td>
+                                        <td> {{kegiatans($berkas->nama)->kegiatan}}</td>
                                         <td>
                                             <a class="col-sm-2" target="_blank" href="{{asset('storage/'.$berkas->berkas)}}">
                                                 <span class="btn btn-info btn-sm">

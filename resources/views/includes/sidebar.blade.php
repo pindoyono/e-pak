@@ -44,10 +44,16 @@
             </div>
         </div>
         <ul class="nav">
-            <li class=" (request()->is('home')) ? 'active' : '' ">
+            <li class="{{ Request::segment(1) === 'home' || Request::is('/')  ? 'active' : null }}">
                 <a href="{{route('home')}}">
                     <i class="fas fa-tachometer-alt"></i>
                     <p>Dashboard</p>
+                </a>
+            </li>
+            <li class="{{ Request::segment(1) === 'create_biodata'  ? 'active' : null }}">
+                <a href="{{route('biodatas.create_biodata', Crypt::encrypt(Auth::user()->id)   )}}">
+                    <i class="fas fa-id-card"></i>
+                    <p>Biodata</p>
                 </a>
             </li>
             @role('super admin')
@@ -87,12 +93,6 @@
                                 <p>Nilai AK</p>
                             </a>
                         </li>
-                        <li>
-                            <a href="{{route('kegiatans.index')}}">
-                                <i class="fas fa-layer-group"></i>
-                                <p>Kegiatan</p>
-                            </a>
-                        </li>
                     </ul>
                 </div>
             </li>
@@ -105,19 +105,13 @@
             @endrole
             
             @role('guru')
-            <li class="">
-                <a href="{{route('biodatas.create_biodata', Crypt::encrypt(Auth::user()->id)   )}}">
-                    <i class="fas fa-id-card"></i>
-                    <p>Biodata</p>
-                </a>
-            </li>
-            <li class="">
+            <li class="{{ Request::segment(1) === 'kepegawaians'  ? 'active' : null }}">
                 <a href="{{route('kepegawaians.index' )}}">
                     <i class="fas fa-files-o "></i>
                     <p>Berkas Kepegawaian</p>
                 </a>
             </li>
-            <li class="">
+            <li class="{{ Request::segment(1) === 'dupaks' || Request::segment(1) === 'bukti' || Request::segment(1) === 'berkas'  ? 'active' : null }}">
                 <a href="{{route('dupaks.index' )}}">
                     <i class="fas fa-clipboard-list "></i>
                     <p>Usul Dupak</p>
@@ -126,18 +120,19 @@
             @endrole
 
             @role('penilai')
-            <li class="">
-                <a href="{{route('biodatas.create_biodata', Crypt::encrypt(Auth::user()->id)   )}}">
-                    <i class="fas fa-id-card"></i>
-                    <p>Biodata</p>
+            <li class="{{ Request::segment(1) === 'kegiatans'  ? 'active' : null }}">
+                <a href="{{route('kegiatans.index')}}">
+                    <i class="fas fa-layer-group"></i>
+                    <p>Kegiatan</p>
                 </a>
             </li>
-            <li class="">
+            <li class="{{ Request::segment(1) === 'dupaks_penilai'  ? 'active' : null }}">
                 <a href="{{route('dupaks_penilai.index' )}}">
                     <i class="fas fa-clipboard-list "></i>
                     <p>Daftar Usulan PAK</p>
                 </a>
             </li>
+
             @endrole
             
             <li class="">

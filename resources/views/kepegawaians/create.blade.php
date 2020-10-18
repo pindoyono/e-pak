@@ -66,6 +66,7 @@
                             <div class="col-sm-8">
                                     <label class="control-label"></label>
                                     <input type="file" name="ijazah">
+                                    <span> ***	IJAZAH YANG SUDAH KELUAR ANGKA KREDITNYA / DINILAI </span>
                             </div>
                             </div>
                             <div class="row">
@@ -73,6 +74,7 @@
                             <div class="col-sm-8">
                                     <label class="control-label"></label>
                                     <input type="file" name="karpeg">
+                                    <span> *** Yang Ada No Seri</span>
                             </div>
                             </div>
                             </div>

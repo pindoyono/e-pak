@@ -43,6 +43,13 @@ if (! function_exists('nama_sekolah')) {
     }
 }
 
+if (! function_exists('kegiatans')) {
+    function kegiatans($id){
+        $kegiatans = \App\Kegiatan::findOrFail($id);
+        return $kegiatans;
+    }
+}
+
 if (! function_exists('pangkat')) {
     function pangkat($id){
         $jabatan = \App\Jabatan::findOrFail($id);
