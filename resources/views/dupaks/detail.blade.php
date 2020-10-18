@@ -103,10 +103,6 @@
                                                     <td>{{$biodatas->kartu_pegawai}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>No Kartu Suami/Istri</td>
-                                                    <td>{{$biodatas->karsu}}</td>
-                                                </tr>
-                                                <tr>
                                                     <td>No HP</td>
                                                     <td>{{$biodatas->no_hp}}</td>
                                                 </tr>
