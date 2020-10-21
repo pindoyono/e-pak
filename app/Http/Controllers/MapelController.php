@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -9,26 +10,18 @@ use DB;
 use Hash;
 use Illuminate\Support\Facades\Validator;
 
-class SekolahController extends Controller
+class MapelController extends Controller
 {
-    function __construct()
-    {
-         $this->middleware('role:super admin');
-        //  $this->middleware('permission:role-create', ['only' => ['create','store']]);
-        //  $this->middleware('permission:role-edit', ['only' => ['edit','update']]);
-        //  $this->middleware('permission:role-delete', ['only' => ['destroy']]);
-    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
-    {
+    { 
         //
-        $sekolah = \App\Sekolah::orderBy('id','DESC')->get();
-        return view('sekolahs.index', ['sekolahs' => $sekolah]);
+        $mapel = \App\Mapel::orderBy('id','DESC')->get();
+        return view('mapels.index', ['mapels' => $mapel]);
     }
 
     /**
@@ -36,8 +29,10 @@ class SekolahController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(){
-        return view("sekolahs.create");
+    public function create()
+    {
+        //
+        return view("mapels.create");
     }
 
     /**
@@ -49,15 +44,9 @@ class SekolahController extends Controller
     public function store(Request $request)
     {
         //
-        // var_dump($request->all());
-        // exit;
-
         $validator = Validator::make($request->all(), [
-            "npsn" => "required|min:8|unique:sekolahs|numeric",
             "nama" => "required|unique:sekolahs",
-            "alamat" => "required",
-            "jenis" => "required",
-            "status" => "required"
+            "jenis" => "required"
         ]);
 
         if ($validator->fails()) {
@@ -66,18 +55,17 @@ class SekolahController extends Controller
 
 
         // return $request;
-        $sekolah = new \App\Sekolah;
-        $sekolah->npsn = $request->get('npsn');
-        $sekolah->nama = $request->get('nama');
-        $sekolah->alamat = $request->get('alamat');
-        $sekolah->jenis = $request->get('jenis');
-        $sekolah->status = $request->get('status');
+        $mapel = new \App\Mapel;
+        $mapel->nama = $request->get('nama');
+        $mapel->keterangan = $request->get('keterangan');
+        $mapel->jenis = $request->get('jenis');
 
 
-        $sekolah->save();
+        $mapel->save();
 
         // return redirect()->route('users.create')->with('status', 'User successfully created');
-        return redirect()->route('sekolahs.create')->with('toast_success', 'Task Created Successfully!');
+        return redirect()->route('mapels.create')->with('toast_success', 'Task Created Successfully!');
+ 
     }
 
     /**
@@ -99,8 +87,9 @@ class SekolahController extends Controller
      */
     public function edit($id)
     {
-        $sekolahs = \App\Sekolah::findOrFail($id);
-        return view('sekolahs.edit',   ['sekolah' => $sekolahs]);
+        //
+        $mapels = \App\Mapel::findOrFail($id);
+        return view('mapels.edit',   ['mapel' => $mapels]);
     }
 
     /**
@@ -113,36 +102,28 @@ class SekolahController extends Controller
     public function update(Request $request, $id)
     {
         //
-         //
-        // var_dump($request->all());
-        // exit;
-
         $validator = Validator::make($request->all(), [
-            "npsn" => "required|min:8|numeric",
-            "nama" => "required",
-            "alamat" => "required",
-            "jenis" => "required",
-            "status" => "required"
+            "nama" => "required|unique:sekolahs",
+            "jenis" => "required"
         ]);
 
         if ($validator->fails()) {
             return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
-        } 
+        }
 
 
         // return $request;
-        $sekolah = \App\Sekolah::findOrFail($id);
-        $sekolah->npsn = $request->get('npsn');
-        $sekolah->nama = $request->get('nama');
-        $sekolah->alamat = $request->get('alamat');
-        $sekolah->jenis = $request->get('jenis');
-        $sekolah->status = $request->get('status');
+        $mapel = \App\Mapel::findOrFail($id);
+        $mapel->nama = $request->get('nama');
+        $mapel->jenis = $request->get('jenis');
+        $mapel->keterangan = $request->get('keterangan');
 
 
-        $sekolah->save();
+        $mapel->save();
 
         // return redirect()->route('users.create')->with('status', 'User successfully created');
-        return redirect()->route('sekolahs.index')->with('toast_success', 'Task Edited Successfully!');
+        return redirect()->route('mapels.index')->with('toast_success', 'Task Created Successfully!');
+ 
     }
 
     /**
@@ -154,8 +135,5 @@ class SekolahController extends Controller
     public function destroy($id)
     {
         //
-        $sekolah = \App\Sekolah::findOrFail($id);
-        $sekolah->delete();
-        return redirect()->route('sekolahs.index')->with('success', 'Data Sekolah Berhasil Di Hapus');
     }
 }

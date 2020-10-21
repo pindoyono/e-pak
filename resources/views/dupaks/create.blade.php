@@ -118,7 +118,7 @@
                             </div>
                             </div>
                             <div class="row">
-                            <label class="col-sm-4 label-on-left">PAK Terakhir</label>
+                            <label class="col-sm-4 label-on-left">PAK Terakhir / PAK Tahunan</label>
                             <div class="col-sm-8">
                                     <label class="control-label"></label>
                                     <input type="file" name="pak">

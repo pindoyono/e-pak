@@ -235,7 +235,12 @@
                     
                     </div>
                     <div class="col-sm-4">
-                   
+                        <a href="{{route('dupaks_penilai.createPDF', Crypt::encrypt($dupak_id))}}">
+                            <button class="btn btn-primary btn-round">
+                                <i class="fas fa-print"></i> Cetak Berita Acara
+                                <div class="ripple-container"></div>
+                            </button>
+                        </a>
                     </div>
                     <div class="col-sm-4">
                     <div class="col-sm-4">

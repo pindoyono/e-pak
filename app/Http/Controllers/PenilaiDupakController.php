@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Crypt;
+use PDF;
+use DB; 
 
 class PenilaiDupakController extends Controller
 {
@@ -119,7 +121,29 @@ class PenilaiDupakController extends Controller
                                                     'users' => $user,
                                                     'now' => $now,
                                                     'kepegawaians' => $kepegawaians,
+                                                    'dupak_id' => $id,
                                                     'berkas' => $berkas,]
                                                 );
     }
+
+    public function createPDF($id) {
+
+        $id =  Crypt::decrypt($id);
+
+        $dupak = \App\Biodata::where('id', $id )->first();
+        $biodatas =  DB::table('users')
+            ->join('biodatas', 'users.id', '=', 'biodatas.user_id')
+            ->join('dupaks', 'users.id', '=', 'dupaks.user_id')
+            ->select('biodatas.*', 'dupaks.awal', 'dupaks.akhir', 'users.*')
+            ->where('dupaks.id',$id)
+            ->first();
+            // echo "<pre>";
+            // var_dump($data);
+            // echo "</pre>";
+
+        $pdf = \PDF::loadView('dupaks_penilai.cetak_berita_acara', compact('biodatas'));
+        $pdf->setPaper('F4', 'potrait');
+        return $pdf->stream('Berita Acara.pdf');
+    }
+
 }

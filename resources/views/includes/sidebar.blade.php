@@ -93,6 +93,13 @@
                                 <p>Nilai AK</p>
                             </a>
                         </li>
+                        <li>
+                            <a href="{{route('mapels.index')}}">
+                                <!-- <i class="fas fa-chart-line"></i> -->
+                                <i class="material-icons">library_books</i>
+                                <p>Mata Pelajaran</p>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </li>
@@ -123,7 +130,7 @@
             <li class="{{ Request::segment(1) === 'kegiatans'  ? 'active' : null }}">
                 <a href="{{route('kegiatans.index')}}">
                     <i class="fas fa-layer-group"></i>
-                    <p>Kegiatan</p>
+                    <p>Penilai</p>
                 </a>
             </li>
             <li class="{{ Request::segment(1) === 'dupaks_penilai'  ? 'active' : null }}">

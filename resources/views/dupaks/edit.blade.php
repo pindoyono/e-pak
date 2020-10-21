@@ -167,7 +167,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <label class="col-sm-4 label-on-left">PAK Terakhir</label>
+                                <label class="col-sm-4 label-on-left">PAK Terakhir / PAK Tahunan</label>
                                 <div class="col-sm-8">
                                 <div class="row" style="padding:2%">
                                         <a class="col-sm-2" target="_blank" href="{{asset('storage/'.$dupaks->pak)}}">

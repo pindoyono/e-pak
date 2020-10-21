@@ -163,7 +163,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
-
+        Barryvdh\DomPDF\ServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -236,7 +236,7 @@ return [
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
 
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
 

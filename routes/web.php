@@ -34,6 +34,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource("users", "UserController")->middleware('role:super admin');
     Route::resource("jabatans", "JabatanControler")->middleware('role:super admin');
     Route::resource("sekolahs", "SekolahController")->middleware('role:super admin');
+    Route::resource("mapels", "MapelController")->middleware('role:super admin');
     Route::resource("kegiatans", "KegiatanController")->middleware('role:super admin|penilai');
     Route::resource("kepegawaians", "KepegawaianController")->middleware('role:guru|penilai');
     Route::resource("dupaks", "DupakController")->middleware('role:guru|penilai');
@@ -42,6 +43,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/upload/{id}', 'BerkasController@upload')->name('upload')->middleware('role:guru|super admin|penilai');
     
     Route::get('/berita_acara/{id}', 'PenilaiDupakController@berita_acara')->name('dupaks_penilai.berita_acara')->middleware('role:guru|penilai');
+    Route::get('/createPDF/{id}', 'PenilaiDupakController@createPDF')->name('dupaks_penilai.createPDF')->middleware('role:guru|penilai');
     
     Route::get('/bukti/{id}', 'BerkasController@bukti')->name('berkas.bukti')->middleware('role:guru|penilai');
     Route::put('/berkas/simpan/{id}', 'BerkasController@simpan')->name('berkas.simpan')->middleware('role:guru|penilai');

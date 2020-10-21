@@ -309,4 +309,7 @@ class DupakController extends Controller
          $dupak->delete();
          return redirect()->route('dupaks.index')->with('success', 'Data Usulan Berhasil Di Hapus');
     }
+
+    
+
 }
