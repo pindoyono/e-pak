@@ -90,11 +90,11 @@
                                     <td rowspan=2> 9</td>
                                     <td rowspan=2>Masa kerja Golongan</td>
                                     <td>Lama</td>
-                                    <td colspan=2>{{$biodatas->tmt_cpns}}</td>
+                                    <td colspan=2>{{ $biodatas->tmt_cpns}}</td>
                                 </tr>
                                 <tr>
                                     <td>Baru</td>
-                                    <td colspan=2>{{$biodatas->tmt_cpns}}</td>
+                                    <td colspan=2>{{masakerja($biodatas->tmt_cpns) }}</td>
                                 </tr>
                                 <tr>
                                     <td width="5%"> 10</td>
@@ -119,6 +119,7 @@
                                 <tr>
                                     <td colspan=7></td>
                                 </tr>
+                               @if(!empty($berita_acara->pendidikan))
                                 <tr>
                                     <td width="5%">II</td>
                                     <td colspan=2> PENETAPAN ANGKA KREDIT</td>
@@ -143,7 +144,6 @@
                                 </tr>
                                 
 
-                               @if(!empty($berita_acara->pendidikan))
                                <tr>
                                     <td>1) Pendidikan sekolah dan memperoleh gelar ijazah </td>
                                     <td><input type="number" value="{{ json_decode($berita_acara->pendidikan)->lama }}" name="value1" id="value1" class="form-control" min="0" placeholder="LAMA" required /></td>
@@ -274,6 +274,28 @@
                                </tr>
                                @else
                                <tr>
+                                    <td width="5%">II</td>
+                                    <td colspan=2> PENETAPAN ANGKA KREDIT</td>
+                                    <td width="10%"></td>
+                                    <td width="10%"></td>
+                                    <td width="10%"></td>
+                                </tr>
+                                <tr>
+                                    <td width="5%" rowspan="20"></td>
+                                    <td width="2%" >1</td>
+                                    <td> <b>Unsur Utama</b></td>
+                                    <td ></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td width="2%" rowspan="12"></td>
+                                    <td> a. Pendidikan</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                               <tr>
                                     <td>1) Pendidikan sekolah dan memperoleh gelar ijazah</td>
                                     <td><input type="number" value=0 name="value1" id="value1" class="form-control" min="0" placeholder="LAMA" required /></td>
                                     <td><input type="number" value=0 name="value2" id="value2" class="form-control" min="0" placeholder="BARU" required /></td>
@@ -380,12 +402,14 @@
                 </form>
                     </div>
                     <div class="col-sm-3">
-                    <a target="_blank" href="{{route('dupaks_penilai.createPDF', Crypt::encrypt($dupak_id))}}">
-                        <button class="btn btn-primary btn-round">
-                            <i class="fas fa-print"></i> Cetak Berita Acara
-                            <div class="ripple-container"></div>
-                        </button>
-                    </a>
+                    @if(!empty($berita_acara->pendidikan))
+                        <a target="_blank" href="{{route('dupaks_penilai.createPDF', Crypt::encrypt($dupak_id))}}">
+                            <button class="btn btn-primary btn-round">
+                                <i class="fas fa-print"></i> Cetak Berita Acara
+                                <div class="ripple-container"></div>
+                            </button>
+                        </a>
+                    @endif
                     </div>
 
                         

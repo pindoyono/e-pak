@@ -125,7 +125,6 @@ class PenilaiDupakController extends Controller
                                                     'kepegawaians' => $kepegawaians,
                                                     'dupak_id' => $id,
                                                     'berkas' => $berkas,
-                                                    'pendidikan' => $berita_acara->pendidikan,
                                                     ]
                                                 );
     }
@@ -193,6 +192,10 @@ class PenilaiDupakController extends Controller
             ]),
         ]);
 
+        $dupak = \App\Dupak::findOrFail($id);
+        $dupak->status="sudah dinilai";
+        $dupak->update();
+
         $id = Crypt::encrypt($id);
         
         return redirect()->route('dupaks_penilai.berita_acara',$id)->with('toast_success', 'Task Created Successfully!');
@@ -201,20 +204,25 @@ class PenilaiDupakController extends Controller
     public function createPDF($id) {
 
         $id =  Crypt::decrypt($id);
+        $dupak = \App\Dupak::where('id', $id )->first();
+        $berkas = \App\Berkas::where('dupak_id', $id )->get();
+        $user = \App\User::findOrFail($dupak->user_id);
+        $biodatas = \App\Biodata::where('user_id', $dupak->user_id)->first();
+        $kepegawaians = \App\Kepegawaian::where('user_id', $dupak->user_id)->get();
+        $now = date('Y-m-d');
+        $berita_acara = \App\BeritaAcara::where('dupak_id', $id)->first();
 
-        $dupak = \App\Biodata::where('id', $id )->first();
-        $biodatas =  DB::table('users')
-            ->join('biodatas', 'users.id', '=', 'biodatas.user_id')
-            ->join('dupaks', 'users.id', '=', 'dupaks.user_id')
-            ->select('biodatas.*', 'dupaks.awal', 'dupaks.akhir', 'users.*')
-            ->where('dupaks.id',$id)
-            ->first();
-            // echo "<pre>";
-            // var_dump($data);
-            // echo "</pre>";
-
-        $pdf = \PDF::loadView('dupaks_penilai.cetak_berita_acara', compact('biodatas'));
-        $pdf->setPaper('F4', 'potrait');
+        $pdf = \PDF::loadView('dupaks_penilai.cetak_berita_acara', ['berita_acara' => $berita_acara,
+                                                                    'dupak' => $dupak,
+                                                                    'biodatas' => $biodatas,
+                                                                    'users' => $user,
+                                                                    'now' => $now,
+                                                                    'kepegawaians' => $kepegawaians,
+                                                                    'dupak_id' => $id,
+                                                                    'berkas' => $berkas,
+                                                                    ]
+                                                                );
+        $pdf->setPaper('A4', 'potrait');
         return $pdf->stream('Berita Acara.pdf');
     }
 

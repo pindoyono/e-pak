@@ -9,6 +9,39 @@ function customImagePath($image_name)
     return public_path('folder_kamu/sub_folder_kamu/'.$image_name);
 }
 
+if (! function_exists('masakerja')) {
+    function masakerja($date)
+    {
+		$ts1 = strtotime($date);
+		$ts2 = strtotime(date("Y-m-d H:i:s"));
+		$seconds_diff = $ts2 - $ts1;
+		return floor($seconds_diff / (60 * 60 * 24 * 365))." Tahun";
+    }
+}
+
+if (! function_exists('jumlah')) {
+    function jumlah($role)
+    {
+        $users = \App\User::role($role)->count();
+		return $users;
+    }
+}
+
+if (! function_exists('jumlah_sekolah')) {
+    function jumlah_sekolah()
+    {
+        $sekolah = \App\Sekolah::count();
+		return $sekolah;
+    }
+}
+
+if (! function_exists('jumlah_usulan')) {
+    function jumlah_usulan()
+    {
+        $dupak = \App\Dupak::count();
+		return $dupak;
+    }
+}
 
 if (! function_exists('tgl_indo')) {
     function tgl_indo($tanggal){

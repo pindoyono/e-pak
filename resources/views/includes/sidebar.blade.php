@@ -133,7 +133,7 @@
                     <p>Penilai</p>
                 </a>
             </li>
-            <li class="{{ Request::segment(1) === 'dupaks_penilai'  ? 'active' : null }}">
+            <li class="{{ Request::segment(1) === 'dupaks_penilai' || Request::segment(1) === 'berita_acara' ? 'active' : null }}">
                 <a href="{{route('dupaks_penilai.index' )}}">
                     <i class="fas fa-clipboard-list "></i>
                     <p>Daftar Usulan PAK</p>
