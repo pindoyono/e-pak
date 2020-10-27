@@ -13,6 +13,17 @@
                 </div>
                 <div class="card-content">
                     <h4 class="card-title">Mata Pelajaran</h4>
+                    <form action="{{ route('mapels.import') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="col-md-12 col-sm-12">
+                            <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                <input type="file" name="file">
+                            </div>
+                        </div>
+                        <br>
+                        <button class="btn btn-success">Import Mata Pelajaran</button>
+                        <a class="btn btn-warning" href="{{ route('mapels.export') }}">Export Mata Pelajaran</a>
+                    </form>
                         <div class="col-12 text-right">
                             <a href="{{route('mapels.create')}}" class="btn btn-success">Tambah Mapel <div class="ripple-container"></div></a>
                         </div>
@@ -35,17 +46,17 @@
                                     <td>{{$mapel->nama}}</td>
                                     <td>{{$mapel->jenis}}</td>
                                     <td>{{$mapel->keterangan}}</td>
-                                    <td class="td-actions text-right">
+                                    <<td class="td-actions text-right">
+                                            <form onsubmit="return confirm('Apakah Akan Menghapus Data Secara Permanen?')"  action="{{route('mapels.destroy', [$mapel->id])}}"  method="POST">
                                                 @csrf
                                                 <a href="{{route('mapels.edit',$mapel->id)}}">
                                                     <button type="button" rel="tooltip" class="btn btn-warning" data-original-title="" title="">
                                                         <i class="material-icons">edit</i>
                                                     </button>
                                                 </a>
-                                            <form class="btn btn-sm btn-danger" onsubmit="return confirm('Apakah Akan Menghapus Data Secara Permanen?')"  action="{{route('mapels.destroy', [$mapel->id])}}"  method="POST">
                                                 <input  type="hidden"  name="_method" value="DELETE">
                                                 <button type="submit" rel="tooltip" class="btn btn-danger" data-original-title="" title="">
-                                                    <i data-id="{{$mapel->id}}" class="material-icons">close</i>
+                                                     <i data-id="{{$mapel->id}}" class="material-icons">close</i>
                                                 </button>
                                             </form>
                                     </td>

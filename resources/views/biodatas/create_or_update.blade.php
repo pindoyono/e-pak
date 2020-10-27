@@ -62,12 +62,17 @@
                             </div>
                         </div>
                         <div class="row">
-                            <label class="col-sm-2 label-on-left">Mengajar Mapel</label>
+                            <label class="col-sm-2 label-on-left">Mengajar Mata Pelajaran</label>
                             <div class="col-sm-7">
-                                <div class="form-group label-floating is-empty">
-                                    <label class="control-label"></label>
-                                    <input class="form-control" placeholder="contoh Guru Mata Pelajaran Kimia" type="text" name="jenis_guru" value="{{$biodatas->jenis_guru}}"  required="true" aria-required="true">
-                                    <span class="material-input"></span>
+                                <div class="col-lg-5 col-md-6 col-sm-3">
+                                    <select class="js-example-basic-single form-control" required="true" width="70%" name="jenis_guru" >
+                                    <option value="">Pilih Mapel</option>
+                                    @if(!empty($mapels))
+                                        @foreach ($mapels as $mapel)
+                                            <option {{ $biodatas->jenis_guru == $mapel->nama ? "selected" : ""}} value="{{$mapel->nama}}">{{$mapel->nama}}</option>
+                                        @endforeach
+                                    @endif
+                                    </select>
                                 </div>
                             </div>
                         </div>

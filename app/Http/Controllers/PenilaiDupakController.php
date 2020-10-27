@@ -114,7 +114,9 @@ class PenilaiDupakController extends Controller
         $biodatas = \App\Biodata::where('user_id', $dupak->user_id)->first();
         $kepegawaians = \App\Kepegawaian::where('user_id', $dupak->user_id)->get();
         $now = date('Y-m-d');
-        $berita_acara = \App\BeritaAcara::orderBy('id','asc')->get();
+        $berita_acara = \App\BeritaAcara::where('dupak_id', $id)->first();
+        // $berita_acara = json_decode($berita_acara);
+        
         return view('dupaks_penilai.berita_acara', ['berita_acara' => $berita_acara,
                                                     'dupak' => $dupak,
                                                     'biodatas' => $biodatas,
@@ -122,8 +124,78 @@ class PenilaiDupakController extends Controller
                                                     'now' => $now,
                                                     'kepegawaians' => $kepegawaians,
                                                     'dupak_id' => $id,
-                                                    'berkas' => $berkas,]
+                                                    'berkas' => $berkas,
+                                                    'pendidikan' => $berita_acara->pendidikan,
+                                                    ]
                                                 );
+    }
+
+    public function create_or_update(Request $request, $id)
+    {
+        $id = Crypt::decrypt($id);
+        // var_dump($id);
+        // exit;
+        $berita_acara = \App\BeritaAcara::updateOrCreate([
+            //Add unique field combo to match here
+            //For example, perhaps you only want one entry per user:
+            'dupak_id'   => $id,
+        ],[
+            'dupak_id'   => $id,
+            'pendidikan' => json_encode([ 
+                'lama' => $request->get('value1'),
+                'baru' => $request->get('value2'),
+                'total' => $request->get('sum'),
+            ]),
+            'prajabatan' =>json_encode([ 
+                'lama' => $request->get('value1a'),
+                'baru' => $request->get('value2a'),
+                'total' => $request->get('suma'),
+            ]),
+            'pembelajaran' => json_encode([ 
+                'lama' => $request->get('value1b'),
+                'baru' => $request->get('value2b'),
+                'total' => $request->get('sumb'),
+            ]),
+            'bimbingan' => json_encode([ 
+                'lama' => $request->get('value1c'),
+                'baru' => $request->get('value2c'),
+                'total' => $request->get('sumc'),
+            ]),
+            'tugas_lain' => json_encode([ 
+                'lama' => $request->get('value1d'),
+                'baru' => $request->get('value2d'),
+                'total' => $request->get('sumd'),
+            ]),
+            'pd' => json_encode([ 
+                'lama' => $request->get('value1e'),
+                'baru' => $request->get('value2e'),
+                'total' => $request->get('sume'),
+            ]),
+            'pi' => json_encode([ 
+                'lama' => $request->get('value1f'),
+                'baru' => $request->get('value2f'),
+                'total' => $request->get('sumf'),
+            ]),
+            'ki' => json_encode([ 
+                'lama' => $request->get('value1g'),
+                'baru' => $request->get('value2g'),
+                'total' => $request->get('sumg'),
+            ]),
+            'ijazah_tdk_sesuai' => json_encode([ 
+                'lama' => $request->get('value1h'),
+                'baru' => $request->get('value2h'),
+                'total' => $request->get('sumh'),
+            ]),
+            'pendukung' => json_encode([ 
+                'lama' => $request->get('value1i'),
+                'baru' => $request->get('value2i'),
+                'total' => $request->get('sumi'),
+            ]),
+        ]);
+
+        $id = Crypt::encrypt($id);
+        
+        return redirect()->route('dupaks_penilai.berita_acara',$id)->with('toast_success', 'Task Created Successfully!');
     }
 
     public function createPDF($id) {

@@ -8,6 +8,9 @@ use Spatie\Permission\Models\Permission;
 use RealRashid\SweetAlert\Facades\Alert;
 use DB;
 use Hash;
+use App\Exports\MapelExport;
+use App\Imports\MapelImport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Validator;
 
 class MapelController extends Controller
@@ -135,5 +138,36 @@ class MapelController extends Controller
     public function destroy($id)
     {
         //
+        $mapel = \App\Mapel::findOrFail($id);
+        $mapel->delete();
+        return redirect()->route('mapels.index')->with('success', 'Data Sekolah Berhasil Di Hapus');
+    }
+
+    public function export() 
+    {
+        return Excel::download(new MapelExport, 'mapels.xlsx');
+    }
+    
+    public function import(Request $request) 
+    {
+          $validator = Validator::make($request->all(), [
+            "file" => "required",
+        ]);
+
+        if ($validator->fails()) {
+            return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
+        }
+
+        $file = $request->file('file')->store('import');
+
+        $import = new MapelImport;
+        $import->import($file);
+
+        if ($import->failures()->isNotEmpty()) {
+            return back()->withFailures($import->failures());
+        }
+
+
+        return back()->withStatus('Import in queue, we will send notification after import finished.');
     }
 }

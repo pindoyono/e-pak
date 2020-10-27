@@ -92,6 +92,7 @@ class BiodataController extends Controller
         $jabatans = \App\Jabatan::orderBy('target','asc')->get();
         $biodatas = \App\Biodata::where('user_id',$id)->get();
         $sekolah = \App\Sekolah::all();
+        $mapels = \App\Mapel::all();
 
         // $biodatas = \App\Biodata::findOrFail($id);
         if(count($biodatas)==0){
@@ -117,12 +118,14 @@ class BiodataController extends Controller
             return view('biodatas.create_or_update',['jabatans' => $jabatans,
                                                     'biodatas' => json_decode(json_encode($biodatas)), 
                                                     'sekolahs' => $sekolah, 
+                                                    'mapels' => $mapels, 
                                                 ]);
         }else{
             $biodata_id = \App\Biodata::where('user_id',$id)->get();
                 return view('biodatas.create_or_update',['jabatans' => $jabatans,
                                                 'biodatas' => $biodata_id[0],
                                                 'sekolahs' => $sekolah, 
+                                                'mapels' => $mapels, 
                                                 ]);
 
             
@@ -165,6 +168,7 @@ class BiodataController extends Controller
 
         $jabatans = \App\Jabatan::orderBy('target','asc')->get();
         $biodatas = \App\Biodata::orderBy('id','asc')->get();
+        $mapels = \App\Mapel::all();
         // $biodatas = \App\Biodata::findOrFail($id);
         if(!empty($biodatas)){
             $biodatas = (object) array(

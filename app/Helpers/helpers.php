@@ -57,6 +57,16 @@ if (! function_exists('pangkat')) {
     }
 }
 
+if (! function_exists('parsing')) {
+    function parsing($data){
+        // $content=file_get_contents($data);
+        // $content=utf8_encode($content);
+        $result=json_decode($data,true);
+
+        return $result;
+    }
+}
+
 if (! function_exists('tgl_indo_tahun')) {
     function tgl_indo_tahun($tanggal){
         $bulan = array (

@@ -12,12 +12,13 @@ class BeritaAcara extends Model
         'prajabatan',
         'pembelajaran',
         'bimbingan',
-        'ugas_lain',
+        'tugas_lain',
         'pd',
         'pi',
         'ki',
-        'jazah_tdk_sesuai',
+        'ijazah_tdk_sesuai',
         'pendukung',
+        'dupak_id',
     ];
 
 }

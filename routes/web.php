@@ -44,6 +44,7 @@ Route::group(['middleware' => ['auth']], function() {
     
     Route::get('/berita_acara/{id}', 'PenilaiDupakController@berita_acara')->name('dupaks_penilai.berita_acara')->middleware('role:guru|penilai');
     Route::get('/createPDF/{id}', 'PenilaiDupakController@createPDF')->name('dupaks_penilai.createPDF')->middleware('role:guru|penilai');
+    Route::put('/cou_berita_acara/{id}', 'PenilaiDupakController@create_or_update')->name('dupaks_penilai.create_or_update')->middleware('role:guru|penilai|super admin');
     
     Route::get('/bukti/{id}', 'BerkasController@bukti')->name('berkas.bukti')->middleware('role:guru|penilai');
     Route::put('/berkas/simpan/{id}', 'BerkasController@simpan')->name('berkas.simpan')->middleware('role:guru|penilai');
@@ -70,6 +71,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('export', 'KegiatanController@export')->name('kegiatans.export')->middleware('role:super admin');
     // Route::get('importExportView', 'KegiatanController@importExportView')->middleware('role:super admin');
     Route::post('import', 'KegiatanController@import')->name('kegiatans.import')->middleware('role:super admin');
+    Route::get('exportmapel', 'MapelController@export')->name('mapels.export')->middleware('role:super admin');
+    Route::post('importmapel', 'MapelController@import')->name('mapels.import')->middleware('role:super admin');
 
 });
 
