@@ -27,11 +27,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $users = \App\User::get();
-        foreach($users as $key => $user){
-            $user->assignRole('guru');
-            $user->givePermissionTo('guru');
-        }
+        // $users = \App\User::get();
+        // foreach($users as $key => $user){
+        //     $user->assignRole('guru');
+        //     $user->givePermissionTo('guru');
+        // }
         return view('dashboard.dashboard');
 
         // $user = Role::all()->pluck('name');
