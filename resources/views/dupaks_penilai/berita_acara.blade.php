@@ -23,7 +23,11 @@
                 <div class="card-content">
                     <h2 class="card-title text-center">BERITA ACARA PENILAIAN ANGKA KREDIT</h2>
                     <h2 class="card-title text-center">TAHUN {{tgl_indo_tahun($dupak->awal)}}</h2>
+                    <p>
+                        Pada hari Ini {{ hari_ini().", ".tgl_indo($now)}} bertempat di Kantor Cabang Dinas Pendidikan Dan Kebudayaan Provinsi Kalimantan Utara
+                        Wilayah Malinau dan Tana Tidung di Malinau telah dilakukan penilaian terhadap usulan penilaian angka kredit jabatan fungsional guru dengan hasil sebagai berikut:
                     
+                    </p>
                     <form enctype="multipart/form-data" class="form-horizontal"  action="{{route('dupaks_penilai.create_or_update', Crypt::encrypt($dupak->id) )}}" method="POST">
                     
                     

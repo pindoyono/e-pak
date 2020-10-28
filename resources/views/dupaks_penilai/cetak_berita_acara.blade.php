@@ -9,6 +9,11 @@
             <tr style="font-size:8">
                 <th colspan=4 >Instansi : Dinas Pendidikan dan Kebudayaan Provinsi Kalimantan Utara</th>
                 <th colspan=4 style="text-align:right;">Masa penilaian : {{tgl_indo($dupak->awal).' - '.tgl_indo($dupak->awal)}}</th>
+                <p>
+                    Pada hari Ini {{ hari_ini().", ".tgl_indo($now)}} bertempat di Kantor Cabang Dinas Pendidikan Dan Kebudayaan Provinsi Kalimantan Utara
+                    Wilayah Malinau dan Tana Tidung di Malinau telah dilakukan penilaian terhadap usulan penilaian angka kredit jabatan fungsional guru dengan hasil sebagai berikut:
+                
+                </p>
             </tr>
         </thead>
         <tbody style="font-size:11">

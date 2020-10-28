@@ -69,6 +69,7 @@ class UsersImport implements
             ]);
 
             $user->assignRole($row['role']);
+            $user->givePermissionTo($row['role']);
         }
     }
 
