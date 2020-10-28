@@ -60,6 +60,7 @@
                                     <td colspan=2>NIP</td>
                                     <td colspan=2>{{$users->nip}}</td>
                                 </tr>
+                                @if(!empty($biodatas))
                                 <tr>
                                     <td width="5%"> 3</td>
                                     <td colspan=2>NUPTK</td>
@@ -123,6 +124,17 @@
                                 <tr>
                                     <td colspan=7></td>
                                 </tr>
+                                @else
+                                    <div class="alert alert-warning">
+                                        <button type="button" aria-hidden="true" class="close">
+                                            <i class="material-icons">close</i>
+                                        </button>
+                                        <span>
+                                            <b> Warning - </b>
+                                                Biodata Belum di Lengkapi Oleh Guru Yg bersangkutan
+                                            </span>
+                                    </div>
+                                @endif
                                @if(!empty($berita_acara->pendidikan))
                                 <tr>
                                     <td width="5%">II</td>
@@ -406,7 +418,7 @@
                 </form>
                     </div>
                     <div class="col-sm-3">
-                    @if(!empty($berita_acara->pendidikan))
+                    @if(!empty($berita_acara->pendidikan) && !empty($biodatas))
                         <a target="_blank" href="{{route('dupaks_penilai.createPDF', Crypt::encrypt($dupak_id))}}">
                             <button class="btn btn-primary btn-round">
                                 <i class="fas fa-print"></i> Cetak Berita Acara

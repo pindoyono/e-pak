@@ -100,6 +100,12 @@
                                 <p>Mata Pelajaran</p>
                             </a>
                         </li>
+                        <li class="{{ Request::segment(1) === 'kegiatans'  ? 'active' : null }}">
+                            <a href="{{route('kegiatans.index')}}">
+                                <i class="fas fa-layer-group"></i>
+                                <p>Kegiatan</p>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </li>

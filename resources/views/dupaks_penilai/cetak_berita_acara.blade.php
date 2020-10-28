@@ -1,122 +1,132 @@
+<style>
+table, td, th {
+  border: 1px solid black;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.wrapper {
+    border: 0px solid white;
+}
+
+</style>
+
+
+
 <div class="container center" style="text-align:center;">
     <h3>
         BERITA ACARA PENILAIAN ANGKA KREDIT
             <br>
         TAHUN {{tgl_indo_tahun($dupak->awal)}}
     </h3>
+    
+    <div style="font-size:12; text-align:left">
+        Pada hari Ini {{ hari_ini().", ".tgl_indo($now)}} bertempat di Kantor Cabang Dinas Pendidikan Dan Kebudayaan Provinsi Kalimantan Utara
+        Wilayah Malinau dan Tana Tidung di Malinau telah dilakukan penilaian terhadap usulan penilaian angka kredit jabatan fungsional guru dengan hasil sebagai berikut:
+    </div>
     <table>
-        <thead>
-            <tr style="font-size:8">
-                <th colspan=4 >Instansi : Dinas Pendidikan dan Kebudayaan Provinsi Kalimantan Utara</th>
-                <th colspan=4 style="text-align:right;">Masa penilaian : {{tgl_indo($dupak->awal).' - '.tgl_indo($dupak->awal)}}</th>
-                <p>
-                    Pada hari Ini {{ hari_ini().", ".tgl_indo($now)}} bertempat di Kantor Cabang Dinas Pendidikan Dan Kebudayaan Provinsi Kalimantan Utara
-                    Wilayah Malinau dan Tana Tidung di Malinau telah dilakukan penilaian terhadap usulan penilaian angka kredit jabatan fungsional guru dengan hasil sebagai berikut:
-                
-                </p>
-            </tr>
-        </thead>
         <tbody style="font-size:11">
             <tr>
+            <td colspan=4 style="font-size:8; text-align:left">
+                Instansi : Dinas Pendidikan dan Kebudayaan Provinsi Kalimantan Utara      
+            </td>
+            <td colspan=4 style="font-size:8;text-align:right">
+                Masa penilaian : {{tgl_indo($dupak->awal).' - '.tgl_indo($dupak->awal)}}
+            </td>
+            </tr>
+            <tr>
                 <td width="5%">I</td>
-                <td colspan=5 class="text-left"> KETERANGAN PERORANGAN</td>
+                <td colspan=7 class="text-left"> KETERANGAN PERORANGAN</td>
             </tr>
             <tr>
                 <td rowspan=14></td>
                 <td width="5%"> 1</td>
                 <td width="40%" colspan=2>Nama</td>
-                <td colspan=3>{{$users->name}}</td>
+                <td colspan=4>{{$users->name}}</td>
             </tr>
             <tr>
                 <td width="5%"> 2</td>
                 <td colspan=2>NIP</td>
-                <td colspan=3>{{$users->nip}}</td>
+                <td colspan=4>{{$users->nip}}</td>
             </tr>
             <tr>
                 <td width="5%"> 3</td>
                 <td colspan=2>NUPTK</td>
-                <td colspan=3>{{$biodatas->nuptk}}</td>
+                <td colspan=4>{{$biodatas->nuptk}}</td>
             </tr>
             <tr>
                 <td width="5%"> 4</td>
                 <td colspan=2>Tempat dan Tanggal Lahir</td>
-                <td colspan=3>{{$biodatas->tempat_lahir.' dan '.$biodatas->tanggal_lahir}}</td>
+                <td colspan=4>{{$biodatas->tempat_lahir.' dan '.$biodatas->tanggal_lahir}}</td>
             </tr>
             <tr>
                 <td width="5%"> 5</td>
                 <td colspan=2>Jenis Kelamin</td>
-                <td colspan=3>{{$biodatas->jenis_kelamin}}</td>
+                <td colspan=4>{{$biodatas->jenis_kelamin}}</td>
             </tr>
             <tr>
                 <td width="5%"> 6</td>
                 <td colspan=2>Pendidikan yang telah diperhitungkan angka kreditnya</td>
-                <td colspan=3>{{$biodatas->pendidikan}}</td>
+                <td colspan=4>{{$biodatas->pendidikan}}</td>
             </tr>
             <tr>
                 <td width="5%"> 7</td>
                 <td colspan=2>Pangkat / Golongan ruang / TMT</td>
-                <td colspan=3>{{  pangkat($biodatas->pangkat_golongan)->pangkat }}</td>
+                <td colspan=4>{{  pangkat($biodatas->pangkat_golongan)->pangkat }}</td>
             </tr>
             <tr>
                 <td width="5%"> 8</td>
                 <td colspan=2>Jabatan Guru / TMT</td>
-                <td colspan=3>{{  pangkat($biodatas->pangkat_golongan)->jabatan }}</td>
+                <td colspan=4>{{  pangkat($biodatas->pangkat_golongan)->jabatan }}</td>
             </tr>
             <tr>
                 <td rowspan=2> 9</td>
                 <td rowspan=2>Masa kerja Golongan</td>
                 <td>Lama</td>
-                <td colspan=3>{{$biodatas->tmt_cpns}}</td>
+                <td colspan=4>{{$biodatas->tmt_cpns}}</td>
             </tr>
             <tr>
                 <td>Baru</td>
-                <td colspan=3>{{$biodatas->tmt_cpns}}</td>
+                <td colspan=4>{{$biodatas->tmt_cpns}}</td>
             </tr>
             <tr>
                 <td width="5%"> 10</td>
                 <td colspan=2>Jenis Guru </td>
-                <td colspan=3>{{  $biodatas->jenis_guru }}</td>
+                <td colspan=4>{{  $biodatas->jenis_guru }}</td>
             </tr>
             <tr>
                 <td width="5%"> 11</td>
                 <td colspan=2>Unit Kerja </td>
-                <td colspan=3>{{  nama_sekolah($biodatas->sekolah_id)->nama }}</td>
+                <td colspan=4>{{  nama_sekolah($biodatas->sekolah_id)->nama }}</td>
             </tr>
             <tr>
                 <td rowspan=2> 12</td>
                 <td rowspan=2>Alamat</td>
                 <td>Sekolah</td>
-                <td colspan=3>{{nama_sekolah($biodatas->sekolah_id)->alamat}}</td>
+                <td colspan=4>{{nama_sekolah($biodatas->sekolah_id)->alamat}}</td>
             </tr>
             <tr>
                 <td>Rumah</td>
-                <td colspan=3>{{$biodatas->alamat}}</td>
-            </tr>
-            <tr>
-                <td colspan=8></td>
+                <td colspan=4>{{$biodatas->alamat}}</td>
             </tr>
 
             <tr>
                 <td width="5%">II</td>
-                <td colspan=3> PENETAPAN ANGKA KREDIT</td>
-                <td width="10%"></td>
-                <td width="10%"></td>
-                <td width="10%"></td>
+                <td colspan=7> PENETAPAN ANGKA KREDIT</td>
             </tr>
             <tr>
                 <td width="5%" rowspan="20"></td>
                 <td width="2%" >1</td>
                 <td> <b>Unsur Utama</b></td>
-                <td ></td>
-                <td></td>
-                <td></td>
+                <td  colspan=5></td>
             </tr>
             <tr>
                 <td width="2%" rowspan="12"></td>
                 <td> a. Pendidikan</td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td  colspan=5></td>
             </tr>
             <tr>
                 <td colspan="3">1) Pendidikan sekolah dan memperoleh gelar ijazah </td>
@@ -270,25 +280,18 @@
                     </b>
                 </td>
             </tr>
-
-            <tr>
-                <td colspan="3"><b>	</b></td>
-                <td></td> 
-                <td colspan="3">
-                <br>
-                        Malinau, {{tgl_indo($now)}}
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                        {{Auth::user()->name}} 
-                    <br>
-                        NIP. {{Auth::user()->nip}}
-                </td> 
-            </tr>
-            
-            
-
     </tbody>
     </table>
+
+    <div style="text-align:left;padding-left:70%">
+            Malinau, {{tgl_indo($now)}}
+            <br>
+            <br>
+            <br>
+                {{Auth::user()->name}} 
+            <br>
+                NIP. {{Auth::user()->nip}}
+    </div>
+
+
 </div>
