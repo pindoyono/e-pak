@@ -184,11 +184,11 @@
                             </div>
                         </div>
                         <div class="row">
-                            <label class="col-sm-2 label-on-left">No SK Terakhir</label>
+                            <label class="col-sm-2 label-on-left">Nomor SK Terakhir</label>
                             <div class="col-sm-7">
                                 <div class="form-group label-floating is-empty">
                                     <label class="control-label"></label>
-                                    <input class="form-control" placeholder="No SK Terakhir" value="{{$biodatas->no_sk_cpns}}" type="text" name="no_sk_cpns" required="true" aria-required="true">
+                                    <input class="form-control" placeholder="Nomor SK Terakhir" value="{{$biodatas->no_sk_cpns}}" type="text" name="no_sk_cpns" required="true" aria-required="true">
                                     <span class="material-input"></span>
                                 </div>
                             </div>
@@ -241,7 +241,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <label class="col-sm-2 label-on-left">No KARPEG</label>
+                            <label class="col-sm-2 label-on-left">Nomor KARPEG</label>
                             <div class="col-sm-7">
                                 <div class="form-group label-floating is-empty">
                                     <label class="control-label"></label>
@@ -261,7 +261,7 @@
                             </div>
                         </div> -->
                         <div class="row">
-                            <label class="col-sm-2 label-on-left">No Handphone</label>
+                            <label class="col-sm-2 label-on-left">Nomor Handphone</label>
                             <div class="col-sm-7">
                                 <div class="form-group label-floating is-empty">
                                     <label class="control-label"></label>

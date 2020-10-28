@@ -31,7 +31,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles','RoleController')->middleware('role:super admin');
-    Route::resource("users", "UserController")->middleware('role:super admin');
+    Route::resource("users", "UserController");
     Route::resource("jabatans", "JabatanControler")->middleware('role:super admin');
     Route::resource("sekolahs", "SekolahController")->middleware('role:super admin');
     Route::resource("mapels", "MapelController")->middleware('role:super admin');
