@@ -1,4 +1,4 @@
-<div class="sidebar" data-active-color="rose" data-background-color="black" data-image="{{asset('material/img/sidebar-1.jpg')}}">
+<div class="sidebar" data-active-color="rose" data-background-color="black" data-image="{{asset('material/img/hutan_malinau.jpg')}}">
     <div class="logo">
         <a href="{{route('home')}}" class="simple-text">
             <img width="10%" src="{{asset('material/img/kaltara.png')}}"/>  e-Pak Guru
@@ -116,7 +116,6 @@
                 </a>
             </li> -->
             @endrole
-            
             @role('guru')
             <li class="{{ Request::segment(1) === 'kepegawaians'  ? 'active' : null }}">
                 <a href="{{route('kepegawaians.index' )}}">
@@ -146,6 +145,15 @@
                 </a>
             </li>
 
+            @endrole
+
+            @role('verifikator')
+            <li class="{{ Request::segment(1) === 'dupaks_penilai' || Request::segment(1) === 'berita_acara' || Request::segment(1) === 'verifikasi' ? 'active' : null }}">
+                <a href="{{route('dupaks_penilai.index' )}}">
+                    <i class="fas fa-clipboard-list "></i>
+                    <p>Daftar Usulan PAK</p>
+                </a>
+            </li>
             @endrole
             
             <li class="">

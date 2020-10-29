@@ -162,15 +162,15 @@
 
                                <tr>
                                     <td>1) Pendidikan sekolah dan memperoleh gelar ijazah </td>
-                                    <td><input type="number" value="{{ json_decode($berita_acara->pendidikan)->lama }}" name="value1" id="value1" class="form-control" min="0" placeholder="LAMA" required /></td>
-                                    <td><input type="number" value="{{ json_decode($berita_acara->pendidikan)->baru }}" name="value2" id="value2" class="form-control" min="0" placeholder="BARU" required /></td>
-                                    <td><input type="number" value="{{ json_decode($berita_acara->pendidikan)->total }}" name="sum" id="sum" class="form-control" readonly /></td>
+                                    <td><input  step="any" type="number" value="{{ json_decode($berita_acara->pendidikan)->lama }}" name="value1" id="value1" class="form-control" min="0" placeholder="LAMA" required /></td>
+                                    <td><input  step="any" type="number" value="{{ json_decode($berita_acara->pendidikan)->baru }}" name="value2" id="value2" class="form-control" min="0" placeholder="BARU" required /></td>
+                                    <td><input   step="any" type="number" value="{{ json_decode($berita_acara->pendidikan)->total }}" name="sum" id="sum" class="form-control" readonly /></td>
                                 </tr>
                                 <tr>
                                     <td>2) Mengikuti pelatihan prajabatan</td>
-                                    <td><input type="number" value="{{ json_decode($berita_acara->prajabatan)->lama }}" name="value1a" id="value1a" class="form-control" min="0" placeholder="LAMA" required /></td>
-                                    <td><input type="number" value="{{ json_decode($berita_acara->prajabatan)->baru }}" name="value2a" id="value2a" class="form-control" min="0" placeholder="BARU" required /></td>
-                                    <td><input type="number" value="{{ json_decode($berita_acara->prajabatan)->total }}" name="suma" id="suma" class="form-control" readonly /></td>
+                                    <td><input  step="any" type="number" value="{{ json_decode($berita_acara->prajabatan)->lama }}" name="value1a" id="value1a" class="form-control" min="0" placeholder="LAMA" required /></td>
+                                    <td><input  step="any" type="number" value="{{ json_decode($berita_acara->prajabatan)->baru }}" name="value2a" id="value2a" class="form-control" min="0" placeholder="BARU" required /></td>
+                                    <td><input  step="any" type="number" value="{{ json_decode($berita_acara->prajabatan)->total }}" name="suma" id="suma" class="form-control" readonly /></td>
                                 </tr>
                                 <tr>
                                     <td>b. Pembelajaran /  bimbingan dan tugas tertentu</td>
@@ -180,21 +180,21 @@
                                 </tr>
                                 <tr>
                                     <td>    1) Proses pembelajaran	</td>
-                                    <td><input type="number" value="{{ json_decode($berita_acara->pembelajaran)->lama }}" name="value1b" id="value1b" class="form-control" min="0" placeholder="LAMA" required /></td>
-                                    <td><input type="number" value="{{ json_decode($berita_acara->pembelajaran)->baru }}" name="value2b" id="value2b" class="form-control" min="0" placeholder="BARU" required /></td>
-                                    <td><input type="number" value="{{ json_decode($berita_acara->pembelajaran)->total }}" name="sumb" id="sumb" class="form-control" readonly /></td>
+                                    <td><input  step="any" type="number" value="{{ json_decode($berita_acara->pembelajaran)->lama }}" name="value1b" id="value1b" class="form-control" min="0" placeholder="LAMA" required /></td>
+                                    <td><input  step="any" type="number" value="{{ json_decode($berita_acara->pembelajaran)->baru }}" name="value2b" id="value2b" class="form-control" min="0" placeholder="BARU" required /></td>
+                                    <td><input  step="any" type="number" value="{{ json_decode($berita_acara->pembelajaran)->total }}" name="sumb" id="sumb" class="form-control" readonly /></td>
                                 </tr>
                                 <tr>
                                     <td>    2) Proses bimbingan	</td>
-                                    <td><input type="number" value="{{ json_decode($berita_acara->bimbingan)->lama }}" name="value1c" id="value1c" class="form-control" min="0" placeholder="LAMA" required /></td>
-                                    <td><input type="number" value="{{ json_decode($berita_acara->bimbingan)->baru }}" name="value2c" id="value2c" class="form-control" min="0" placeholder="BARU" required /></td>
-                                    <td><input type="number" value="{{ json_decode($berita_acara->bimbingan)->total }}" name="sumc" id="sumc" class="form-control" readonly /></td>
+                                    <td><input  step="any" type="number" value="{{ json_decode($berita_acara->bimbingan)->lama }}" name="value1c" id="value1c" class="form-control" min="0" placeholder="LAMA" required /></td>
+                                    <td><input  step="any" type="number" value="{{ json_decode($berita_acara->bimbingan)->baru }}" name="value2c" id="value2c" class="form-control" min="0" placeholder="BARU" required /></td>
+                                    <td><input  step="any" type="number" value="{{ json_decode($berita_acara->bimbingan)->total }}" name="sumc" id="sumc" class="form-control" readonly /></td>
                                 </tr>
                                 <tr>
                                     <td>    3) Tugas lain yang relevan</td>
-                                    <td><input type="number" value="{{ json_decode($berita_acara->tugas_lain)->lama }}" name="value1d" id="value1d" class="form-control" min="0" placeholder="LAMA" required /></td>
-                                    <td><input type="number" value="{{ json_decode($berita_acara->tugas_lain)->baru }}" name="value2d" id="value2d" class="form-control" min="0" placeholder="BARU" required /></td>
-                                    <td><input type="number" value="{{ json_decode($berita_acara->tugas_lain)->total }}" name="sumd" id="sumd" class="form-control" readonly /></td>
+                                    <td><input  step="any" type="number" value="{{ json_decode($berita_acara->tugas_lain)->lama }}" name="value1d" id="value1d" class="form-control" min="0" placeholder="LAMA" required /></td>
+                                    <td><input  step="any" type="number" value="{{ json_decode($berita_acara->tugas_lain)->baru }}" name="value2d" id="value2d" class="form-control" min="0" placeholder="BARU" required /></td>
+                                    <td><input  step="any" type="number" value="{{ json_decode($berita_acara->tugas_lain)->total }}" name="sumd" id="sumd" class="form-control" readonly /></td>
                                 </tr>
                                 <tr>
                                     <td>c. Pengembangan Keprofesian</td>
@@ -204,25 +204,25 @@
                                 </tr>
                                 <tr>
                                     <td> 1) Pengembangan diri</td>
-                                    <td><input type="number" value="{{ json_decode($berita_acara->pd)->lama }}" name="value1e" id="value1e" class="form-control" min="0" placeholder="LAMA" required /></td>
-                                    <td><input type="number" value="{{ json_decode($berita_acara->pd)->baru }}" name="value2e" id="value2e" class="form-control" min="0" placeholder="BARU" required /></td>
-                                    <td><input type="number" value="{{ json_decode($berita_acara->pd)->total }}" name="sume" id="sume" class="form-control" readonly /></td>
+                                    <td><input  step="any" type="number" value="{{ json_decode($berita_acara->pd)->lama }}" name="value1e" id="value1e" class="form-control" min="0" placeholder="LAMA" required /></td>
+                                    <td><input  step="any" type="number" value="{{ json_decode($berita_acara->pd)->baru }}" name="value2e" id="value2e" class="form-control" min="0" placeholder="BARU" required /></td>
+                                    <td><input  step="any" type="number" value="{{ json_decode($berita_acara->pd)->total }}" name="sume" id="sume" class="form-control" readonly /></td>
                                 </tr>
                                 <tr>
                                     <td>2) Publikasi ilmiah</td>
-                                    <td><input type="number" value="{{ json_decode($berita_acara->pi)->lama }}" name="value1f" id="value1f" class="form-control" min="0" placeholder="LAMA" required /></td>
-                                    <td><input type="number" value="{{ json_decode($berita_acara->pi)->baru }}" name="value2f" id="value2f" class="form-control" min="0" placeholder="BARU" required /></td>
-                                    <td><input type="number" value="{{ json_decode($berita_acara->pi)->total }}" name="sumf" id="sumf" class="form-control" readonly /></td>
+                                    <td><input  step="any" type="number" value="{{ json_decode($berita_acara->pi)->lama }}" name="value1f" id="value1f" class="form-control" min="0" placeholder="LAMA" required /></td>
+                                    <td><input  step="any" type="number" value="{{ json_decode($berita_acara->pi)->baru }}" name="value2f" id="value2f" class="form-control" min="0" placeholder="BARU" required /></td>
+                                    <td><input  step="any" type="number" value="{{ json_decode($berita_acara->pi)->total }}" name="sumf" id="sumf" class="form-control" readonly /></td>
                                 </tr>
                                 <tr>
                                     <td>  3) Karya Inovatif</td>
-                                    <td><input type="number" value="{{ json_decode($berita_acara->ki)->lama }}" name="value1g" id="value1g" class="form-control" min="0" placeholder="LAMA" required /></td>
-                                    <td><input type="number" value="{{ json_decode($berita_acara->ki)->baru }}" name="value2g" id="value2g" class="form-control" min="0" placeholder="BARU" required /></td>
-                                    <td><input type="number" value="{{ json_decode($berita_acara->ki)->total }}" name="sumg" id="sumg" class="form-control" readonly /></td>
+                                    <td><input  step="any" type="number" value="{{ json_decode($berita_acara->ki)->lama }}" name="value1g" id="value1g" class="form-control" min="0" placeholder="LAMA" required /></td>
+                                    <td><input  step="any" type="number" value="{{ json_decode($berita_acara->ki)->baru }}" name="value2g" id="value2g" class="form-control" min="0" placeholder="BARU" required /></td>
+                                    <td><input  step="any" type="number" value="{{ json_decode($berita_acara->ki)->total }}" name="sumg" id="sumg" class="form-control" readonly /></td>
                                 </tr>
                                 <tr>
                                     <td> <b>Jumlah Unsur Utama</b></td>
-                                    <td><input placeholder="total utama"
+                                    <td><input  step="any" placeholder="total utama"
                                     value="{{ json_decode($berita_acara->ki)->lama + 
                                             json_decode($berita_acara->pendidikan)->lama +
                                             json_decode($berita_acara->prajabatan)->lama +
@@ -232,7 +232,7 @@
                                             json_decode($berita_acara->pd)->lama +
                                             json_decode($berita_acara->pi)->lama }}"
                                      type="number" name="total_utama_lama" id="total_utama_lama" class="form-control" readonly /></td>
-                                    <td><input placeholder="total utama"
+                                    <td><input  step="any" placeholder="total utama"
                                     value="{{ json_decode($berita_acara->ki)->baru + 
                                             json_decode($berita_acara->pendidikan)->baru +
                                             json_decode($berita_acara->prajabatan)->baru +
@@ -242,7 +242,7 @@
                                             json_decode($berita_acara->pd)->baru +
                                             json_decode($berita_acara->pi)->baru }}"
                                      type="number" name="total_utama_baru" id="total_utama_baru" class="form-control" readonly /></td>
-                                    <td><input placeholder="total utama" 
+                                    <td><input  step="any" placeholder="total utama" 
                                     value="{{ json_decode($berita_acara->ki)->total + 
                                             json_decode($berita_acara->pendidikan)->total +
                                             json_decode($berita_acara->prajabatan)->total +
@@ -263,27 +263,27 @@
                                 <tr>
                                     <td width="2%" rowspan="12"></td>
                                     <td>1. Ijazah yang tidak sesuai</td>
-                                    <td><input type="number" value="{{ json_decode($berita_acara->ijazah_tdk_sesuai)->lama }}" name="value1h" id="value1h" class="form-control" min="0" placeholder="LAMA" required /></td>
-                                    <td><input type="number" value="{{ json_decode($berita_acara->ijazah_tdk_sesuai)->baru }}" name="value2h" id="value2h" class="form-control" min="0" placeholder="BARU" required /></td>
-                                    <td><input type="number" value="{{ json_decode($berita_acara->ijazah_tdk_sesuai)->total }}" name="sumh" id="sumh" class="form-control" readonly /></td>
+                                    <td><input  step="any" type="number" value="{{ json_decode($berita_acara->ijazah_tdk_sesuai)->lama }}" name="value1h" id="value1h" class="form-control" min="0" placeholder="LAMA" required /></td>
+                                    <td><input  step="any" type="number" value="{{ json_decode($berita_acara->ijazah_tdk_sesuai)->baru }}" name="value2h" id="value2h" class="form-control" min="0" placeholder="BARU" required /></td>
+                                    <td><input  step="any" type="number" value="{{ json_decode($berita_acara->ijazah_tdk_sesuai)->total }}" name="sumh" id="sumh" class="form-control" readonly /></td>
                                 </tr>
                                 <tr>
                                     <td>2. Pendukung tugas guru</td>
-                                    <td><input type="number" value="{{ json_decode($berita_acara->pendukung)->lama }}" name="value1i" id="value1i" class="form-control" min="0" placeholder="LAMA" required /></td>
-                                    <td><input type="number" value="{{ json_decode($berita_acara->pendukung)->baru }}" name="value2i" id="value2i" class="form-control" min="0" placeholder="BARU" required /></td>
-                                    <td><input type="number" value="{{ json_decode($berita_acara->pendukung)->total }}" name="sumi" id="sumi" class="form-control" readonly /></td>
+                                    <td><input  step="any" type="number" value="{{ json_decode($berita_acara->pendukung)->lama }}" name="value1i" id="value1i" class="form-control" min="0" placeholder="LAMA" required /></td>
+                                    <td><input  step="any" type="number" value="{{ json_decode($berita_acara->pendukung)->baru }}" name="value2i" id="value2i" class="form-control" min="0" placeholder="BARU" required /></td>
+                                    <td><input  step="any" type="number" value="{{ json_decode($berita_acara->pendukung)->total }}" name="sumi" id="sumi" class="form-control" readonly /></td>
                                 </tr>
                                 <tr>
                                     <td><b>Jumlah Unsur Penunjang	</b></td>
-                                    <td><input placeholder="Total Penunjang" 
+                                    <td><input  step="any" placeholder="Total Penunjang" 
                                     value="{{ json_decode($berita_acara->ijazah_tdk_sesuai)->lama + 
                                             json_decode($berita_acara->pendukung)->lama }}"
                                     type="number" name="total_penunjang_lama" id="total_penunjang_lama" class="form-control" readonly /></td>
-                                    <td><input placeholder="Total Penunjang" 
+                                    <td><input  step="any" placeholder="Total Penunjang" 
                                     value="{{ json_decode($berita_acara->ijazah_tdk_sesuai)->baru + 
                                             json_decode($berita_acara->pendukung)->baru }}"
                                      type="number" name="total_penunjang_baru" id="total_penunjang_baru" class="form-control" readonly /></td>
-                                    <td><input placeholder="Total Penunjang" 
+                                    <td><input  step="any" placeholder="Total Penunjang" 
                                     value="{{ json_decode($berita_acara->ijazah_tdk_sesuai)->total + 
                                             json_decode($berita_acara->pendukung)->total }}"
                                      type="number" name="total_penunjang_semua" id="total_penunjang_semua" class="form-control" readonly /></td>
@@ -313,15 +313,15 @@
                                 </tr>
                                <tr>
                                     <td>1) Pendidikan sekolah dan memperoleh gelar ijazah</td>
-                                    <td><input type="number" value=0 name="value1" id="value1" class="form-control" min="0" placeholder="LAMA" required /></td>
-                                    <td><input type="number" value=0 name="value2" id="value2" class="form-control" min="0" placeholder="BARU" required /></td>
-                                    <td><input type="number" value=0 name="sum" id="sum" class="form-control" readonly /></td>
+                                    <td><input  step="any" type="number" value=0 name="value1" id="value1" class="form-control" min="0" placeholder="LAMA" required /></td>
+                                    <td><input  step="any" type="number" value=0 name="value2" id="value2" class="form-control" min="0" placeholder="BARU" required /></td>
+                                    <td><input  step="any" type="number" value=0 name="sum" id="sum" class="form-control" readonly /></td>
                                 </tr>
                                 <tr>
                                     <td>2) Mengikuti pelatihan prajabatan</td>
-                                    <td><input value=0 type="number" name="value1a" id="value1a" class="form-control" min="0" placeholder="LAMA" required /></td>
-                                    <td><input value=0 type="number" name="value2a" id="value2a" class="form-control" min="0" placeholder="BARU" required /></td>
-                                    <td><input value=0 type="number" name="suma" id="suma" class="form-control" readonly /></td>
+                                    <td><input  step="any" value=0 type="number" name="value1a" id="value1a" class="form-control" min="0" placeholder="LAMA" required /></td>
+                                    <td><input  step="any" value=0 type="number" name="value2a" id="value2a" class="form-control" min="0" placeholder="BARU" required /></td>
+                                    <td><input  step="any" value=0 type="number" name="suma" id="suma" class="form-control" readonly /></td>
                                 </tr>
                                 <tr>
                                     <td>b. Pembelajaran /  bimbingan dan tugas tertentu</td>
@@ -331,21 +331,21 @@
                                 </tr>
                                 <tr>
                                     <td>    1) Proses pembelajaran	</td>
-                                    <td><input value=0 type="number" name="value1b" id="value1b" class="form-control" min="0" placeholder="LAMA" required /></td>
-                                    <td><input value=0 type="number" name="value2b" id="value2b" class="form-control" min="0" placeholder="BARU" required /></td>
-                                    <td><input value=0 type="number" name="sumb" id="sumb" class="form-control" readonly /></td>
+                                    <td><input  step="any" value=0 type="number" name="value1b" id="value1b" class="form-control" min="0" placeholder="LAMA" required /></td>
+                                    <td><input  step="any" value=0 type="number" name="value2b" id="value2b" class="form-control" min="0" placeholder="BARU" required /></td>
+                                    <td><input  step="any" value=0 type="number" name="sumb" id="sumb" class="form-control" readonly /></td>
                                 </tr>
                                 <tr>
                                     <td>    2) Proses bimbingan	</td>
-                                    <td><input value=0 type="number" name="value1c" id="value1c" class="form-control" min="0" placeholder="LAMA" required /></td>
-                                    <td><input value=0 type="number" name="value2c" id="value2c" class="form-control" min="0" placeholder="BARU" required /></td>
-                                    <td><input value=0 type="number" name="sumc" id="sumc" class="form-control" readonly /></td>
+                                    <td><input  step="any" value=0 type="number" name="value1c" id="value1c" class="form-control" min="0" placeholder="LAMA" required /></td>
+                                    <td><input  step="any" value=0 type="number" name="value2c" id="value2c" class="form-control" min="0" placeholder="BARU" required /></td>
+                                    <td><input  step="any" value=0 type="number" name="sumc" id="sumc" class="form-control" readonly /></td>
                                 </tr>
                                 <tr>
                                     <td>    3) Tugas lain yang relevan</td>
-                                    <td><input value=0 type="number" name="value1d" id="value1d" class="form-control" min="0" placeholder="LAMA" required /></td>
-                                    <td><input value=0 type="number" name="value2d" id="value2d" class="form-control" min="0" placeholder="BARU" required /></td>
-                                    <td><input value=0 type="number" name="sumd" id="sumd" class="form-control" readonly /></td>
+                                    <td><input  step="any" value=0 type="number" name="value1d" id="value1d" class="form-control" min="0" placeholder="LAMA" required /></td>
+                                    <td><input  step="any" value=0 type="number" name="value2d" id="value2d" class="form-control" min="0" placeholder="BARU" required /></td>
+                                    <td><input  step="any" value=0 type="number" name="sumd" id="sumd" class="form-control" readonly /></td>
                                 </tr>
                                 <tr>
                                     <td>c. Pengembangan Keprofesian</td>
@@ -355,27 +355,27 @@
                                 </tr>
                                 <tr>
                                     <td> 1) Pengembangan diri</td>
-                                    <td><input value=0 type="number" name="value1e" id="value1e" class="form-control" min="0" placeholder="LAMA" required /></td>
-                                    <td><input value=0 type="number" name="value2e" id="value2e" class="form-control" min="0" placeholder="BARU" required /></td>
-                                    <td><input value=0 type="number" name="sume" id="sume" class="form-control" readonly /></td>
+                                    <td><input  step="any" value=0 type="number" name="value1e" id="value1e" class="form-control" min="0" placeholder="LAMA" required /></td>
+                                    <td><input  step="any" value=0 type="number" name="value2e" id="value2e" class="form-control" min="0" placeholder="BARU" required /></td>
+                                    <td><input  step="any" value=0 type="number" name="sume" id="sume" class="form-control" readonly /></td>
                                 </tr>
                                 <tr>
                                     <td>2) Publikasi ilmiah</td>
-                                    <td><input value=0 type="number" name="value1f" id="value1f" class="form-control" min="0" placeholder="LAMA" required /></td>
-                                    <td><input value=0 type="number" name="value2f" id="value2f" class="form-control" min="0" placeholder="BARU" required /></td>
-                                    <td><input value=0 type="number" name="sumf" id="sumf" class="form-control" readonly /></td>
+                                    <td><input  step="any" value=0 type="number" name="value1f" id="value1f" class="form-control" min="0" placeholder="LAMA" required /></td>
+                                    <td><input  step="any" value=0 type="number" name="value2f" id="value2f" class="form-control" min="0" placeholder="BARU" required /></td>
+                                    <td><input  step="any" value=0 type="number" name="sumf" id="sumf" class="form-control" readonly /></td>
                                 </tr>
                                 <tr>
                                     <td>  3) Karya Inovatif</td>
-                                    <td><input value=0 type="number" name="value1g" id="value1g" class="form-control" min="0" placeholder="LAMA" required /></td>
-                                    <td><input value=0 type="number" name="value2g" id="value2g" class="form-control" min="0" placeholder="BARU" required /></td>
-                                    <td><input value=0 type="number" name="sumg" id="sumg" class="form-control" readonly /></td>
+                                    <td><input  step="any" value=0 type="number" name="value1g" id="value1g" class="form-control" min="0" placeholder="LAMA" required /></td>
+                                    <td><input  step="any" value=0 type="number" name="value2g" id="value2g" class="form-control" min="0" placeholder="BARU" required /></td>
+                                    <td><input  step="any" value=0 type="number" name="sumg" id="sumg" class="form-control" readonly /></td>
                                 </tr>
                                 <tr>
                                     <td> <b>Jumlah Unsur Utama</b></td>
-                                    <td><input value=0 placeholder="total utama" type="number" name="total_utama_lama" id="total_utama_lama" class="form-control" readonly /></td>
-                                    <td><input value=0 placeholder="total utama"  type="number" name="total_utama_baru" id="total_utama_baru" class="form-control" readonly /></td>
-                                    <td><input value=0 placeholder="total utama"  type="number" name="total_utama_semua" id="total_utama_semua" class="form-control" readonly /></td>
+                                    <td><input  step="any"  value=0 placeholder="total utama" type="number" name="total_utama_lama" id="total_utama_lama" class="form-control" readonly /></td>
+                                    <td><input  step="any" value=0 placeholder="total utama"  type="number" name="total_utama_baru" id="total_utama_baru" class="form-control" readonly /></td>
+                                    <td><input  step="any" value=0 placeholder="total utama"  type="number" name="total_utama_semua" id="total_utama_semua" class="form-control" readonly /></td>
                                 </tr>
                                 <tr>
                                     <td width="2%" >2</td>
@@ -387,29 +387,39 @@
                                 <tr>
                                     <td width="2%" rowspan="12"></td>
                                     <td>1. Ijazah yang tidak sesuai</td>
-                                    <td><input value=0 type="number" name="value1h" id="value1h" class="form-control" min="0" placeholder="LAMA" required /></td>
-                                    <td><input value=0 type="number" name="value2h" id="value2h" class="form-control" min="0" placeholder="BARU" required /></td>
-                                    <td><input value=0 type="number" name="sumh" id="sumh" class="form-control" readonly /></td>
+                                    <td><input  step="any" value=0 type="number" name="value1h" id="value1h" class="form-control" min="0" placeholder="LAMA" required /></td>
+                                    <td><input  step="any" value=0 type="number" name="value2h" id="value2h" class="form-control" min="0" placeholder="BARU" required /></td>
+                                    <td><input  step="any" value=0 type="number" name="sumh" id="sumh" class="form-control" readonly /></td>
                                 </tr>
                                 <tr>
                                     <td>2. Pendukung tugas guru</td>
-                                    <td><input value=0 type="number" name="value1i" id="value1i" class="form-control" min="0" placeholder="LAMA" required /></td>
-                                    <td><input value=0 type="number" name="value2i" id="value2i" class="form-control" min="0" placeholder="BARU" required /></td>
-                                    <td><input value=0 type="number" name="sumi" id="sumi" class="form-control" readonly /></td>
+                                    <td><input  step="any" value=0 type="number" name="value1i" id="value1i" class="form-control" min="0" placeholder="LAMA" required /></td>
+                                    <td><input  step="any" value=0 type="number" name="value2i" id="value2i" class="form-control" min="0" placeholder="BARU" required /></td>
+                                    <td><input  step="any" value=0 type="number" name="sumi" id="sumi" class="form-control" readonly /></td>
                                 </tr>
                                 <tr>
                                     <td><b>Jumlah Unsur Penunjang	</b></td>
-                                    <td><input value=0 placeholder="Total Penunjang" type="number" name="total_penunjang_lama" id="total_penunjang_lama" class="form-control" readonly /></td>
-                                    <td><input value=0 placeholder="Total Penunjang"  type="number" name="total_penunjang_baru" id="total_penunjang_baru" class="form-control" readonly /></td>
-                                    <td><input value=0 placeholder="Total Penunjang"  type="number" name="total_penunjang_semua" id="total_penunjang_semua" class="form-control" readonly /></td>
+                                    <td><input  step="any" value=0 placeholder="Total Penunjang" type="number" name="total_penunjang_lama" id="total_penunjang_lama" class="form-control" readonly /></td>
+                                    <td><input  step="any" value=0 placeholder="Total Penunjang"  type="number" name="total_penunjang_baru" id="total_penunjang_baru" class="form-control" readonly /></td>
+                                    <td><input  step="any" value=0 placeholder="Total Penunjang"  type="number" name="total_penunjang_semua" id="total_penunjang_semua" class="form-control" readonly /></td>
                                </tr>
                                @endif
                             </tbody>
                         </table>
                     </div>
                     <div class="col-sm-2">
-                    
+                    <a href="{{route('dupaks_penilai.index')}}" class="btn btn-rose btn-round">List Usulan <div class="ripple-container"></div></a>
                     </div>
+
+                    @if(!empty(Auth::user()->nip == $users->nip))
+                    <div class="col-sm-3">
+                       
+             
+                    </div>
+                    <div class="col-sm-3">
+                   
+                    </div>
+                    @else
                     <div class="col-sm-3">
                         <button type="submit"  class="btn btn-info btn-round">
                             <i class="fas fa-save"></i> Simpan
@@ -428,6 +438,8 @@
                     @endif
                     </div>
 
+                    @endif
+
                         
                     <div class="col-sm-4">
                     <div class="col-sm-4">
@@ -435,7 +447,11 @@
                     <div class="col-sm-8">
 
                         <br>
-                            Malinau, {{tgl_indo($now)}}
+                            @if(!empty($berita_acara->created_at))
+                                Malinau, {{tgl_indo( customTanggal1($berita_acara->created_at,"Y-m-d") )}}
+                            @else
+                                Malinau, {{tgl_indo( $now )}}        
+                            @endif
                         <br>
                         <br>
                         <br>
@@ -533,8 +549,6 @@
                var value2e = parseFloat($('#value2e').val()) || 0;
                var value2f = parseFloat($('#value2f').val()) || 0;
                var value2g = parseFloat($('#value2g').val()) || 0;
-               var lama = parseFloat($('#total_utama_lama').val()) || 0;
-               var baru = parseFloat($('#total_utama_baru').val()) || 0;
                $('#total_utama_lama').val(value1 + value1a + value1b + value1c + value1d + value1e + value1f +value1g);
                $('#total_utama_baru').val(value2 + value2a + value2b + value2c + value2d + value2e + value2f + value2g);
                $('#total_utama_semua').val(value1 + value1a + value1b + value1c + value1d + value1e + value1f +value1g 

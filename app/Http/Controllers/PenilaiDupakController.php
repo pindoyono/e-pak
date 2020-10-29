@@ -17,7 +17,15 @@ class PenilaiDupakController extends Controller
     public function index()
     {
         //
-        $dupaks = \App\Dupak::where('status', 'submit' )->orderBy('id','asc')->get();
+        $dupaks = DB::table('dupaks')
+            ->join('users', 'users.id', '=', 'dupaks.user_id')
+            ->join('biodatas', 'users.id', '=', 'biodatas.user_id')
+            ->join('sekolahs', 'sekolahs.id', '=', 'biodatas.sekolah_id')
+            ->where('dupaks.status','!=', 'Usulan Baru')
+            ->where('dupaks.status','!=', 'Perbaikan Data')
+            ->select('dupaks.*','sekolahs.nama' ,'users.name')
+            ->get();
+        // $dupaks = \App\Dupak::where('status', 'submit' )->orderBy('id','asc')->get();
         return view('dupaks_penilai.index', ['dupaks' => $dupaks]);
     }
 
@@ -193,8 +201,15 @@ class PenilaiDupakController extends Controller
         ]);
 
         $dupak = \App\Dupak::findOrFail($id);
-        $dupak->status="sudah dinilai";
+        $dupak->status="Sudah Dinilai";
         $dupak->update();
+        
+        $verifikasi = new \App\Verifikasi;
+        $verifikasi->pesan = 'Usulan Anda Sudah Dinilai oleh Tim Penilai';
+        $verifikasi->user_id = $dupak->user_id;
+        $verifikasi->status = 'baru';
+        $verifikasi->save();
+
 
         $id = Crypt::encrypt($id);
         

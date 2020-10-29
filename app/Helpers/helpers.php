@@ -3,11 +3,15 @@
 function customTanggal($date,$date_format){
     return \Carbon\Carbon::createFromFormat('Y-m-d', $date)->format($date_format);    
 }
+
+function customTanggal1($date,$date_format){
+    return \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $date)->format($date_format);    
+}
     
 function customImagePath($image_name)
 {
     return public_path('folder_kamu/sub_folder_kamu/'.$image_name);
-}
+} 
 
 if (! function_exists('masakerja')) {
     function masakerja($date)

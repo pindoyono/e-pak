@@ -21,8 +21,7 @@
                         </button>
                         <span>
                             <b> Warning - </b>
-                            Untuk Mengunggah file yg di izin kan dalam bentuk PDF dan berukuran Maksimal 2 Mb 
-                            Khusus untuk SK Pembagian Tugas Maksimal 10 Mb
+                            Untuk Mengunggah file yg di izin kan dalam bentuk PDF dan berukuran Maksimal 10 Mb 
                             </span>
                     </div>
                     <div class="col-12 text-right">

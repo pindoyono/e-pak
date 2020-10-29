@@ -15,7 +15,7 @@
                     <h4 class="card-title">Form Tambah Berkas Kepegawaian</h4>
                 </div>
                 <div class="card-content">
-                <div class="alert alert-warning">
+                    <div class="alert alert-warning">
                         <button type="button" aria-hidden="true" class="close">
                             <i class="material-icons">close</i>
                         </button>

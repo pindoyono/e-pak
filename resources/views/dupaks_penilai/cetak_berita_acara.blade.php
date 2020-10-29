@@ -120,13 +120,11 @@ table {
             <tr>
                 <td width="5%" rowspan="20"></td>
                 <td width="2%" >1</td>
-                <td> <b>Unsur Utama</b></td>
-                <td  colspan=5></td>
+                <td colspan=6> <b>Unsur Utama</b></td>
             </tr>
             <tr>
                 <td width="2%" rowspan="12"></td>
-                <td> a. Pendidikan</td>
-                <td  colspan=5></td>
+                <td colspan=6> a. Pendidikan</td>
             </tr>
             <tr>
                 <td colspan="3">1) Pendidikan sekolah dan memperoleh gelar ijazah </td>
@@ -284,13 +282,18 @@ table {
     </table>
 
     <div style="text-align:left;padding-left:70%">
-            Malinau, {{tgl_indo($now)}}
-            <br>
-            <br>
-            <br>
-                {{Auth::user()->name}} 
-            <br>
-                NIP. {{Auth::user()->nip}}
+                            @if(!empty($berita_acara->created_at))
+                                Malinau, {{tgl_indo( customTanggal1($berita_acara->created_at,"Y-m-d") )}}
+                            @else
+                                Malinau, {{tgl_indo( $now )}}        
+                            @endif
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                            {{Auth::user()->name}} 
+                        <br>
+                            NIP. {{Auth::user()->nip}}
     </div>
 
 

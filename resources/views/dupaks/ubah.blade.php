@@ -14,6 +14,16 @@
                     <h4 class="card-title">Form Ubah Berkas</h4>
                 </div>
                 <div class="card-content">
+                    <div class="alert alert-warning">
+                        <button type="button" aria-hidden="true" class="close">
+                            <i class="material-icons">close</i>
+                        </button>
+                        <span>
+                            <b> Warning - </b>
+                            Untuk Mengunggah file yg di izin kan dalam bentuk PDF dan berukuran Maksimal 2 Mb 
+                            Khusus untuk SK Pembagian Tugas Maksimal 5 Mb
+                            </span>
+                    </div>
                     <div class="col-12 text-right">
                         <a href="{{route('dupaks.edit', Crypt::encrypt($dupaks->id))}}" class="btn btn-success">List Dupak <div class="ripple-container"></div></a>
                     </div>

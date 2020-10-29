@@ -42,9 +42,9 @@
                                 <tr>
                                     <td>{{$key+1}}</td>
                                     <td>{{ tgl_indo($dupak->awal) .' s/d '.tgl_indo($dupak->akhir)}}</td>
-                                    <td>{{$dupak->status}}</td>
+                                    <td>  <span class="tag label label-primary">{{$dupak->status}}</span></td>
                                     <td class="td-actions text-right">
-                                    @if($dupak->status=="Usulan Baru")
+                                    @if($dupak->status=="Usulan Baru" || $dupak->status=="Perbaikan Data")
                                     <a onclick="return confirm('Pastikan Usulan Anda Sudah Lengkap.. jika Sudah Submit Tidak bisa di rubah lagi')" href="{{route('dupaks.submit', Crypt::encrypt($dupak->id))}}">
                                       <button class="btn btn-primary btn-round">
                                         submit
