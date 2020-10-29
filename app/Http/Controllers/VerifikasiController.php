@@ -7,7 +7,12 @@ use Illuminate\Support\Facades\Validator;
 use Crypt;
 use Auth;
 use DB;
+use User;
 
+// Panggil SendMail yang telah dibuat
+use App\Mail\SendMail;
+// Panggil support email dari Laravel
+use Illuminate\Support\Facades\Mail;
 
 class VerifikasiController extends Controller
 {
@@ -149,9 +154,41 @@ class VerifikasiController extends Controller
         $verifikasi = new \App\Verifikasi;
         $verifikasi->pesan = 'Usulan Anda Lengkap Dan Terverifikasi';
         $verifikasi->user_id = $user_id;
+        $verifikasi->link = route('dupaks.index' );
         $verifikasi->status = 'baru';
         $verifikasi->save();
         
         return redirect()->route('dupaks_penilai.index')->with('toast_success', 'Berhasil Verifikasi');
+    }
+
+    public function baca($id)
+    {
+        //
+        $id =  Crypt::decrypt($id);
+        $verifikasi = \App\Verifikasi::findOrFail($id);
+        $verifikasi->status = 'baca';
+        $verifikasi->update();
+        
+        return redirect($verifikasi->link);
+    }
+
+    public function email()
+    {
+       
+
+        $user = \App\User::find(3);
+
+        $details = [
+                'from' => 'epakgurumalinau@gmail.com',
+                'greeting' => 'Hi Artisan',
+                'body' => 'This is our example notification tutorial',
+                'thanks' => 'Thank you for visiting codechief.org!',
+                'list_notif' => 'Usulan Anda Lengkap dan Telah Terverifikasi',
+                'link' => route('dupaks_penilai.index'),
+        ];
+
+        $user->notify(new \App\Notifications\TaskDupakComplete($details));
+
+        return redirect()->route('dupaks_penilai.index')->with('toast_success', 'Email telah dikirim');
     }
 }

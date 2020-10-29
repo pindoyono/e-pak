@@ -233,10 +233,11 @@
                                     <select class="js-example-basic-single form-control" required="true"  name="pangkat_golongan"  width="70%" name="pangkat" >
                                        @if(!empty($jabatans))
                                             @foreach ($jabatans as $jabatan)
-                                                <option {{$jabatan->pangkat == $biodatas->pangkat_golongan ? "selected" : ""}} value="{{$jabatan->id}}">{{$jabatan->pangkat}}</option>
+                                                <option {{$jabatan->id == $biodatas->pangkat_golongan ? "selected" : ""}} value="{{$jabatan->id}}">{{$jabatan->pangkat}}</option>
                                             @endforeach
                                         @endif
                                     </select>
+                                    
                                 </div>
                             </div>
                         </div>

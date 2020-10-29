@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Verifikasi extends Model
+class Setup extends Model
 {
     //
     protected $fillable = [
-        'pesan', 'user_id', 'status', 'link',
+        'deadline_guru', 'deadline_verifikator','deadline_penilai',
     ];
 }

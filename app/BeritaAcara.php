@@ -19,6 +19,7 @@ class BeritaAcara extends Model
         'ijazah_tdk_sesuai',
         'pendukung',
         'dupak_id',
+        'masa_kerja_baru',
     ];
 
 }

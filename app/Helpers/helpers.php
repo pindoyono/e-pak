@@ -171,3 +171,24 @@ if (! function_exists('tgl_indo_tahun')) {
         return  $pecahkan[0];
     }
 }
+
+
+if (! function_exists('notif')) {
+    function notif($user_id){
+        $notif = \App\Verifikasi::where('user_id', $user_id)
+                                    ->where('status', 'baru')
+                                    ->count();
+
+        return $notif;
+    }
+}
+
+if (! function_exists('get_notif')) {
+    function get_notif($user_id){
+        $notif = \App\Verifikasi::where('user_id', $user_id)
+                                    ->where('status', 'baru')
+                                    ->get();
+
+        return $notif;
+    }
+}

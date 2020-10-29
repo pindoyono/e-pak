@@ -407,10 +407,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="col-sm-2">
-                    <a href="{{route('dupaks_penilai.index')}}" class="btn btn-rose btn-round">List Usulan <div class="ripple-container"></div></a>
-                    </div>
-
+                    
                     @if(!empty(Auth::user()->nip == $users->nip))
                     <div class="col-sm-3">
                        
@@ -420,13 +417,20 @@
                    
                     </div>
                     @else
+
+                    @if(empty($berita_acara->pendidikan) && empty($biodatas))
                     <div class="col-sm-3">
                         <button type="submit"  class="btn btn-info btn-round">
                             <i class="fas fa-save"></i> Simpan
                             <div class="ripple-container"></div>
                         </button>
-                </form>
                     </div>
+                    @else
+                    <div class="col-sm-3">
+                    
+                    </div>
+                    @endif
+                </form>
                     <div class="col-sm-3">
                     @if(!empty($berita_acara->pendidikan) && !empty($biodatas))
                         <a target="_blank" href="{{route('dupaks_penilai.createPDF', Crypt::encrypt($dupak_id))}}">
@@ -439,8 +443,10 @@
                     </div>
 
                     @endif
+                    <div class="col-sm-2">
+                    <a href="{{route('dupaks_penilai.index')}}" class="btn btn-rose btn-round">List Usulan <div class="ripple-container"></div></a>
+                    </div>
 
-                        
                     <div class="col-sm-4">
                     <div class="col-sm-4">
                     </div>

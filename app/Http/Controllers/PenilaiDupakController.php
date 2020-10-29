@@ -207,6 +207,7 @@ class PenilaiDupakController extends Controller
         $verifikasi = new \App\Verifikasi;
         $verifikasi->pesan = 'Usulan Anda Sudah Dinilai oleh Tim Penilai';
         $verifikasi->user_id = $dupak->user_id;
+        $verifikasi->link = route('dupaks.index' );
         $verifikasi->status = 'baru';
         $verifikasi->save();
 

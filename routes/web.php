@@ -57,6 +57,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/dupaks/detail/{id}','DupakController@detail')->name('dupaks.detail')->middleware('role:guru|penilai|verifikator');
     
     Route::get('/verified/{id}', 'VerifikasiController@verified')->name('verifikasi.verified')->middleware('role:guru|penilai|verifikator');
+    Route::get('/kirim-email', 'VerifikasiController@email')->name('verifikasi.email')->middleware('role:guru|penilai|verifikator');
+    Route::get('/baca/{id}', 'VerifikasiController@baca')->name('verifikasi.baca')->middleware('role:guru|penilai|verifikator');
     //user
     Route::get('/profile/{id}', 'UserController@profile')->name('users.profile')->middleware('role:guru|super admin|penilai|verifikator');
     Route::put('/update_profile/{id}', 'UserController@update_profile')->name('users.update_profile')->middleware('role:guru|penilai|verifikator|super admin');
