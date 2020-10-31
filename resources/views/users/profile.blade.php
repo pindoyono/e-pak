@@ -85,7 +85,7 @@
                                         <a target="_blank" href="{{asset('data/telegram_id/tutorial.pdf')}}">Tutorial</a> 
                                     </span><br>
                                     <span class="material-input">*** Jika <b>Tidak</b> Mengisi Chat Id Notifikasi di kirimkan ke Group silahkan
-                                        <a target="_blank" href="https://t.me/epakguru">Join Group E Pak</a> 
+                                        <a target="_blank" href="https://t.me/joinchat/IZu-hh1o1mqGJvBEACDX2Q">Join Group E Pak</a> 
                                     </span>
                                 </div>
                             </div>
