@@ -50,21 +50,6 @@
                                     <span class="material-input"></span></div>
                             </div>
                         </div>
-                        <!-- <div class="row">
-                            <label class="col-sm-2 label-on-left">Nama Sekolah</label>
-                            <div class="col-sm-7">
-                                <div class="col-lg-5 col-md-6 col-sm-3">
-                                    <select class="js-example-basic-single form-control"  width="70%" name="sekolah_id" >
-                                    <option value="">Pilih Sekolah</option>
-                                    @if(!empty($sekolahs))
-                                        @foreach ($sekolahs as $sekolah)
-                                            <option {{$user->sekolah_id == $sekolah->id ? "selected" : ""}} value="{{$sekolah->id}}">{{$sekolah->nama}} </option>
-                                        @endforeach
-                                    @endif
-                                    </select>
-                                </div>
-                            </div>
-                        </div> -->
                         <div class="row">
                             <label class="col-sm-2 label-on-left">Email</label>
                             <div class="col-sm-7">
@@ -75,6 +60,15 @@
                             </div>
                         </div>
                         @role('super admin')
+                        <div class="row">
+                            <label class="col-sm-2 label-on-left">Chat Id Verified</label>
+                            <div class="col-sm-7">
+                                <div class="form-group label-floating column-sizing is-empty">
+                                    <label class="control-label"></label>
+                                    <input class="form-control"  placeholder="Chat Id Verified" value="{{$user->chat_id_verified}}"  type="text"  name="chat_id_verified" id="chat_id_verified">
+                                <span class="material-input"></span></div>
+                            </div>
+                        </div>
                         <div class="col-sm-2 ">
                         </div>
                         <div class="row col-sm-10">

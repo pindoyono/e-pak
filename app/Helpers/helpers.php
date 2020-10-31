@@ -1,5 +1,8 @@
 <?php
    
+use Spatie\Permission\Models\Role;
+
+
 function customTanggal($date,$date_format){
     return \Carbon\Carbon::createFromFormat('Y-m-d', $date)->format($date_format);    
 }
@@ -26,8 +29,13 @@ if (! function_exists('masakerja')) {
 if (! function_exists('jumlah')) {
     function jumlah($role)
     {
-        $users = \App\User::role($role)->count();
-		return $users;
+        $roles = Role::where('name',$role)->count();
+        if($roles!=0){
+            $users = \App\User::role($role)->count();
+        }else{
+            $users = 0;
+        }
+        return $users;
     }
 }
 
@@ -190,5 +198,13 @@ if (! function_exists('get_notif')) {
                                     ->get();
 
         return $notif;
+    }
+}
+
+
+if (! function_exists('setup')) {
+    function setup($kolom){
+        $setup = \App\Setup::first()->$kolom;
+        return $setup;
     }
 }

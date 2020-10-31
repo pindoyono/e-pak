@@ -31,6 +31,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource("users", "UserController");
     Route::resource("jabatans", "JabatanControler")->middleware('role:super admin');
     Route::resource("sekolahs", "SekolahController")->middleware('role:super admin');
+    Route::resource("setups", "SetupController")->middleware('role:super admin');
     Route::resource("mapels", "MapelController")->middleware('role:super admin');
     Route::resource("kegiatans", "KegiatanController")->middleware('role:super admin|penilai|verifikator');
     Route::resource("kepegawaians", "KepegawaianController")->middleware('role:guru|penilai|verifikator');

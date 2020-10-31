@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Crypt;
 
 class SetupController extends Controller
 {
@@ -10,10 +11,12 @@ class SetupController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     */
+     */ 
     public function index()
     {
         //
+        $setups = \App\Setup::orderBy('id','DESC')->get();
+        return view('setups.index', ['setups' => $setups]);
     }
 
     /**
@@ -24,6 +27,7 @@ class SetupController extends Controller
     public function create()
     {
         //
+        return view("setups.create");
     }
 
     /**
@@ -35,6 +39,15 @@ class SetupController extends Controller
     public function store(Request $request)
     {
         //
+        $setup = new \App\Setup;
+        $setup->deadline_guru = date('y-m-d',strtotime($request->get('deadline_guru')));
+        $setup->deadline_verifikator = date('y-m-d',strtotime($request->get('deadline_verifikator')));
+        $setup->deadline_penilai = date('y-m-d',strtotime($request->get('deadline_penilai')));
+        $setup->group_id = $request->get('group_id');
+
+        $setup->save();
+
+        return redirect()->route('setups.index')->with('toast_success', 'Task Created Successfully!');
     }
 
     /**
@@ -56,7 +69,9 @@ class SetupController extends Controller
      */
     public function edit($id)
     {
-        //
+        $setups = \App\Setup::findOrFail($id);
+        return view('setups.edit',   ['setup' => $setups]);
+
     }
 
     /**
@@ -68,7 +83,16 @@ class SetupController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $setup = \App\Setup::findOrFail($id);
+        $setup->deadline_guru = date('y-m-d',strtotime($request->get('deadline_guru')));
+        $setup->deadline_verifikator = date('y-m-d',strtotime($request->get('deadline_verifikator')));
+        $setup->deadline_penilai = date('y-m-d',strtotime($request->get('deadline_penilai')));
+        $setup->group_id = $request->get('group_id');
+
+        $setup->update();
+
+        return redirect()->route('setups.index')->with('toast_success', 'Task Created Successfully!');
     }
 
     /**

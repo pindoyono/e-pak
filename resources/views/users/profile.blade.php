@@ -51,21 +51,6 @@
                                     <span class="material-input"></span></div>
                             </div>
                         </div>
-                        <!-- <div class="row">
-                            <label class="col-sm-2 label-on-left">Nama Sekolah</label>
-                            <div class="col-sm-7">
-                                <div class="col-lg-5 col-md-6 col-sm-3">
-                                    <select class="js-example-basic-single form-control"  width="70%" name="sekolah_id" >
-                                    <option value="">Pilih Sekolah</option>
-                                    @if(!empty($sekolahs))
-                                        @foreach ($sekolahs as $sekolah)
-                                            <option {{$user->sekolah_id == $sekolah->id ? "selected" : ""}} value="{{$sekolah->id}}">{{$sekolah->nama}} </option>
-                                        @endforeach
-                                    @endif
-                                    </select>
-                                </div>
-                            </div>
-                        </div> -->
                         <div class="row">
                             <label class="col-sm-2 label-on-left">Email</label>
                             <div class="col-sm-7">
@@ -96,7 +81,6 @@
                         <div class="row col-sm-10">
                         <div class="card-header card-header-text">
                             <b><h3 class="card-title">Role Pengguna</h3></b>
-                            {{$user->getRoleNames()}}   
                         </div>
                             @if(!empty($roles))
                                 @foreach ($roles as $role)

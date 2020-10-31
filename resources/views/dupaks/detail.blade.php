@@ -97,7 +97,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>Pangkat Dan Golongan</td>
-                                                    <td>{{$biodatas->pangkat_golongan}}</td>
+                                                    <td>{{pangkat($biodatas->pangkat_golongan)->pangkat}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>No Kartu Pegawai</td>
@@ -223,6 +223,17 @@
                                                 </td>
                                                 <td><a target="_blank" href="{{asset('storage/'.$kepegawaian->karpeg)}}">Download</a></td>
                                             </tr>
+                                            @if(substr(Auth::user()->nip,8,4)<='2016')
+                                            <tr>
+                                                <td>
+                                                    6                                            
+                                                </td>
+                                                <td>
+                                                    SK Pengalihan Kab ke Prov
+                                                </td>
+                                                <td><a target="_blank" href="{{asset('storage/'.$kepegawaian->sk_penyesuaian)}}">Download</a></td>
+                                            </tr>
+                                            @endif
                                         </tbody>
                                     </table>
                                 </div>
@@ -296,13 +307,22 @@
                                                     5                                            
                                                 </td>
                                                 <td>
+                                                    Surat Pernyataan Melaksanakan Unsur penunjang
+                                                </td>
+                                                <td><a target="_blank" href="{{asset('storage/'.$dupak->surat_pernyataan4)}}">Download</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    6                                            
+                                                </td>
+                                                <td>
                                                     Surat Pernyataan Melaksanakan PKB
                                                 </td>
                                                 <td><a target="_blank" href="{{asset('storage/'.$dupak->surat_pernyataan3)}}">Download</a></td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    6                                            
+                                                    7                                            
                                                 </td>
                                                 <td>
                                                     SK Pembagian Tugas
@@ -311,7 +331,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    7                                           
+                                                    8                                           
                                                 </td>
                                                 <td>
                                                     PAK Terakhir
@@ -320,12 +340,20 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    8                                            
+                                                    9                                           
                                                 </td>
                                                 <td>
                                                     Laporan / form PKG
                                                 </td>
                                                 <td><a target="_blank" href="{{asset('storage/'.$dupak->pkg)}}">Download</a></td>
+                                            </tr>
+                                            <td>
+                                                    10                                           
+                                                </td>
+                                                <td>
+                                                    SKP
+                                                </td>
+                                                <td><a target="_blank" href="{{asset('storage/'.$dupak->skp)}}">Download</a></td>
                                             </tr>
                                         </tbody>
                                     </table>

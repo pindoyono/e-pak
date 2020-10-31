@@ -95,6 +95,7 @@ class UserController extends Controller
         $new_user->name = $request->get('name');
         $new_user->nip = $request->get('nip');
         $new_user->email = $request->get('email');
+        $new_user->chat_id_verified = $request->get('chat_id_verified');
         // $new_user->sekolah_id = $request->get('sekolah_id');
         $new_user->password = \Hash::make($request->get('password'));
         $new_user->assignRole($request->get('roles'));
@@ -195,6 +196,7 @@ class UserController extends Controller
 
         $user->name = $request->get('name');
         $user->nip = $request->get('nip');
+        $user->chat_id_verified = $request->get('chat_id_verified');
         // $user->sekolah_id = $request->get('sekolah_id');
         $user->email = $request->get('email');
         if( $request->get('password') ){
@@ -241,6 +243,7 @@ class UserController extends Controller
         $user->name = $request->get('name');
         $user->nip = $request->get('nip');
         $user->chat_id = $request->get('chat_id');
+        $user->chat_id_verified = $request->get('chat_id_verified');
         // $user->sekolah_id = $request->get('sekolah_id');
         $user->email = $request->get('email');
         if( $request->get('password') ){

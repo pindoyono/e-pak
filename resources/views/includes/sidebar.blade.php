@@ -68,6 +68,12 @@
                 <div class="collapse" id="pagesExamples">
                     <ul class="nav">
                         <li>
+                            <a href="{{route('setups.index')}}">
+                                <i class="fas fa-cog"></i>
+                                <p>Setup</p>
+                            </a>
+                        </li>
+                        <li>
                             <a href="{{route('sekolahs.index')}}">
                                 <i class="fas fa-school"></i>
                                 <p>Sekolah</p>

@@ -166,9 +166,37 @@ class VerifikasiController extends Controller
 
     public function baca($id)
     {
-        //
-        $activity = Telegram::getUpdates();
-        dd($activity);
+        // //
+        // echo  setup('group_id');
+        // exit;
+        // $activity = Telegram::getUpdates();
+        // dd($activity);
+        $user = \App\User::find($id)->chat_id_verified;
+        $group_id = \App\Setup::first()->group_id;
+        $telegram_id = $group_id;
+
+        echo $user;
+        echo "<br>";
+        echo $telegram_id;
+        if($user!=""){
+            $telegram_id = $user;
+        }
+        echo $telegram_id;
+
+        $text = "A new contact us query\n"
+            . "<b>Email Address: </b>\n"
+            . "Patan Pindoyono\n"
+            . "<b>Message: </b>\n"
+            . 'test Bot';
+ 
+
+            Telegram::sendMessage([
+                'chat_id' => $telegram_id ,
+                'parse_mode' => 'HTML',
+                'text' => $text
+            ]);
+
+                
     }
 
     public function email()
@@ -176,7 +204,6 @@ class VerifikasiController extends Controller
        
 
         $user = \App\User::find(2);
-
         $details = [
                 'from' => 'epakgurumalinau@gmail.com',
                 'greeting' => 'Hi, '.$user->name,
