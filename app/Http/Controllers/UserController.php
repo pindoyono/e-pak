@@ -170,6 +170,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+     
 
         // var_dump($request->file('avatar'));
         // exit;
@@ -222,19 +223,10 @@ class UserController extends Controller
 
     public function update_profile(Request $request, $id)
     {
+        
 
         $id = Crypt::decrypt($id); 
-        // dd($id); 
-
-        // var_dump($request->file('avatar'));
-        // exit;
-        // $validation = \Validator::make($request->all(),[
-        //     "name" => "required|min:5|max:100",
-        //     "username" => "required|min:5|max:20|unique:users",
-        //     "avatar" => "required",
-        //     "email" => "required|email|unique:users",
-        //   ])->validate();
-          $validator = Validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
             "name" => "required|min:5|max:100",
             'nip' => 'min:18|numeric|unique:users,nip,' . $id,
             'email' => 'required|email|unique:users,email,'.$id,

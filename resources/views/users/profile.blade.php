@@ -96,6 +96,7 @@
                         <div class="row col-sm-10">
                         <div class="card-header card-header-text">
                             <b><h3 class="card-title">Role Pengguna</h3></b>
+                            {{$user->getRoleNames()}}   
                         </div>
                             @if(!empty($roles))
                                 @foreach ($roles as $role)
@@ -197,7 +198,7 @@
                         Dalam Layanan Pendididkan dan Kebudayaan
                     </p>
                     <p class="description">
-                        Demi Terwujudnya Masyarakat Kalimantan Utara yang berkompetitif dan Bermartabat
+                        Demi Terwujudnya Masyarakat Kalimantan Utara yang Kompetitif dan Bermartabat
                     </p>
                     <a href="#pablo" class="btn btn-rose btn-round">Follow</a>
                 </div>
