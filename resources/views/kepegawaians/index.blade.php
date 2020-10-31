@@ -116,13 +116,13 @@
                                                 </a>
                                             </td>
                                         </tr>
-                                        @if($tahun_nip<='2017')
+                                        @if($tahun_nip<='2016')
                                         <tr>
                                             <td>
                                                 6                                            
                                             </td>
                                             <td>
-                                                SK Penyesuaian
+                                                SK Pengalihan Kab ke Prov
                                             </td>
                                             <td><a target="_blank" href="{{asset('storage/'.$kepegawaian->sk_penyesuaian)}}">Download</a></td>
                                             <td class="text-right">

@@ -78,9 +78,9 @@
                             </div>
                             </div>
                             </div>
-                            @if($tahun_nip<='2014')
+                            @if($tahun_nip<='2016')
                             <div class="row">
-                                <label class="col-sm-4 label-on-left">SK Penyesuaian</label>
+                                <label class="col-sm-4 label-on-left">SK Pengalihan Kab ke Prov</label>
                                 <div class="col-sm-8">
                                     <label class="control-label"></label>
                                     <input type="file" name="sk_penyesuaian" required >
