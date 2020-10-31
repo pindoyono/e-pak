@@ -41,7 +41,7 @@
                         @endforeach
                         @if(auth()->user()->unreadNotifications->count() == 0)
                             <li>
-                                <a href="{{ route('verifikasi.baca',  Crypt::encrypt($notification->id) ) }}"> Tidak Ada Pemberitahuan</a>
+                                <a href=""> Tidak Ada Pemberitahuan</a>
                             </li>
                         @endif
                     </ul>
