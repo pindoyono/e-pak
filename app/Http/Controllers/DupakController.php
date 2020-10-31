@@ -53,6 +53,7 @@ class DupakController extends Controller
             "surat_pernyataan1" => "required|mimes:pdf|max:2048",
             "surat_pernyataan2" => "required|mimes:pdf|max:2048",
             "surat_pernyataan3" => "required|mimes:pdf|max:2048",
+            "surat_pernyataan4" => "required|mimes:pdf|max:2048",
             "pembagian_tugas" => "required|mimes:pdf|max:10048",
             "pak" => "required|mimes:pdf|max:2048",
             "pkg" => "required|mimes:pdf|max:2048",
@@ -96,6 +97,10 @@ class DupakController extends Controller
         if($request->file('surat_pernyataan3')){
             $file = $request->file('surat_pernyataan3')->store('dupak/'.Auth::user()->nip, 'public');
             $dupak->surat_pernyataan3 = $file;
+        } 
+        if($request->file('surat_pernyataan4')){
+            $file = $request->file('surat_pernyataan4')->store('dupak/'.Auth::user()->nip, 'public');
+            $dupak->surat_pernyataan4 = $file;
         } 
         if($request->file('pembagian_tugas')){
             $file = $request->file('pembagian_tugas')->store('dupak/'.Auth::user()->nip, 'public');

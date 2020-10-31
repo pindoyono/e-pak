@@ -36,7 +36,7 @@
                     <ul class="dropdown-menu">
                         @foreach(auth()->user()->unreadNotifications as $notification)
                             <li>
-                                <a href="{{ route('verifikasi.baca',  $notification->data['link'] ) }}"> {{ $notification->data['data'] }}</a>
+                                <a href="{{ route('verifikasi.baca',  Crypt::encrypt($notification->id) ) }}"> {{ $notification->data['data1'] }}</a>
                             </li>
                         @endforeach
                     </ul>

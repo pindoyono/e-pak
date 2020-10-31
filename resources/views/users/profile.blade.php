@@ -75,6 +75,21 @@
                                 <span class="material-input"></span></div>
                             </div>
                         </div>
+                        <div class="row">
+                            <label class="col-sm-2 label-on-left">Chat Id Telegram</label>
+                            <div class="col-sm-7">
+                                <div class="form-group label-floating is-empty">
+                                    <label class="control-label"></label>
+                                    <input class="form-control" placeholder="Chat Id Telegram" value="{{$user->chat_id}}"  type="text" name="chat_id" email="true">
+                                    <span class="material-input">*** Untuk Mendapatkan Chat Id Silahkan Klik 
+                                        <a target="_blank" href="{{asset('data/telegram_id/tutorial.pdf')}}">Tutorial</a> 
+                                    </span><br>
+                                    <span class="material-input">*** Jika <b>Tidak</b> Mengisi Chat Id Notifikasi di kirimkan ke Group silahkan
+                                        <a target="_blank" href="https://t.me/epakguru">Join Group E Pak</a> 
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                         @role('super admin')
                         <div class="col-sm-2 ">
                         </div>
@@ -99,7 +114,6 @@
                             @endif
                         </div>
                         @endrole
-
                         <div class="row">
                             <label class="col-sm-2 label-on-left">Password</label>
                             <div class="col-sm-7">

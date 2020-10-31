@@ -2,31 +2,25 @@
 
 namespace App\Notifications;
 
-use App\User;
-use App\Dupak;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
-use Illuminate\Notifications\Notiflable;
-use NotificationChannels\Telegram\TelegramChannel;
-use NotificationChannels\Telegram\TelegramMessage;
 
-class TaskDupakComplete extends Notification
+class LaravelTelegramNotification extends Notification
 {
     use Queueable;
-    private $details;
+
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($details)
+    public function __construct()
     {
         //
-        $this->details = $details;
     }
-    
+
     /**
      * Get the notification's delivery channels.
      *
@@ -35,7 +29,7 @@ class TaskDupakComplete extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail','database'];
+        return ['mail'];
     }
 
     /**
@@ -46,16 +40,10 @@ class TaskDupakComplete extends Notification
      */
     public function toMail($notifiable)
     {
-
-
         return (new MailMessage)
-                    ->subject($this->details['subject'])
-                    ->from($this->details['from'], 'Admin E-pak Guru')
-                    ->greeting($this->details['greeting'])
-                    ->line($this->details['body'])
-                    ->action('Lihat Dupak', $this->details['link'])
-                    ->line($this->details['thanks'])
-                    ->salutation($this->details['salutation']);
+                    ->line('The introduction to the notification.')
+                    ->action('Notification Action', url('/'))
+                    ->line('Thank you for using our application!');
     }
 
     /**
@@ -67,9 +55,7 @@ class TaskDupakComplete extends Notification
     public function toArray($notifiable)
     {
         return [
-            'data1' => $this->details['list_notif'],
-            'link1' => $this->details['link'],
-         ];
+            //
+        ];
     }
-
 }

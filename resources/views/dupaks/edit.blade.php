@@ -132,6 +132,21 @@
                                         </a>
                                     </div>
                                 </div>
+                                <label class="col-sm-4 label-on-left">Surat Pernyataan Melaksanakan Unsur Penunjang</label>
+                                <div class="col-sm-8">
+                                <div class="row" style="padding:2%">
+                                        <a class="col-sm-2" target="_blank" href="{{asset('storage/'.$dupaks->surat_pernyataan4)}}">
+                                            <span class="btn btn-info btn-sm">
+                                                lihat
+                                            </span>
+                                        </a>
+                                        <a href="{{route('dupaks.ubah',['id'=>Crypt::encrypt($dupaks->id),'name'=>Crypt::encrypt('surat_pernyataan4')])}}">
+                                            <span class="btn btn-primary btn-sm">
+                                                edit
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
                                 <label class="col-sm-4 label-on-left">Surat Pernyataan Melaksanakan PKB</label>
                                 <div class="col-sm-8">
                                 <div class="row" style="padding:2%">

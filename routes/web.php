@@ -19,9 +19,6 @@ use RealRashid\SweetAlert\Facades\Alert;
 // });
 
 
-// Route::get('/', function(){
-//     return view('welcome');
-// });
 
 Auth::routes();
 

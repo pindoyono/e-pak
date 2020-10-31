@@ -8,6 +8,9 @@ use Crypt;
 use Auth;
 use DB;
 use User;
+use Config;
+
+use Telegram\Bot\Laravel\Facades\Telegram;
 
 // Panggil SendMail yang telah dibuat
 use App\Mail\SendMail;
@@ -164,30 +167,42 @@ class VerifikasiController extends Controller
     public function baca($id)
     {
         //
-        $id =  Crypt::decrypt($id);
-        $verifikasi = \App\Verifikasi::findOrFail($id);
-        $verifikasi->status = 'baca';
-        $verifikasi->update();
-        
-        return redirect($verifikasi->link);
+        $activity = Telegram::getUpdates();
+        dd($activity);
     }
 
     public function email()
     {
        
 
-        $user = \App\User::find(3);
+        $user = \App\User::find(2);
 
         $details = [
                 'from' => 'epakgurumalinau@gmail.com',
-                'greeting' => 'Hi Artisan',
-                'body' => 'This is our example notification tutorial',
-                'thanks' => 'Thank you for visiting codechief.org!',
+                'greeting' => 'Hi, '.$user->name,
+                'body' => 'Berkas Usulan Anda Sudah di Periksa dan dinilai oleh tim Penilai',
+                'thanks' => 'Terimakasih Sudah menggunakan Aplikasi E-Pak Guru',
                 'list_notif' => 'Usulan Anda Lengkap dan Telah Terverifikasi',
                 'link' => route('dupaks_penilai.index'),
+                'subject' => 'Info E-pak Guru',
+                'salutation' => 'Hormat Kami',
+                'telegram_id' => env('TELEGRAM_CHANNEL_ID'),
+                
         ];
 
         $user->notify(new \App\Notifications\TaskDupakComplete($details));
+
+        $text = "A new contact us query\n"
+            . "<b>Email Address: </b>\n"
+            . "Patan Pindoyono\n"
+            . "<b>Message: </b>\n"
+            . 'test Bot';
+ 
+        Telegram::sendMessage([
+            'chat_id' => $user->chat_id,
+            'parse_mode' => 'HTML',
+            'text' => $text
+        ]);
 
         return redirect()->route('dupaks_penilai.index')->with('toast_success', 'Email telah dikirim');
     }

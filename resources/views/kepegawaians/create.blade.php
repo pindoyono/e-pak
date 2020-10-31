@@ -78,7 +78,7 @@
                             </div>
                             </div>
                             </div>
-                            @if($tahun_nip<='2017')
+                            @if($tahun_nip<='2014')
                             <div class="row">
                                 <label class="col-sm-4 label-on-left">SK Penyesuaian</label>
                                 <div class="col-sm-8">

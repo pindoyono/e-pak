@@ -248,6 +248,7 @@ class UserController extends Controller
 
         $user->name = $request->get('name');
         $user->nip = $request->get('nip');
+        $user->chat_id = $request->get('chat_id');
         // $user->sekolah_id = $request->get('sekolah_id');
         $user->email = $request->get('email');
         if( $request->get('password') ){

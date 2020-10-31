@@ -97,6 +97,13 @@
                             </div>
                             </div>
                             <div class="row">
+                            <label class="col-sm-4 label-on-left">Surat Pernyataan Melaksanakan Unsur Penunjang </label>
+                            <div class="col-sm-8">
+                                    <label class="control-label"></label>
+                                    <input type="file" name="surat_pernyataan4">
+                            </div>
+                            </div>
+                            <div class="row">
                             <label class="col-sm-4 label-on-left">Surat Pernyataan Melaksanakan PKB</label>
                             <div class="col-sm-8">
                                     <label class="control-label"></label>
