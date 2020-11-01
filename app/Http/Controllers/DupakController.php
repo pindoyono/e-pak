@@ -278,7 +278,7 @@ class DupakController extends Controller
                     'thanks' => 'Terimakasih Sudah menggunakan Aplikasi E-Pak Guru',
                     'saran' => 'Jika ada Saran dan Masukan Untuk Pengembang Aplikasi Ini.. silahkan klik link berikut ini ',
                     'tombol' => "http:/e-pak.smkn2malinau.sch.id/sarans/create",
-                    'list_notif' => 'Usulan Anda Lengkap dan Telah Terverifikasi',
+                    'list_notif' => 'Usulan Anda Sudah Terkirim',
                     'text_action' => 'List Dupak',
                     'link1' => route('dupaks.index'),
                     'subject' => 'Info E-pak Guru',

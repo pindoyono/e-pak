@@ -147,7 +147,7 @@
             <li class="{{ Request::segment(1) === 'dupaks_penilai' || Request::segment(1) === 'berita_acara' ? 'active' : null }}">
                 <a href="{{route('dupaks_penilai.index' )}}">
                     <i class="fas fa-clipboard-list "></i>
-                    <p>Daftar Usulan PAK</p>
+                    <p>Daftar Usulan PAK <span class="notification">p</span></p>
                 </a>
             </li>
 
@@ -157,7 +157,7 @@
             <li class="{{ Request::segment(1) === 'dupaks_penilai' || Request::segment(1) === 'berita_acara' || Request::segment(1) === 'verifikasi' ? 'active' : null }}">
                 <a href="{{route('dupaks_penilai.index' )}}">
                     <i class="fas fa-clipboard-list "></i>
-                    <p>Daftar Usulan PAK</p>
+                    <p>Daftar Usulan PAK <span class="notification">v</span></p>
                 </a>
             </li>
             @endrole
