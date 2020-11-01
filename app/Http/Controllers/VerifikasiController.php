@@ -171,13 +171,13 @@ class VerifikasiController extends Controller
         $group_id = \App\Setup::first()->group_id;
         $telegram_id = $group_id;
 
-        echo $user;
-        echo "<br>";
-        echo $telegram_id;
+        // echo $user;
+        // echo "<br>";
+        // echo $telegram_id;
         if($user!=""){
             $telegram_id = $user;
         }
-        echo $telegram_id;
+        // echo $telegram_id;
         
         $users = \App\User::find($id);
 

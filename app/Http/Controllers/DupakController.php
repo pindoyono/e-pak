@@ -223,6 +223,60 @@ class DupakController extends Controller
         $dupak->status = "submit";
         $dupak->update();
 
+
+
+        $user = \App\User::find($id)->chat_id_verified;
+        $group_id = \App\Setup::first()->group_id;
+        $telegram_id = $group_id;
+
+        // echo $user;
+        // echo "<br>";
+        // echo $telegram_id;
+        if($user!=""){
+            $telegram_id = $user;
+        }
+        // echo $telegram_id;
+        
+        $users = \App\User::find($id);
+
+        $text = "Halo, ".$users->name."\n"
+            . "Berkas Usulan Anda Sudah Kami Terima.. selanjutnya akan di veifikasi oleh tim verifikator. \n"
+            . "Terimakasih Sudah menggunakan Aplikasi E-Pak Guru\n"
+            . "Jika ada Saran dan Masukan Untuk Pengembang Aplikasi Ini.. silahkan klik link berikut ini \n";
+            
+            $keyboard = Keyboard::make()
+            ->inline()
+            ->row(
+                Keyboard::inlineButton(['text' => 'Saran Dan Masukan', 'url' => route('sarans.create') ]),
+                // Keyboard::inlineButton(['text' => 'Btn 2', 'callback_data' => 'data_from_btn2'])
+            );
+
+            Telegram::sendMessage([
+                'chat_id' => $telegram_id ,
+                'parse_mode' => 'HTML',
+                'reply_markup' => $keyboard,
+                'text' => $text,
+            ]);
+
+            
+            $details = [
+                    'from' => 'epakgurumalinau@gmail.com',
+                    'greeting' => 'Halo, '.$users->name,
+                    'body' => 'Berkas Usulan Anda Sudah Kami Terima.. selanjutnya akan di veifikasi oleh tim verifikator. ',
+                    'thanks' => 'Terimakasih Sudah menggunakan Aplikasi E-Pak Guru',
+                    'saran' => 'Jika ada Saran dan Masukan Untuk Pengembang Aplikasi Ini.. silahkan klik link berikut ini ',
+                    'list_notif' => 'Usulan Anda Lengkap dan Telah Terverifikasi',
+                    'link' => route('sarans.create'),
+                    'subject' => 'Info E-pak Guru',
+                    'salutation' => 'Hormat Kami',
+                    'telegram_id' => env('TELEGRAM_CHANNEL_ID'),
+                    
+            ];
+    
+            $users->notify(new \App\Notifications\TaskDupakComplete($details));
+
+
+
         return redirect()->route('dupaks.index')->with('success', 'Usulan Anda Telah Di Kirim');
 
     }
