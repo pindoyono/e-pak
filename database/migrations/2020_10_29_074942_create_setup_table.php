@@ -34,6 +34,6 @@ class CreateSetupTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('setup');
+        Schema::dropIfExists('setups');
     }
 }

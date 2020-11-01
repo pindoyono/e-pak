@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Telegram\Bot\Keyboard\Keyboard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Crypt;
@@ -166,11 +166,7 @@ class VerifikasiController extends Controller
 
     public function baca($id)
     {
-        // //
-        // echo  setup('group_id');
-        // exit;
-        // $activity = Telegram::getUpdates();
-        // dd($activity);
+
         $user = \App\User::find($id)->chat_id_verified;
         $group_id = \App\Setup::first()->group_id;
         $telegram_id = $group_id;
@@ -182,19 +178,45 @@ class VerifikasiController extends Controller
             $telegram_id = $user;
         }
         echo $telegram_id;
+        
+        $users = \App\User::find($id);
 
-        $text = "A new contact us query\n"
-            . "<b>Email Address: </b>\n"
-            . "Patan Pindoyono\n"
-            . "<b>Message: </b>\n"
-            . 'test Bot';
- 
+        $text = "Halo, ".$users->name."\n"
+            . "Berkas Usulan Anda Sudah Kami Terima.. selanjutnya akan di veifikasi oleh tim verifikator. \n"
+            . "Terimakasih Sudah menggunakan Aplikasi E-Pak Guru\n"
+            . "Jika ada Saran dan Masukan Untuk Pengembang Aplikasi Ini.. silahkan klik link berikut ini \n";
+            
+            $keyboard = Keyboard::make()
+            ->inline()
+            ->row(
+                Keyboard::inlineButton(['text' => 'Saran Dan Masukan', 'url' => route('sarans.create') ]),
+                // Keyboard::inlineButton(['text' => 'Btn 2', 'callback_data' => 'data_from_btn2'])
+            );
 
             Telegram::sendMessage([
                 'chat_id' => $telegram_id ,
                 'parse_mode' => 'HTML',
-                'text' => $text
+                'reply_markup' => $keyboard,
+                'text' => $text,
             ]);
+
+            
+            $details = [
+                    'from' => 'epakgurumalinau@gmail.com',
+                    'greeting' => 'Halo, '.$users->name,
+                    'body' => 'Berkas Usulan Anda Sudah Kami Terima.. selanjutnya akan di veifikasi oleh tim verifikator. ',
+                    'thanks' => 'Terimakasih Sudah menggunakan Aplikasi E-Pak Guru',
+                    'saran' => 'Jika ada Saran dan Masukan Untuk Pengembang Aplikasi Ini.. silahkan klik link berikut ini ',
+                    'list_notif' => 'Usulan Anda Lengkap dan Telah Terverifikasi',
+                    'link' => route('sarans.create'),
+                    'subject' => 'Info E-pak Guru',
+                    'salutation' => 'Hormat Kami',
+                    'telegram_id' => env('TELEGRAM_CHANNEL_ID'),
+                    
+            ];
+    
+            $users->notify(new \App\Notifications\TaskDupakComplete($details));
+            return redirect()->route('dupaks_penilai.index')->with('toast_success', 'Email telah dikirim');
 
                 
     }
@@ -206,11 +228,12 @@ class VerifikasiController extends Controller
         $user = \App\User::find(2);
         $details = [
                 'from' => 'epakgurumalinau@gmail.com',
-                'greeting' => 'Hi, '.$user->name,
-                'body' => 'Berkas Usulan Anda Sudah di Periksa dan dinilai oleh tim Penilai',
-                'thanks' => 'Terimakasih Sudah menggunakan Aplikasi E-Pak Guru',
+                'greeting' => 'Halo, '.$user->name,
+                'body' => 'Berkas Usulan Anda Sudah Kami Terima.. selanjutnya akan di veifikasi oleh tim verifikator. ',
+                'thanks' => 'Terimakasih Sudah menggunakan Aplikasi E-Pak Guru <br>
+                            Jika ada Saran dan Masukan Untuk Pengembang Aplikasi Ini.. silahkan klik link berikut ini',
                 'list_notif' => 'Usulan Anda Lengkap dan Telah Terverifikasi',
-                'link' => route('dupaks_penilai.index'),
+                'link' => route('sarans.create'),
                 'subject' => 'Info E-pak Guru',
                 'salutation' => 'Hormat Kami',
                 'telegram_id' => env('TELEGRAM_CHANNEL_ID'),
@@ -219,16 +242,23 @@ class VerifikasiController extends Controller
 
         $user->notify(new \App\Notifications\TaskDupakComplete($details));
 
-        $text = "A new contact us query\n"
-            . "<b>Email Address: </b>\n"
-            . "Patan Pindoyono\n"
-            . "<b>Message: </b>\n"
-            . 'test Bot';
+        $text = "Halo, ".$user->name."\n"
+            . "Berkas Usulan Anda Sudah Kami Terima.. selanjutnya akan di veifikasi oleh tim verifikator. \n"
+            . "Terimakasih Sudah menggunakan Aplikasi E-Pak Guru\n"
+            . "Jika ada Saran dan Masukan Untuk Pengembang Aplikasi Ini.. silahkan klik link berikut ini \n"
+            . "<a href='".route('sarans.create')."'> Saran dan Masukan </a> \n"
+            . '';
  
         Telegram::sendMessage([
             'chat_id' => $user->chat_id,
             'parse_mode' => 'HTML',
-            'text' => $text
+            'text' => $text,
+            $keyboard = array(
+                "inline_keyboard" => array(array(array(
+                "text" => "Saran dan Masukan",
+                "url" => route('sarans.create')
+                )))
+                ),
         ]);
 
         return redirect()->route('dupaks_penilai.index')->with('toast_success', 'Email telah dikirim');

@@ -53,7 +53,7 @@ class TaskDupakComplete extends Notification
                     ->from($this->details['from'], 'Admin E-pak Guru')
                     ->greeting($this->details['greeting'])
                     ->line($this->details['body'])
-                    ->action('Lihat Dupak', $this->details['link'])
+                    ->action('Saran Dan Masukan', $this->details['link'])
                     ->line($this->details['thanks'])
                     ->salutation($this->details['salutation']);
     }

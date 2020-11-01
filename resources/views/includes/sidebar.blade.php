@@ -162,6 +162,22 @@
             </li>
             @endrole
             
+            @role('super admin')
+            <li class="{{ Request::segment(1) === 'sarans' ? 'active' : null }}">
+                <a href="{{route('sarans.index' )}}">
+                    <i class="fas fa-inbox "></i>
+                    <p>Saran Dan Masukan Admin</p>
+                </a>
+            </li>
+            @else
+            <li class="{{ Request::segment(1) === 'sarans' ? 'active' : null }}">
+                <a href="{{route('sarans.create' )}}">
+                    <i class="fas fa-inbox "></i>
+                    <p>Saran Dan Masukan</p>
+                </a>
+            </li>
+            @endrole
+            
             <li class="">
                 <a class="" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();

@@ -29,6 +29,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles','RoleController')->middleware('role:super admin');
     Route::resource("users", "UserController");
+    Route::resource("sarans", "SaranController");
     Route::resource("jabatans", "JabatanControler")->middleware('role:super admin');
     Route::resource("sekolahs", "SekolahController")->middleware('role:super admin');
     Route::resource("setups", "SetupController")->middleware('role:super admin');
@@ -64,8 +65,6 @@ Route::group(['middleware' => ['auth']], function() {
     // biodata
     Route::get('/create_biodata/{id}', 'BiodataController@create_biodata')->name('biodatas.create_biodata')->middleware('role:guru|penilai|verifikator|super admin ');
     Route::put('/create_or_update/{id}', 'BiodataController@create_or_update')->name('biodatas.create_or_update')->middleware('role:guru|penilai|verifikator|super admin');
-
-
 
     Route::get('users.export', 'UserController@export')->name('users.export')->middleware('role:super admin');
     Route::get('importExportView', 'UserController@importExportView')->middleware('role:super admin');
