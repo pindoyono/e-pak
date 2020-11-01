@@ -42,7 +42,7 @@
                                     <td>{{$dupak->name}}</td>
                                     <td>{{$dupak->nama}}</td>
                                     <td>{{ tgl_indo($dupak->awal) .' s/d '.tgl_indo($dupak->akhir)}}</td>
-                                    <td>  <span class="tag label label-primary">{{$dupak->status}}</span></td>
+                                    <td>  <span class="tag label label-primary">{{$dupak->status}} {{dinilai($dupak->id)}} </span></td>
                                     <td class="td-actions text-right">
                                     @role('verifikator')
                                         @if($dupak->status=='submit')
