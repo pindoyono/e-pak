@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Crypt;
 use PDF;
 use DB; 
+use Telegram\Bot\Keyboard\Keyboard;
+use Telegram\Bot\Laravel\Facades\Telegram;
 
 class PenilaiDupakController extends Controller
 {
@@ -204,13 +206,67 @@ class PenilaiDupakController extends Controller
         $dupak->status="Sudah Dinilai";
         $dupak->update();
         
-        $verifikasi = new \App\Verifikasi;
-        $verifikasi->pesan = 'Usulan Anda Sudah Dinilai oleh Tim Penilai';
-        $verifikasi->user_id = $dupak->user_id;
-        $verifikasi->link = route('dupaks.index' );
-        $verifikasi->status = 'baru';
-        $verifikasi->save();
+        $user = \App\User::find($dupak->user_id)->chat_id_verified;
+        $group_id = \App\Setup::first()->group_id;
+        $telegram_id = $group_id;
 
+        // echo $user;
+        // echo "<br>";
+        // echo $telegram_id;
+        if($user!=""){
+            $telegram_id = $user;
+        }
+        // echo $telegram_id;
+        
+        $users = \App\User::find($dupak->user_id);
+
+        $text = "Halo, ".$users->name."\n"
+            . "Berkasi Usulan Anda Sudah di Nilai \n"
+            . "Terimakasih Sudah menggunakan Aplikasi E-Pak Guru\n"
+            . "Jika ada Saran dan Masukan Untuk Pengembang Aplikasi Ini.. silahkan klik link berikut ini \n";
+            
+            if(url('/') == 'http://localhost:8000'){
+
+                $keyboard = Keyboard::make()
+                ->inline()
+                ->row(
+                    Keyboard::inlineButton(['text' => 'Saran Dan Masukan', 'url' => 'http://e-pak.smkn2malinau.sch.id' ]),
+                    Keyboard::inlineButton(['text' => 'List Dupak', 'url' => 'http://e-pak.smkn2malinau.sch.id' ])
+                );
+            }else{
+                $keyboard = Keyboard::make()
+                ->inline()
+                ->row(
+                    Keyboard::inlineButton(['text' => 'Saran Dan Masukan', 'url' => route('sarans.create') ]),
+                    Keyboard::inlineButton(['text' => 'List Dupak', 'url' => route('dupaks.index') ])
+                );
+            }
+                
+            Telegram::sendMessage([
+                'chat_id' => $telegram_id ,
+                'parse_mode' => 'HTML',
+                'reply_markup' => $keyboard,
+                'text' => $text,
+            ]);
+
+            
+            $details = [
+                    'from' => 'epakgurumalinau@gmail.com',
+                    'greeting' => 'Halo, '.$users->name,
+                    'body' => 'Berkasi Usulan Anda Sudah di Nilai',
+                    'thanks' => 'Terimakasih Sudah menggunakan Aplikasi E-Pak Guru',
+                    'saran' => 'Jika ada Saran dan Masukan Untuk Pengembang Aplikasi Ini.. silahkan klik link berikut ini ',
+                    'tombol' => "http:/e-pak.smkn2malinau.sch.id/sarans/create",
+                    'list_notif' => 'Usulan Anda Sudah Dinilai oleh Tim Penilai',
+                    'text_action' => 'List Dupak',
+                    'link1' => route('dupaks.index'),
+                    'subject' => 'Info E-pak Guru',
+                    'salutation' => 'Hormat Kami',
+                    'telegram_id' => env('TELEGRAM_CHANNEL_ID'),
+                    
+            ];
+    
+            $users->notify(new \App\Notifications\TaskDupakComplete($details));
 
         $id = Crypt::encrypt($id);
         

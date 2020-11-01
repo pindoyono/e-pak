@@ -81,6 +81,8 @@ if (! function_exists('tgl_indo')) {
     }
 }
 
+
+
 if (! function_exists('hari_ini')) {
 function hari_ini(){
 	$hari = date ("D");
@@ -127,6 +129,19 @@ if (! function_exists('nama_sekolah')) {
     function nama_sekolah($id){
         $sekolah = \App\Sekolah::findOrFail($id);
         return $sekolah;
+    }
+}
+
+if (! function_exists('dinilai')) {
+    function dinilai($id){
+        $berita_acara = \App\BeritaAcara::where('dupak_id',$id)->count();
+        if($berita_acara!=0){
+            $berita = \App\BeritaAcara::where('dupak_id',$id)->first();
+            $tgl = date('d M Y - H:i:s', $berita->created_at->timestamp);
+        }else{
+            $tgl = ' ';
+        }
+        return $tgl;
     }
 }
 

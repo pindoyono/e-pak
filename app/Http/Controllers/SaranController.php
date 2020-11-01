@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Auth;
+use Crypt;
  
 class SaranController extends Controller
 {
@@ -69,6 +70,7 @@ class SaranController extends Controller
     public function show($id)
     {
         //
+        $id = Crypt::decrypt($id);
         $saran = \App\Saran::findOrFail($id);
         return view('sarans.show',   ['saran' => $saran]);
     }

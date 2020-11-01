@@ -65,11 +65,6 @@
                                         Lihat Detail
                                       </button>
                                     </a>
-                                    <a href="{{route('verifikasi.email')}}">
-                                      <button class="btn btn-success btn-round">
-                                        Kirim Email
-                                      </button>
-                                    </a>
                                     </td>
                                 </tr>
                                 @endforeach 
