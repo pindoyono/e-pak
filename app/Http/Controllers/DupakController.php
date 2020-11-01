@@ -228,7 +228,7 @@ class DupakController extends Controller
 
 
 
-        $user = \App\User::find($id)->chat_id_verified;
+        $user = \App\User::find($dupak->user_id)->chat_id_verified;
         $group_id = \App\Setup::first()->group_id;
         $telegram_id = $group_id;
 
@@ -240,7 +240,7 @@ class DupakController extends Controller
         }
         // echo $telegram_id;
         
-        $users = \App\User::find($id);
+        $users = \App\User::find($dupak->user_id);
 
         $text = "Halo, ".$users->name."\n"
             . "Berkas Usulan Anda Sudah Kami Terima.. selanjutnya akan di veifikasi oleh tim verifikator. \n"
