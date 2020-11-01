@@ -217,7 +217,6 @@ class DupakController extends Controller
  
     public function submit($id)
     {
-
         $id = Crypt::decrypt($id); 
         // var_dump($id);
         // exit;
@@ -247,13 +246,23 @@ class DupakController extends Controller
             . "Terimakasih Sudah menggunakan Aplikasi E-Pak Guru\n"
             . "Jika ada Saran dan Masukan Untuk Pengembang Aplikasi Ini.. silahkan klik link berikut ini \n";
             
-            $keyboard = Keyboard::make()
-            ->inline()
-            ->row(
-                Keyboard::inlineButton(['text' => 'Saran Dan Masukan', 'url' => route('sarans.create') ]),
-                // Keyboard::inlineButton(['text' => 'Btn 2', 'callback_data' => 'data_from_btn2'])
-            );
+            if(url('/') == 'http://localhost:8000'){
 
+                $keyboard = Keyboard::make()
+                ->inline()
+                ->row(
+                    Keyboard::inlineButton(['text' => 'Saran Dan Masukan', 'url' => 'http://e-pak.smkn2malinau.sch.id' ]),
+                    Keyboard::inlineButton(['text' => 'Lihat Dupak', 'url' => 'http://e-pak.smkn2malinau.sch.id' ])
+                );
+            }else{
+                $keyboard = Keyboard::make()
+                ->inline()
+                ->row(
+                    Keyboard::inlineButton(['text' => 'Saran Dan Masukan', 'url' => route('sarans.create') ]),
+                    Keyboard::inlineButton(['text' => 'Lihat Dupak', 'url' => route('dupaks.index') ])
+                );
+            }
+                
             Telegram::sendMessage([
                 'chat_id' => $telegram_id ,
                 'parse_mode' => 'HTML',
@@ -270,6 +279,7 @@ class DupakController extends Controller
                     'saran' => 'Jika ada Saran dan Masukan Untuk Pengembang Aplikasi Ini.. silahkan klik link berikut ini ',
                     'list_notif' => 'Usulan Anda Lengkap dan Telah Terverifikasi',
                     'link' => route('sarans.create'),
+                    'link1' => route('dupaks.index'),
                     'subject' => 'Info E-pak Guru',
                     'salutation' => 'Hormat Kami',
                     'telegram_id' => env('TELEGRAM_CHANNEL_ID'),

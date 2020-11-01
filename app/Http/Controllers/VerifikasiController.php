@@ -166,7 +166,18 @@ class VerifikasiController extends Controller
 
     public function baca($id)
     {
+        $id = Crypt::decrypt($id);
+        $notification = auth()->user()->notifications()->find($id);
+        if($notification) {
+        $notification->markAsRead();
+        }
+        
+        return redirect($notification->data['link1']);
+    }
 
+    public function email()
+    {
+      
         $user = \App\User::find($id)->chat_id_verified;
         $group_id = \App\Setup::first()->group_id;
         $telegram_id = $group_id;
@@ -217,50 +228,5 @@ class VerifikasiController extends Controller
     
             $users->notify(new \App\Notifications\TaskDupakComplete($details));
             return redirect()->route('dupaks_penilai.index')->with('toast_success', 'Email telah dikirim');
-
-                
-    }
-
-    public function email()
-    {
-       
-
-        $user = \App\User::find(2);
-        $details = [
-                'from' => 'epakgurumalinau@gmail.com',
-                'greeting' => 'Halo, '.$user->name,
-                'body' => 'Berkas Usulan Anda Sudah Kami Terima.. selanjutnya akan di veifikasi oleh tim verifikator. ',
-                'thanks' => 'Terimakasih Sudah menggunakan Aplikasi E-Pak Guru <br>
-                            Jika ada Saran dan Masukan Untuk Pengembang Aplikasi Ini.. silahkan klik link berikut ini',
-                'list_notif' => 'Usulan Anda Lengkap dan Telah Terverifikasi',
-                'link' => route('sarans.create'),
-                'subject' => 'Info E-pak Guru',
-                'salutation' => 'Hormat Kami',
-                'telegram_id' => env('TELEGRAM_CHANNEL_ID'),
-                
-        ];
-
-        $user->notify(new \App\Notifications\TaskDupakComplete($details));
-
-        $text = "Halo, ".$user->name."\n"
-            . "Berkas Usulan Anda Sudah Kami Terima.. selanjutnya akan di veifikasi oleh tim verifikator. \n"
-            . "Terimakasih Sudah menggunakan Aplikasi E-Pak Guru\n"
-            . "Jika ada Saran dan Masukan Untuk Pengembang Aplikasi Ini.. silahkan klik link berikut ini \n"
-            . "<a href='".route('sarans.create')."'> Saran dan Masukan </a> \n"
-            . '';
- 
-        Telegram::sendMessage([
-            'chat_id' => $user->chat_id,
-            'parse_mode' => 'HTML',
-            'text' => $text,
-            $keyboard = array(
-                "inline_keyboard" => array(array(array(
-                "text" => "Saran dan Masukan",
-                "url" => route('sarans.create')
-                )))
-                ),
-        ]);
-
-        return redirect()->route('dupaks_penilai.index')->with('toast_success', 'Email telah dikirim');
     }
 }
