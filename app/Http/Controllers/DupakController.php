@@ -9,6 +9,7 @@ use Crypt;
 use Auth;
 use DB;
 use Telegram\Bot\Keyboard\Keyboard;
+use Telegram\Bot\Laravel\Facades\Telegram;
 
 
 class DupakController extends Controller
