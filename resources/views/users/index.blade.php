@@ -46,6 +46,8 @@
                                     <th>Foto</th>
                                     <th>Nama</th>
                                     <th>NIP</th>
+                                    <th>Telegram</th>
+                                    <th>Verified</th>
                                     <th>Email</th>
                                     <th>Role</th>
                                     <th class="disabled-sorting text-right">Actions</th>
@@ -73,6 +75,8 @@
                                     </td>
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->nip}}</td>
+                                    <td>{{$user->chat_id}}</td>
+                                    <td>{{$user->chat_id_verified}}</td>
                                     <td>{{$user->email}}</td>
                                     <td>
                                         @if(!empty($user->getRoleNames()))
