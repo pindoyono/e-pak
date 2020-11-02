@@ -21,7 +21,7 @@
                     <i class="material-icons">assignment</i>
                 </div>
                 <div class="card-content">
-                    <h4 class="card-title">Daftar Usulan Pak</h4>
+                    <h4 class="card-title">Daftar Usulan PAK</h4>
                     
                     <div class="col-12 text-right">
                         <a href="{{route('dupaks.create')}}" class="btn btn-success">Tambah Usulan <div class="ripple-container"></div></a>

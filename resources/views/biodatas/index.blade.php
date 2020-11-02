@@ -1,7 +1,7 @@
 @extends("layouts.global")
 
 @section('title')
-    Managemen Sekolah
+    Managemen Biodata
 @endsection
 
 @section("content")
