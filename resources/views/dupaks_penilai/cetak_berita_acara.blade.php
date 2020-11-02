@@ -84,13 +84,13 @@ table {
             </tr>
             <tr>
                 <td rowspan=2> 9</td>
-                <td rowspan=2>Masa kerja Golongan</td>
+                <td rowspan=2>Masa Kerja Golongan</td>
                 <td>Lama</td>
-                <td colspan=4>{{$biodatas->tmt_cpns}}</td>
+                <td colspan=2>{{ masakerja($biodatas->tmt_cpns) }}</td>
             </tr>
             <tr>
                 <td>Baru</td>
-                <td colspan=4>{{$biodatas->tmt_cpns}}</td>
+                <td colspan=2>{{ masakerja($biodatas->tmt_pns) }}</td>
             </tr>
             <tr>
                 <td width="5%"> 10</td>
