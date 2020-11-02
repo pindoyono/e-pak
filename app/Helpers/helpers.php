@@ -132,6 +132,13 @@ if (! function_exists('nama_sekolah')) {
     }
 }
 
+if (! function_exists('nama_bukti_fisik')) {
+    function nama_bukti_fisik($id){
+        $berkas = \App\Berkas::findOrFail($id);
+        return $berkas;
+    }
+}
+
 if (! function_exists('dinilai')) {
     function dinilai($id){
         $berita_acara = \App\BeritaAcara::where('dupak_id',$id)->count();

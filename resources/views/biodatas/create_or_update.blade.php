@@ -208,7 +208,7 @@
                                             <span class="material-input"></span></div>
                                     </div>
                                     <div class="col-md-2">
-                                        <label class="label-on-left">TMT PNS</label>
+                                        <label class="label-on-left">TMT SK Pangkat Terakhir</label>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group label-floating is-empty">

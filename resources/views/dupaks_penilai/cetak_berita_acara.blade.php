@@ -59,8 +59,8 @@ table {
             </tr>
             <tr>
                 <td width="5%"> 4</td>
-                <td colspan=2>Tempat dan Tanggal Lahir</td>
-                <td colspan=4>{{$biodatas->tempat_lahir.' dan '.$biodatas->tanggal_lahir}}</td>
+                <td colspan=2>Tempat, Tanggal Lahir</td>
+                <td colspan=2>{{$biodatas->tempat_lahir.', '.tgl_indo($biodatas->tanggal_lahir)}}</td>
             </tr>
             <tr>
                 <td width="5%"> 5</td>

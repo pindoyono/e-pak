@@ -386,7 +386,7 @@
                                     @foreach($berkas as $key => $berkas)
                                     <tr>
                                         <td>{{$key+1}}</td>
-                                        <td> {{kegiatans($berkas->nama)->kegiatan}}</td>
+                                        <td> {{ kegiatans($berkas->nama)->kegiatan}}</td>
                                         <td>
                                             <a class="col-sm-2" target="_blank" href="{{asset('storage/'.$berkas->berkas)}}">
                                                 <span class="btn btn-info btn-sm">
