@@ -99,7 +99,7 @@
                                 </tr>
                                 <tr>
                                     <td>Baru</td>
-                                    <td colspan=2>{{masakerja($biodatas->tmt_cpns) }}</td>
+                                    <td colspan=2>{{masakerja($biodatas->tmt_pns) }}</td>
                                 </tr>
                                 <tr>
                                     <td width="5%"> 10</td>
