@@ -315,7 +315,7 @@ class VerifikasiController extends Controller
             $keyboard = Keyboard::make()
             ->inline()
             ->row(
-                Keyboard::inlineButton(['text' => 'Saran Dan Masukan', 'url' => route('sarans.create') ]),
+                Keyboard::inlineButton(['text' => 'Saran Dan Masukan', 'url' => route('sarans.create') ])
                 // Keyboard::inlineButton(['text' => 'Btn 2', 'callback_data' => 'data_from_btn2'])
             );
 
