@@ -325,9 +325,18 @@
                                                     7                                            
                                                 </td>
                                                 <td>
-                                                    SK Pembagian Tugas
+                                                    SK Pembagian Tugas Ganjil
                                                 </td>
                                                 <td><a target="_blank" href="{{asset('storage/'.$dupak->pembagian_tugas)}}">Download</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    7                                            
+                                                </td>
+                                                <td>
+                                                    SK Pembagian Tugas Genap
+                                                </td>
+                                                <td><a target="_blank" href="{{asset('storage/'.$dupak->pembagian_tugas_genap)}}">Download</a></td>
                                             </tr>
                                             <tr>
                                                 <td>
