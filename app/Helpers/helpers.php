@@ -17,14 +17,29 @@ function customImagePath($image_name)
 } 
 
 if (! function_exists('masakerja')) {
-    function masakerja($date)
+    function masakerja($date,$now)
     {
 		$ts1 = strtotime($date);
-		$ts2 = strtotime(date("Y-m-d H:i:s"));
+		$ts2 = strtotime($now);
 		$seconds_diff = $ts2 - $ts1;
 		return floor($seconds_diff / (60 * 60 * 24 * 365))." Tahun";
     }
+    
 }
+
+if (! function_exists('masakerja1')) {
+    function masakerja1($date,$now)
+    {
+		$ts1 = strtotime($date);
+		$ts2 = strtotime($now);
+        $seconds_diff = $ts2 - $ts1;
+        $mod = $seconds_diff % (60 * 60 * 24 * 365);
+		return floor($mod / (60 * 60 * 24 * 30)).' Bulan';
+    }
+    
+}
+
+
 
 if (! function_exists('jumlah')) {
     function jumlah($role)

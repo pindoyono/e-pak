@@ -60,7 +60,7 @@ table {
             <tr>
                 <td width="5%"> 4</td>
                 <td colspan=2>Tempat, Tanggal Lahir</td>
-                <td colspan=2>{{$biodatas->tempat_lahir.', '.tgl_indo($biodatas->tanggal_lahir)}}</td>
+                <td colspan=4>{{$biodatas->tempat_lahir.', '.tgl_indo($biodatas->tanggal_lahir)}}</td>
             </tr>
             <tr>
                 <td width="5%"> 5</td>
@@ -86,11 +86,11 @@ table {
                 <td rowspan=2> 9</td>
                 <td rowspan=2>Masa Kerja Golongan</td>
                 <td>Lama</td>
-                <td colspan=2>{{ masakerja($biodatas->tmt_cpns) }}</td>
+                <td colspan=4>{{ masakerja($biodatas->tmt_cpns).' '. masakerja1($biodatas->tmt_pns) }}</td>
             </tr>
             <tr>
                 <td>Baru</td>
-                <td colspan=2>{{ masakerja($biodatas->tmt_pns) }}</td>
+                <td colspan=4>{{ masakerja($biodatas->tmt_pns).' '. masakerja1($now) }}</td>
             </tr>
             <tr>
                 <td width="5%"> 10</td>

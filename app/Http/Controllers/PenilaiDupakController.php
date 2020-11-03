@@ -274,7 +274,6 @@ class PenilaiDupakController extends Controller
     }
 
     public function createPDF($id) {
-
         $id =  Crypt::decrypt($id);
         $dupak = \App\Dupak::where('id', $id )->first();
         $berkas = \App\Berkas::where('dupak_id', $id )->get();
