@@ -86,11 +86,11 @@ table {
                 <td rowspan=2> 9</td>
                 <td rowspan=2>Masa Kerja Golongan</td>
                 <td>Lama</td>
-                <td colspan=4>{{ masakerja($biodatas->tmt_cpns).' '. masakerja1($biodatas->tmt_pns) }}</td>
+                <td colspan=4>{{ masakerja($biodatas->tmt_cpns,$biodatas->tmt_pns).' '. masakerja1($biodatas->tmt_cpns,$biodatas->tmt_pns) }}</td>
             </tr>
             <tr>
                 <td>Baru</td>
-                <td colspan=4>{{ masakerja($biodatas->tmt_pns).' '. masakerja1($now) }}</td>
+                <td colspan=4>{{ masakerja($biodatas->tmt_cpns,$now).' '. masakerja1($biodatas->tmt_cpns,$now) }}</td>
             </tr>
             <tr>
                 <td width="5%"> 10</td>
