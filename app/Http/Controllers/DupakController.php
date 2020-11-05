@@ -272,7 +272,7 @@ class DupakController extends Controller
 
             
             $details = [
-                    'from' => 'epakgurumalinau@gmail.com',
+                    'from' => 'admin@e-pakgurukaltara.com',
                     'greeting' => 'Halo, '.$users->name,
                     'body' => 'Berkas Usulan Anda Sudah Kami Terima.. selanjutnya akan di verifikasi oleh tim verifikator. ',
                     'thanks' => 'Terimakasih Sudah menggunakan Aplikasi E-Pak Guru',

@@ -47,8 +47,9 @@
                             <div class="col-sm-7">
                                 <div class="form-group label-floating is-empty">
                                     <label class="control-label"></label>
-                                    <input class="form-control" placeholder="Nomor Induk Pegawai" disabled value="{{$user->nip}}" type="text" name="nip"  required="true" number="true">
-                                    <span class="material-input"></span></div>
+                                    <input class="form-control" placeholder="NIP" type="text" name="nip" value="{{Auth::user()->nip}}"  required="true" aria-required="true" disabled>   
+                                    <span class="material-input"> **Silahkan Hubungi Admin Atau Posting di menu Saran Dan masukan Jika Ingin merubah NIP</span>
+                                </div>
                             </div>
                         </div>
                         <div class="row">

@@ -156,7 +156,7 @@ class VerifikasiController extends Controller
 
             
             $details = [
-                    'from' => 'epakgurumalinau@gmail.com',
+                    'from' => 'admin@e-pakgurukaltara.com',
                     'greeting' => 'Halo, '.$users->name,
                     'body' => 'Berkas Usulan Anda Masih ada beberapa kesalahan mohon untuk segera di perbaiki untuk lebih jelasnya silahkan tekan tombol perbaikan data dibawah',
                     'thanks' => 'Terimakasih Sudah menggunakan Aplikasi E-Pak Guru',
@@ -257,7 +257,7 @@ class VerifikasiController extends Controller
 
             
             $details = [
-                    'from' => 'epakgurumalinau@gmail.com',
+                    'from' => 'admin@e-pakgurukaltara.com',
                     'greeting' => 'Halo, '.$users->name,
                     'body' => 'Berkas Usulan Anda Sudah Kami Verifikasi.. selanjutnya akan di Di Nilai oleh tim Penilai Pak. ',
                     'thanks' => 'Terimakasih Sudah menggunakan Aplikasi E-Pak Guru',

@@ -44,7 +44,7 @@
                             <div class="col-sm-7">
                                 <div class="form-group label-floating is-empty">
                                     <label class="control-label"></label>
-                                    <input class="form-control" placeholder="Nama Lengkap" disabled type="text" name="name" value="{{Auth::user()->nip}}"  required="true" aria-required="true">
+                                    <input class="form-control" placeholder="NIP " disabled type="text" name="nip" value="{{Auth::user()->nip}}"  required="true" aria-required="true">
                                     <span class="material-input"></span>
                                     <span>***untuk Merubah NIP silahkan edit pada menu profile</span>
                                 </div>

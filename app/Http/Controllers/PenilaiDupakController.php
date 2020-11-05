@@ -251,7 +251,7 @@ class PenilaiDupakController extends Controller
 
             
             $details = [
-                    'from' => 'epakgurumalinau@gmail.com',
+                    'from' => 'admin@e-pakgurukaltara.com',
                     'greeting' => 'Halo, '.$users->name,
                     'body' => 'Berkasi Usulan Anda Sudah di Nilai',
                     'thanks' => 'Terimakasih Sudah menggunakan Aplikasi E-Pak Guru',

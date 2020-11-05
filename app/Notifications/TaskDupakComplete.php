@@ -50,7 +50,7 @@ class TaskDupakComplete extends Notification
 
         return (new MailMessage)
                     ->subject($this->details['subject'])
-                    ->from($this->details['from'], 'Admin E-pak Guru')
+                    ->from('admin@e-pakgurukaltara.com', 'Admin E-pak Guru')
                     ->greeting($this->details['greeting'])
                     ->line($this->details['body'])
                     ->line($this->details['saran'])

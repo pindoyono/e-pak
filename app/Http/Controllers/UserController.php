@@ -225,12 +225,9 @@ class UserController extends Controller
 
     public function update_profile(Request $request, $id)
     {
-        
-
         $id = Crypt::decrypt($id); 
         $validator = Validator::make($request->all(), [
             "name" => "required|min:5|max:100",
-            'nip' => 'min:18|numeric|unique:users,nip,' . $id,
             'email' => 'required|email|unique:users,email,'.$id,
         ]);
 
@@ -241,7 +238,6 @@ class UserController extends Controller
         $user = \App\User::findOrFail($id);
 
         $user->name = $request->get('name');
-        $user->nip = $request->get('nip');
         $user->chat_id = $request->get('chat_id');
         $user->chat_id_verified = $request->get('chat_id_verified');
         // $user->sekolah_id = $request->get('sekolah_id');
