@@ -46,7 +46,7 @@
                             <div class="col-sm-7">
                                 <div class="form-group label-floating is-empty">
                                     <label class="control-label"></label>
-                                    <input class="form-control" placeholder="Nomor Induk Pegawai" disabled value="{{$user->nip}}" type="text" name="nip"  required="true" number="true">
+                                    <input class="form-control" placeholder="Nomor Induk Pegawai" value="{{$user->nip}}" type="text" name="nip"  required="true" number="true">
                                     <span class="material-input"></span></div>
                             </div>
                         </div>
