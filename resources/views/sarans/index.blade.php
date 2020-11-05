@@ -35,7 +35,7 @@
                                     <td>{{$saran->user_id}}</td>
                                     <td>{{$saran->saran}}</td>
                                     <td class="td-actions text-right">
-                                        <a href="{{route('sarans.show',$saran->id)}}">
+                                        <a href="{{route('sarans.show',  Crypt::encrypt($saran->id)) }}">
                                             <button type="button" rel="tooltip" class="btn btn-info" data-original-title="" title="">
                                                 <i class="fas fa-search"> Lihat</i>
                                             </button>
