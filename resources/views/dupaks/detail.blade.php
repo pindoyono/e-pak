@@ -331,7 +331,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    7                                            
+                                                    7                                             
                                                 </td>
                                                 <td>
                                                     SK Pembagian Tugas Genap
@@ -388,6 +388,8 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Nama Berkas</th>
+                                        <th>Angka Kredit</th>
+                                        <th>Satuan Hasil</th>
                                         <th>Lihat</th>
                                     </tr>
                                 </thead>
@@ -396,6 +398,8 @@
                                     <tr>
                                         <td>{{$key+1}}</td>
                                         <td> {{ kegiatans($berkas->nama)->kegiatan}}</td>
+                                        <td>{{kegiatans($berkas->nama)->angka_kredit}}</td>
+                                        <td>{{kegiatans($berkas->nama)->satuan_hasil}}</td>
                                         <td>
                                             <a class="col-sm-2" target="_blank" href="{{asset('storage/'.$berkas->berkas)}}">
                                                 <span class="btn btn-info btn-sm">

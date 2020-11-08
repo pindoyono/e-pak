@@ -149,7 +149,7 @@ if (! function_exists('nama_sekolah')) {
 
 if (! function_exists('nama_bukti_fisik')) {
     function nama_bukti_fisik($id){
-        $berkas = \App\Berkas::findOrFail($id);
+        $berkas = \App\Kegiatan::findOrFail($id);
         return $berkas;
     }
 }

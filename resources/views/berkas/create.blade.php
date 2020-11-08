@@ -3,7 +3,7 @@
 @section('title')
     Berkas Kepegawaian
 @endsection
-
+ 
 @section("content")
 
 
