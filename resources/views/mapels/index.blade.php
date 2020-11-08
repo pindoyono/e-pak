@@ -46,7 +46,7 @@
                                     <td>{{$mapel->nama}}</td>
                                     <td>{{$mapel->jenis}}</td>
                                     <td>{{$mapel->keterangan}}</td>
-                                    <<td class="td-actions text-right">
+                                    <td class="td-actions text-right">
                                             <form onsubmit="return confirm('Apakah Akan Menghapus Data Secara Permanen?')"  action="{{route('mapels.destroy', [$mapel->id])}}"  method="POST">
                                                 @csrf
                                                 <a href="{{route('mapels.edit',$mapel->id)}}">
