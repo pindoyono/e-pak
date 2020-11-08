@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Crypt;
 use PDF;
 use DB; 
+use Auth;
 use Telegram\Bot\Keyboard\Keyboard;
 use Telegram\Bot\Laravel\Facades\Telegram;
 
@@ -19,7 +20,10 @@ class PenilaiDupakController extends Controller
     public function index()
     {
         //
-        $dupaks = DB::table('dupaks')
+        $user = Auth::user();
+        $roles = $user->getRoleNames();
+        if($roles == 'penilai'){
+            $dupaks = DB::table('dupaks')
             ->join('users', 'users.id', '=', 'dupaks.user_id')
             ->join('biodatas', 'users.id', '=', 'biodatas.user_id')
             ->join('sekolahs', 'sekolahs.id', '=', 'biodatas.sekolah_id')
@@ -27,6 +31,14 @@ class PenilaiDupakController extends Controller
             ->where('dupaks.status','!=', 'Perbaikan Data')
             ->select('dupaks.*','sekolahs.nama' ,'users.name')
             ->get();
+        }else{
+            $dupaks = DB::table('dupaks')
+            ->join('users', 'users.id', '=', 'dupaks.user_id')
+            ->join('biodatas', 'users.id', '=', 'biodatas.user_id')
+            ->join('sekolahs', 'sekolahs.id', '=', 'biodatas.sekolah_id')
+            ->select('dupaks.*','sekolahs.nama' ,'users.name')
+            ->get();
+        }
         // $dupaks = \App\Dupak::where('status', 'submit' )->orderBy('id','asc')->get();
         return view('dupaks_penilai.index', ['dupaks' => $dupaks]);
     }
