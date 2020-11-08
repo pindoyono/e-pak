@@ -67,10 +67,10 @@
                                 @foreach($users as $user)
                                 <tr>
                                     <td width="10%" > 
-                                        @if($user->avatar)
-                                            <img src="{{asset('storage/'.$user->avatar)}}" width="10px"/> 
+                                        @if($user->avatar == 'avatars/saat-ini-tidak-ada-file.jpg')
+                                            <img src="{{asset('material/img/saat-ini-tidak-ada-file.jpg')}}" alt="...">
                                         @else 
-                                            N/A
+                                            <img src="{{asset('storage/'.$user->avatar)}}" width="10px"/> 
                                         @endif
                                     </td>
                                     <td>{{$user->name}}</td>

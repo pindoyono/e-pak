@@ -122,23 +122,7 @@
                         <div class="row">
                             <label class="col-sm-2 label-on-left">Foto Profil</label>
                             <div class="col-md-4 col-sm-4">
-                            @if($user->avatar)
-                                <!-- <legend>Regular Image</legend> -->
-                                <div class="fileinput fileinput-new text-center" data-provides="fileinput">
-                                    <div class="fileinput-new thumbnail">
-                                        <img src="{{asset('storage/'.$user->avatar)}}"  alt="...">
-                                    </div>
-                                    <div class="fileinput-preview fileinput-exists thumbnail"></div>
-                                    <div>
-                                        <span class="btn btn-rose btn-round btn-file">
-                                            <span class="fileinput-new">Select image</span>
-                                            <span class="fileinput-exists">Change </span>
-                                            <input id="avatar"  name="avatar" value="{{$user->avatar}}" type="file">
-                                        </span>
-                                        <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
-                                    </div>
-                                </div>
-                            @else 
+                            @if($user->avatar == 'avatars/saat-ini-tidak-ada-file.jpg')
                                 <!-- <legend>Regular Image</legend> -->
                                 <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                                     <div class="fileinput-new thumbnail">
@@ -150,6 +134,22 @@
                                             <span class="fileinput-new">Select image</span>
                                             <span class="fileinput-exists">Change</span>
                                             <input id="avatar"  name="avatar"  type="file">
+                                        </span>
+                                        <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                    </div>
+                                </div>
+                            @else
+                                <!-- <legend>Regular Image</legend> -->
+                                <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                    <div class="fileinput-new thumbnail">
+                                        <img src="{{asset('storage/'.$user->avatar)}}"  alt="...">
+                                    </div>
+                                    <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                                    <div>
+                                        <span class="btn btn-rose btn-round btn-file">
+                                            <span class="fileinput-new">Select image</span>
+                                            <span class="fileinput-exists">Change </span>
+                                            <input id="avatar"  name="avatar" value="{{$user->avatar}}" type="file">
                                         </span>
                                         <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                     </div>
@@ -166,10 +166,10 @@
             <div class="card card-profile">
                 <div class="card-avatar">
                     <a href="#pablo">
-                    @if(Auth::user()->avatar)
-                        <img src="{{asset('storage/'.Auth::user()->avatar)}}" />
-                    @else
-                        <img src="{{asset('material/img/placeholder.jpg')}}" alt="...">
+                    @if($user->avatar == 'avatars/saat-ini-tidak-ada-file.jpg')
+                        <img src="{{asset('material/img/saat-ini-tidak-ada-file.jpg')}}" alt="...">
+                    @else 
+                        <img src="{{asset('storage/'.$user->avatar)}}" width="10px"/> 
                     @endif
                     </a>
                 </div>
