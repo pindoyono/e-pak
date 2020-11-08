@@ -126,10 +126,10 @@
                                     <div class="card card-profile">
                                         <div class="card-avatar">
                                             <a href="#pablo">
-                                            @if(Auth::user()->avatar)
-                                                <img src="{{asset('storage/'.Auth::user()->avatar)}}" />
-                                            @else
-                                                <img src="{{asset('material/img/placeholder.jpg')}}" alt="...">
+                                            @if(Auth::user()->avatar == 'avatars/saat-ini-tidak-ada-file.jpg')
+                                                <img src="{{asset('material/img/saat-ini-tidak-ada-file.jpg')}}" alt="...">
+                                            @else 
+                                                <img src="{{asset('storage/'.$user->avatar)}}" width="10px"/> 
                                             @endif
                                             </a>
                                         </div>
@@ -143,7 +143,7 @@
                                                 Dalam Layanan Pendididkan dan Kebudayaan
                                             </p>
                                             <p class="description">
-                                                Demi Terwujudnya Masyarakat Kalimantan Utara yang berkompetitif dan Bermartabat
+                                                Demi Terwujudnya Masyarakat Kalimantan Utara yang Kompetitif dan Bermartabat
                                             </p>
                                             <!-- <a href="#pablo" class="btn btn-rose btn-round">Follow</a> -->
                                         </div>

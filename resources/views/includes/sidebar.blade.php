@@ -15,7 +15,7 @@
             @if(Auth::user()->avatar == 'avatars/saat-ini-tidak-ada-file.jpg')
                 <img src="{{asset('material/img/saat-ini-tidak-ada-file.jpg')}}" alt="...">
             @else 
-                <img src="{{asset('storage/'.$user->avatar)}}" width="10px"/> 
+                <img src="{{asset('storage/'.Auth::user()->avatar)}}" width="10px"/> 
             @endif
             </div>
             <div class="info">
