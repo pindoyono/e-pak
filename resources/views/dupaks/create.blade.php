@@ -136,7 +136,6 @@
                             <div class="col-sm-8">
                                     <label class="control-label"></label>
                                     <input type="file" name="pkg">
-                                    <span>*** LAPORAN/FORM PKG DI PISAH GANJIL GENAP DAN YG DI UPLOAD SUMATIF</span>
                                    <br> <span>*** FORM PERSETUJUAN, FORM 1C DAN 1D</span>
                             </div>
                             </div>
