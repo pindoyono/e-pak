@@ -136,7 +136,8 @@
                             <div class="col-sm-8">
                                     <label class="control-label"></label>
                                     <input type="file" name="pkg">
-                                   <br> <span>*** FORM PERSETUJUAN, FORM 1C DAN 1D</span>
+                                   <br> 
+                                   <span>*** FORM PERSETUJUAN, FORM 1C DAN 1D</span>
                             </div>
                             </div>
                             <div class="row">
