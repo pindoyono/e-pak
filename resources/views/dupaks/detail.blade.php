@@ -300,7 +300,11 @@
                                                 <td>
                                                     Surat Pernyataan Melaksanakan Tugas Tambahan
                                                 </td>
+                                                @if($dupak->surat_pernyataan2==NULL)
+                                                <td><b>Tidak Ada</b></td>
+                                                @else
                                                 <td><a target="_blank" href="{{asset('storage/'.$dupak->surat_pernyataan2)}}">Download</a></td>
+                                                @endif
                                             </tr>
                                             <tr>
                                                 <td>

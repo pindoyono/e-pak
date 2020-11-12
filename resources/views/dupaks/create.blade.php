@@ -90,10 +90,11 @@
                             </div>
                             </div>
                             <div class="row">
-                            <label class="col-sm-4 label-on-left">Surat Pernyataan Melaksanakan Tugas Tambahan</label>
+                            <label class="col-sm-4 label-on-left">Surat Pernyataan Melaksanakan Bimbingan/Tugas Tertentu</label>
                             <div class="col-sm-8">
                                     <label class="control-label"></label>
                                     <input type="file" name="surat_pernyataan2">
+                                    <span>** Jika Tidak ada Silahkkan Di Kosongkan</span>
                             </div>
                             </div>
                             <div class="row">

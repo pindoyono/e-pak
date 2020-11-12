@@ -54,7 +54,7 @@ class DupakController extends Controller
             "surat_pengantar" => "required|mimes:pdf|max:2048",
             "dupak" => "required|mimes:pdf|max:10048",
             "surat_pernyataan1" => "required|mimes:pdf|max:2048",
-            "surat_pernyataan2" => "required|mimes:pdf|max:2048",
+            "surat_pernyataan2" => "mimes:pdf|max:2048",
             "surat_pernyataan3" => "required|mimes:pdf|max:2048",
             "surat_pernyataan4" => "required|mimes:pdf|max:2048",
             "pembagian_tugas" => "required|mimes:pdf|max:10048",
