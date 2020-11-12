@@ -314,9 +314,9 @@
                                                     7                                            
                                                 </td>
                                                 <td>
-                                                    SK Pembagian Tugas Genap
+                                                    SK Pembagian Tugas Genap 
                                                 </td>
-                                                <td><a target="_blank" href="{{asset('storage/'.$dupak->pembagian_tugas_genap_ganjil)}}">Download</a></td>
+                                                <td><a target="_blank" href="{{asset('storage/'.$dupak->pembagian_tugas_genap)}}">Download</a></td>
                                             </tr>
                                             <tr>
                                                 <td>
