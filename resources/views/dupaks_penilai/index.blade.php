@@ -29,6 +29,7 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nama Pengusul</th>
+                                    <th>Keterangan</th>
                                     <th>Sekolah</th>
                                     <th>Periode Usulan</th>
                                     <th>Status Usulan</th>
@@ -40,6 +41,7 @@
                                 <tr>
                                     <td>{{$key+1}}</td>
                                     <td>{{$dupak->name}}</td>
+                                    <td>{{$dupak->karsu}}</td>
                                     <td>{{$dupak->nama}}</td>
                                     <td>{{ tgl_indo($dupak->awal) .' s/d '.tgl_indo($dupak->akhir)}}</td>
                                     <td>  <span class="tag label label-primary">{{$dupak->status}} {{dinilai($dupak->id)}} </span></td>

@@ -23,7 +23,14 @@ class DupakController extends Controller
     {
         //
         // $jabatans = \App\Dupak::orderBy('id','asc')->get();
-        $dupaks = \App\Dupak::where('user_id', Auth::user()->id )->orderBy('id','asc')->get();
+        $dupaks = DB::table('users')
+            ->join('dupaks', 'users.id', '=', 'dupaks.user_id')
+            ->join('biodatas', 'users.id', '=', 'biodatas.user_id')
+            ->select('dupaks.*', 'biodatas.karsu')
+            ->where('users.id', Auth::user()->id )
+            ->orderBy('created_at','asc')
+            ->get();
+        // $dupaks = \App\Dupak::where('user_id', Auth::user()->id )->orderBy('id','asc')->get();
         return view('dupaks.index', ['dupaks' => $dupaks]);
     }
 

@@ -29,14 +29,14 @@ class PenilaiDupakController extends Controller
             ->join('sekolahs', 'sekolahs.id', '=', 'biodatas.sekolah_id')
             ->where('dupaks.status','!=', 'Usulan Baru')
             ->where('dupaks.status','!=', 'Perbaikan Data')
-            ->select('dupaks.*','sekolahs.nama' ,'users.name')
+            ->select('dupaks.*','sekolahs.nama' ,'users.name','biodatas.karsu')
             ->get();
         }else{
             $dupaks = DB::table('dupaks')
             ->join('users', 'users.id', '=', 'dupaks.user_id')
             ->join('biodatas', 'users.id', '=', 'biodatas.user_id')
             ->join('sekolahs', 'sekolahs.id', '=', 'biodatas.sekolah_id')
-            ->select('dupaks.*','sekolahs.nama' ,'users.name')
+            ->select('dupaks.*','sekolahs.nama' ,'users.name','biodatas.karsu')
             ->get();
         }
         // $dupaks = \App\Dupak::where('status', 'submit' )->orderBy('id','asc')->get();
