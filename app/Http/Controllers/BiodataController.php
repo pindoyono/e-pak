@@ -205,6 +205,6 @@ class BiodataController extends Controller
                 //                                     'biodatas' => $biodata_id[0]
                 //                                     ]);
             }
-
+ 
     }
 }

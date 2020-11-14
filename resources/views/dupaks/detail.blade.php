@@ -335,7 +335,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    7                                             
+                                                    8                                             
                                                 </td>
                                                 <td>
                                                     SK Pembagian Tugas Genap
@@ -344,7 +344,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    8                                           
+                                                    9                                           
                                                 </td>
                                                 <td>
                                                     PAK Terakhir
@@ -353,15 +353,15 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    9                                           
+                                                    10                                           
                                                 </td>
                                                 <td>
                                                     Laporan / form PKG
                                                 </td>
                                                 <td><a target="_blank" href="{{asset('storage/'.$dupak->pkg)}}">Download</a></td>
                                             </tr>
-                                            <td>
-                                                    10                                           
+                                                <td>
+                                                    11                                           
                                                 </td>
                                                 <td>
                                                     SKP

@@ -51,6 +51,21 @@
                             </div>
                         </div>
                         <div class="row">
+                            <label class="col-sm-2 label-on-left">Kenpa / Pak Tahunan </label>
+                            <div class="col-sm-7">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="karsu" {{ $biodatas->karsu == "KENAIKAN PANGKAT" ? "checked" : ""}} value="KENAIKAN PANGKAT" >  <b> KENAIKAN PANGKAT </b>
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="karsu" {{ $biodatas->karsu == "PAK TAHUNAN" ? "checked" : ""}} value="PAK TAHUNAN" > <b>PAK TAHUNAN</b>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
                             <label class="col-sm-2 label-on-left">Pendidikan</label>
                             <div class="col-sm-7">
                                 <div class="form-group label-floating is-empty">

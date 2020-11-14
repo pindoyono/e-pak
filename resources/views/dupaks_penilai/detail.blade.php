@@ -300,13 +300,22 @@
                                                     5                                            
                                                 </td>
                                                 <td>
+                                                    Surat Pernyataan Melaksanakan Unsur penunjang
+                                                </td>
+                                                <td><a target="_blank" href="{{asset('storage/'.$dupak->surat_pernyataan4)}}">Download</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    6                                            
+                                                </td>
+                                                <td>
                                                     Surat Pernyataan Melaksanakan PKB
                                                 </td>
                                                 <td><a target="_blank" href="{{asset('storage/'.$dupak->surat_pernyataan3)}}">Download</a></td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    6                                            
+                                                    7                                            
                                                 </td> 
                                                 <td>
                                                     SK Pembagian Tugas Ganjil
@@ -315,7 +324,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    7                                            
+                                                    8                                            
                                                 </td>
                                                 <td>
                                                     SK Pembagian Tugas Genap 
@@ -324,7 +333,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    7                                           
+                                                    9                                           
                                                 </td>
                                                 <td>
                                                     PAK Terakhir
@@ -333,12 +342,21 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    8                                            
+                                                    10                                            
                                                 </td>
                                                 <td>
                                                     Laporan / form PKG
                                                 </td>
                                                 <td><a target="_blank" href="{{asset('storage/'.$dupak->pkg)}}">Download</a></td>
+                                            </tr>
+                                            </tr>
+                                                <td>
+                                                    11                                           
+                                                </td>
+                                                <td>
+                                                    SKP
+                                                </td>
+                                                <td><a target="_blank" href="{{asset('storage/'.$dupak->skp)}}">Download</a></td>
                                             </tr>
                                         </tbody>
                                     </table>
