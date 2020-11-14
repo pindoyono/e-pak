@@ -58,6 +58,7 @@ class DupakController extends Controller
             "surat_pernyataan3" => "required|mimes:pdf|max:2048",
             "surat_pernyataan4" => "required|mimes:pdf|max:2048",
             "pembagian_tugas" => "required|mimes:pdf|max:10048",
+            "pembagian_tugas_genap" => "required|mimes:pdf|max:10048",
             "pak" => "required|mimes:pdf|max:2048",
             "pkg" => "required|mimes:pdf|max:2048",
             "skp" => "required|mimes:pdf|max:2048",
@@ -310,7 +311,7 @@ class DupakController extends Controller
 
         $validator = Validator::make($request->all(), [
             // "nama" => "required",
-            "berkas" => "mimes:pdf|max:2048"
+            "berkas" => "mimes:pdf|max:12048"
         ]);
 
         if ($validator->fails()) {
