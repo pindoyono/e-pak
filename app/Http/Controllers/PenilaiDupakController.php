@@ -30,6 +30,7 @@ class PenilaiDupakController extends Controller
             ->where('dupaks.status','!=', 'Usulan Baru')
             ->where('dupaks.status','!=', 'Perbaikan Data')
             ->select('dupaks.*','sekolahs.nama' ,'users.name','biodatas.karsu')
+            ->orderBy('created_at','asc')
             ->get();
         }else{
             $dupaks = DB::table('dupaks')
@@ -37,6 +38,7 @@ class PenilaiDupakController extends Controller
             ->join('biodatas', 'users.id', '=', 'biodatas.user_id')
             ->join('sekolahs', 'sekolahs.id', '=', 'biodatas.sekolah_id')
             ->select('dupaks.*','sekolahs.nama' ,'users.name','biodatas.karsu')
+            ->orderBy('created_at','asc')
             ->get();
         }
         // $dupaks = \App\Dupak::where('status', 'submit' )->orderBy('id','asc')->get();
