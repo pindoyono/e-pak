@@ -44,7 +44,11 @@
                                     <td>{{$key+1}}</td>
                                     <td>{{ tgl_indo($dupak->awal) .' s/d '.tgl_indo($dupak->akhir)}}</td>
                                     <td>{{ $dupak->karsu }}</td>
-                                    <td>  <span class="tag label label-primary">{{$dupak->status}} {{dinilai($dupak->id)}} </span> </td>
+                                    @if($dupak->status=='Terverifikasi')
+                                    <td>  <span class="tag label label-success">{{$dupak->status}} {{dinilai($dupak->id)}} </span></td>
+                                    @else
+                                    <td>  <span class="tag label label-primary">{{$dupak->status}} {{dinilai($dupak->id)}} </span></td>
+                                    @endif
                                     <td class="td-actions text-right">
                                     @if($dupak->status=="Usulan Baru" || $dupak->status=="Perbaikan Data")
                                     <a href="{{route('berkas.bukti', Crypt::encrypt($dupak->id))}}">

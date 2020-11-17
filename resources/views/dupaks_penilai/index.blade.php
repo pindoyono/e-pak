@@ -44,7 +44,11 @@
                                     <td>{{$dupak->karsu}}</td>
                                     <td>{{$dupak->nama}}</td>
                                     <td>{{ tgl_indo($dupak->awal) .' s/d '.tgl_indo($dupak->akhir)}}</td>
+                                    @if($dupak->status=='Terverifikasi')
+                                    <td>  <span class="tag label label-success">{{$dupak->status}} {{dinilai($dupak->id)}} </span></td>
+                                    @else
                                     <td>  <span class="tag label label-primary">{{$dupak->status}} {{dinilai($dupak->id)}} </span></td>
+                                    @endif
                                     <td class="td-actions text-right">
                                     @role('verifikator')
                                         @if($dupak->status=='submit')
