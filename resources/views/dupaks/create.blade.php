@@ -139,6 +139,7 @@
                                     <input type="file" name="pkg">
                                    <br> 
                                    <span>*** FORM PERSETUJUAN, FORM 1C DAN 1D</span>
+                                   <span>*** Rekapitulasi 14 Kompetensi Guru</span>
                             </div>
                             </div>
                             <div class="row">
