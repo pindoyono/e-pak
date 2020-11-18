@@ -62,7 +62,7 @@ class BerkasController extends Controller
 
         $validator = Validator::make($request->all(), [
             "nama" => "required",
-            "berkas" => "mimes:pdf|max:10048"
+            "berkas" => "mimes:pdf|max:15048"
         ]);
 
         if ($validator->fails()) {
@@ -137,7 +137,7 @@ class BerkasController extends Controller
 
         $validator = Validator::make($request->all(), [
             "nama" => "required",
-            "berkas" => "mimes:pdf|max:10048"
+            "berkas" => "mimes:pdf|max:15048"
         ]);
 
         if ($validator->fails()) {
