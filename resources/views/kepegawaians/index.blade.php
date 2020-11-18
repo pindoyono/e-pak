@@ -133,6 +133,23 @@
                                                 </a>
                                             </td>
                                         </tr>
+                                        @elseif($tahun_nip_ggd<='201708')
+                                        <tr>
+                                            <td>
+                                                6                                            
+                                            </td>
+                                            <td>
+                                                Surat Pernyataan Khusus GGD
+                                            </td>
+                                            <td><a target="_blank" href="{{asset('storage/'.$kepegawaian->sk_penyesuaian)}}">Download</a></td>
+                                            <td class="text-right">
+                                                <a href="{{route('kepegawaians.edit', Crypt::encrypt('sk_penyesuaian'))}}">
+                                                    <button class="btn btn-info btn-round btn-sm">
+                                                        edit
+                                                    </button>
+                                                </a>
+                                            </td>
+                                        </tr>
                                         @endif
                                     </tbody>
                                 </table>

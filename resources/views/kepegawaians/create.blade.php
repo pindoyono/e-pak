@@ -86,6 +86,14 @@
                                     <input type="file" name="sk_penyesuaian" required >
                                 </div>
                             </div>
+                            @elseif($tahun_nip_ggd<='201708')
+                            <div class="row">
+                                <label class="col-sm-4 label-on-left">Surat Pernyaataan Khusus GGD </label>
+                                <div class="col-sm-8">
+                                    <label class="control-label"></label>
+                                    <input type="file" name="sk_penyesuaian" required >
+                                </div>
+                            </div>
                             @endif
                         
                         </div>

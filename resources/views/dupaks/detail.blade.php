@@ -233,6 +233,16 @@
                                                 </td>
                                                 <td><a target="_blank" href="{{asset('storage/'.$kepegawaian->sk_penyesuaian)}}">Download</a></td>
                                             </tr>
+                                            @elseif(substr(Auth::user()->nip,8,6)<='201708')
+                                            <tr>
+                                                <td>
+                                                    6                                            
+                                                </td>
+                                                <td>
+                                                    Surat Pernyataan Khusus GGD
+                                                </td>
+                                                <td><a target="_blank" href="{{asset('storage/'.$kepegawaian->sk_penyesuaian)}}">Download</a></td>
+                                            </tr>
                                             @endif
                                         </tbody>
                                     </table>

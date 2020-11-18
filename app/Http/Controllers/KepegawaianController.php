@@ -25,8 +25,9 @@ class KepegawaianController extends Controller
          //199106102018021001
          $nip = Auth::user()->nip;
          $tahun_nip = substr($nip,8,4);
+         $tahun_nip_ggd = substr($nip,8,6);
         
-        return view('kepegawaians.index', ['kepegawaians' => $kepegawaians, 'jumlah' => $jumlah, 'tahun_nip' => $tahun_nip, ]);
+        return view('kepegawaians.index', ['kepegawaians' => $kepegawaians, 'jumlah' => $jumlah, 'tahun_nip' => $tahun_nip, 'tahun_nip_ggd' => $tahun_nip_ggd, ]);
     }
 
     /**
@@ -39,8 +40,12 @@ class KepegawaianController extends Controller
         //199106102018021001
         $nip = Auth::user()->nip;
         $tahun_nip = substr($nip,8,4);
+        //19891109 201708
+        $tahun_nip_ggd = substr($nip,8,6);
 
-        return view("kepegawaians.create",['tahun_nip' => $tahun_nip, ]);
+        return view("kepegawaians.create",[ 'tahun_nip' => $tahun_nip, 
+                                            'tahun_nip_ggd' => $tahun_nip_ggd, 
+                                        ]);
     }
 
     /**

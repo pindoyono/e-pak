@@ -330,10 +330,10 @@ class DupakController extends Controller
 
         if( !empty($request->file('berkas')) && file_exists(storage_path('app/public/' . $dupak->berkas))){
             \Storage::delete('public/'.$dupak->berkas);
-            $file = $request->file('berkas')->store('berkas/'.Auth::user()->nip, 'public');
+            $file = $request->file('berkas')->store('dupak/'.Auth::user()->nip, 'public');
             DB::table('dupaks')->where('id', $id )->update([ $kolom => $file ]); 
         }elseif(!empty($request->file('berkas'))){
-            $file = $request->file('berkas')->store('berkas/'.Auth::user()->nip, 'public');
+            $file = $request->file('berkas')->store('dupak/'.Auth::user()->nip, 'public');
             DB::table('dupaks')->where('id', $id )->update([ $kolom => $file ]); 
         }
 
