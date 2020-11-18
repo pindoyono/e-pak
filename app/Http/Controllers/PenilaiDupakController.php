@@ -33,7 +33,7 @@ class PenilaiDupakController extends Controller
             ->orderBy('created_at','asc')
             ->get();
         }else{
-            if( Auth::user()->nip == '199106102018021001'){
+            if( Auth::user()->nip == '198808112019031005'){
                 $dupaks = DB::table('dupaks')
                 ->join('users', 'users.id', '=', 'dupaks.user_id')
                 ->join('biodatas', 'users.id', '=', 'biodatas.user_id')
