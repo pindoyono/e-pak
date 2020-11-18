@@ -57,6 +57,12 @@
                                                 Verifikasi
                                             </button>
                                             </a>
+                                        @else
+                                            <a href="{{route('verifikasi.edit', Crypt::encrypt($dupak->id))}}">
+                                            <button class="btn btn-info btn-round">
+                                                Verifikasi
+                                            </button>
+                                            </a>
                                         @endif
                                     @endrole
                                     @role('penilai')
