@@ -19,7 +19,7 @@ class PenilaiDupakController extends Controller
      */
     public function index()
     {
-        //
+        //198808112019031005
         $user = Auth::user();
         $roles = $user->getRoleNames();
         if($roles == 'penilai'){
@@ -33,13 +33,24 @@ class PenilaiDupakController extends Controller
             ->orderBy('created_at','asc')
             ->get();
         }else{
-            $dupaks = DB::table('dupaks')
-            ->join('users', 'users.id', '=', 'dupaks.user_id')
-            ->join('biodatas', 'users.id', '=', 'biodatas.user_id')
-            ->join('sekolahs', 'sekolahs.id', '=', 'biodatas.sekolah_id')
-            ->select('dupaks.*','sekolahs.nama' ,'users.name','biodatas.karsu')
-            ->orderBy('created_at','asc')
-            ->get();
+            if($user->nip == "199106102018021001"){
+                $dupaks = DB::table('dupaks')
+                ->join('users', 'users.id', '=', 'dupaks.user_id')
+                ->join('biodatas', 'users.id', '=', 'biodatas.user_id')
+                ->join('sekolahs', 'sekolahs.id', '=', 'biodatas.sekolah_id')
+                ->whereIn('sekolahs.id', [8,9,10,11])
+                ->select('dupaks.*','sekolahs.nama' ,'users.name','biodatas.karsu')
+                ->orderBy('created_at','asc')
+                ->get();
+            }else{
+                $dupaks = DB::table('dupaks')
+                ->join('users', 'users.id', '=', 'dupaks.user_id')
+                ->join('biodatas', 'users.id', '=', 'biodatas.user_id')
+                ->join('sekolahs', 'sekolahs.id', '=', 'biodatas.sekolah_id')
+                ->select('dupaks.*','sekolahs.nama' ,'users.name','biodatas.karsu')
+                ->orderBy('created_at','asc')
+                ->get();
+            }
         }
         // $dupaks = \App\Dupak::where('status', 'submit' )->orderBy('id','asc')->get();
         return view('dupaks_penilai.index', ['dupaks' => $dupaks]);
