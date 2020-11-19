@@ -61,6 +61,8 @@
                         <label class="col-sm-4 label-on-left">SKP </label>
                         @elseif($kolom=='pembagian_tugas_genap')
                         <label class="col-sm-4 label-on-left">SK Pembagian Tugas Genap </label>
+                        @elseif($kolom=='tidak_dihukum')
+                        <label class="col-sm-4 label-on-left">Surat Pernyataan Tidak Pernah Di Hukum Disiplin </label>
                         @elseif($kolom=='surat_pernyataan4')
                         <label class="col-sm-4 label-on-left">Surat Pernyataan Melaksanakan Unsur Penunjang  </label>
                         @endif

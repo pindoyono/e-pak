@@ -76,6 +76,16 @@
                             </div>
                             </div>
                             <div class="row">
+                            <label class="col-sm-4 label-on-left">Surat Pernyataan Tidak Pernah Di Hukum Disiplin</label>
+                            <div class="col-sm-8">
+                                    <label class="control-label"></label>
+                                    <input type="file" name="tidak_dihukum">
+                                   <span>*** Bagi yg KENPA SAJA </span> <br>
+                                   <span>*** Bagi yg PAK TAHUNAN di kosongkan </span>
+
+                            </div>
+                            </div>
+                            <div class="row">
                             <label class="col-sm-4 label-on-left">DUPAK</label>
                             <div class="col-sm-8">
                                     <label class="control-label"></label>
@@ -138,7 +148,7 @@
                                     <label class="control-label"></label>
                                     <input type="file" name="pkg">
                                    <br> 
-                                   <span>*** FORM PERSETUJUAN, FORM 1C DAN 1D</span>
+                                   <span>*** FORM PERSETUJUAN, FORM 1C DAN 1D</span> <br>
                                    <span>*** Rekapitulasi 14 Kompetensi Guru</span>
                             </div>
                             </div>

@@ -87,15 +87,15 @@
                                         </a>
                                     </div>
                                 </div>
-                                <label class="col-sm-4 label-on-left">DUPAK</label>
+                                <label class="col-sm-4 label-on-left">Surat Pernyataan Tidak Pernah Di Hukum Disiplin</label>
                                 <div class="col-sm-8">
                                 <div class="row" style="padding:2%">
-                                        <a class="col-sm-2" target="_blank" href="{{asset('storage/'.$dupaks->dupak)}}">
+                                        <a class="col-sm-2" target="_blank" href="{{asset('storage/'.$dupaks->tidak_dihukum)}}">
                                             <span class="btn btn-info btn-sm">
                                                 lihat
                                             </span>
                                         </a>
-                                        <a href="{{route('dupaks.ubah',['id'=>Crypt::encrypt($dupaks->id),'name'=>Crypt::encrypt('dupak')])}}">
+                                        <a href="{{route('dupaks.ubah',['id'=>Crypt::encrypt($dupaks->id),'name'=>Crypt::encrypt('tidak_dihukum')])}}">
                                             <span class="btn btn-primary btn-sm">
                                                 edit
                                             </span>
@@ -117,6 +117,22 @@
                                         </a>
                                     </div>
                                 </div>
+                                <label class="col-sm-4 label-on-left">DUPAK</label>
+                                <div class="col-sm-8">
+                                <div class="row" style="padding:2%">
+                                        <a class="col-sm-2" target="_blank" href="{{asset('storage/'.$dupaks->dupak)}}">
+                                            <span class="btn btn-info btn-sm">
+                                                lihat
+                                            </span>
+                                        </a>
+                                        <a href="{{route('dupaks.ubah',['id'=>Crypt::encrypt($dupaks->id),'name'=>Crypt::encrypt('dupak')])}}">
+                                            <span class="btn btn-primary btn-sm">
+                                                edit
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+
                                 <label class="col-sm-4 label-on-left">Surat Pernyataan Melaksanakan Tugas Tambahan</label>
                                 <div class="col-sm-8">
                                 <div class="row" style="padding:2%">

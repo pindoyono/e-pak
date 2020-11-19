@@ -285,9 +285,24 @@
                                                 </td>
                                                 <td><a target="_blank" href="{{asset('storage/'.$dupak->surat_pengantar)}}">Download</a></td>
                                             </tr>
+
                                             <tr>
                                                 <td>
                                                     2                                            
+                                                </td>
+                                                <td>
+                                                    Surat Pernyataan Tidak Pernah Di Hukum Disiplin
+                                                </td>
+                                                @if($dupak->tidak_dihukum==NULL)
+                                                <td><b>Tidak Ada</b></td>
+                                                @else
+                                                <td><a target="_blank" href="{{asset('storage/'.$dupak->tidak_dihukum)}}">Download</a></td>
+                                                @endif
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    3                                            
                                                 </td>
                                                 <td>
                                                     DUPAK
@@ -296,7 +311,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    3                                            
+                                                    4                                            
                                                 </td>
                                                 <td>
                                                     Surat Pernyataan Melaksanakan Pembelajaran
@@ -305,7 +320,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    4                                            
+                                                    5                                            
                                                 </td>
                                                 <td>
                                                     Surat Pernyataan Melaksanakan Tugas Tambahan
@@ -318,7 +333,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    5                                            
+                                                    6                                            
                                                 </td>
                                                 <td>
                                                     Surat Pernyataan Melaksanakan Unsur penunjang
@@ -327,7 +342,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    6                                            
+                                                    7                                            
                                                 </td>
                                                 <td>
                                                     Surat Pernyataan Melaksanakan PKB
@@ -336,7 +351,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    7                                            
+                                                    8                                            
                                                 </td>
                                                 <td>
                                                     SK Pembagian Tugas Ganjil
@@ -345,7 +360,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    8                                             
+                                                    9                                             
                                                 </td>
                                                 <td>
                                                     SK Pembagian Tugas Genap
@@ -354,7 +369,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    9                                           
+                                                    10                                           
                                                 </td>
                                                 <td>
                                                     PAK Terakhir
@@ -363,7 +378,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    10                                           
+                                                    11                                           
                                                 </td>
                                                 <td>
                                                     Laporan / form PKG
@@ -371,7 +386,7 @@
                                                 <td><a target="_blank" href="{{asset('storage/'.$dupak->pkg)}}">Download</a></td>
                                             </tr>
                                                 <td>
-                                                    11                                           
+                                                    12                                           
                                                 </td>
                                                 <td>
                                                     SKP
