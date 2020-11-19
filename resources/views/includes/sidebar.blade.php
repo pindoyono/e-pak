@@ -138,12 +138,6 @@
             @endrole
 
             @role('penilai')
-            <li class="{{ Request::segment(1) === 'kegiatans'  ? 'active' : null }}">
-                <a href="{{route('kegiatans.index')}}">
-                    <i class="fas fa-layer-group"></i>
-                    <p>Penilai</p>
-                </a>
-            </li>
             <li class="{{ Request::segment(1) === 'dupaks_penilai' || Request::segment(1) === 'berita_acara' ? 'active' : null }}">
                 <a href="{{route('dupaks_penilai.index' )}}">
                     <i class="fas fa-clipboard-list "></i>
