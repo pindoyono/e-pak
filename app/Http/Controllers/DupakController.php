@@ -68,8 +68,8 @@ class DupakController extends Controller
             "pembagian_tugas" => "required|mimes:pdf|max:10048",
             "pembagian_tugas_genap" => "required|mimes:pdf|max:10048",
             "pak" => "required|mimes:pdf|max:2048",
-            "pkg" => "required|mimes:pdf|max:2048",
-            "skp" => "required|mimes:pdf|max:2048",
+            "pkg" => "required|mimes:pdf|max:5048",
+            "skp" => "required|mimes:pdf|max:5048",
         ]);
         if ($validator->fails()) {
             return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
