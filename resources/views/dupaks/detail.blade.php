@@ -404,7 +404,7 @@
                     <div class="panel-heading" role="tab" id="headingFour">
                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                             <h4 class="panel-title">
-                                Daftar Bukti Fisik PKB
+                                Daftar bukti fisik Tugas Tambahan, PKB dn Penunjang
                                 <i class="material-icons">keyboard_arrow_down</i>
                             </h4>
                         </a>
