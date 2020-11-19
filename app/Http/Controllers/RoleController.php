@@ -111,7 +111,6 @@ class RoleController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'permission' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -120,9 +119,9 @@ class RoleController extends Controller
     
         $role = Role::find($id);
         $role->name = $request->input('name');
-        $role->save();
+        $role->update();
     
-        $role->syncPermissions($request->input('permission'));
+        $role->syncPermissions($request->input('name'));
     
         return redirect()->route('roles.index');
     }

@@ -18,17 +18,18 @@
                     <div class="col-12 text-right">
                         <a href="{{route('roles.index')}}" class="btn btn-success">List Roles <div class="ripple-container"></div></a>
                     </div>
-                    <form enctype="multipart/form-data" class="form-horizontal"  action="{{route('roles.store')}}" method="POST">
+                    <form enctype="multipart/form-data" class="form-horizontal"  action="{{route('roles.update',$role->id)}}" method="POST">
 
-                        @csrf
+                    @csrf
+                        <input type="hidden" value="PUT" name="_method">
                         <div class="row">
                             <label class="col-sm-2 label-on-left">Nama Role</label>
                             <div class="col-sm-7">
                                 <div class="form-group label-floating is-empty">
                                     <label class="control-label"></label>
-                                    <input class="form-control" placeholder="Nama Role" {{$errors->first('name') ? "is-invalid": ""}}" type="text" name="name"  required="true" aria-required="true">
+                                    <input class="form-control" placeholder="Nama Role" name="name" value="{{$role->name}}" >
                                     <span class="material-input"></span>
-                                    <div class="invalid-feedback">  {{$errors->first('name')}}</div>
+                                    <div class="invalid-feedback">  </div>
                                 </div>
                             </div>
                         </div>

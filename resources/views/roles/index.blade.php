@@ -45,11 +45,11 @@
                                                 <!-- <button type="button" rel="tooltip" class="btn btn-info" data-original-title="" title="">
                                                     <i class="material-icons">zoom_in</i>
                                                 <div class="ripple-container"></div></button> -->
-                                                <!-- <a href="{{route('roles.edit',$role->id)}}">
+                                                <a href="{{route('roles.edit',$role->id)}}">
                                                     <button type="button" rel="tooltip" class="btn btn-warning" data-original-title="" title="">
                                                         <i class="material-icons">edit</i>
                                                     </button>
-                                                </a> -->
+                                                </a>
                                                 <input  type="hidden"  name="_method" value="DELETE">
                                                 <button type="submit" rel="tooltip" class="btn btn-danger" data-original-title="" title="">
                                                 <!-- <input  type="submit"  value="Delete" class="btn btn-danger btn-sm"> -->
