@@ -97,7 +97,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>Pangkat Dan Golongan</td>
-                                                    <td>{{$biodatas->pangkat_golongan}}</td>
+                                                    <td>{{pangkat($biodatas->pangkat_golongan)->pangkat}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>No Kartu Pegawai</td>
