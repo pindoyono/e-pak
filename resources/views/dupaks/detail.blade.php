@@ -223,7 +223,7 @@
                                                 </td>
                                                 <td><a target="_blank" href="{{asset('storage/'.$kepegawaian->karpeg)}}">Download</a></td>
                                             </tr>
-                                            @if(substr(Auth::user()->nip,8,4)<='2016')
+                                            @if(substr($users->nip,8,4)<='2016')
                                             <tr>
                                                 <td>
                                                     6                                            
@@ -233,7 +233,7 @@
                                                 </td>
                                                 <td><a target="_blank" href="{{asset('storage/'.$kepegawaian->sk_penyesuaian)}}">Download</a></td>
                                             </tr>
-                                            @elseif(substr(Auth::user()->nip,8,6)<='201708')
+                                            @elseif(substr($users->nip,8,6)=='201708')
                                             <tr>
                                                 <td>
                                                     6                                            
