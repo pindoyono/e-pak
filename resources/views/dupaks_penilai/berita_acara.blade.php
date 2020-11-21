@@ -95,11 +95,11 @@
                                     <td rowspan=2> 9</td>
                                     <td rowspan=2>Masa Kerja Golongan</td>
                                     <td>Lama</td>
-                                    <td colspan=2>{{hitung_masa_kerja($biodatas->tmt_cpns) }}</td>
+                                    <td colspan=2>{{ hitung_masa_kerja1($biodatas->tmt_cpns,$biodatas->pns)  }}</td>
                                 </tr>
                                 <tr>
                                     <td>Baru</td>
-                                    <td colspan=2>{{ hitung_masa_kerja1($biodatas->tmt_cpns,$biodatas->pns) }}</td>
+                                    <td colspan=2>{{ hitung_masa_kerja($biodatas->tmt_cpns) }}</td>
                                 </tr>
                                 <tr>
                                     <td width="5%"> 10</td>
