@@ -40,6 +40,36 @@ if (! function_exists('masakerja1')) {
 }
 
 
+if (! function_exists('hitung_masa_kerja')) {
+
+    function hitung_masa_kerja($tanggal_lahir){
+        $birthDate = new DateTime($tanggal_lahir);
+        $today = new DateTime("today");
+        if ($birthDate > $today) { 
+            exit("0 tahun 0 bulan 0 hari");
+        }
+        $y = $today->diff($birthDate)->y;
+        $m = $today->diff($birthDate)->m;
+        $d = $today->diff($birthDate)->d;
+        return $y." tahun ".$m." bulan ";
+    }
+}
+    
+if (! function_exists('hitung_masa_kerja1')) {
+
+    function hitung_masa_kerja1($cpns,$pns){
+        $birthDate = new DateTime($cpns);
+        $today = new DateTime($pns);
+        if ($birthDate > $today) { 
+            exit("0 tahun 0 bulan 0 hari");
+        }
+        $y = $today->diff($birthDate)->y;
+        $m = $today->diff($birthDate)->m;
+        $d = $today->diff($birthDate)->d;
+        return $y." tahun ".$m." bulan ";
+    }
+}
+
 
 if (! function_exists('jumlah')) {
     function jumlah($role)
