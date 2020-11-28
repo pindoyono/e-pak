@@ -65,18 +65,49 @@
                                             </a>
                                         @endif
                                     @endrole
-                                    @role('penilai')
-                                    <a href="{{route('dupaks_penilai.berita_acara', Crypt::encrypt($dupak->id))}}">
-                                      <button class="btn btn-info btn-round">
-                                        Berita Acara
-                                      </button>
-                                    </a>
-                                    @endrole
                                     <a href="{{route('dupaks_penilai.show', Crypt::encrypt($dupak->id))}}">
                                       <button class="btn btn-success btn-round">
                                         Lihat Detail
                                       </button>
                                     </a>
+                                    @role('penilai')
+                                        @if(check_berita_acara($dupak->id) > 0 || check_hapak($dupak->id) > 0 )
+                                            @if(check_berita_acara($dupak->id) > 0)
+                                            <a target="_blank" href="{{route('dupaks_penilai.createPDF', Crypt::encrypt($dupak->id))}}">
+                                                <button class="btn btn-success btn-round">
+                                                    Cetak Berita Acara
+                                                </button>
+                                            </a>
+                                            @endif
+                                        @else
+                                            @if(check_berita_acara($dupak->id) < 1)
+                                            <a href="{{route('dupaks_penilai.berita_acara', Crypt::encrypt($dupak->id))}}">
+                                                <button class="btn btn-info btn-round">
+                                                    Berita Acara
+                                                </button>
+                                            </a>
+                                            @endif
+                                        @endif
+
+                                        @if(check_hapak($dupak->id) > 0 || check_berita_acara($dupak->id) > 0)
+                                            @if(check_hapak($dupak->id) > 0 )
+                                            <a target="_blank" href="{{route('dupaks_penilai.hapakPDF', Crypt::encrypt($dupak->id))}}">
+                                                <button class="btn btn-success btn-round">
+                                                    Cetak HAPAK
+                                                </button>
+                                            </a>
+                                            @endif
+                                        @else
+                                            @if(check_hapak($dupak->id) < 1 )
+                                            <a href="{{route('dupaks_penilai.hapak', Crypt::encrypt($dupak->id))}}">
+                                                <button class="btn btn-info btn-round">
+                                                    Hapak
+                                                </button>
+                                            </a>
+                                            @endif
+                                        @endif
+
+                                    @endrole
                                     </td>
                                 </tr>
                                 @endforeach 

@@ -18,7 +18,7 @@ table {
 
 <div class="container center" style="text-align:center;">
     <h3>
-        BERITA ACARA PENILAIAN ANGKA KREDIT
+        HAPAK
             <br>
         <!-- TAHUN {{tgl_indo_tahun($dupak->awal)}} -->
     </h3>
@@ -280,6 +280,20 @@ table {
             </tr>
     </tbody>
     </table>
+    <div style="text-align:left;margin-top:100px">
+        <div>
+            <label for="catatan">
+                <h1>Catatan Perbaikan</h1>
+            </label>
+        </div>
+        <div>
+            @if(!empty($berita_acara->catatan))
+                <textarea name="catatan" id="" cols="210" rows="10">{{$berita_acara->catatan}}</textarea>
+            @else
+                <textarea name="catatan" id="" cols="210" rows="10"></textarea>
+            @endif
+        </div>
+    </div>
 
     <div style="text-align:left;padding-left:70%">
                             @if(!empty($berita_acara->created_at))

@@ -161,7 +161,7 @@ class VerifikasiController extends Controller
                     'body' => 'Berkas Usulan Anda Masih ada beberapa kesalahan mohon untuk segera di perbaiki untuk lebih jelasnya silahkan tekan tombol perbaikan data dibawah',
                     'thanks' => 'Terimakasih Sudah menggunakan Aplikasi E-Pak Guru',
                     'saran' => 'Jika ada Saran dan Masukan Untuk Pengembang Aplikasi Ini.. silahkan klik link berikut ini ',
-                    'tombol' => "http:/e-pak.smkn2malinau.sch.id/sarans/create",
+                    'tombol' => "http:/e-pakgurukaltara.com/sarans/create",
                     'list_notif' => 'Berkas Anda Perlu beberapa perbaikan',
                     'text_action' => 'Perbaikan Data',
                     'link1' => route('verifikasi.show',Crypt::encrypt($verifikasi->id)),

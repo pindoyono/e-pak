@@ -92,6 +92,22 @@ if (! function_exists('jumlah_sekolah')) {
     }
 }
 
+if (! function_exists('check_berita_acara')) {
+    function check_berita_acara($id)
+    {
+        $data = \App\BeritaAcara::where('dupak_id',$id)->count();
+		return $data;
+    }
+}
+
+if (! function_exists('check_hapak')) {
+    function check_hapak($id)
+    {
+        $data = \App\Hapak::where('dupak_id',$id)->count();
+		return $data;
+    }
+}
+
 if (! function_exists('jumlah_usulan')) {
     function jumlah_usulan()
     {

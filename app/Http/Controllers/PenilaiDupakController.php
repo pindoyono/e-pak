@@ -164,6 +164,34 @@ class PenilaiDupakController extends Controller
                                                 );
     }
 
+    public function hapak($id)
+    {
+        //
+        // var_dump($id);
+        // exit;
+        //
+        $id =  Crypt::decrypt($id);
+        $dupak = \App\Dupak::where('id', $id )->first();
+        $berkas = \App\Berkas::where('dupak_id', $id )->get();
+        $user = \App\User::findOrFail($dupak->user_id);
+        $biodatas = \App\Biodata::where('user_id', $dupak->user_id)->first();
+        $kepegawaians = \App\Kepegawaian::where('user_id', $dupak->user_id)->get();
+        $now = date('Y-m-d');
+        $berita_acara = \App\Hapak::where('dupak_id', $id)->first();
+        // $berita_acara = json_decode($berita_acara);
+        
+        return view('dupaks_penilai.hapak', ['berita_acara' => $berita_acara,
+                                                    'dupak' => $dupak,
+                                                    'biodatas' => $biodatas,
+                                                    'users' => $user,
+                                                    'now' => $now,
+                                                    'kepegawaians' => $kepegawaians,
+                                                    'dupak_id' => $id,
+                                                    'berkas' => $berkas,
+                                                    ]
+                                                );
+    }
+
     public function create_or_update(Request $request, $id)
     {
         $id = Crypt::decrypt($id);
@@ -175,6 +203,10 @@ class PenilaiDupakController extends Controller
             'dupak_id'   => $id,
         ],[
             'dupak_id'   => $id,
+            'masa_kerja_baru'   => $request->get('baru'),
+            'masa_kerja_lama'   => $request->get('lama'),
+            'penilai'   => Auth::user()->name,
+            'nip_penilai'   => Auth::user()->nip,
             'pendidikan' => json_encode([ 
                 'lama' => $request->get('value1'),
                 'baru' => $request->get('value2'),
@@ -246,9 +278,9 @@ class PenilaiDupakController extends Controller
         $users = \App\User::find($dupak->user_id);
 
         $text = "Halo, ".$users->name."\n"
-            . "Berkasi Usulan Anda Sudah di Nilai \n"
-            . "Terimakasih Sudah menggunakan Aplikasi E-Pak Guru\n"
-            . "Jika ada Saran dan Masukan Untuk Pengembang Aplikasi Ini.. silahkan klik link berikut ini \n";
+            . "Berkas usulan anda sudah dinilai \n"
+            . "Terimakasih sudah menggunakan Aplikasi E-Pak Guru\n"
+            . "Jika ada saran dan masukan untuk pengembangan aplikasi ini.. silahkan klik link berikut ini \n";
             
             if(url('/') == 'http://localhost:8000'){
 
@@ -281,7 +313,7 @@ class PenilaiDupakController extends Controller
                     'body' => 'Berkasi Usulan Anda Sudah di Nilai',
                     'thanks' => 'Terimakasih Sudah menggunakan Aplikasi E-Pak Guru',
                     'saran' => 'Jika ada Saran dan Masukan Untuk Pengembang Aplikasi Ini.. silahkan klik link berikut ini ',
-                    'tombol' => "http:/e-pak.smkn2malinau.sch.id/sarans/create",
+                    'tombol' => "http:/e-pakgurukaltara.com/sarans/create",
                     'list_notif' => 'Usulan Anda Sudah Dinilai oleh Tim Penilai',
                     'text_action' => 'List Dupak',
                     'link1' => route('dupaks.index'),
@@ -296,6 +328,146 @@ class PenilaiDupakController extends Controller
         $id = Crypt::encrypt($id);
         
         return redirect()->route('dupaks_penilai.berita_acara',$id)->with('toast_success', 'Task Created Successfully!');
+    }
+
+
+    public function create_or_update_hapak(Request $request, $id)
+    {
+        $id = Crypt::decrypt($id);
+        // var_dump($id);
+        // exit;
+        $berita_acara = \App\Hapak::updateOrCreate([
+            //Add unique field combo to match here
+            //For example, perhaps you only want one entry per user:
+            'dupak_id'   => $id,
+        ],[
+            'dupak_id'   => $id,
+            'masa_kerja_baru'   => $request->get('baru'),
+            'masa_kerja_lama'   => $request->get('lama'),
+            'catatan'   => $request->get('catatan'),
+            'penilai'   => Auth::user()->name,
+            'nip_penilai'   => Auth::user()->nip,
+            'pendidikan' => json_encode([ 
+                'lama' => $request->get('value1'),
+                'baru' => $request->get('value2'),
+                'total' => $request->get('sum'),
+            ]),
+            'prajabatan' =>json_encode([ 
+                'lama' => $request->get('value1a'),
+                'baru' => $request->get('value2a'),
+                'total' => $request->get('suma'),
+            ]),
+            'pembelajaran' => json_encode([ 
+                'lama' => $request->get('value1b'),
+                'baru' => $request->get('value2b'),
+                'total' => $request->get('sumb'),
+            ]),
+            'bimbingan' => json_encode([ 
+                'lama' => $request->get('value1c'),
+                'baru' => $request->get('value2c'),
+                'total' => $request->get('sumc'),
+            ]),
+            'tugas_lain' => json_encode([ 
+                'lama' => $request->get('value1d'),
+                'baru' => $request->get('value2d'),
+                'total' => $request->get('sumd'),
+            ]),
+            'pd' => json_encode([ 
+                'lama' => $request->get('value1e'),
+                'baru' => $request->get('value2e'),
+                'total' => $request->get('sume'),
+            ]),
+            'pi' => json_encode([ 
+                'lama' => $request->get('value1f'),
+                'baru' => $request->get('value2f'),
+                'total' => $request->get('sumf'),
+            ]),
+            'ki' => json_encode([ 
+                'lama' => $request->get('value1g'),
+                'baru' => $request->get('value2g'),
+                'total' => $request->get('sumg'),
+            ]),
+            'ijazah_tdk_sesuai' => json_encode([ 
+                'lama' => $request->get('value1h'),
+                'baru' => $request->get('value2h'),
+                'total' => $request->get('sumh'),
+            ]),
+            'pendukung' => json_encode([ 
+                'lama' => $request->get('value1i'),
+                'baru' => $request->get('value2i'),
+                'total' => $request->get('sumi'),
+            ]),
+        ]);
+
+        $dupak = \App\Dupak::findOrFail($id);
+        $dupak->status="Sudah Dinilai";
+        $dupak->update();
+        
+        $user = \App\User::find($dupak->user_id)->chat_id_verified;
+        $group_id = \App\Setup::first()->group_id;
+        $telegram_id = $group_id;
+
+        // echo $user;
+        // echo "<br>";
+        // echo $telegram_id;
+        if($user!=""){
+            $telegram_id = $user;
+        }
+        // echo $telegram_id;
+        
+        $users = \App\User::find($dupak->user_id);
+
+        $text = "Halo, ".$users->name."\n"
+            . "Berkas usulan anda sudah dinilai \n"
+            . "Terimakasih sudah menggunakan Aplikasi E-Pak Guru\n"
+            . "Jika ada saran dan masukan untuk pengembangan aplikasi ini.. silahkan klik link berikut ini \n";
+            
+            if(url('/') == 'http://localhost:8000'){
+
+                $keyboard = Keyboard::make()
+                ->inline()
+                ->row(
+                    Keyboard::inlineButton(['text' => 'Saran Dan Masukan', 'url' => 'http://e-pak.smkn2malinau.sch.id' ]),
+                    Keyboard::inlineButton(['text' => 'List Dupak', 'url' => 'http://e-pak.smkn2malinau.sch.id' ])
+                );
+            }else{
+                $keyboard = Keyboard::make()
+                ->inline()
+                ->row(
+                    Keyboard::inlineButton(['text' => 'Saran Dan Masukan', 'url' => route('sarans.create') ]),
+                    Keyboard::inlineButton(['text' => 'List Dupak', 'url' => route('dupaks.index') ])
+                );
+            }
+                
+            Telegram::sendMessage([
+                'chat_id' => $telegram_id ,
+                'parse_mode' => 'HTML',
+                'reply_markup' => $keyboard,
+                'text' => $text,
+            ]);
+
+            
+            $details = [
+                    'from' => 'admin@e-pakgurukaltara.com',
+                    'greeting' => 'Halo, '.$users->name,
+                    'body' => 'Berkasi Usulan Anda Sudah di Nilai',
+                    'thanks' => 'Terimakasih Sudah menggunakan Aplikasi E-Pak Guru',
+                    'saran' => 'Jika ada Saran dan Masukan Untuk Pengembang Aplikasi Ini.. silahkan klik link berikut ini ',
+                    'tombol' => "http:/e-pakgurukaltara.com/sarans/create",
+                    'list_notif' => 'Usulan Anda Sudah Dinilai oleh Tim Penilai',
+                    'text_action' => 'List Dupak',
+                    'link1' => route('dupaks.index'),
+                    'subject' => 'Info E-pak Guru',
+                    'salutation' => 'Hormat Kami',
+                    'telegram_id' => env('TELEGRAM_CHANNEL_ID'),
+                    
+            ];
+    
+            $users->notify(new \App\Notifications\TaskDupakComplete($details));
+
+        $id = Crypt::encrypt($id);
+        
+        return redirect()->route('dupaks_penilai.hapak',$id)->with('toast_success', 'Task Created Successfully!');
     }
 
     public function createPDF($id) {
@@ -320,6 +492,35 @@ class PenilaiDupakController extends Controller
                                                                 );
         $pdf->setPaper('A4', 'potrait');
         return $pdf->stream('Berita Acara.pdf');
+    }
+
+    public function hapakPDF($id) {
+        $id =  Crypt::decrypt($id);
+        $dupak = \App\Dupak::where('id', $id )->first();
+        $berkas = \App\Berkas::where('dupak_id', $id )->get();
+        $user = \App\User::findOrFail($dupak->user_id);
+        $biodatas = \App\Biodata::where('user_id', $dupak->user_id)->first();
+        $kepegawaians = \App\Kepegawaian::where('user_id', $dupak->user_id)->get();
+        $now = date('Y-m-d');
+        $berita_acara = \App\Hapak::where('dupak_id', $id)->first();
+
+        $pdf = \PDF::loadView('dupaks_penilai.cetak_hapak', ['berita_acara' => $berita_acara,
+                                                                    'dupak' => $dupak,
+                                                                    'biodatas' => $biodatas,
+                                                                    'users' => $user,
+                                                                    'now' => $now,
+                                                                    'kepegawaians' => $kepegawaians,
+                                                                    'dupak_id' => $id,
+                                                                    'berkas' => $berkas,
+                                                                    ]
+                                                                );
+        $pdf->setPaper('A4', 'potrait');
+        return $pdf->stream('Hapak.pdf');
+    }
+
+    public function preview($pdf) {
+        $pdf = Crypt::decrypt($pdf);
+       return view('dupaks_penilai.preview', ['pdf' => $pdf]);
     }
 
 }

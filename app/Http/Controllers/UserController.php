@@ -172,8 +172,6 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
      
-
-        // var_dump($request->file('avatar'));
         // exit;
         // $validation = \Validator::make($request->all(),[
         //     "name" => "required|min:5|max:100",
@@ -218,7 +216,7 @@ class UserController extends Controller
         $user->assignRole($request->get('roles'));
         DB::table('model_has_permissions')->where('model_id',$id)->delete();
         $user->givePermissionTo($request->get('roles'));
-
+ 
 
         return redirect()->route('users.edit', [$id])->with('toast_success', 'Berhasil Merubah Data Pengguna');
     }

@@ -42,10 +42,15 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource("berkas", "BerkasController")->middleware('role:guru|penilai|verifikator');
     Route::get('/upload/{id}', 'BerkasController@upload')->name('upload')->middleware('role:guru|super admin|penilai|verifikator');
     
+    //dupaks penilai
+    Route::get('/preview/{id}', 'PenilaiDupakController@preview')->name('dupaks_penilai.preview')->middleware('role:guru|penilai|verifikator');
     Route::get('/berita_acara/{id}', 'PenilaiDupakController@berita_acara')->name('dupaks_penilai.berita_acara')->middleware('role:guru|penilai|verifikator');
+    Route::get('/hapak/{id}', 'PenilaiDupakController@hapak')->name('dupaks_penilai.hapak')->middleware('role:guru|penilai|verifikator');
     Route::get('/createPDF/{id}', 'PenilaiDupakController@createPDF')->name('dupaks_penilai.createPDF')->middleware('role:guru|penilai|verifikator');
+    Route::get('/hapakPDF/{id}', 'PenilaiDupakController@hapakPDF')->name('dupaks_penilai.hapakPDF')->middleware('role:guru|penilai|verifikator');
     Route::put('/cou_berita_acara/{id}', 'PenilaiDupakController@create_or_update')->name('dupaks_penilai.create_or_update')->middleware('role:guru|penilai|verifikator|super admin');
-    
+    Route::put('/couh_berita_acara/{id}', 'PenilaiDupakController@create_or_update_hapak')->name('dupaks_penilai.create_or_update_hapak')->middleware('role:guru|penilai|verifikator|super admin');
+
     Route::get('/bukti/{id}', 'BerkasController@bukti')->name('berkas.bukti')->middleware('role:guru|penilai|verifikator');
     Route::put('/berkas/simpan/{id}', 'BerkasController@simpan')->name('berkas.simpan')->middleware('role:guru|penilai|verifikator');
     Route::get('/berkas/buat/{id}','BerkasController@buat')->name('berkas.buat')->middleware('role:guru|penilai|verifikator');
@@ -58,6 +63,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/verified/{id}', 'VerifikasiController@verified')->name('verifikasi.verified')->middleware('role:guru|penilai|verifikator');
     Route::get('/kirim-email', 'VerifikasiController@email')->name('verifikasi.email')->middleware('role:guru|penilai|verifikator');
     Route::get('/baca/{id}', 'VerifikasiController@baca')->name('verifikasi.baca')->middleware('role:guru|penilai|verifikator');
+
     //user
     Route::get('/profile/{id}', 'UserController@profile')->name('users.profile')->middleware('role:guru|super admin|penilai|verifikator');
     Route::put('/update_profile/{id}', 'UserController@update_profile')->name('users.update_profile')->middleware('role:guru|penilai|verifikator|super admin');
@@ -65,7 +71,7 @@ Route::group(['middleware' => ['auth']], function() {
     // biodata
     Route::get('/create_biodata/{id}', 'BiodataController@create_biodata')->name('biodatas.create_biodata');
     Route::put('/create_or_update/{id}', 'BiodataController@create_or_update')->name('biodatas.create_or_update');
-
+    
     Route::get('users.export', 'UserController@export')->name('users.export')->middleware('role:super admin');
     Route::get('importExportView', 'UserController@importExportView')->middleware('role:super admin');
     Route::post('users.import', 'UserController@import')->name('users.import')->middleware('role:super admin');
@@ -74,7 +80,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('import', 'KegiatanController@import')->name('kegiatans.import')->middleware('role:super admin');
     Route::get('exportmapel', 'MapelController@export')->name('mapels.export')->middleware('role:super admin');
     Route::post('importmapel', 'MapelController@import')->name('mapels.import')->middleware('role:super admin');
-
+    
 });
 
 Auth::routes();

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class BeritaAcara extends Model
+class Hapak extends Model
 {
     //
     protected $fillable = [
@@ -23,6 +23,6 @@ class BeritaAcara extends Model
         'masa_kerja_lama',
         'penilai',
         'nip_penilai',
+        'catatan',
     ];
-
 }

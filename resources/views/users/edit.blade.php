@@ -81,7 +81,7 @@
                                         <div class="checkbox">
                                             <label>
                                                 @if(!empty($user->getRoleNames()))
-                                                    <input type="checkbox" {{in_array($role['name'], json_decode($user->getRoleNames())) ? "checked" : ""}} name="roles[]"  id="roles" value="{{ $role['name'] }}">{{ $role['name'] }}    
+                                                    <input name="roles[]" type="checkbox" {{in_array($role['name'], json_decode($user->getRoleNames())) ? "checked" : ""}}   id="roles" value="{{ $role['name'] }}">{{ $role['name'] }}    
                                                 @else
                                                   Role Belum Dibuat
                                                 @endif

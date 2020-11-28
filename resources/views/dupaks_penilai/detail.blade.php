@@ -185,7 +185,9 @@
                                                 <td>
                                                     SK CPNS
                                                 </td>
-                                                <td><a target="_blank" href="{{asset('storage/'.$kepegawaian->sk_cpns)}}">Download</a></td>
+                                                <!-- <td><a target="_blank" href="{{asset('storage/'.$kepegawaian->sk_cpns)}}">Download</a></td> -->
+                                                <td><a target="_blank" class="btn btn-info" href="{{route('dupaks_penilai.preview', Crypt::encrypt(asset('storage/'.$kepegawaian->sk_cpns)) ) }}" >lihat</a></td>
+                                                
                                             </tr>
                                             <tr>
                                                 <td>
@@ -194,7 +196,7 @@
                                                 <td>
                                                     SK Pangkat Terakhir
                                                 </td>
-                                                <td><a target="_blank" href="{{asset('storage/'.$kepegawaian->sk_pangkat)}}">Download</a></td>
+                                                <td><a target="_blank" class="btn btn-info" href="{{route('dupaks_penilai.preview', Crypt::encrypt(asset('storage/'.$kepegawaian->sk_pangkat)) ) }}" >lihat</a></td>
                                             </tr>
                                             <tr>
                                                 <td>
@@ -203,7 +205,7 @@
                                                 <td>
                                                     SK Jafung Terakhir
                                                 </td>
-                                                <td><a target="_blank" href="{{asset('storage/'.$kepegawaian->sk_jafung)}}">Download</a></td>
+                                                <td><a target="_blank" class="btn btn-info" href="{{route('dupaks_penilai.preview', Crypt::encrypt(asset('storage/'.$kepegawaian->sk_jafung)) ) }}" >lihat</a></td>
                                             </tr>
                                             <tr>
                                                 <td>
@@ -212,7 +214,7 @@
                                                 <td>
                                                     IJAZAH
                                                 </td>
-                                                <td><a target="_blank" href="{{asset('storage/'.$kepegawaian->ijazah)}}">Download</a></td>
+                                                <td><a target="_blank" class="btn btn-info" href="{{route('dupaks_penilai.preview', Crypt::encrypt(asset('storage/'.$kepegawaian->ijazah)) ) }}" >lihat</a></td>
                                             </tr>
                                             <tr>
                                                 <td>
@@ -221,7 +223,7 @@
                                                 <td>
                                                     Kartu Pegawai
                                                 </td>
-                                                <td><a target="_blank" href="{{asset('storage/'.$kepegawaian->karpeg)}}">Download</a></td>
+                                                <td><a target="_blank" class="btn btn-info" href="{{route('dupaks_penilai.preview', Crypt::encrypt(asset('storage/'.$kepegawaian->karpeg)) ) }}" >lihat</a></td>
                                             </tr>
                                             @if(substr($users->nip,8,4)<='2016')
                                             <tr>
@@ -231,7 +233,7 @@
                                                 <td>
                                                     SK Pengalihan Kab ke Prov
                                                 </td>
-                                                <td><a target="_blank" href="{{asset('storage/'.$kepegawaian->sk_penyesuaian)}}">Download</a></td>
+                                                <td><a target="_blank" class="btn btn-info" href="{{route('dupaks_penilai.preview', Crypt::encrypt(asset('storage/'.$kepegawaian->sk_penyesuaian)) ) }}" >lihat</a></td>
                                             </tr>
                                             @elseif(substr($users->nip,8,6)=='201708')
                                             <tr>
@@ -241,7 +243,7 @@
                                                 <td>
                                                     Surat Pernyataan Khusus GGD
                                                 </td>
-                                                <td><a target="_blank" href="{{asset('storage/'.$kepegawaian->sk_penyesuaian)}}">Download</a></td>
+                                                <td><a target="_blank" class="btn btn-info" href="{{route('dupaks_penilai.preview', Crypt::encrypt(asset('storage/'.$kepegawaian->sk_penyesuaian)) ) }}" >lihat</a></td>
                                             </tr>
                                             @endif
                                         </tbody>
@@ -283,7 +285,7 @@
                                                 <td>
                                                     Surat Pengantar Dari Sekolah
                                                 </td>
-                                                <td><a target="_blank" href="{{asset('storage/'.$dupak->surat_pengantar)}}">Download</a></td>
+                                                <td><a target="_blank" class="btn btn-info" href="{{route('dupaks_penilai.preview', Crypt::encrypt(asset('storage/'.$dupak->surat_pengantar)) ) }}" >lihat</a></td>
                                             </tr>
                                             <tr>
                                                 <td>
@@ -295,7 +297,7 @@
                                                 @if($dupak->tidak_dihukum==NULL)
                                                 <td><b>Tidak Ada</b></td>
                                                 @else
-                                                <td><a target="_blank" href="{{asset('storage/'.$dupak->tidak_dihukum)}}">Download</a></td>
+                                                <td><a target="_blank" class="btn btn-info" href="{{route('dupaks_penilai.preview', Crypt::encrypt(asset('storage/'.$dupak->tidak_dihukum)) ) }}" >lihat</a></td>
                                                 @endif
                                             </tr>
                                             <tr>
@@ -305,7 +307,7 @@
                                                 <td>
                                                     DUPAK
                                                 </td>
-                                                <td><a target="_blank" href="{{asset('storage/'.$dupak->dupak)}}">Download</a></td>
+                                                <td><a target="_blank" class="btn btn-info" href="{{route('dupaks_penilai.preview', Crypt::encrypt(asset('storage/'.$dupak->dupak)) ) }}" >lihat</a></td>
                                             </tr>
                                             <tr>
                                                 <td>
@@ -314,8 +316,7 @@
                                                 <td>
                                                     Surat Pernyataan Melaksanakan Pembelajaran
                                                 </td>
-                                                <td><a target="_blank" href="{{asset('storage/'.$dupak->surat_pernyataan1)}}">Download</a></td>
-                                            </tr>
+                                                <td><a target="_blank" class="btn btn-info" href="{{route('dupaks_penilai.preview', Crypt::encrypt(asset('storage/'.$dupak->surat_pernyataan1)) ) }}" >lihat</a></td>
                                             <tr>
                                                 <td>
                                                     5                                            
@@ -326,7 +327,7 @@
                                                 @if($dupak->surat_pernyataan2==NULL)
                                                 <td><b>Tidak Ada</b></td>
                                                 @else
-                                                <td><a target="_blank" href="{{asset('storage/'.$dupak->surat_pernyataan2)}}">Download</a></td>
+                                                <td><a target="_blank" class="btn btn-info" href="{{route('dupaks_penilai.preview', Crypt::encrypt(asset('storage/'.$dupak->surat_pernyataan2)) ) }}" >lihat</a></td>
                                                 @endif
                                             </tr>
                                             <tr>
@@ -336,7 +337,7 @@
                                                 <td>
                                                     Surat Pernyataan Melaksanakan Unsur penunjang
                                                 </td>
-                                                <td><a target="_blank" href="{{asset('storage/'.$dupak->surat_pernyataan4)}}">Download</a></td>
+                                                <td><a target="_blank" class="btn btn-info" href="{{route('dupaks_penilai.preview', Crypt::encrypt(asset('storage/'.$dupak->surat_pernyataan4)) ) }}" >lihat</a></td>
                                             </tr>
                                             <tr>
                                                 <td>
@@ -345,7 +346,7 @@
                                                 <td>
                                                     Surat Pernyataan Melaksanakan PKB
                                                 </td>
-                                                <td><a target="_blank" href="{{asset('storage/'.$dupak->surat_pernyataan3)}}">Download</a></td>
+                                                <td><a target="_blank" class="btn btn-info" href="{{route('dupaks_penilai.preview', Crypt::encrypt(asset('storage/'.$dupak->surat_pernyataan3)) ) }}" >lihat</a></td>
                                             </tr>
                                             <tr>
                                                 <td>
@@ -354,7 +355,7 @@
                                                 <td>
                                                     SK Pembagian Tugas Ganjil
                                                 </td>
-                                                <td><a target="_blank" href="{{asset('storage/'.$dupak->pembagian_tugas)}}">Download</a></td>
+                                                <td><a target="_blank" class="btn btn-info" href="{{route('dupaks_penilai.preview', Crypt::encrypt(asset('storage/'.$dupak->pembagian_tugas)) ) }}" >lihat</a></td>
                                             </tr>
                                             <tr>
                                                 <td>
@@ -363,7 +364,7 @@
                                                 <td>
                                                     SK Pembagian Tugas Genap 
                                                 </td>
-                                                <td><a target="_blank" href="{{asset('storage/'.$dupak->pembagian_tugas_genap)}}">Download</a></td>
+                                                <td><a target="_blank" class="btn btn-info" href="{{route('dupaks_penilai.preview', Crypt::encrypt(asset('storage/'.$dupak->pembagian_tugas_genap)) ) }}" >lihat</a></td>
                                             </tr>
                                             <tr>
                                                 <td>
@@ -372,7 +373,7 @@
                                                 <td>
                                                     PAK Terakhir
                                                 </td>
-                                                <td><a target="_blank" href="{{asset('storage/'.$dupak->pak)}}">Download</a></td>
+                                                <td><a target="_blank" class="btn btn-info" href="{{route('dupaks_penilai.preview', Crypt::encrypt(asset('storage/'.$dupak->pak)) ) }}" >lihat</a></td>
                                             </tr>
                                             <tr>
                                                 <td>
@@ -381,7 +382,7 @@
                                                 <td>
                                                     Laporan / form PKG
                                                 </td>
-                                                <td><a target="_blank" href="{{asset('storage/'.$dupak->pkg)}}">Download</a></td>
+                                                <td><a target="_blank" class="btn btn-info" href="{{route('dupaks_penilai.preview', Crypt::encrypt(asset('storage/'.$dupak->pkg)) ) }}" >lihat</a></td>
                                             </tr>
                                             </tr>
                                                 <td>
@@ -390,7 +391,7 @@
                                                 <td>
                                                     SKP
                                                 </td>
-                                                <td><a target="_blank" href="{{asset('storage/'.$dupak->skp)}}">Download</a></td>
+                                                <td><a target="_blank" class="btn btn-info" href="{{route('dupaks_penilai.preview', Crypt::encrypt(asset('storage/'.$dupak->skp)) ) }}" >lihat</a></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -428,13 +429,8 @@
                                         <td>{{kegiatans($berkas->nama)->kegiatan}}</td>
                                         <td>{{kegiatans($berkas->nama)->angka_kredit}}</td>
                                         <td>{{kegiatans($berkas->nama)->satuan_hasil}}</td>
-                                        <td>
-                                            <a class="col-sm-2" target="_blank" href="{{asset('storage/'.$berkas->berkas)}}">
-                                                <span class="btn btn-info btn-sm">
-                                                    lihat
-                                                </span>
-                                            </a>
-                                        </td>
+                                        <td><a target="_blank" class="btn btn-info" href="{{route('dupaks_penilai.preview', Crypt::encrypt(asset('storage/'.$berkas->berkas)) ) }}" >lihat</a></td>
+
                                     </tr>
                                     @endforeach 
                                 </tbody>

@@ -28,7 +28,7 @@
                         Wilayah Malinau dan Tana Tidung di Malinau telah dilakukan penilaian terhadap usulan penilaian angka kredit jabatan fungsional guru dengan hasil sebagai berikut:
                     
                     </p>
-                    <form enctype="multipart/form-data" class="form-horizontal"  action="{{route('dupaks_penilai.create_or_update', Crypt::encrypt($dupak->id) )}}" method="POST">
+                    <form enctype="multipart/form-data" class="form-horizontal"  action="{{route('dupaks_penilai.create_or_update_hapak', Crypt::encrypt($dupak->id) )}}" method="POST">
                     
                     
 
@@ -414,6 +414,20 @@
                                @endif
                             </tbody>
                         </table>
+                        <div>
+                            <div>
+                                <label for="catatan">
+                                    <h1>Catatan Perbaikan</h1>
+                                </label>
+                            </div>
+                            <div>
+                                @if(!empty($berita_acara->catatan))
+                                    <textarea name="catatan" id="" cols="210" rows="10">{{$berita_acara->catatan}}</textarea>
+                                @else
+                                    <textarea name="catatan" id="" cols="210" rows="10"></textarea>
+                                @endif
+                            </div>
+                        </div>
                     </div>
                     
                     @if(!empty(Auth::user()->nip == $users->nip))
