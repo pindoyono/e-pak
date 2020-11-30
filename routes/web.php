@@ -30,7 +30,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles','RoleController')->middleware('role:super admin');
     Route::resource("users", "UserController");
     Route::resource("sarans", "SaranController");
-    Route::resource("jabatans", "JabatanControler")->middleware('role:super admin');
+    Route::resource("jabatans", "JabatanController")->middleware('role:super admin');
+    Route::resource("lampirans", "LampiranController")->middleware('role:super admin');
     Route::resource("sekolahs", "SekolahController")->middleware('role:super admin');
     Route::resource("setups", "SetupController")->middleware('role:super admin');
     Route::resource("mapels", "MapelController")->middleware('role:super admin');
@@ -79,6 +80,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('export', 'KegiatanController@export')->name('kegiatans.export')->middleware('role:super admin');
     // Route::get('importExportView', 'KegiatanController@importExportView')->middleware('role:super admin');
     Route::post('import', 'KegiatanController@import')->name('kegiatans.import')->middleware('role:super admin');
+    Route::post('importlampiran', 'LampiranController@import')->name('lampirans.import')->middleware('role:super admin');
+    Route::get('exportlampiran', 'LampiranController@export')->name('lampirans.export')->middleware('role:super admin');
     Route::get('exportmapel', 'MapelController@export')->name('mapels.export')->middleware('role:super admin');
     Route::post('importmapel', 'MapelController@import')->name('mapels.import')->middleware('role:super admin');
     

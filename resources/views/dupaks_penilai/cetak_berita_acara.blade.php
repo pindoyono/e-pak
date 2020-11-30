@@ -118,6 +118,8 @@ table {
                 <td colspan=4 style="font-size:9;">{{$biodatas->alamat}}</td>
             </tr>
 
+
+
             <tr>
                 <td width="5%">II</td>
                 <td colspan=4> PENETAPAN ANGKA KREDIT</td>
@@ -268,6 +270,8 @@ table {
                 <td>{{ number_format(json_decode($berita_acara->ijazah_tdk_sesuai)->baru,3) }}</td>
                 <td>{{ number_format(json_decode($berita_acara->ijazah_tdk_sesuai)->total,3) }}</td>
             </tr>
+
+            
             <tr>
                 <td colspan="3">2. Pendukung tugas guru</td>
                 <td>{{ number_format(json_decode($berita_acara->pendukung)->lama,3) }}</td>

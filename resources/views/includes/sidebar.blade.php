@@ -106,6 +106,13 @@
                                 <p>Mata Pelajaran</p>
                             </a>
                         </li>
+                        <li>
+                            <a href="{{route('lampirans.index')}}">
+                                <!-- <i class="fas fa-chart-line"></i> -->
+                                <i class="material-icons">library_books</i>
+                                <p>Lampiran 2 PKB</p>
+                            </a>
+                        </li>
                         <li class="{{ Request::segment(1) === 'kegiatans'  ? 'active' : null }}">
                             <a href="{{route('kegiatans.index')}}">
                                 <i class="fas fa-layer-group"></i>
