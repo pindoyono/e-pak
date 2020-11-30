@@ -24,5 +24,6 @@ class Hapak extends Model
         'penilai',
         'nip_penilai',
         'catatan',
+        'dasus',
     ];
 }

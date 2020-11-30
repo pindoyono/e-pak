@@ -344,6 +344,7 @@ class PenilaiDupakController extends Controller
         ],[
             'dupak_id'   => $id,
             'masa_kerja_baru'   => $request->get('baru'),
+            'dasus'   => $request->get('dasus'),
             'masa_kerja_lama'   => $request->get('lama'),
             'catatan'   => $request->get('catatan'),
             'penilai'   => Auth::user()->name,
@@ -468,7 +469,7 @@ class PenilaiDupakController extends Controller
 
         $id = Crypt::encrypt($id);
         
-        return redirect()->route('dupaks_penilai.hapak',$id)->with('toast_success', 'Task Created Successfully!');
+        return redirect()->route('dupaks_penilai.index',$id)->with('toast_success', 'Task Created Successfully!');
     }
 
     public function createPDF($id) {

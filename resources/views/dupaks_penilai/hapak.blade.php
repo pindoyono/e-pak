@@ -152,6 +152,14 @@
                                     <td width="10%">Jumlah AK</td>
                                 </tr>
                                 <tr>
+                                    <td width="5%"></td>
+                                    <td width="2%" >0</td>
+                                    <td> <b> Daerah Khusus</b></td>
+                                    <td ></td>
+                                    <td></td>
+                                    <td> {{ $berita_acara->dasus }} </td>
+                                </tr>
+                                <tr>
                                     <td width="5%" rowspan="20"></td>
                                     <td width="2%" >1</td>
                                     <td> <b>Unsur Utama</b></td>
@@ -166,8 +174,6 @@
                                     <td></td>
                                     <td></td>
                                 </tr>
-                                
-
                                <tr>
                                     <td>1) Pendidikan sekolah dan memperoleh gelar ijazah </td>
                                     <td><input  step="any" type="number" value="{{ json_decode($berita_acara->pendidikan)->lama }}" name="value1" id="value1" class="form-control" min="0" placeholder="LAMA" required /></td>
@@ -303,6 +309,14 @@
                                     <td width="10%">AK Lama *)</td>
                                     <td width="10%">AK Diperoleh **)</td>
                                     <td width="10%">Jumlah AK</td>
+                                </tr>
+                                <tr>
+                                    <td width="5%"></td>
+                                    <td width="2%" >0</td>
+                                    <td> <b>Daerah Khusus</b></td>
+                                    <td ></td>
+                                    <td></td>
+                                    <td><input  step="any" type="number" value=0 name="dasus" id="dasus" class="form-control" min="0" /></td>
                                 </tr>
                                 <tr>
                                     <td width="5%" rowspan="20"></td>
@@ -623,7 +637,7 @@
                var value2 = parseFloat($('#value2i').val()) || 0;
                $('#sumi').val(value1 + value2);
             });
-            $('#value1, #value2,#value1a, #value2a,#value1b, #value2b,#value1c, #value2c,#value1d, #value2d,#value1e, #value2e,#value1f, #value2f,#value1g, #value2g').keyup(function(){
+            $('#value1, #value2,#value1a, #value2a,#value1b, #value2b,#value1c, #value2c,#value1d, #value2d,#value1e, #value2e,#value1f, #value2f,#value1g, #value2g, #dasus').keyup(function(){
                var value1 = parseFloat($('#value1').val()) || 0;
                var value1a = parseFloat($('#value1a').val()) || 0;
                var value1b = parseFloat($('#value1b').val()) || 0;
@@ -640,10 +654,13 @@
                var value2e = parseFloat($('#value2e').val()) || 0;
                var value2f = parseFloat($('#value2f').val()) || 0;
                var value2g = parseFloat($('#value2g').val()) || 0;
+               var dasus = parseFloat($('#dasus').val()) || 0;
+
+
                $('#total_utama_lama').val(value1 + value1a + value1b + value1c + value1d + value1e + value1f +value1g);
                $('#total_utama_baru').val(value2 + value2a + value2b + value2c + value2d + value2e + value2f + value2g);
                $('#total_utama_semua').val(value1 + value1a + value1b + value1c + value1d + value1e + value1f +value1g 
-               + value2 + value2a + value2b + value2c + value2d + value2e + value2f + value2g);
+               + value2 + value2a + value2b + value2c + value2d + value2e + value2f + value2g + dasus);
 
                var total_utama_lama = parseFloat($('#total_utama_lama').val()) || 0;
                var total_utama_baru = parseFloat($('#total_utama_baru').val()) || 0;
@@ -662,9 +679,6 @@
                $('#akk_diperoleh_pd').val(value2e);
                $('#akk_diperoleh_pi').val(value2f + value2g);
                
-
-
-
 
                var akk_diperoleh = parseFloat($('#akk_diperoleh').val()) || 0;
                var akk_diperoleh_pd = parseFloat($('#akk_diperoleh_pd').val()) || 0;

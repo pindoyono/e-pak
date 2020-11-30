@@ -500,7 +500,11 @@
                         @if(!empty($berita_acara->penilai ))
                             {{  $berita_acara->penilai }} 
                             <br>
-                            NIP. {{  $berita_acara->nip_penilai }}       
+                            NIP. {{  $berita_acara->nip_penilai }}  
+                        @else
+                            {{  Auth::user()->name }} 
+                            <br>
+                            NIP. {{  Auth::user()->nip }}  
                         @endif
                         <br>
                         <br>

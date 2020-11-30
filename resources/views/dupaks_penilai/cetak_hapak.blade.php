@@ -118,13 +118,27 @@ table {
                 <td colspan=7> PENETAPAN ANGKA KREDIT</td>
             </tr>
             <tr>
+                <td width="5%"></td>
+                <td width="2%" >0</td>
+                <td colspan=3> <b>Daerah Khusus</b></td>
+                <td> <b>    </b></td>
+                <td> <b>    </b></td>
+                <td> <b>  {{ $berita_acara->dasus }} </b></td>
+            </tr>
+            <tr>
                 <td width="5%" rowspan="20"></td>
                 <td width="2%" >1</td>
-                <td colspan=6> <b>Unsur Utama</b></td>
+                <td colspan=3> <b>Unsur Utama</b></td>
+                <td > <b></b></td>
+                <td > <b></b></td>
+                <td > <b></b></td>
             </tr>
             <tr>
                 <td width="2%" rowspan="12"></td>
-                <td colspan=6> a. Pendidikan</td>
+                <td colspan=3> a. Pendidikan</td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
             </tr>
             <tr>
                 <td colspan="3">1) Pendidikan sekolah dan memperoleh gelar ijazah </td>
@@ -330,7 +344,9 @@ table {
                             json_decode($berita_acara->tugas_lain)->total +
                             json_decode($berita_acara->pd)->total +
                             json_decode($berita_acara->pi)->total +
-                            json_decode($berita_acara->ki)->total
+                            json_decode($berita_acara->ki)->total +
+
+                            $berita_acara->dasus
 
                         }}
                     </b>
@@ -340,7 +356,7 @@ table {
             </tr>
     </tbody>
     </table>
-    <div>
+    <div align="left">
         *) Penyesuaian PAK atau PAK terakhir
         <br>
         **) Angka kredit yang diperoleh            
@@ -348,33 +364,21 @@ table {
     <table>
         <thead>
             <tr>
-                <td>
+                <td rowspan="2">
                       URAIAN  
                 </td>
-                <td>
+                <td  rowspan="2">
                         ANGKA KREDIT AKUMULATIF
                 </td>
-                <td>
-                        Pengembangan Diri
+                <td colspan="3">
+                        UNSUR UTAMA
                 </td>
-                <td>
-                        Pub Ilmiah dan K Ilmiah
-                </td>
-                <td>
-                        Jumlah Unsur Utama Min 90%
-                </td>
-                <td>
+                <td rowspan="2">
                         UNSUR PENUNJANG MAX 10%
                 </td>
             </tr>
             <tr>
                 <td>
-                      URAIAN  
-                </td>
-                <td>
-                        ANGKA KREDIT AKUMULATIF
-                </td>
-                <td>
                         Pengembangan Diri
                 </td>
                 <td>
@@ -383,13 +387,64 @@ table {
                 <td>
                         Jumlah Unsur Utama Min 90%
                 </td>
-                <td>
-                        UNSUR PENUNJANG MAX 10%
-                </td>
             </tr>
         </thead>
         <tbody>
-        
+           
+            <tr>
+                <td><b> AK yg diperoleh </b></td>
+                <td>
+                      
+                </td>
+                <td>
+                      
+                </td>
+                <td>
+                       
+                </td>
+                <td>
+                        
+                </td>
+                <td>
+                        
+                </td>
+            </tr>
+            <tr>
+                <td><b> AK yg wajib di peroleh</b></td>
+                <td>
+                      
+                </td>
+                <td>
+                      
+                </td>
+                <td>
+                       
+                </td>
+                <td>
+                        
+                </td>
+                <td>
+                        
+                </td>
+            </tr>
+            <tr>
+                <td> <b>Kelebihan / Kekurangan </b></td>
+                <td>
+                      
+                </td>
+                <td>
+                      
+                </td>
+                <td>
+                       
+                </td>
+                <td>
+                        
+                </td>
+                <td>
+                        
+                </td>
+            </tr>
         </tbody>
     </table>
     <div style="text-align:left;margin-top:100px">
