@@ -74,7 +74,7 @@ table {
             </tr>
             <tr>
                 <td width="5%"> 6</td>
-                <td colspan=2>Pendidikan yang telah diperhitungkan angka kreditnya</td>
+                <td colspan=2 style="font-size:9;">Pendidikan yang telah diperhitungkan angka kreditnya</td>
                 <td colspan=4>{{$biodatas->pendidikan}}</td>
             </tr>
             <tr>
