@@ -65,11 +65,20 @@
                                             </a>
                                         @endif
                                     @endrole
-                                    <a href="{{route('dupaks_penilai.show', Crypt::encrypt($dupak->id))}}">
-                                      <button class="btn btn-success btn-round">
-                                        Lihat Detail
-                                      </button>
-                                    </a>
+
+                                    @role('admin provinsi')
+                                        <a target="_blank" href="{{route('dupaks_penilai.create_pak_PDF', Crypt::encrypt($dupak->id))}}">
+                                            <button class="btn btn-success btn-round">
+                                                Cetak PAK
+                                            </button>
+                                        </a>
+                                    @else
+                                        <a href="{{route('dupaks_penilai.show', Crypt::encrypt($dupak->id))}}">
+                                        <button class="btn btn-success btn-round">
+                                            Lihat Detail
+                                        </button>
+                                        </a>
+                                    @endrole
                                     @role('penilai')
                                         @if(check_berita_acara($dupak->id) > 0 || check_hapak($dupak->id) > 0 )
                                             @if(check_berita_acara($dupak->id) > 0)

@@ -37,7 +37,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource("kegiatans", "KegiatanController")->middleware('role:super admin|penilai|verifikator');
     Route::resource("kepegawaians", "KepegawaianController")->middleware('role:guru|penilai|verifikator');
     Route::resource("dupaks", "DupakController")->middleware('role:guru|penilai|verifikator');
-    Route::resource("dupaks_penilai", "PenilaiDupakController")->middleware('role:guru|penilai|verifikator');
+    Route::resource("dupaks_penilai", "PenilaiDupakController")->middleware('role:guru|penilai|verifikator|admin provinsi');
     Route::resource("verifikasi", "VerifikasiController")->middleware('role:guru|penilai|verifikator');
     Route::resource("berkas", "BerkasController")->middleware('role:guru|penilai|verifikator');
     Route::get('/upload/{id}', 'BerkasController@upload')->name('upload')->middleware('role:guru|super admin|penilai|verifikator');
@@ -47,6 +47,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/berita_acara/{id}', 'PenilaiDupakController@berita_acara')->name('dupaks_penilai.berita_acara')->middleware('role:guru|penilai|verifikator');
     Route::get('/hapak/{id}', 'PenilaiDupakController@hapak')->name('dupaks_penilai.hapak')->middleware('role:guru|penilai|verifikator');
     Route::get('/createPDF/{id}', 'PenilaiDupakController@createPDF')->name('dupaks_penilai.createPDF')->middleware('role:guru|penilai|verifikator');
+    Route::get('/create_pak_PDF/{id}', 'PenilaiDupakController@create_pak_PDF')->name('dupaks_penilai.create_pak_PDF')->middleware('role:guru|penilai|verifikator|admin provinsi');
     Route::get('/hapakPDF/{id}', 'PenilaiDupakController@hapakPDF')->name('dupaks_penilai.hapakPDF')->middleware('role:guru|penilai|verifikator');
     Route::put('/cou_berita_acara/{id}', 'PenilaiDupakController@create_or_update')->name('dupaks_penilai.create_or_update')->middleware('role:guru|penilai|verifikator|super admin');
     Route::put('/couh_berita_acara/{id}', 'PenilaiDupakController@create_or_update_hapak')->name('dupaks_penilai.create_or_update_hapak')->middleware('role:guru|penilai|verifikator|super admin');

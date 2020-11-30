@@ -1,24 +1,32 @@
-<style>
-table, td, th {
-  border: 1px solid black;
-}
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.wrapper {
-    border: 0px solid white;
-}
-
-</style>
 
 
 
 <div class="container center" style="text-align:center;">
+
+    <div style="text-align:left;padding-left:65%">
+    Lampiran V :	Peraturan Bersama	
+	Menteri Pendidikan Nasional	
+	dan Kepala Badan Kepegawaian Negara	
+	Nomor     : 03/V/PB/2010	
+	Nomor     : 14 tahun 2010	
+	Tanggal    :  6 Mei 2010	
+    </div>
+    <table>
+        <tbody style="font-size:11">
+            <tr>
+            <td colspan=4 style="font-size:8; text-align:left">
+                Instansi : Dinas Pendidikan dan Kebudayaan Provinsi Kalimantan Utara      
+            </td>
+            <td colspan=4 style="font-size:8;text-align:right">
+                Masa penilaian : {{tgl_indo($dupak->awal).' - '.tgl_indo($dupak->awal)}}
+            </td>
+            </tr>
+        </tbody>
+    </table>
+    
     <h3>
-        HAPAK
+        BERITA ACARA PENILAIAN ANGKA KREDIT
             <br>
         <!-- TAHUN {{tgl_indo_tahun($dupak->awal)}} -->
     </h3>
@@ -115,7 +123,10 @@ table {
 
             <tr>
                 <td width="5%">II</td>
-                <td colspan=7> PENETAPAN ANGKA KREDIT</td>
+                <td colspan=4> PENETAPAN ANGKA KREDIT</td>
+                <td > LAMA</td>
+                <td > BARU</td>
+                <td > JUMLAH</td>
             </tr>
             <tr>
                 <td width="5%"></td>
@@ -271,7 +282,9 @@ table {
                     <b>
                         {{
                             json_decode($berita_acara->ijazah_tdk_sesuai)->lama +
-                            json_decode($berita_acara->pendukung)->lama
+                            json_decode($berita_acara->pendukung)->lama 
+
+                           
                         }}
                     </b>
                 </td>
@@ -286,7 +299,7 @@ table {
                 <td>
                     <b>
                         {{
-                            json_decode($berita_acara->ijazah_tdk_sesuai)->total +
+                            json_decode($berita_acara->ijazah_tdk_sesuai)->total + 
                             json_decode($berita_acara->pendukung)->total
                         }}
                     </b>
@@ -346,7 +359,8 @@ table {
                             json_decode($berita_acara->pi)->total +
                             json_decode($berita_acara->ki)->total +
 
-                            $berita_acara->dasus
+                            $berita_acara->dasus 
+
 
                         }}
                     </b>
@@ -356,133 +370,6 @@ table {
             </tr>
     </tbody>
     </table>
-    <div align="left">
-        *) Penyesuaian PAK atau PAK terakhir
-        <br>
-        **) Angka kredit yang diperoleh            
-    </div>
-    <table style="font-size:10">
-        <thead >
-            <tr>
-                <td rowspan="2">
-                      URAIAN  
-                </td>
-                <td  rowspan="2">
-                        AKK
-                </td>
-                <td colspan="3">
-                        UNSUR UTAMA
-                </td>
-                <td rowspan="2">
-                        UNSUR PENUNJANG  MAX 10%
-                </td>
-            </tr>
-            <tr>
-                <td>
-                        Pengembangan Diri
-                </td>
-                <td>
-                        Pub Ilmiah dan K Ilmiah
-                </td>
-                <td>
-                        Jumlah Unsur Utama Min 90%
-                </td>
-            </tr>
-        </thead>
-        <tbody>
-           
-            <tr>
-                <td><b> AK yg diperoleh </b></td>
-                <td>
-                    {{
-                            json_decode($berita_acara->ijazah_tdk_sesuai)->total +
-                            json_decode($berita_acara->pendukung)->total +
-
-
-                            json_decode($berita_acara->pendidikan)->total + 
-                            json_decode($berita_acara->prajabatan)->total  +
-                            json_decode($berita_acara->pembelajaran)->total +
-                            json_decode($berita_acara->bimbingan)->total +
-                            json_decode($berita_acara->tugas_lain)->total +
-                            json_decode($berita_acara->pd)->total +
-                            json_decode($berita_acara->pi)->total +
-                            json_decode($berita_acara->ki)->total +
-
-                            $berita_acara->dasus
-
-                        }}
-                </td>
-                <td>
-                      {{
-                        json_decode($berita_acara->pd)->total
-                      }}
-                </td>
-                <td>
-                    {{ 
-                        json_decode($berita_acara->pi)->total +
-                        json_decode($berita_acara->ki)->total 
-                    
-                    }}
-                </td>
-                <td>
-                        
-                </td>
-                <td>
-                        
-                </td>
-            </tr>
-            <tr>
-                <td><b> AK yg wajib di peroleh</b></td>
-                <td>
-                     {{ check_jabatan($biodatas->pangkat_golongan , 'target') }}
-                </td>
-                <td>
-                    {{ check_jabatan($biodatas->pangkat_golongan , 'akpkbpd') }}
-                </td>
-                <td>
-                {{ check_jabatan($biodatas->pangkat_golongan , 'akpkbpiki') }} 
-                </td>
-                <td>
-                {{ check_jabatan($biodatas->pangkat_golongan , 'akpkbpiki') }}   
-                </td>
-                <td>
-                {{ check_jabatan($biodatas->pangkat_golongan , 'akpkbpiki') }}
-                </td>
-            </tr>
-            <tr>
-                <td> <b>Kelebihan / Kekurangan </b></td>
-                <td>
-                      
-                </td>
-                <td>
-                      
-                </td>
-                <td>
-                       
-                </td>
-                <td>
-                        
-                </td>
-                <td>
-                        
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <div style="text-align:left;margin-top:100px">
-        <div>
-            <label for="catatan">
-                <h1>Catatan Perbaikan</h1>
-            </label>
-        </div>
-        <div>
-            @if(!empty($berita_acara->catatan))
-                <textarea name="catatan" id="" cols="210" rows="10">{{$berita_acara->catatan}}</textarea>
-            @else
-                <textarea name="catatan" id="" cols="210" rows="10"></textarea>
-            @endif
-        </div>
-    </div>
 
     <div style="text-align:left;padding-left:70%">
                             @if(!empty($berita_acara->created_at))

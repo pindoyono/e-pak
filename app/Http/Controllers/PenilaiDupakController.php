@@ -33,24 +33,13 @@ class PenilaiDupakController extends Controller
             ->orderBy('created_at','asc')
             ->get();
         }else{
-            if( Auth::user()->nip == '198808112019031005'){
-                $dupaks = DB::table('dupaks')
-                ->join('users', 'users.id', '=', 'dupaks.user_id')
-                ->join('biodatas', 'users.id', '=', 'biodatas.user_id')
-                ->join('sekolahs', 'sekolahs.id', '=', 'biodatas.sekolah_id')
-                ->whereIn('sekolahs.id', [8,9,10,11])
-                ->select('dupaks.*','sekolahs.nama' ,'users.name','biodatas.karsu')
-                ->orderBy('created_at','asc')
-                ->get();
-            }else{
-                $dupaks = DB::table('dupaks')
-                ->join('users', 'users.id', '=', 'dupaks.user_id')
-                ->join('biodatas', 'users.id', '=', 'biodatas.user_id')
-                ->join('sekolahs', 'sekolahs.id', '=', 'biodatas.sekolah_id')
-                ->select('dupaks.*','sekolahs.nama' ,'users.name','biodatas.karsu')
-                ->orderBy('created_at','asc')
-                ->get();
-            }
+            $dupaks = DB::table('dupaks')
+            ->join('users', 'users.id', '=', 'dupaks.user_id')
+            ->join('biodatas', 'users.id', '=', 'biodatas.user_id')
+            ->join('sekolahs', 'sekolahs.id', '=', 'biodatas.sekolah_id')
+            ->select('dupaks.*','sekolahs.nama' ,'users.name','biodatas.karsu')
+            ->orderBy('created_at','asc')
+            ->get();
         }
         // $dupaks = \App\Dupak::where('status', 'submit' )->orderBy('id','asc')->get();
         return view('dupaks_penilai.index', ['dupaks' => $dupaks]);
@@ -88,7 +77,7 @@ class PenilaiDupakController extends Controller
         //
         $id =  Crypt::decrypt($id);
         $dupak = \App\Dupak::where('id', $id )->first();
-        $berkas = \App\Berkas::where('dupak_id', $id )->get();
+        $berkas = \App\Berkas::where('dupak_id', $id )->orderBy('nama','asc')->get();
         $user = \App\User::findOrFail($dupak->user_id);
         $biodatas = \App\Biodata::where('user_id', $dupak->user_id)->first();
         $kepegawaians = \App\Kepegawaian::where('user_id', $dupak->user_id)->get();
@@ -483,6 +472,30 @@ class PenilaiDupakController extends Controller
         $berita_acara = \App\BeritaAcara::where('dupak_id', $id)->first();
 
         $pdf = \PDF::loadView('dupaks_penilai.cetak_berita_acara', ['berita_acara' => $berita_acara,
+                                                                    'dupak' => $dupak,
+                                                                    'biodatas' => $biodatas,
+                                                                    'users' => $user,
+                                                                    'now' => $now,
+                                                                    'kepegawaians' => $kepegawaians,
+                                                                    'dupak_id' => $id,
+                                                                    'berkas' => $berkas,
+                                                                    ]
+                                                                );
+        $pdf->setPaper('A4', 'potrait');
+        return $pdf->stream('Berita Acara.pdf');
+    }
+
+    public function create_pak_PDF($id) {
+        $id =  Crypt::decrypt($id);
+        $dupak = \App\Dupak::where('id', $id )->first();
+        $berkas = \App\Berkas::where('dupak_id', $id )->get();
+        $user = \App\User::findOrFail($dupak->user_id);
+        $biodatas = \App\Biodata::where('user_id', $dupak->user_id)->first();
+        $kepegawaians = \App\Kepegawaian::where('user_id', $dupak->user_id)->get();
+        $now = date('Y-m-d');
+        $berita_acara = \App\BeritaAcara::where('dupak_id', $id)->first();
+
+        $pdf = \PDF::loadView('dupaks_penilai.cetak_pak', ['berita_acara' => $berita_acara,
                                                                     'dupak' => $dupak,
                                                                     'biodatas' => $biodatas,
                                                                     'users' => $user,

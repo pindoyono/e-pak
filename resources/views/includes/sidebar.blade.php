@@ -147,6 +147,16 @@
 
             @endrole
 
+            @role('admin provinsi')
+            <li class="{{ Request::segment(1) === 'dupaks_penilai' || Request::segment(1) === 'berita_acara' ? 'active' : null }}">
+                <a href="{{route('dupaks_penilai.index' )}}">
+                    <i class="fas fa-clipboard-list "></i>
+                    <p>DUPAK <span>(Tim Provinsi)</span></p>
+                </a>
+            </li>
+
+            @endrole
+
             @role('verifikator')
             <li class="{{ Request::segment(1) === 'dupaks_penilai' || Request::segment(1) === 'berita_acara' || Request::segment(1) === 'verifikasi' ? 'active' : null }}">
                 <a href="{{route('dupaks_penilai.index' )}}">
