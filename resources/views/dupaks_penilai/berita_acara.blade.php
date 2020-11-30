@@ -96,7 +96,12 @@
                                     <td rowspan=2>Masa Kerja Golongan</td>
                                     <td>Lama</td>
                                     @if(!empty($berita_acara->pendidikan))
-                                    <td colspan=2> <input name="lama" value="{{ $berita_acara->masa_kerja_lama }}" placeholder="LAMA" required /></td>
+                                    <td> 
+                                        <input name="lama" value="{{ $berita_acara->masa_kerja_lama }}" placeholder="LAMA" required />
+                                    </td>
+                                    <td> 
+                                        <input name="lama" value="{{ $berita_acara->masa_kerja_lama }}" placeholder="LAMA" required />
+                                    </td>
                                     @else
                                     <td colspan=2> <input name="lama" value="" placeholder="LAMA" required /></td>
                                     @endif
@@ -152,20 +157,12 @@
                                     <td width="10%">Jumlah AK</td>
                                 </tr>
                                 <tr>
-                                    <td width="5%"></td>
-                                    <td width="2%" >0</td>
-                                    <td> <b> Daerah Khusus</b></td>
-                                    <td ></td>
-                                    <td></td>
-                                    <td> {{ $berita_acara->dasus }} </td>
-                                </tr>
-                                <tr>
                                     <td width="5%" rowspan="20"></td>
                                     <td width="2%" >1</td>
                                     <td> <b>Unsur Utama</b></td>
                                     <td ></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td> {{ $berita_acara->dasus }} </td>
+                                    <td> {{ $berita_acara->dasus }} </td>
                                 </tr>
                                 <tr>
                                     <td width="2%" rowspan="12"></td>
@@ -311,19 +308,11 @@
                                     <td width="10%">Jumlah AK</td>
                                 </tr>
                                 <tr>
-                                    <td width="5%"></td>
-                                    <td width="2%" >0</td>
-                                    <td> <b>Daerah Khusus</b></td>
-                                    <td ></td>
-                                    <td></td>
-                                    <td><input  step="any" type="number" value=0 name="dasus" id="dasus" class="form-control" min="0" placeholder="LAMA" required /></td>
-                                </tr>
-                                <tr>
                                     <td width="5%" rowspan="20"></td>
                                     <td width="2%" >1</td>
                                     <td> <b>Unsur Utama</b></td>
                                     <td ></td>
-                                    <td></td>
+                                    <td><input  step="any" type="number" value=0 name="dasus" id="dasus" class="form-control" min="0" placeholder="LAMA" required /></td>
                                     <td></td>
                                 </tr>
                                 <tr>

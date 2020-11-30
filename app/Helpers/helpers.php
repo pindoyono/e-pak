@@ -299,3 +299,29 @@ if (! function_exists('check_jabatan')) {
         return $data;
     }
 }
+
+if (! function_exists('check_naik_pangkat')) {
+    function check_naik_pangkat($id){
+        $id = $id + 1;
+        $data = \App\Jabatan::find($id);
+        return $data;
+    }
+}
+
+
+if (! function_exists('check_naik_pangkat_periode')) {
+    function check_naik_pangkat_periode($berita_acara){
+        $birthDate = new DateTime($berita_acara);
+        $today = new DateTime("today");
+
+        $tgl1= date('Y', strtotime($berita_acara));
+        $tgl2= date('Y');
+
+        if($tgl1 == $tgl2){
+            return '1 April';
+        }else{
+            return '1 Oktober';
+        }
+        
+    }
+}

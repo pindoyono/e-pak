@@ -1,50 +1,52 @@
+<html>
 
+<style>
+table, td, th {
+  border: 1px solid black;
+}
 
+@page{
+  margin: 1em 0.5em;
+}
 
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.wrapper {
+    border: 0px solid white;
+}
+
+</style>
 
 <div class="container center" style="text-align:center;">
 
-    <div style="text-align:left;padding-left:65%">
+    <div style="text-align:left;padding-left:65%;font-size:8">
     Lampiran V :	Peraturan Bersama	
 	Menteri Pendidikan Nasional	
-	dan Kepala Badan Kepegawaian Negara	
-	Nomor     : 03/V/PB/2010	
-	Nomor     : 14 tahun 2010	
-	Tanggal    :  6 Mei 2010	
+	dan Kepala Badan Kepegawaian Negara	<br>
+	Nomor     : 03/V/PB/2010	<br>
+	Nomor     : 14 tahun 2010	<br>
+	Tanggal    :  6 Mei 2010	<br>
     </div>
-    <table>
-        <tbody style="font-size:11">
-            <tr>
-            <td colspan=4 style="font-size:8; text-align:left">
-                Instansi : Dinas Pendidikan dan Kebudayaan Provinsi Kalimantan Utara      
-            </td>
-            <td colspan=4 style="font-size:8;text-align:right">
-                Masa penilaian : {{tgl_indo($dupak->awal).' - '.tgl_indo($dupak->awal)}}
-            </td>
-            </tr>
-        </tbody>
-    </table>
-    
     <h3>
-        BERITA ACARA PENILAIAN ANGKA KREDIT
-            <br>
+            PENETAPAN ANGKA KREDIT<br>
         <!-- TAHUN {{tgl_indo_tahun($dupak->awal)}} -->
+            Nomor : 823.3/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/Disdikbud-A1/KU/I/2018	
     </h3>
     
-    <div style="font-size:12; text-align:left">
-        Pada hari Ini {{ hari_ini().", ".tgl_indo($now)}} bertempat di Kantor Cabang Dinas Pendidikan Dan Kebudayaan Provinsi Kalimantan Utara
-        Wilayah Malinau dan Tana Tidung di Malinau telah dilakukan penilaian terhadap usulan penilaian angka kredit jabatan fungsional guru dengan hasil sebagai berikut:
+    <div>
+        <span align=left style="font-size:10; text-align:left">
+            Instansi : Dinas Pendidikan dan Kebudayaan Provinsi Kalimantan Utara      
+        </span>
+        <span align=right style="font-size:10;text-align:right">
+            Masa penilaian : {{tgl_indo($dupak->awal).' - '.tgl_indo($dupak->awal)}}
+        </span>
     </div>
+
     <table>
-        <tbody style="font-size:11">
-            <tr>
-            <td colspan=4 style="font-size:8; text-align:left">
-                Instansi : Dinas Pendidikan dan Kebudayaan Provinsi Kalimantan Utara      
-            </td>
-            <td colspan=4 style="font-size:8;text-align:right">
-                Masa penilaian : {{tgl_indo($dupak->awal).' - '.tgl_indo($dupak->awal)}}
-            </td>
-            </tr>
+        <tbody style="font-size:10">
             <tr>
                 <td width="5%">I</td>
                 <td colspan=7 class="text-left"> KETERANGAN PERORANGAN</td>
@@ -129,15 +131,14 @@
                 <td > JUMLAH</td>
             </tr>
             <tr>
-                <td width="5%"></td>
+                <td width="5%" rowspan="20"></td>
                 <td width="2%" >0</td>
                 <td colspan=3> <b>Daerah Khusus</b></td>
                 <td> <b>    </b></td>
-                <td> <b>    </b></td>
+                <td> <b>  {{ $berita_acara->dasus }} </b></td>
                 <td> <b>  {{ $berita_acara->dasus }} </b></td>
             </tr>
             <tr>
-                <td width="5%" rowspan="20"></td>
                 <td width="2%" >1</td>
                 <td colspan=3> <b>Unsur Utama</b></td>
                 <td > <b></b></td>
@@ -264,7 +265,7 @@
                 <td></td>
             </tr>
             <tr>
-                <td width="2%" rowspan="12"></td>
+                <td width="2%" rowspan="3"></td>
                 <td colspan="3">1. Ijazah yang tidak sesuai</td>
                 <td>{{ json_decode($berita_acara->ijazah_tdk_sesuai)->lama }}</td>
                 <td>{{ json_decode($berita_acara->ijazah_tdk_sesuai)->baru }}</td>
@@ -305,7 +306,9 @@
                     </b>
                 </td>
             </tr>
-            <td colspan="3"><b> Total AK</b></td>
+
+            <tr>
+                <td colspan="4"><b> Jumlah Usur Utama dan Unsur Penunjang</b></td>
                 <td>
                     <b>
                         {{
@@ -366,14 +369,21 @@
                     </b>
                 </td>
             </tr>
+            
             <tr>
+                <td colspan="7">Tidak Dapat / Dapat dipertimbangkan untuk Kenaikan Pangkat, Golongan Ruang, TMT: 
+                    {{ check_naik_pangkat($biodatas->pangkat_golongan)->pangkat 
+                        .', '.check_naik_pangkat_periode( customTanggal1($berita_acara->created_at,"Y-m-d") ).'  '.
+                        date('Y', strtotime($berita_acara->created_at->addYear()))
+                 }} </td>
             </tr>
+            
     </tbody>
     </table>
 
     <div style="text-align:left;padding-left:70%">
                             @if(!empty($berita_acara->created_at))
-                                Malinau, {{tgl_indo( customTanggal1($berita_acara->created_at,"Y-m-d") )}}
+                                Malinau, {{ tgl_indo( customTanggal1($berita_acara->created_at,"Y-m-d") )}}
                             @else
                                 Malinau, {{tgl_indo( $now )}}        
                             @endif
@@ -388,3 +398,4 @@
 
 
 </div>
+</html>

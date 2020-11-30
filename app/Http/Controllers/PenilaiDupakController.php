@@ -317,7 +317,7 @@ class PenilaiDupakController extends Controller
 
         $id = Crypt::encrypt($id);
         
-        return redirect()->route('dupaks_penilai.berita_acara',$id)->with('toast_success', 'Task Created Successfully!');
+        return redirect()->route('dupaks_penilai.index',$id)->with('toast_success', 'Task Created Successfully!');
     }
 
 
@@ -470,7 +470,6 @@ class PenilaiDupakController extends Controller
         $kepegawaians = \App\Kepegawaian::where('user_id', $dupak->user_id)->get();
         $now = date('Y-m-d');
         $berita_acara = \App\BeritaAcara::where('dupak_id', $id)->first();
-
         $pdf = \PDF::loadView('dupaks_penilai.cetak_berita_acara', ['berita_acara' => $berita_acara,
                                                                     'dupak' => $dupak,
                                                                     'biodatas' => $biodatas,
@@ -481,7 +480,7 @@ class PenilaiDupakController extends Controller
                                                                     'berkas' => $berkas,
                                                                     ]
                                                                 );
-        $pdf->setPaper('A4', 'potrait');
+        $pdf->setPaper('letter', 'potrait');
         return $pdf->stream('Berita Acara.pdf');
     }
 
@@ -505,7 +504,7 @@ class PenilaiDupakController extends Controller
                                                                     'berkas' => $berkas,
                                                                     ]
                                                                 );
-        $pdf->setPaper('A4', 'potrait');
+        $pdf->setPaper('F4', 'potrait');
         return $pdf->stream('Berita Acara.pdf');
     }
 
@@ -529,7 +528,7 @@ class PenilaiDupakController extends Controller
                                                                     'berkas' => $berkas,
                                                                     ]
                                                                 );
-        $pdf->setPaper('A4', 'potrait');
+        $pdf->setPaper('F4', 'potrait');
         return $pdf->stream('Hapak.pdf');
     }
 
