@@ -1,6 +1,9 @@
 <html>
 
 <style>
+
+
+
 table, td, th {
   border: 1px solid black;
 }
@@ -20,7 +23,7 @@ table {
 
 </style>
 
-<div class="container center" style="text-align:center;">
+<div class="container wrapper center" style="text-align:center;">
 
     <div style="text-align:left;padding-left:65%;font-size:8">
     Lampiran V :	Peraturan Bersama	
@@ -31,17 +34,23 @@ table {
 	Tanggal    :  6 Mei 2010	<br>
     </div>
     <h3>
-            PENETAPAN ANGKA KREDIT<br>
-        <!-- TAHUN {{tgl_indo_tahun($dupak->awal)}} -->
-            Nomor : 823.3/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/Disdikbud-A1/KU/I/2018	
+            
     </h3>
     
     <div>
+        <span style="font-size:14;">
+        <b>
+                    PENETAPAN ANGKA KREDIT<br>
+            <!-- TAHUN {{tgl_indo_tahun($dupak->awal)}} -->
+        Nomor : 823.3/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/Disdikbud-A1/KU/I/{{ date('Y', strtotime($now)) }}	
+        <b>
+        </span>
+        <br>
         <span align=left style="font-size:10; text-align:left">
             Instansi : Dinas Pendidikan dan Kebudayaan Provinsi Kalimantan Utara      
         </span>
         <span align=right style="font-size:10;text-align:right">
-            Masa penilaian : {{tgl_indo($dupak->awal).' - '.tgl_indo($dupak->awal)}}
+            Masa penilaian : {{tgl_indo($dupak->awal).' - '.tgl_indo($dupak->akhir)}}
         </span>
     </div>
 
@@ -134,9 +143,9 @@ table {
                 <td width="5%" rowspan="20"></td>
                 <td width="2%" >1</td>
                 <td colspan=3> <b>Unsur Utama</b></td>
-                <td> <b> {{ number_format(0,3) }} </b></td>
-                <td> <b>  {{ number_format($berita_acara->dasus,3) }} </b></td>
-                <td> <b>  {{ number_format($berita_acara->dasus,3) }} </b></td>
+                <td style="text-align:right"> <b> {{ number_format(0,3) }} </b></td style="text-align:right">
+                <td style="text-align:right"> <b>  {{ number_format($berita_acara->dasus,3) }} </b></td style="text-align:right">
+                <td style="text-align:right"> <b>  {{ number_format($berita_acara->dasus,3) }} </b></td>
             </tr>
             <tr>
                 <td width="2%" rowspan="12"></td>
@@ -147,15 +156,15 @@ table {
             </tr>
             <tr>
                 <td colspan="3">1) Pendidikan sekolah dan memperoleh gelar ijazah </td>
-                <td>{{ number_format(json_decode($berita_acara->pendidikan)->lama,3)  }}</td>
-                <td>{{ number_format(json_decode($berita_acara->pendidikan)->baru,3)  }}</td>
-                <td>{{ number_format(json_decode($berita_acara->pendidikan)->total,3) }}</td>
+                <td style="text-align:right">{{ number_format(json_decode($berita_acara->pendidikan)->lama,3)  }}</td>
+                <td style="text-align:right">{{ number_format(json_decode($berita_acara->pendidikan)->baru,3)  }}</td>
+                <td style="text-align:right">{{ number_format(json_decode($berita_acara->pendidikan)->total,3) }}</td>
             </tr>
             <tr>
                 <td colspan="3">2) Mengikuti pelatihan prajabatan</td>
-                <td>{{ number_format(json_decode($berita_acara->prajabatan)->lama,3) }}</td>
-                <td>{{ number_format(json_decode($berita_acara->prajabatan)->baru,3) }}</td>
-                <td>{{ number_format(json_decode($berita_acara->prajabatan)->total,3) }}</td>
+                <td style="text-align:right">{{ number_format(json_decode($berita_acara->prajabatan)->lama,3) }}</td>
+                <td style="text-align:right">{{ number_format(json_decode($berita_acara->prajabatan)->baru,3) }}</td>
+                <td style="text-align:right">{{ number_format(json_decode($berita_acara->prajabatan)->total,3) }}</td>
             </tr>
             <tr>
                 <td colspan="3">b. Pembelajaran /  bimbingan dan tugas tertentu</td>
@@ -165,21 +174,21 @@ table {
             </tr>
             <tr>
                 <td colspan="3">    1) Proses pembelajaran	</td>
-                <td>{{ number_format(json_decode($berita_acara->pembelajaran)->lama,3) }}</td>
-                <td>{{ number_format(json_decode($berita_acara->pembelajaran)->baru,3) }}</td>
-                <td>{{ number_format(json_decode($berita_acara->pembelajaran)->total,3) }}</td>   
+                <td style="text-align:right">{{ number_format(json_decode($berita_acara->pembelajaran)->lama,3) }}</td>
+                <td style="text-align:right">{{ number_format(json_decode($berita_acara->pembelajaran)->baru,3) }}</td>
+                <td style="text-align:right">{{ number_format(json_decode($berita_acara->pembelajaran)->total,3) }}</td>   
             </tr>
             <tr>
                 <td colspan="3">    2) Proses bimbingan	</td>
-                <td>{{ number_format(json_decode($berita_acara->bimbingan)->lama,3) }}</td>
-                <td>{{ number_format(json_decode($berita_acara->bimbingan)->baru,3) }}</td>
-                <td>{{ number_format(json_decode($berita_acara->bimbingan)->total,3) }}</td>
+                <td style="text-align:right">{{ number_format(json_decode($berita_acara->bimbingan)->lama,3) }}</td>
+                <td style="text-align:right">{{ number_format(json_decode($berita_acara->bimbingan)->baru,3) }}</td>
+                <td style="text-align:right">{{ number_format(json_decode($berita_acara->bimbingan)->total,3) }}</td>
             </tr>
             <tr>
                 <td colspan="3">    3) Tugas lain yang relevan</td>
-                <td>{{ number_format(json_decode($berita_acara->tugas_lain)->lama,3) }}</td>
-                <td>{{ number_format(json_decode($berita_acara->tugas_lain)->baru,3) }}</td>
-                <td>{{ number_format(json_decode($berita_acara->tugas_lain)->total,3) }}</td>
+                <td style="text-align:right">{{ number_format(json_decode($berita_acara->tugas_lain)->lama,3) }}</td>
+                <td style="text-align:right">{{ number_format(json_decode($berita_acara->tugas_lain)->baru,3) }}</td>
+                <td style="text-align:right">{{ number_format(json_decode($berita_acara->tugas_lain)->total,3) }}</td>
             </tr>
             <tr>
                 <td colspan="3">c. Pengembangan Keprofesian</td>
@@ -189,25 +198,25 @@ table {
             </tr>
             <tr>
                 <td colspan="3"> 1) Pengembangan Diri</td>
-                <td>{{ number_format(json_decode($berita_acara->pd)->lama,3) }}</td>
-                <td>{{ number_format(json_decode($berita_acara->pd)->baru,3) }}</td>
-                <td>{{ number_format(json_decode($berita_acara->pd)->total,3) }}</td>
+                <td style="text-align:right">{{ number_format(json_decode($berita_acara->pd)->lama,3) }}</td>
+                <td style="text-align:right">{{ number_format(json_decode($berita_acara->pd)->baru,3) }}</td>
+                <td style="text-align:right">{{ number_format(json_decode($berita_acara->pd)->total,3) }}</td>
             </tr>
             <tr>
                 <td colspan="3">2) Publikasi Ilmiah</td>
-                <td>{{ number_format(json_decode($berita_acara->pi)->lama,3) }}</td>
-                <td>{{ number_format(json_decode($berita_acara->pi)->baru,3) }}</td>
-                <td>{{ number_format(json_decode($berita_acara->pi)->total,3) }}</td>
+                <td style="text-align:right">{{ number_format(json_decode($berita_acara->pi)->lama,3) }}</td>
+                <td style="text-align:right">{{ number_format(json_decode($berita_acara->pi)->baru,3) }}</td>
+                <td style="text-align:right">{{ number_format(json_decode($berita_acara->pi)->total,3) }}</td>
             </tr>
             <tr>
                 <td colspan="3">  3) Karya Inovatif</td>
-                <td>{{ number_format(json_decode($berita_acara->ki)->lama,3) }}</td>
-                <td>{{ number_format(json_decode($berita_acara->ki)->baru,3) }}</td>
-                <td>{{ number_format(json_decode($berita_acara->ki)->total,3) }}</td>
+                <td style="text-align:right">{{ number_format(json_decode($berita_acara->ki)->lama,3) }}</td>
+                <td style="text-align:right">{{ number_format(json_decode($berita_acara->ki)->baru,3) }}</td>
+                <td style="text-align:right">{{ number_format(json_decode($berita_acara->ki)->total,3) }}</td>
             </tr>
             <tr>
                 <td colspan="3"> <b>Jumlah Unsur Utama</b></td>
-                <td> 
+                <td style="text-align:right"> 
                     <b>
                         {{  number_format(
                             json_decode($berita_acara->pendidikan)->lama + 
@@ -222,7 +231,7 @@ table {
                         }}
                     </b>
                 </td>
-                <td>
+                <td style="text-align:right">
                     <b>
                         {{
                             number_format(
@@ -240,7 +249,7 @@ table {
                         }}
                     </b>
                 </td>
-                <td>
+                <td style="text-align:right">
                     <b>
                         {{
                             number_format(
@@ -270,21 +279,21 @@ table {
             <tr>
                 <td width="2%" rowspan="3"></td>
                 <td colspan="3">1. Ijazah yang tidak sesuai</td>
-                <td>{{ number_format(json_decode($berita_acara->ijazah_tdk_sesuai)->lama,3) }}</td>
-                <td>{{ number_format(json_decode($berita_acara->ijazah_tdk_sesuai)->baru,3) }}</td>
-                <td>{{ number_format(json_decode($berita_acara->ijazah_tdk_sesuai)->total,3) }}</td>
+                <td style="text-align:right">{{ number_format(json_decode($berita_acara->ijazah_tdk_sesuai)->lama,3) }}</td>
+                <td style="text-align:right">{{ number_format(json_decode($berita_acara->ijazah_tdk_sesuai)->baru,3) }}</td>
+                <td style="text-align:right">{{ number_format(json_decode($berita_acara->ijazah_tdk_sesuai)->total,3) }}</td>
             </tr>
 
             
             <tr>
                 <td colspan="3">2. Pendukung tugas guru</td>
-                <td>{{ number_format(json_decode($berita_acara->pendukung)->lama,3) }}</td>
-                <td>{{ number_format(json_decode($berita_acara->pendukung)->baru,3) }}</td>
-                <td>{{ number_format(json_decode($berita_acara->pendukung)->total,3) }}</td>
+                <td style="text-align:right">{{ number_format(json_decode($berita_acara->pendukung)->lama,3) }}</td>
+                <td style="text-align:right">{{ number_format(json_decode($berita_acara->pendukung)->baru,3) }}</td>
+                <td style="text-align:right">{{ number_format(json_decode($berita_acara->pendukung)->total,3) }}</td>
             </tr>
             <tr>
                 <td colspan="3"><b>Jumlah Unsur Penunjang	</b></td>
-                <td>
+                <td style="text-align:right">
                     <b>
                         {{ 
                             number_format(
@@ -296,7 +305,7 @@ table {
                         }}
                     </b>
                 </td>
-                <td>
+                <td style="text-align:right">
                     <b>
                         {{
                             number_format(
@@ -306,7 +315,7 @@ table {
                         }}
                     </b>
                 </td> 
-                <td>
+                <td style="text-align:right">
                     <b>
                         {{
                             number_format(
@@ -320,7 +329,7 @@ table {
 
             <tr>
                 <td colspan="4"><b> Jumlah Usur Utama dan Unsur Penunjang</b></td>
-                <td>
+                <td style="text-align:right">
                     <b>
                         {{
                             number_format(
@@ -340,7 +349,7 @@ table {
                         }}
                     </b>
                 </td>
-                <td>
+                <td style="text-align:right">
                     <b>
                         {{
                             number_format(
@@ -363,7 +372,7 @@ table {
                         }}
                     </b>
                 </td> 
-                <td>
+                <td style="text-align:right">
                     <b>
                         {{
                             number_format(
@@ -400,21 +409,47 @@ table {
     </tbody>
     </table>
 
-    <div style="text-align:left;padding-left:70%">
-                            @if(!empty($berita_acara->created_at))
-                                Malinau, {{ tgl_indo( customTanggal1($berita_acara->created_at,"Y-m-d") )}}
-                            @else
-                                Malinau, {{tgl_indo( $now )}}        
-                            @endif
+</div>
+
+
+    <div style="font-size:9;">
+        <div width="700px" style="float:left">
+                Nama	: Fitrianur, S.Pd., M.Pd. <br>
+                NIP		: 196812132005021002 <br>
+                Alamat	: Perum. BPH Blok C.8 Jl. Poros Bulungan-Berau Km. 4 <br>   <br>   
+
+
+                Tembusan : Disampaikan Kepada Yth.			     <br> 
+1	Kepala Kantor Regional VIII BKN Banjarmasin di Banjarbaru		 <br> 
+2	Gubernur Kalimantan Utara		 <br> 
+	Up. Kepala BKD Prov. Kaltara di Tanjung Selor		 <br> 
+3	Sekretaris Tim Penilai Penetapan Angka Kredit		 <br> 
+4	Kepala Sekolah yang bersangkutan		 <br> 
+5	Yang bersangkutan		 <br> 
+ <br> 
+        </div>
+        <div style="padding-left:20%">
+            Pada Tanggal    : {{tgl_indo( $now )}} <br>
+            Ditetapkan di	: Tanjung Selor<br>
+        </div>
+
+    </div>
+
+    <div style="padding-left:35%;font-size:11;">
+                        <br>
+                        <span style="">
+                            Sekretaris Daerah,
+                        </span> 
                         <br>
                         <br>
                         <br>
                         <br>
-                            {{ $berita_acara->penilai }} 
                         <br>
-                            NIP. {{ Auth::user()->nip }}
+                        <b>DR. H. Suriansyah, M.AP. </b>	<br>
+                        Pembina Utama, IV/e	<br>
+                        196502011991031009	<br>
+
     </div>
 
 
-</div>
 </html>

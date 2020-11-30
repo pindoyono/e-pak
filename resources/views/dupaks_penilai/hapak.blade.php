@@ -501,6 +501,7 @@
                                 @endif
                             </div>
                         </div>
+                        
                     </div>
                     
                     @if(!empty(Auth::user()->nip == $users->nip))

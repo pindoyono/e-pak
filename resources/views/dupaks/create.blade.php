@@ -136,10 +136,12 @@
                             </div>
                             </div>
                             <div class="row">
-                            <label class="col-sm-4 label-on-left">PAK Terakhir / PAK Tahunan</label>
+                            <label class="col-sm-4 label-on-left">P A K</label>
                             <div class="col-sm-8">
                                     <label class="control-label"></label>
                                     <input type="file" name="pak">
+                                    <br> 
+                                   <span>*** Semua PAK dari kenpa terakhir sampai PAK saat ini</span> <br>
                             </div>
                             </div>
                             <div class="row">
