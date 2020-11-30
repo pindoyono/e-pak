@@ -152,12 +152,12 @@
                                     <td width="10%">Jumlah AK</td>
                                 </tr>
                                 <tr>
-                                    <td width="5%" rowspan="20"></td>
-                                    <td width="2%" >1</td>
-                                    <td> <b>Unsur Utama</b></td>
+                                    <td width="5%"></td>
+                                    <td width="2%" >0</td>
+                                    <td> <b> Daerah Khusus</b></td>
                                     <td ></td>
                                     <td></td>
-                                    <td></td>
+                                    <td> {{ $berita_acara->dasus }} </td>
                                 </tr>
                                 <tr>
                                     <td width="5%" rowspan="20"></td>

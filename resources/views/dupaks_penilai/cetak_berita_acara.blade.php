@@ -115,16 +115,33 @@ table {
 
             <tr>
                 <td width="5%">II</td>
-                <td colspan=7> PENETAPAN ANGKA KREDIT</td>
+                <td colspan=4> PENETAPAN ANGKA KREDIT</td>
+                <td > LAMA</td>
+                <td > BARU</td>
+                <td > JUMLAH</td>
+            </tr>
+            <tr>
+                <td width="5%"></td>
+                <td width="2%" >0</td>
+                <td colspan=3> <b>Daerah Khusus</b></td>
+                <td> <b>    </b></td>
+                <td> <b>    </b></td>
+                <td> <b>  {{ $berita_acara->dasus }} </b></td>
             </tr>
             <tr>
                 <td width="5%" rowspan="20"></td>
                 <td width="2%" >1</td>
-                <td colspan=6> <b>Unsur Utama</b></td>
+                <td colspan=3> <b>Unsur Utama</b></td>
+                <td > <b></b></td>
+                <td > <b></b></td>
+                <td > <b></b></td>
             </tr>
             <tr>
                 <td width="2%" rowspan="12"></td>
-                <td colspan=6> a. Pendidikan</td>
+                <td colspan=3> a. Pendidikan</td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
             </tr>
             <tr>
                 <td colspan="3">1) Pendidikan sekolah dan memperoleh gelar ijazah </td>
@@ -274,7 +291,7 @@ table {
                 <td>
                     <b>
                         {{
-                            json_decode($berita_acara->ijazah_tdk_sesuai)->total +
+                            json_decode($berita_acara->ijazah_tdk_sesuai)->total + 
                             json_decode($berita_acara->pendukung)->total
                         }}
                     </b>
@@ -332,7 +349,10 @@ table {
                             json_decode($berita_acara->tugas_lain)->total +
                             json_decode($berita_acara->pd)->total +
                             json_decode($berita_acara->pi)->total +
-                            json_decode($berita_acara->ki)->total
+                            json_decode($berita_acara->ki)->total +
+
+                            $berita_acara->dasus 
+
 
                         }}
                     </b>

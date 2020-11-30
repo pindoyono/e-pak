@@ -203,6 +203,7 @@ class PenilaiDupakController extends Controller
             'dupak_id'   => $id,
         ],[
             'dupak_id'   => $id,
+            'dasus'   => $request->get('dasus'),
             'masa_kerja_baru'   => $request->get('baru'),
             'masa_kerja_lama'   => $request->get('lama'),
             'penilai'   => Auth::user()->name,

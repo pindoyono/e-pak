@@ -23,6 +23,7 @@ class BeritaAcara extends Model
         'masa_kerja_lama',
         'penilai',
         'nip_penilai',
+        'dasus',
     ];
 
 }
