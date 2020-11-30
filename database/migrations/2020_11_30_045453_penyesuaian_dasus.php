@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class PenyesuaianHapaks extends Migration
+class PenyesuaianDasus extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,9 @@ class PenyesuaianHapaks extends Migration
     {
         //
         Schema::table('berita_acaras', function (Blueprint $table) {
-            $table->text("dasus")->nullable();
+           
+            $table->text("catatan")->nullable();
+           
         });
     }
 

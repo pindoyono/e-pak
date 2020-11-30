@@ -147,9 +147,17 @@
                                 <tr>
                                     <td width="5%">II</td>
                                     <td colspan=2> PENETAPAN ANGKA KREDIT</td>
-                                    <td width="10%"></td>
-                                    <td width="10%"></td>
-                                    <td width="10%"></td>
+                                    <td width="10%">AK Lama *)</td>
+                                    <td width="10%">AK Diperoleh **)</td>
+                                    <td width="10%">Jumlah AK</td>
+                                </tr>
+                                <tr>
+                                    <td width="5%" rowspan="20"></td>
+                                    <td width="2%" >1</td>
+                                    <td> <b>Unsur Utama</b></td>
+                                    <td ></td>
+                                    <td></td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td width="5%" rowspan="20"></td>
@@ -166,8 +174,6 @@
                                     <td></td>
                                     <td></td>
                                 </tr>
-                                
-
                                <tr>
                                     <td>1) Pendidikan sekolah dan memperoleh gelar ijazah </td>
                                     <td><input  step="any" type="number" value="{{ json_decode($berita_acara->pendidikan)->lama }}" name="value1" id="value1" class="form-control" min="0" placeholder="LAMA" required /></td>
@@ -300,9 +306,17 @@
                                <tr>
                                     <td width="5%">II</td>
                                     <td colspan=2> PENETAPAN ANGKA KREDIT</td>
-                                    <td width="10%"></td>
-                                    <td width="10%"></td>
-                                    <td width="10%"></td>
+                                    <td width="10%">AK Lama *)</td>
+                                    <td width="10%">AK Diperoleh **)</td>
+                                    <td width="10%">Jumlah AK</td>
+                                </tr>
+                                <tr>
+                                    <td width="5%"></td>
+                                    <td width="2%" >0</td>
+                                    <td> <b>Daerah Khusus</b></td>
+                                    <td ></td>
+                                    <td></td>
+                                    <td><input  step="any" type="number" value=0 name="dasus" id="dasus" class="form-control" min="0" placeholder="LAMA" required /></td>
                                 </tr>
                                 <tr>
                                     <td width="5%" rowspan="20"></td>
@@ -412,6 +426,12 @@
                                     <td><input  step="any" value=0 placeholder="Total Penunjang"  type="number" name="total_penunjang_semua" id="total_penunjang_semua" class="form-control" readonly /></td>
                                </tr>
                                @endif
+                               <tr>
+                                    <td><b>Total</b></td>
+                                    <td><input  step="any" type="number" value="0" name="total_lama" id="total_lama" class="form-control" min="0" placeholder="LAMA" required /></td>
+                                    <td><input  step="any" type="number" value="0" name="total_baru" id="total_baru" class="form-control" min="0" placeholder="BARU" required /></td>
+                                    <td><input  step="any" type="number" value="0" name="total_semua" id="total_semua" class="form-control" readonly /></td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -555,7 +575,7 @@
                var value2 = parseFloat($('#value2i').val()) || 0;
                $('#sumi').val(value1 + value2);
             });
-            $('#value1, #value2,#value1a, #value2a,#value1b, #value2b,#value1c, #value2c,#value1d, #value2d,#value1e, #value2e,#value1f, #value2f,#value1g, #value2g').keyup(function(){
+            $('#value1, #value2,#value1a, #value2a,#value1b, #value2b,#value1c, #value2c,#value1d, #value2d,#value1e, #value2e,#value1f, #value2f,#value1g, #value2g, #dasus').keyup(function(){
                var value1 = parseFloat($('#value1').val()) || 0;
                var value1a = parseFloat($('#value1a').val()) || 0;
                var value1b = parseFloat($('#value1b').val()) || 0;
@@ -572,10 +592,25 @@
                var value2e = parseFloat($('#value2e').val()) || 0;
                var value2f = parseFloat($('#value2f').val()) || 0;
                var value2g = parseFloat($('#value2g').val()) || 0;
+               var dasus = parseFloat($('#dasus').val()) || 0;
                $('#total_utama_lama').val(value1 + value1a + value1b + value1c + value1d + value1e + value1f +value1g);
                $('#total_utama_baru').val(value2 + value2a + value2b + value2c + value2d + value2e + value2f + value2g);
                $('#total_utama_semua').val(value1 + value1a + value1b + value1c + value1d + value1e + value1f +value1g 
-               + value2 + value2a + value2b + value2c + value2d + value2e + value2f + value2g);
+               + value2 + value2a + value2b + value2c + value2d + value2e + value2f + value2g + dasus);
+
+               var total_utama_lama = parseFloat($('#total_utama_lama').val()) || 0;
+               var total_utama_baru = parseFloat($('#total_utama_baru').val()) || 0;
+               var total_utama_semua = parseFloat($('#total_utama_semua').val()) || 0;
+
+               var total_penunjang_lama = parseFloat($('#total_penunjang_lama').val()) || 0;
+               var total_penunjang_baru = parseFloat($('#total_penunjang_baru').val()) || 0;
+               var total_penunjang_semua = parseFloat($('#total_penunjang_semua').val()) || 0;
+
+
+               $('#total_lama').val(total_utama_lama + total_penunjang_lama);
+               $('#total_baru').val(total_utama_baru + total_penunjang_baru);
+               $('#total_semua').val(total_utama_semua + total_penunjang_semua);
+               
             });
             $('#value1h, #value2h,#value1i, #value2i').keyup(function(){
                var value1h = parseFloat($('#value1h').val()) || 0;
@@ -588,6 +623,21 @@
                var lama = parseFloat($('#total_penunjang_lama').val()) || 0;
                var baru = parseFloat($('#total_penunjang_baru').val()) || 0;
                $('#total_penunjang_semua').val(lama + baru);
+
+
+               var total_utama_lama = parseFloat($('#total_utama_lama').val()) || 0;
+               var total_utama_baru = parseFloat($('#total_utama_baru').val()) || 0;
+               var total_utama_semua = parseFloat($('#total_utama_semua').val()) || 0;
+
+               var total_penunjang_lama = parseFloat($('#total_penunjang_lama').val()) || 0;
+               var total_penunjang_baru = parseFloat($('#total_penunjang_baru').val()) || 0;
+               var total_penunjang_semua = parseFloat($('#total_penunjang_semua').val()) || 0;
+
+
+               $('#total_lama').val(total_utama_lama + total_penunjang_lama);
+               $('#total_baru').val(total_utama_baru + total_penunjang_baru);
+               $('#total_semua').val(total_utama_semua + total_penunjang_semua);
+
             });
             
          });

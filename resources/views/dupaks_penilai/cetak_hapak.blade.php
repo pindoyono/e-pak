@@ -278,7 +278,119 @@ table {
                     </b>
                 </td>
             </tr>
+            <td colspan="3"><b> Total AK</b></td>
+                <td>
+                    <b>
+                        {{
+                            json_decode($berita_acara->ijazah_tdk_sesuai)->lama +
+                            json_decode($berita_acara->pendukung)->lama +
+
+
+                            json_decode($berita_acara->pendidikan)->lama + 
+                            json_decode($berita_acara->prajabatan)->lama  +
+                            json_decode($berita_acara->pembelajaran)->lama +
+                            json_decode($berita_acara->bimbingan)->lama +
+                            json_decode($berita_acara->tugas_lain)->lama +
+                            json_decode($berita_acara->pd)->lama +
+                            json_decode($berita_acara->pi)->lama +
+                            json_decode($berita_acara->ki)->lama
+                        }}
+                    </b>
+                </td>
+                <td>
+                    <b>
+                        {{
+                            json_decode($berita_acara->ijazah_tdk_sesuai)->baru +
+                            json_decode($berita_acara->pendukung)->baru +
+
+
+
+                            json_decode($berita_acara->pendidikan)->baru + 
+                            json_decode($berita_acara->prajabatan)->baru  +
+                            json_decode($berita_acara->pembelajaran)->baru +
+                            json_decode($berita_acara->bimbingan)->baru +
+                            json_decode($berita_acara->tugas_lain)->baru +
+                            json_decode($berita_acara->pd)->baru +
+                            json_decode($berita_acara->pi)->baru +
+                            json_decode($berita_acara->ki)->baru
+                        }}
+                    </b>
+                </td> 
+                <td>
+                    <b>
+                        {{
+                            json_decode($berita_acara->ijazah_tdk_sesuai)->total +
+                            json_decode($berita_acara->pendukung)->total +
+
+
+                            json_decode($berita_acara->pendidikan)->total + 
+                            json_decode($berita_acara->prajabatan)->total  +
+                            json_decode($berita_acara->pembelajaran)->total +
+                            json_decode($berita_acara->bimbingan)->total +
+                            json_decode($berita_acara->tugas_lain)->total +
+                            json_decode($berita_acara->pd)->total +
+                            json_decode($berita_acara->pi)->total +
+                            json_decode($berita_acara->ki)->total
+
+                        }}
+                    </b>
+                </td>
+            </tr>
+            <tr>
+            </tr>
     </tbody>
+    </table>
+    <div>
+        *) Penyesuaian PAK atau PAK terakhir
+        <br>
+        **) Angka kredit yang diperoleh            
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <td>
+                      URAIAN  
+                </td>
+                <td>
+                        ANGKA KREDIT AKUMULATIF
+                </td>
+                <td>
+                        Pengembangan Diri
+                </td>
+                <td>
+                        Pub Ilmiah dan K Ilmiah
+                </td>
+                <td>
+                        Jumlah Unsur Utama Min 90%
+                </td>
+                <td>
+                        UNSUR PENUNJANG MAX 10%
+                </td>
+            </tr>
+            <tr>
+                <td>
+                      URAIAN  
+                </td>
+                <td>
+                        ANGKA KREDIT AKUMULATIF
+                </td>
+                <td>
+                        Pengembangan Diri
+                </td>
+                <td>
+                        Pub Ilmiah dan K Ilmiah
+                </td>
+                <td>
+                        Jumlah Unsur Utama Min 90%
+                </td>
+                <td>
+                        UNSUR PENUNJANG MAX 10%
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+        
+        </tbody>
     </table>
     <div style="text-align:left;margin-top:100px">
         <div>

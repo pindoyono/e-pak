@@ -21,7 +21,7 @@
                     <i class="material-icons">assignment</i>
                 </div> -->
                 <div class="card-content">
-                    <h2 class="card-title text-center">BERITA ACARA PENILAIAN ANGKA KREDIT</h2>
+                    <h2 class="card-title text-center">HAPAK</h2>
                     <!-- <h2 class="card-title text-center">TAHUN {{tgl_indo_tahun($dupak->awal)}}</h2> -->
                     <p>
                         Pada hari Ini {{ hari_ini().", ".tgl_indo($now)}} bertempat di Kantor Cabang Dinas Pendidikan Dan Kebudayaan Provinsi Kalimantan Utara
@@ -147,9 +147,9 @@
                                 <tr>
                                     <td width="5%">II</td>
                                     <td colspan=2> PENETAPAN ANGKA KREDIT</td>
-                                    <td width="10%"></td>
-                                    <td width="10%"></td>
-                                    <td width="10%"></td>
+                                    <td width="10%">AK Lama *)</td>
+                                    <td width="10%">AK Diperoleh **)</td>
+                                    <td width="10%">Jumlah AK</td>
                                 </tr>
                                 <tr>
                                     <td width="5%" rowspan="20"></td>
@@ -300,9 +300,9 @@
                                <tr>
                                     <td width="5%">II</td>
                                     <td colspan=2> PENETAPAN ANGKA KREDIT</td>
-                                    <td width="10%"></td>
-                                    <td width="10%"></td>
-                                    <td width="10%"></td>
+                                    <td width="10%">AK Lama *)</td>
+                                    <td width="10%">AK Diperoleh **)</td>
+                                    <td width="10%">Jumlah AK</td>
                                 </tr>
                                 <tr>
                                     <td width="5%" rowspan="20"></td>
@@ -411,9 +411,68 @@
                                     <td><input  step="any" value=0 placeholder="Total Penunjang"  type="number" name="total_penunjang_baru" id="total_penunjang_baru" class="form-control" readonly /></td>
                                     <td><input  step="any" value=0 placeholder="Total Penunjang"  type="number" name="total_penunjang_semua" id="total_penunjang_semua" class="form-control" readonly /></td>
                                </tr>
+                               <tr>
+                                    <td><b>Total</b></td>
+                                    <td><input  step="any" type="number" value="0" name="total_lama" id="total_lama" class="form-control" min="0" placeholder="LAMA" required /></td>
+                                    <td><input  step="any" type="number" value="0" name="total_baru" id="total_baru" class="form-control" min="0" placeholder="BARU" required /></td>
+                                    <td><input  step="any" type="number" value="0" name="total_semua" id="total_semua" class="form-control" readonly /></td>
+                                </tr>
                                @endif
                             </tbody>
                         </table>
+                        <div>
+                            *) Penyesuaian PAK atau PAK terakhir
+                            <br>
+                            **) Angka kredit yang diperoleh 
+                            <br>           
+                        </div>
+
+                        <div class="table-responsive" style="padding-top:20px">
+                        <table class="table table-bordered">
+                            <thead class="text-primary">
+                                <tr>
+                                    <th rowspan="2">URAIAN</th>
+                                    <th rowspan="2">ANGKA KREDIT KUMULATIF</th>
+                                    <th colspan="3">UNSUR UTAMA</th>
+                                    <th rowspan="2">UNSUR PENUNJANG MAX 10%</th>
+                                </tr>
+                                <tr>
+                                    <th>Pengembangan Diri</th>
+                                    <th>Pub.Ilmiah dan K.Inovatif</th>
+                                    <th>Jumlah Unsur Utama Min.90%</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <b>
+                                        <td><b> AK yg diperoleh </b></td>
+                                        <td><b> <input  step="any" value=0 type="number" name="akk_diperoleh" id="akk_diperoleh" class="form-control" min="0"  required /> </b></td>
+                                        <td><b> <input  step="any" value=0 type="number" name="akk_diperoleh_pd" id="akk_diperoleh_pd" class="form-control" min="0"  required /> </b></td>
+                                        <td><b> <input  step="any" value=0 type="number" name="akk_diperoleh_pi" id="akk_diperoleh_pi" class="form-control" min="0"  required /> </b></td>
+                                        <td><b> <input  step="any" value=0 type="number" name="akk_diperoleh_90" id="akk_diperoleh_90" class="form-control" min="0"  required /> </b></td>
+                                        <td><b> <input  step="any" value=0 type="number" name="akk_diperoleh_10" id="akk_diperoleh_10" class="form-control" min="0"  required /> </b></td>
+                                    </b>
+                                </tr>
+                                <tr>
+                                    <td><b> AK yg wajib di peroleh</b></td>
+                                        <td><b> <input name="akk_wajib" id="akk_wajib"  step="any" type="number" value="{{ check_jabatan($biodatas->pangkat_golongan , 'target') }}" class="form-control" min="0"  required /> </b></td>
+                                        <td><b> <input name="akk_wajib_pd" id="akk_wajib_pd" step="any" type="number" value="{{ check_jabatan($biodatas->pangkat_golongan , 'akpkbpd') }}" class="form-control" min="0"  required /> </b></td>
+                                        <td><b> <input name="akk_wajib_pi" id="akk_wajib_pi" step="any" type="number" value="{{ check_jabatan($biodatas->pangkat_golongan , 'akpkbpiki') }}" class="form-control" min="0"  required /> </b></td>
+                                        <td><b> <input name="akk_wajib_90" id="akk_wajib_90" step="any" type="number" value="{{ check_jabatan($biodatas->pangkat_golongan , 'akpkbpiki') }}" class="form-control" min="0"  required /> </b></td>
+                                        <td><b> <input name="akk_wajib_10" id="akk_wajib_90" step="any" type="number" value="{{ check_jabatan($biodatas->pangkat_golongan , 'akpkbpiki') }}" class="form-control" min="0"  required /> </b></td>
+                                </tr>
+                                <tr> 
+                                    <td> <b>Kelebihan / Kekurangan </b></td>
+                                    <td><b> <input name="akk_kurang" id="akk_kurang"  step="any" type="number" value="0" class="form-control" min="0"  readonly /> </b></td>
+                                    <td><b> <input name="akk_kurang_pd" id="akk_kurang_pd" step="any" type="number" value="0" class="form-control" min="0"  readonly /> </b></td>
+                                    <td><b> <input name="akk_kurang_pi" id="akk_kurang_pi" step="any" type="number" value="0" class="form-control" min="0"  readonly /> </b></td>
+                                    <td><b> <input name="akk_kurang_90" id="akk_kurang_90" step="any" type="number" value="0" class="form-control" min="0"  readonly /> </b></td>
+                                    <td><b> <input name="akk_kurang_10" id="akk_kurang_10" step="any" type="number" value="0" class="form-control" min="0"  readonly /> </b></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+  
                         <div>
                             <div>
                                 <label for="catatan">
@@ -422,9 +481,9 @@
                             </div>
                             <div>
                                 @if(!empty($berita_acara->catatan))
-                                    <textarea name="catatan" id="" cols="210" rows="10">{{$berita_acara->catatan}}</textarea>
+                                    <textarea name="catatan" id="" cols="140" rows="10">{{$berita_acara->catatan}}</textarea>
                                 @else
-                                    <textarea name="catatan" id="" cols="210" rows="10"></textarea>
+                                    <textarea name="catatan" id="" cols="140" rows="10"></textarea>
                                 @endif
                             </div>
                         </div>
@@ -450,12 +509,7 @@
                    
                     </div>
                     
-                    <!-- <div class="col-sm-3">
-                        <a  class="btn btn-primary btn-round" target="_blank" href="{{route('dupaks_penilai.createPDF', Crypt::encrypt($dupak_id))}}">
-                                <i class="fas fa-print"></i> Cetak Berita Acara
-                                <div class="ripple-container"></div>
-                        </a>
-                    </div> -->
+                   
                     
                     @else
                     <div class="col-sm-3">
@@ -590,6 +644,52 @@
                $('#total_utama_baru').val(value2 + value2a + value2b + value2c + value2d + value2e + value2f + value2g);
                $('#total_utama_semua').val(value1 + value1a + value1b + value1c + value1d + value1e + value1f +value1g 
                + value2 + value2a + value2b + value2c + value2d + value2e + value2f + value2g);
+
+               var total_utama_lama = parseFloat($('#total_utama_lama').val()) || 0;
+               var total_utama_baru = parseFloat($('#total_utama_baru').val()) || 0;
+               var total_utama_semua = parseFloat($('#total_utama_semua').val()) || 0;
+
+               var total_penunjang_lama = parseFloat($('#total_penunjang_lama').val()) || 0;
+               var total_penunjang_baru = parseFloat($('#total_penunjang_baru').val()) || 0;
+               var total_penunjang_semua = parseFloat($('#total_penunjang_semua').val()) || 0;
+
+
+               $('#total_lama').val(total_utama_lama + total_penunjang_lama);
+               $('#total_baru').val(total_utama_baru + total_penunjang_baru);
+               $('#total_semua').val(total_utama_semua + total_penunjang_semua);
+
+               $('#akk_diperoleh').val(total_utama_semua + total_penunjang_semua);
+               $('#akk_diperoleh_pd').val(value2e);
+               $('#akk_diperoleh_pi').val(value2f + value2g);
+               
+
+
+
+
+               var akk_diperoleh = parseFloat($('#akk_diperoleh').val()) || 0;
+               var akk_diperoleh_pd = parseFloat($('#akk_diperoleh_pd').val()) || 0;
+               var akk_diperoleh_pi = parseFloat($('#akk_diperoleh_pi').val()) || 0;
+               var akk_diperoleh_90 = parseFloat($('#akk_diperoleh_90').val()) || 0;
+               var akk_diperoleh_10 = parseFloat($('#akk_diperoleh_10').val()) || 0;
+               
+               var akk_wajib = parseFloat($('#akk_wajib').val()) || 0;
+               var akk_wajib_pd = parseFloat($('#akk_wajib_pd').val()) || 0;
+               var akk_wajib_pi = parseFloat($('#akk_wajib_pi').val()) || 0;
+               var akk_wajib_90 = parseFloat($('#akk_wajib_90').val()) || 0;
+               var akk_wajib_10 = parseFloat($('#akk_wajib_10').val()) || 0;
+
+
+
+
+               $('#akk_kurang').val(akk_diperoleh - akk_wajib);
+               $('#akk_kurang_pd').val(akk_diperoleh_pd - akk_wajib_pd);
+               $('#akk_kurang_pi').val(akk_diperoleh_pi - akk_wajib_pi);
+               $('#akk_kurang_90').val(akk_diperoleh_90 - akk_wajib_90);
+               $('#akk_kurang_10').val(akk_diperoleh_10 - akk_wajib_10);
+
+
+
+
             });
             $('#value1h, #value2h,#value1i, #value2i').keyup(function(){
                var value1h = parseFloat($('#value1h').val()) || 0;
@@ -602,10 +702,46 @@
                var lama = parseFloat($('#total_penunjang_lama').val()) || 0;
                var baru = parseFloat($('#total_penunjang_baru').val()) || 0;
                $('#total_penunjang_semua').val(lama + baru);
+
+               var total_utama_lama = parseFloat($('#total_utama_lama').val()) || 0;
+               var total_utama_baru = parseFloat($('#total_utama_baru').val()) || 0;
+               var total_utama_semua = parseFloat($('#total_utama_semua').val()) || 0;
+
+               var total_penunjang_lama = parseFloat($('#total_penunjang_lama').val()) || 0;
+               var total_penunjang_baru = parseFloat($('#total_penunjang_baru').val()) || 0;
+               var total_penunjang_semua = parseFloat($('#total_penunjang_semua').val()) || 0;
+
+
+               $('#total_lama').val(total_utama_lama + total_penunjang_lama);
+               $('#total_baru').val(total_utama_baru + total_penunjang_baru);
+               $('#total_semua').val(total_utama_semua + total_penunjang_semua);
+
+               var akk_diperoleh = parseFloat($('#akk_diperoleh').val()) || 0;
+               var akk_diperoleh_pd = parseFloat($('#akk_diperoleh_pd').val()) || 0;
+               var akk_diperoleh_pi = parseFloat($('#akk_diperoleh_pi').val()) || 0;
+               var akk_diperoleh_90 = parseFloat($('#akk_diperoleh_90').val()) || 0;
+               var akk_diperoleh_10 = parseFloat($('#akk_diperoleh_10').val()) || 0;
+               
+               var akk_wajib = parseFloat($('#akk_wajib').val()) || 0;
+               var akk_wajib_pd = parseFloat($('#akk_wajib_pd').val()) || 0;
+               var akk_wajib_pi = parseFloat($('#akk_wajib_pi').val()) || 0;
+               var akk_wajib_90 = parseFloat($('#akk_wajib_90').val()) || 0;
+               var akk_wajib_10 = parseFloat($('#akk_wajib_10').val()) || 0;
+
+
+               $('#akk_kurang').val(akk_diperoleh - akk_wajib);
+               $('#akk_kurang_pd').val(akk_diperoleh_pd - akk_wajib_pd);
+               $('#akk_kurang_pi').val(akk_diperoleh_pi - akk_wajib_pi);
+               $('#akk_kurang_90').val(akk_diperoleh_90 - akk_wajib_90);
+               $('#akk_kurang_10').val(akk_diperoleh_10 - akk_wajib_10);
+
+
             });
             
          });
 
+
+         
 
 </script>
 @endsection

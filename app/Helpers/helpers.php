@@ -291,3 +291,11 @@ if (! function_exists('setup')) {
         return $setup;
     }
 }
+
+
+if (! function_exists('check_jabatan')) {
+    function check_jabatan($id,$kolom){
+        $data = \App\Jabatan::find($id)->$kolom;
+        return $data;
+    }
+}
