@@ -80,7 +80,7 @@ table {
             <tr>
                 <td width="5%"> 7</td>
                 <td colspan=2>Pangkat / Golongan ruang / TMT</td>
-                <td colspan=4>{{  pangkat($biodatas->pangkat_golongan)->pangkat }}</td>
+                <td colspan=4>{{  pangkat($biodatas->pangkat_golongan)->pangkat.'/'.$biodatas->tmt_pns }}</td>
             </tr>
             <tr>
                 <td width="5%"> 8</td>
