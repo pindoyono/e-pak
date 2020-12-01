@@ -215,7 +215,7 @@
 
                                             number_format(
                                             check_jabatan($data->pangkat_golongan , 'target')
-                                            ,3) <= 0
+                                            ,3) >= 0
 
                                             &&
                                             
