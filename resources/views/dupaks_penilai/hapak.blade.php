@@ -472,9 +472,11 @@
                                         <td><b> <input name="akk_wajib" id="akk_wajib"  step="any" type="number" value="{{ check_jabatan($biodatas->pangkat_golongan , 'target') }}" class="form-control" min="0"  readonly /> </b></td>
                                         <td><b> <input name="akk_wajib_pd" id="akk_wajib_pd" step="any" type="number" value="{{ check_jabatan($biodatas->pangkat_golongan , 'akpkbpd') }}" class="form-control" min="0"  readonly /> </b></td>
                                         <td><b> <input name="akk_wajib_pi" id="akk_wajib_pi" step="any" type="number" value="{{ check_jabatan($biodatas->pangkat_golongan , 'akpkbpiki') }}" class="form-control" min="0"  readonly /> </b></td>
-                                        <td><b> <input name="akk_wajib_90" id="akk_wajib_90" step="any" type="number" value="{{ check_jabatan($biodatas->pangkat_golongan , 'target')*90/100 }}" class="form-control" min="0"  readonly /> </b></td>
-                                        <td><b> <input name="akk_wajib_10" id="akk_wajib_90" step="any" type="number" value="{{ check_jabatan($biodatas->pangkat_golongan , 'target')*10/100 }}" class="form-control" min="0"  readonly /> </b></td>
+                                        <td><b> <input name="akk_wajib_90" id="akk_wajib_90" step="any" type="number" value="{{ check_jabatan($biodatas->pangkat_golongan , 'akk')*900/100 }}" class="form-control" min="0"  readonly /> </b></td>
+                                        <td><b> <input name="akk_wajib_10" id="akk_wajib_90" step="any" type="number" value="{{ check_jabatan($biodatas->pangkat_golongan , 'akk')*100/100 }}" class="form-control" min="0"  readonly /> </b></td>
                                 </tr>
+
+                                
                                 <tr> 
                                     <td> <b>Kelebihan / Kekurangan </b></td>
                                     <td><b> <input name="akk_kurang" id="akk_kurang"  step="any" type="number" value="0" class="form-control" min="0"  readonly /> </b></td>

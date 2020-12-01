@@ -295,6 +295,9 @@ if (! function_exists('setup')) {
 
 if (! function_exists('check_jabatan')) {
     function check_jabatan($id,$kolom){
+        if($kolom!='target'){
+            $id = $id + 1;
+        }
         $data = \App\Jabatan::find($id)->$kolom;
         return $data;
     }
