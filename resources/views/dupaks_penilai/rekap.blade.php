@@ -22,8 +22,8 @@
                             </ul>
                         </div>
                     @endif
-                    <div class="material-datatables">
-                        <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                    <div class="material-datatables card-content table-responsive table-full-width">
+                        <table id="datatables" class="table table-striped table-no-bordered table-hover table-hover" cellspacing="0" width="100%" style="width:100%">
                              <thead>
                                 <tr>
                                     <th rowspan="2">No</th>
