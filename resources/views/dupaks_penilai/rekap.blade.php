@@ -217,14 +217,7 @@
                                             check_jabatan($data->pangkat_golongan , 'target')
                                             ,3) >= 0
 
-                                            &&
                                             
-                                            number_format(json_decode($data->pd)->total,3) - number_format(check_jabatan($data->pangkat_golongan , 'akpkbpd'),3) >= 0
-
-                                            &&
-
-                                            number_format(json_decode($data->pd)->total,3) - number_format(check_jabatan($data->pangkat_golongan , 'akpkbpd'),3) >= 0
-
                                         )
                                         <span> Memenuhi Syarat</span>
                                         @else
