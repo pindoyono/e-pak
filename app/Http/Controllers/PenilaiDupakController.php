@@ -10,6 +10,9 @@ use Auth;
 use Telegram\Bot\Keyboard\Keyboard;
 use Telegram\Bot\Laravel\Facades\Telegram;
 
+
+use Illuminate\Support\Facades\Validator;
+
 class PenilaiDupakController extends Controller
 {
     /**
@@ -122,7 +125,11 @@ class PenilaiDupakController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = \App\Penolakan::findOrFail($id);
+        $dupak_id = $data->berkas_id;
+        $data->delete();
+        return redirect()->route( 'dupaks_penilai.lampiran', Crypt::encrypt($dupak_id))->with('toast_success', 'Task Delete Successfully!');
+
     }
 
     public function berita_acara($id)
@@ -539,14 +546,48 @@ class PenilaiDupakController extends Controller
 
     public function lampiran($id)
     {
-        $data = DB::table('berkas')
-        ->join('penolakan', 'berkas.id', '=', 'penolakan.berkas_id')
-        ->join('lampirans', 'lampirans.id', '=', 'penolakan.lampiran_id')
-        ->where('berkas.dupak_id', $id)
+        $id =  Crypt::decrypt($id);
+        
+        $data = DB::table('penolakans')
+        ->join('lampirans', 'lampirans.id', '=', 'penolakans.lampiran_id')
+        // ->join('berkas', 'berkas.dupak_id', '=', 'penolakans.berkas_id')
+        ->where('penolakans.berkas_id', $id)
+        ->select( '*', 'penolakans.id as idp')
         ->get();
-
-        return view('dupaks_penilai.l2pkb', ['data' => $data]);
+        
+        $lampirans = \App\lampiran::get();
+        return view('dupaks_penilai.l2pkb', [
+                                            'id' => $id,
+                                            'data' => $data,
+                                            'lampirans' => $lampirans,
+                                            ]);
 
     }
+
+
+    public function lampiran_store(Request $request,$id)
+    {
+        $id =  Crypt::decrypt($id);
+        $validator = Validator::make($request->all(), [
+            "lampiran_id" => "required",
+            "judul" => "required",
+        ]);
+        	
+        if ($validator->fails()) {
+            return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
+        }
+
+
+        // return $request;
+        $data = new \App\Penolakan;
+        $data->lampiran_id = $request->get('lampiran_id');
+        $data->judul = $request->get('judul');
+        $data->berkas_id = $id;
+        $data->save();
+
+        return redirect()->route('dupaks_penilai.lampiran', Crypt::encrypt($id))->with('toast_success', 'Task Created Successfully!');
+    }
+
+    
 
 }

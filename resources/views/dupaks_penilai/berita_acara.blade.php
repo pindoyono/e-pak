@@ -40,7 +40,7 @@
                                 <tr>
                                     <h6>
                                     <td colspan=3>Instansi : Dinas Pendidikan dan Kebudayaan Provinsi Kalimantan Utara</td>
-                                    <td colspan=4 class="td-actions text-right">Masa penilaian : {{tgl_indo($dupak->awal).' - '.tgl_indo($dupak->awal)}}</td>
+                                    <td colspan=4 class="td-actions text-right">Masa penilaian : {{tgl_indo($dupak->awal).' - '.tgl_indo($dupak->akhir)}}</td>
                                     </h6>
                                 </tr>
                             </thead>

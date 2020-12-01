@@ -13,7 +13,7 @@ class CreatePenolakanTable extends Migration
      */
     public function up()
     {
-        Schema::create('penolakan', function (Blueprint $table) {
+        Schema::create('penolakans', function (Blueprint $table) {
             $table->id();
             $table->string('lampiran_id')->nullable();
             $table->string('judul')->nullable();	

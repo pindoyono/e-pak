@@ -399,7 +399,7 @@ table {
                         <br>
                             {{ $berita_acara->penilai }} 
                         <br>
-                            NIP. {{ Auth::user()->nip }}
+                            NIP. {{ $berita_acara->nip_penilai }}
     </div>
 
 
