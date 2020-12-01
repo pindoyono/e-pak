@@ -56,7 +56,11 @@
                                 @foreach($data as $key => $data)
                                 <tr>
                                     <td> {{$key+1}}</td>
-                                    <td>{{$data->name}}</td>
+                                    <td>
+                                            <a target="_blank" href="{{route('dupaks_penilai.createPDF', Crypt::encrypt($data->dupak_id))}}">
+                                                {{$data->name}}
+                                            </a>
+                                    </td>
                                     <td>{{ substr($data->pangkat,-5)}}</td>
                                     <td>{{ substr(check_naik_pangkat($data->idj)->pangkat,-5)  }}</td>
                                     <td>
@@ -235,9 +239,16 @@
 
                                             
                                         )
-                                        <span> Memenuhi Syarat</span>
+
+                                                @role('admin provinsi')
+                                                    <a target="_blank" href="{{route('dupaks_penilai.create_pak_PDF', Crypt::encrypt($data->dupak_id))}}">
+                                                        <span> Memenuhi Syarat</span>
+                                                    </a>
+                                                @else
+                                                    <span> Memenuhi Syarat</span>
+                                                @endrole
                                         @else
-                                        <span> Tidak Memenuhi Syarat</span>
+                                                <span> Tidak Memenuhi Syarat</span>
                                         @endif
                                     </td>
                                     <td>
