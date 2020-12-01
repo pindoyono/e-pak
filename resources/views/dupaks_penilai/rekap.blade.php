@@ -133,7 +133,7 @@
 
                                             number_format(
                                             check_jabatan($data->pangkat_golongan , 'target')
-                                            ,3) <= 0
+                                            ,3) = 0
                                         )
                                         <span> Tidak Lolos</span>
                                         @else
@@ -160,7 +160,7 @@
                                     </td>
                                     <td>
                                         @if(
-                                            number_format(json_decode($data->pd)->total,3) - number_format(check_jabatan($data->pangkat_golongan , 'akpkbpd'),3) <= 0
+                                            number_format(json_decode($data->pd)->total,3) - number_format(check_jabatan($data->pangkat_golongan , 'akpkbpd'),3) < 0
                                         )
                                         <span> Tidak Lolos</span>
                                         @else
@@ -192,7 +192,7 @@
                                                 number_format( number_format(json_decode($data->pi)->total,3) + number_format(json_decode($data->ki)->total,3) ,3) 
                                                 -
                                                 number_format( check_jabatan($data->pangkat_golongan , 'akpkbpiki'),3)
-                                                ,3) <= 0
+                                                ,3) < 0
                                         )
                                         <span> Tidak Lolos</span>
                                         @else
