@@ -10,7 +10,7 @@ use DB;
 use Hash;
 use Illuminate\Support\Facades\Validator;
 
-class JabatanControler extends Controller
+class JabatanController extends Controller
 {
     /**
      * Display a listing of the resource.

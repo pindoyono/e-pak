@@ -443,10 +443,10 @@ table {
                 {{ check_jabatan($biodatas->pangkat_golongan , 'akpkbpiki') }} 
                 </td>
                 <td>
-                {{ check_jabatan($biodatas->pangkat_golongan , 'akpkbpiki') }}   
+                {{ check_jabatan($biodatas->pangkat_golongan , 'target')*90/100 }}   
                 </td>
                 <td>
-                {{ check_jabatan($biodatas->pangkat_golongan , 'akpkbpiki') }}
+                {{ check_jabatan($biodatas->pangkat_golongan , 'target')*10/100 }}
                 </td>
             </tr>
             <tr>

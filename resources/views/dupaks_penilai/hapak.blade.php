@@ -460,20 +460,20 @@
                                 <tr>
                                     <b>
                                         <td><b> AK yg diperoleh </b></td>
-                                        <td><b> <input  step="any" value=0 type="number" name="akk_diperoleh" id="akk_diperoleh" class="form-control" min="0"  required /> </b></td>
-                                        <td><b> <input  step="any" value=0 type="number" name="akk_diperoleh_pd" id="akk_diperoleh_pd" class="form-control" min="0"  required /> </b></td>
-                                        <td><b> <input  step="any" value=0 type="number" name="akk_diperoleh_pi" id="akk_diperoleh_pi" class="form-control" min="0"  required /> </b></td>
-                                        <td><b> <input  step="any" value=0 type="number" name="akk_diperoleh_90" id="akk_diperoleh_90" class="form-control" min="0"  required /> </b></td>
-                                        <td><b> <input  step="any" value=0 type="number" name="akk_diperoleh_10" id="akk_diperoleh_10" class="form-control" min="0"  required /> </b></td>
+                                        <td><b> <input  step="any" value=0 type="number" name="akk_diperoleh" id="akk_diperoleh" class="form-control" min="0"  readonly /> </b></td>
+                                        <td><b> <input  step="any" value=0 type="number" name="akk_diperoleh_pd" id="akk_diperoleh_pd" class="form-control" min="0"  readonly /> </b></td>
+                                        <td><b> <input  step="any" value=0 type="number" name="akk_diperoleh_pi" id="akk_diperoleh_pi" class="form-control" min="0"  readonly /> </b></td>
+                                        <td><b> <input  step="any" value=0 type="number" name="akk_diperoleh_90" id="akk_diperoleh_90" class="form-control" min="0"  readonly /> </b></td>
+                                        <td><b> <input  step="any" value=0 type="number" name="akk_diperoleh_10" id="akk_diperoleh_10" class="form-control" min="0"  readonly /> </b></td>
                                     </b>
                                 </tr>
                                 <tr>
                                     <td><b> AK yg wajib di peroleh</b></td>
-                                        <td><b> <input name="akk_wajib" id="akk_wajib"  step="any" type="number" value="{{ check_jabatan($biodatas->pangkat_golongan , 'target') }}" class="form-control" min="0"  required /> </b></td>
-                                        <td><b> <input name="akk_wajib_pd" id="akk_wajib_pd" step="any" type="number" value="{{ check_jabatan($biodatas->pangkat_golongan , 'akpkbpd') }}" class="form-control" min="0"  required /> </b></td>
-                                        <td><b> <input name="akk_wajib_pi" id="akk_wajib_pi" step="any" type="number" value="{{ check_jabatan($biodatas->pangkat_golongan , 'akpkbpiki') }}" class="form-control" min="0"  required /> </b></td>
-                                        <td><b> <input name="akk_wajib_90" id="akk_wajib_90" step="any" type="number" value="{{ check_jabatan($biodatas->pangkat_golongan , 'akpkbpiki') }}" class="form-control" min="0"  required /> </b></td>
-                                        <td><b> <input name="akk_wajib_10" id="akk_wajib_90" step="any" type="number" value="{{ check_jabatan($biodatas->pangkat_golongan , 'akpkbpiki') }}" class="form-control" min="0"  required /> </b></td>
+                                        <td><b> <input name="akk_wajib" id="akk_wajib"  step="any" type="number" value="{{ check_jabatan($biodatas->pangkat_golongan , 'target') }}" class="form-control" min="0"  readonly /> </b></td>
+                                        <td><b> <input name="akk_wajib_pd" id="akk_wajib_pd" step="any" type="number" value="{{ check_jabatan($biodatas->pangkat_golongan , 'akpkbpd') }}" class="form-control" min="0"  readonly /> </b></td>
+                                        <td><b> <input name="akk_wajib_pi" id="akk_wajib_pi" step="any" type="number" value="{{ check_jabatan($biodatas->pangkat_golongan , 'akpkbpiki') }}" class="form-control" min="0"  readonly /> </b></td>
+                                        <td><b> <input name="akk_wajib_90" id="akk_wajib_90" step="any" type="number" value="{{ check_jabatan($biodatas->pangkat_golongan , 'target')*90/100 }}" class="form-control" min="0"  readonly /> </b></td>
+                                        <td><b> <input name="akk_wajib_10" id="akk_wajib_90" step="any" type="number" value="{{ check_jabatan($biodatas->pangkat_golongan , 'target')*10/100 }}" class="form-control" min="0"  readonly /> </b></td>
                                 </tr>
                                 <tr> 
                                     <td> <b>Kelebihan / Kekurangan </b></td>
@@ -679,6 +679,8 @@
                $('#akk_diperoleh').val(total_utama_semua + total_penunjang_semua);
                $('#akk_diperoleh_pd').val(value2e);
                $('#akk_diperoleh_pi').val(value2f + value2g);
+               $('#akk_diperoleh_90').val(total_utama_baru);
+               $('#akk_diperoleh_10').val(total_penunjang_baru);
                
 
                var akk_diperoleh = parseFloat($('#akk_diperoleh').val()) || 0;
@@ -725,6 +727,9 @@
                var total_penunjang_lama = parseFloat($('#total_penunjang_lama').val()) || 0;
                var total_penunjang_baru = parseFloat($('#total_penunjang_baru').val()) || 0;
                var total_penunjang_semua = parseFloat($('#total_penunjang_semua').val()) || 0;
+
+               $('#akk_diperoleh_90').val(total_utama_baru);
+               $('#akk_diperoleh_10').val(total_penunjang_baru);
 
 
                $('#total_lama').val(total_utama_lama + total_penunjang_lama);

@@ -537,4 +537,16 @@ class PenilaiDupakController extends Controller
        return view('dupaks_penilai.preview', ['pdf' => $pdf]);
     }
 
+    public function lampiran($id)
+    {
+        $data = DB::table('berkas')
+        ->join('penolakan', 'berkas.id', '=', 'penolakan.berkas_id')
+        ->join('lampirans', 'lampirans.id', '=', 'penolakan.lampiran_id')
+        ->where('berkas.dupak_id', $id)
+        ->get();
+
+        return view('dupaks_penilai.l2pkb', ['data' => $data]);
+
+    }
+
 }

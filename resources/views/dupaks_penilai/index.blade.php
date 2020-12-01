@@ -116,8 +116,17 @@
                                             @endif
                                         @endif
 
+                                        
+
                                     @endrole
-                                    </td>
+
+                                    <!-- <a href="{{route('dupaks_penilai.lampiran', Crypt::encrypt($dupak->id))}}">
+                                            <button class="btn btn-info btn-round">
+                                                L2-PKB
+                                            </button>
+                                        </a>
+
+                                    </td> -->
                                 </tr>
                                 @endforeach 
                             </tbody>
