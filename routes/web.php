@@ -54,6 +54,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::put('/couh_berita_acara/{id}', 'PenilaiDupakController@create_or_update_hapak')->name('dupaks_penilai.create_or_update_hapak')->middleware('role:guru|penilai|verifikator|super admin');
     Route::get('/lampiran/{id}', 'PenilaiDupakController@lampiran')->name('dupaks_penilai.lampiran')->middleware('role:guru|penilai|verifikator|super admin');
     Route::put('/lampiran_store/{id}', 'PenilaiDupakController@lampiran_store')->name('dupaks_penilai.lampiran_store')->middleware('role:guru|penilai|verifikator|super admin');
+    Route::get('/rekap', 'PenilaiDupakController@rekap')->name('dupaks_penilai.rekap')->middleware('role:guru|penilai|verifikator|super admin');
 
     Route::get('/bukti/{id}', 'BerkasController@bukti')->name('berkas.bukti')->middleware('role:guru|penilai|verifikator');
     Route::put('/berkas/simpan/{id}', 'BerkasController@simpan')->name('berkas.simpan')->middleware('role:guru|penilai|verifikator');

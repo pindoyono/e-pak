@@ -152,6 +152,13 @@
                 </a>
             </li>
 
+            <li class="{{ Request::segment(1) === 'dupaks_penilai' || Request::segment(1) === 'berita_acara' ? 'active' : null }}">
+                <a href="{{route('dupaks_penilai.rekap' )}}">
+                    <i class="fas fa-clipboard-list "></i>
+                    <p>Rekap Kenpa <span>penilai</span></p>
+                </a>
+            </li>
+
             @endrole
 
             @role('admin provinsi')

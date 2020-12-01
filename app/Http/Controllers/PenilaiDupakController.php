@@ -588,6 +588,22 @@ class PenilaiDupakController extends Controller
         return redirect()->route('dupaks_penilai.lampiran', Crypt::encrypt($id))->with('toast_success', 'Task Created Successfully!');
     }
 
-    
+    public function rekap()
+    {
+        
+        
+        $data = DB::table('users')
+        ->join('dupaks', 'users.id', '=', 'dupaks.user_id')
+        ->join('berita_acaras', 'berita_acaras.dupak_id', '=', 'dupaks.id')
+        ->join('biodatas', 'biodatas.user_id', '=', 'users.id')
+        ->join('jabatans', 'jabatans.id', '=', 'biodatas.pangkat_golongan')
+        ->select( 'berita_acaras.*', 'users.name','pangkat','jabatan','jabatans.id as idj','biodatas.pangkat_golongan as pangkat_golongan')
+        ->get();
+        
+        return view('dupaks_penilai.rekap', [
+                                            'data' => $data,
+                                            ]);
+
+    }
 
 }
