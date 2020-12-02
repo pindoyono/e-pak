@@ -4,7 +4,7 @@
 
 
 
-table, td, th {
+.border, td, th {
   border: 1px solid black;
 }
 
@@ -54,7 +54,7 @@ table {
         </span>
     </div>
 
-    <table>
+    <table >
         <tbody style="font-size:10">
         <tr>
                 <td width="5%">I</td>
