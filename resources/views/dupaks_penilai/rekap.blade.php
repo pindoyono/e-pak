@@ -248,7 +248,14 @@
                                                     <span> Memenuhi Syarat</span>
                                                 @endrole
                                         @else
-                                                <span> Tidak Memenuhi Syarat</span>
+                                            @role('admin provinsi')
+                                                    <a target="_blank" href="{{route('dupaks_penilai.create_pak_PDF', Crypt::encrypt($data->dupak_id))}}">
+                                                        <span> Tidak Memenuhi Syarat</span>
+                                                    </a>
+                                                @else
+                                                    <span> Tidak Memenuhi Syarat</span>
+                                                @endrole
+                                                
                                         @endif
                                     </td>
                                     <td>
