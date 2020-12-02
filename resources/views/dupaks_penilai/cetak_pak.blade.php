@@ -461,10 +461,13 @@ table {
 
     <div style="font-size:9;">
         <div width="700px" style="float:left">
-                Nama	: Fitrianur, S.Pd., M.Pd. <br>
-                NIP		: 196812132005021002 <br>
-                Alamat	: Perum. BPH Blok C.8 Jl. Poros Bulungan-Berau Km. 4 <br>   <br>   
+                Nama	: {{$users->name}}<br>
+                NIP		: {{$users->nip}} <br>
+                Alamat	: {{$biodatas->alamat}}<br>   <br>  
 
+                <!-- Nama	: Fitrianur, S.Pd., M.Pd. <br>
+                NIP		: 196812132005021002 <br>
+                Alamat	: Perum. BPH Blok C.8 Jl. Poros Bulungan-Berau Km. 4 <br>   <br>   -->
 
                 Tembusan : Disampaikan Kepada Yth.			     <br> 
 1	Kepala Kantor Regional VIII BKN Banjarmasin di Banjarbaru		 <br> 
