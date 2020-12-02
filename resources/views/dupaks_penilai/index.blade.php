@@ -86,11 +86,17 @@
                                             @endif
                                         @else
                                             @if(check_berita_acara($dupak->id) < 1)
-                                            <a href="{{route('dupaks_penilai.berita_acara', Crypt::encrypt($dupak->id))}}">
-                                                <button class="btn btn-info btn-round">
-                                                    Berita Acara
-                                                </button>
-                                            </a>
+                                                <a href="{{route('dupaks_penilai.berita_acara', Crypt::encrypt($dupak->id))}}">
+                                                    <button class="btn btn-info btn-round">
+                                                        Berita Acara
+                                                    </button>
+                                                </a>
+                                            @else
+                                                <a href="{{route('dupaks_penilai.berita_acara', Crypt::encrypt($dupak->id))}}">
+                                                    <button class="btn btn-info btn-round">
+                                                        Edit Acara
+                                                    </button>
+                                                </a>
                                             @endif
                                         @endif
 
