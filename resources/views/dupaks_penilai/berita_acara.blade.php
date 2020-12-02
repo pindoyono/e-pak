@@ -441,9 +441,6 @@
                     <div class="col-sm-3">
                    
                     </div>
-                    <div class="col-sm-3">
-                   
-                    </div>
                     
                     <!-- <div class="col-sm-3">
                         <a  class="btn btn-primary btn-round" target="_blank" href="{{route('dupaks_penilai.createPDF', Crypt::encrypt($dupak_id))}}">
