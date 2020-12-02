@@ -67,11 +67,7 @@
                                     @endrole
 
                                     @role('admin provinsi')
-                                        <a target="_blank" href="{{route('dupaks_penilai.create_pak_PDF', Crypt::encrypt($dupak->id))}}">
-                                            <button class="btn btn-success btn-round">
-                                                Cetak PAK
-                                            </button>
-                                        </a>
+                                        
                                     @else
                                         <a href="{{route('dupaks_penilai.show', Crypt::encrypt($dupak->id))}}">
                                         <button class="btn btn-success btn-round">
