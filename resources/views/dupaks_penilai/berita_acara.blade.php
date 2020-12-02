@@ -452,6 +452,13 @@
                         </a>
                     </div> -->
                     
+                    <div class="col-sm-3">
+                        <button type="submit"  class="btn btn-info btn-round">
+                            <i class="fas fa-save"></i> Simpan
+                            <div class="ripple-container"></div>
+                        </button>
+                    </div>
+                    
                     @else
                     <div class="col-sm-3">
                    
