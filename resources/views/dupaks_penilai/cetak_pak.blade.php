@@ -478,14 +478,14 @@ table {
 5	Yang bersangkutan		 <br> 
  <br> 
         </div>
-        <div style="padding-left:20%">
+        <div style="padding-left:70%;float:left">
             Pada Tanggal    : {{tgl_indo( $now )}} <br>
             Ditetapkan di	: Tanjung Selor<br>
         </div>
 
     </div>
 
-    <div style="padding-left:35%;font-size:11;">
+    <div style="padding-left:70%;font-size:11;">
                         <br>
                         <span style="">
                             Sekretaris Daerah,

@@ -22,6 +22,9 @@
                             </ul>
                         </div>
                     @endif
+                    <div class="col-7 text-right">
+                        <a href="{{route('dupaks_penilai.scrap_rekap')}}" target="_blank" class="btn btn-success"> Export Excel <div class="ripple-container"></div></a>
+                    </div>
                     <div class="material-datatables card-content table-responsive table-full-width">
                         <table id="datatables" class="table table-striped table-no-bordered table-hover table-hover" cellspacing="0" width="100%" style="width:100%">
                              <thead>
