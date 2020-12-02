@@ -154,7 +154,7 @@
 
             <li class="{{ Request::segment(1) === 'dupaks_penilai' || Request::segment(1) === 'berita_acara' ? 'active' : null }}">
                 <a href="{{route('dupaks_penilai.rekap' )}}">
-                    <i class="fas fa-clipboard-list "></i>
+                    <i class="fas fa-chart-line "></i>
                     <p>Rekap Kenpa <span>penilai</span></p>
                 </a>
             </li>
