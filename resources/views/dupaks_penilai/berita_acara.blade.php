@@ -99,9 +99,6 @@
                                     <td> 
                                         <input name="lama" value="{{ $berita_acara->masa_kerja_lama }}" placeholder="LAMA" required />
                                     </td>
-                                    <td> 
-                                        <input name="lama" value="{{ $berita_acara->masa_kerja_lama }}" placeholder="LAMA" required />
-                                    </td>
                                     @else
                                     <td colspan=2> <input name="lama" value="" placeholder="LAMA" required /></td>
                                     @endif
