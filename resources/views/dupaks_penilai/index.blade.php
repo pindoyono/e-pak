@@ -83,13 +83,13 @@
                                                     Cetak Berita Acara
                                                 </button>
                                             </a>
-                                                @if( $berita_acara->nip_penilai == Auth::user()->nip )
+                                                
                                                 <a href="{{route('dupaks_penilai.berita_acara', Crypt::encrypt($dupak->id))}}">
                                                     <button class="btn btn-info btn-round">
                                                         Edit Acara
                                                     </button>
                                                 </a>
-                                                @endif
+                                               
                                             @endif
                                         @else
                                             @if(check_berita_acara($dupak->id) < 1)
