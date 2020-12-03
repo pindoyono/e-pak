@@ -120,7 +120,7 @@ table {
 
 
 
-            <tr>
+            <tr style="text-align:center">
                 <td width="5%">II</td>
                 <td colspan=4> PENETAPAN ANGKA KREDIT</td>
                 <td > LAMA</td>
