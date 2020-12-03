@@ -63,6 +63,7 @@
                                     <label class="control-label"></label>
                                     <select class="js-example-basic-single form-control"  width="70%" name="pangkat" >
                                         <option value="">Pilih Pangkat</option>
+                                        <option value="Pengatur Tingkat I, II d">Pengatur Tingkat I, II d</option>
                                         <option value="Penata Muda, III a">Penata Muda, III a</option>
                                         <option value="Penata Muda Tk I, III b">Penata Muda Tk I, III b</option>
                                         <option value="Penata, III c">Penata, III c</option>
