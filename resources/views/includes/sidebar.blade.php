@@ -155,7 +155,13 @@
             <li class="{{ Request::segment(1) === 'rekap' || Request::segment(1) === 'rekap' ? 'active' : null }}">
                 <a href="{{route('dupaks_penilai.rekap' )}}">
                     <i class="fas fa-chart-line "></i>
-                    <p>Rekap Kenpa <span>penilai</span></p>
+                    <p>Rekap KENPA <span></span></p>
+                </a>
+            </li>
+            <li class="{{ Request::segment(1) === 'rekap_pak_tahunan' || Request::segment(1) === 'rekap_pak_tahunan' ? 'active' : null }}">
+                <a href="{{route('dupaks_penilai.rekap_pak_tahunan' )}}">
+                    <i class="fas fa-chart-line "></i>
+                    <p>Rekap PAK TAHUNAN <span></span></p>
                 </a>
             </li>
 

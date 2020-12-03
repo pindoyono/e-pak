@@ -11,6 +11,8 @@ use Telegram\Bot\Keyboard\Keyboard;
 use Telegram\Bot\Laravel\Facades\Telegram;
 use Excel;
 use App\Exports\RekapExport;
+use App\Exports\RekapExportTahunan;
+
 
 
 
@@ -618,40 +620,34 @@ class PenilaiDupakController extends Controller
 
     public function scrap_rekap()
     {
-        
         return Excel::download(new RekapExport, 'RekapExport.xlsx');
-        
-        // $data = DB::table('users')
-        // ->join('dupaks', 'users.id', '=', 'dupaks.user_id')
-        // ->join('berita_acaras', 'berita_acaras.dupak_id', '=', 'dupaks.id')
-        // ->join('biodatas', 'biodatas.user_id', '=', 'users.id')
-        // ->join('jabatans', 'jabatans.id', '=', 'biodatas.pangkat_golongan')
-        // ->select( 'berita_acaras.*', 'users.name','pangkat','jabatan','jabatans.id as idj','dupaks.id as dupak_id','biodatas.pangkat_golongan as pangkat_golongan')
-        // ->where('biodatas.karsu', 'KENAIKAN PANGKAT')
-        // ->orderBy('users.name','asc')
-        // // ->groupBy('users.name')
-        // ->get();
+    }
 
-       
-        // Excel::create('New file', function($excel) {
+    public function rekap_pak_tahunan()
+    {
+        
+        
+        $data = DB::table('users')
+        ->join('dupaks', 'users.id', '=', 'dupaks.user_id')
+        ->join('berita_acaras', 'berita_acaras.dupak_id', '=', 'dupaks.id')
+        ->join('biodatas', 'biodatas.user_id', '=', 'users.id')
+        ->join('jabatans', 'jabatans.id', '=', 'biodatas.pangkat_golongan')
+        ->select( 'berita_acaras.*', 'users.name','pangkat','jabatan','jabatans.id as idj','dupaks.id as dupak_id','biodatas.pangkat_golongan as pangkat_golongan')
+        ->where('biodatas.karsu', 'PAK TAHUNAN')
+        ->orderBy('users.name','asc')
+        // ->groupBy('users.name')
+        ->get();
 
-        //     $excel->sheet('New sheet', function($sheet) {
-        
-        //         $sheet->loadView('dupaks_penilai.scrap_rekap', [
-        //                                                 'data' => $data,
-        //                                                 ]);
-        
-        //     })->export('xls');
-        
-        // });
-        
-        
-        // return view('dupaks_penilai.scrap_rekap', [
-        //                                     'data' => $data,
-        //                                     ]);
-        
+        return view('dupaks_penilai.rekap_tahunan', [
+                                            'data' => $data,
+                                            ]);
 
     }
 
+
+    public function scrap_rekap_tahunan()
+    {
+        return Excel::download(new RekapExportTahunan, 'RekapExport.xlsx');
+    }
 
 }
