@@ -277,34 +277,34 @@ class PenilaiDupakController extends Controller
         
         $users = \App\User::find($dupak->user_id);
 
-        // $text = "Halo, ".$users->name."\n"
-        //     . "Berkas usulan anda sudah dinilai \n"
-        //     . "Terimakasih sudah menggunakan Aplikasi E-Pak Guru\n"
-        //     . "Jika ada saran dan masukan untuk pengembangan aplikasi ini.. silahkan klik link berikut ini \n";
+        $text = "Halo, ".$users->name."\n"
+            . "Berkas usulan anda sudah dinilai \n"
+            . "Terimakasih sudah menggunakan Aplikasi E-Pak Guru\n"
+            . "Jika ada saran dan masukan untuk pengembangan aplikasi ini.. silahkan klik link berikut ini \n";
             
-        //     if(url('/') == 'http://localhost:8000'){
+            if(url('/') == 'http://localhost:8000'){
 
-        //         $keyboard = Keyboard::make()
-        //         ->inline()
-        //         ->row(
-        //             Keyboard::inlineButton(['text' => 'Saran Dan Masukan', 'url' => 'http://e-pak.smkn2malinau.sch.id' ]),
-        //             Keyboard::inlineButton(['text' => 'List Dupak', 'url' => 'http://e-pak.smkn2malinau.sch.id' ])
-        //         );
-        //     }else{
-        //         $keyboard = Keyboard::make()
-        //         ->inline()
-        //         ->row(
-        //             Keyboard::inlineButton(['text' => 'Saran Dan Masukan', 'url' => route('sarans.create') ]),
-        //             Keyboard::inlineButton(['text' => 'List Dupak', 'url' => route('dupaks.index') ])
-        //         );
-        //     }
+                $keyboard = Keyboard::make()
+                ->inline()
+                ->row(
+                    Keyboard::inlineButton(['text' => 'Saran Dan Masukan', 'url' => 'http://e-pak.smkn2malinau.sch.id' ]),
+                    Keyboard::inlineButton(['text' => 'List Dupak', 'url' => 'http://e-pak.smkn2malinau.sch.id' ])
+                );
+            }else{
+                $keyboard = Keyboard::make()
+                ->inline()
+                ->row(
+                    Keyboard::inlineButton(['text' => 'Saran Dan Masukan', 'url' => route('sarans.create') ]),
+                    Keyboard::inlineButton(['text' => 'List Dupak', 'url' => route('dupaks.index') ])
+                );
+            }
                 
-        //     Telegram::sendMessage([
-        //         'chat_id' => $telegram_id ,
-        //         'parse_mode' => 'HTML',
-        //         'reply_markup' => $keyboard,
-        //         'text' => $text,
-        //     ]);
+            Telegram::sendMessage([
+                'chat_id' => $telegram_id ,
+                'parse_mode' => 'HTML',
+                'reply_markup' => $keyboard,
+                'text' => $text,
+            ]);
 
             
             $details = [
