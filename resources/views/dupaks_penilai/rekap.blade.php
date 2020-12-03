@@ -272,26 +272,24 @@
                                                 
                                         @endif
                                     </td>
-                                    <td>
+                                    <td style="display:inline" class="row">
                                             {{
                                                 $data->penilai
                                             }}
+
+                                            @role('verifikator')
+                                                <form style="display:inline" enctype="multipart/form-data" class="form-horizontal"  action="{{ route('dupaks_penilai.cek_ok', Crypt::encrypt($data->dupak_id)) }}" method="POST">
+                                                @csrf
+                                                    <input type="hidden" value="PUT" name="_method">
+                                                    <button class="material-icons icon-image-preview btn-primary">done_outline</button>
+                                                </form>
+                                                <form style="display:inline" enctype="multipart/form-data" class="form-horizontal"  action="{{ route('dupaks_penilai.cek_fail', Crypt::encrypt($data->dupak_id)) }}" method="POST">
+                                                @csrf
+                                                    <input type="hidden" value="PUT" name="_method">
+                                                    <button class="material-icons icon-image-preview btn-danger">clear</button>
+                                                </form>
+                                            @endrole
                                     </td>
-                                        
-                                    @role('verifikator')
-                                    <td>
-                                        <form enctype="multipart/form-data" class="form-horizontal"  action="{{ route('dupaks_penilai.cek_ok', Crypt::encrypt($data->dupak_id)) }}" method="POST">
-                                        @csrf
-                                            <input type="hidden" value="PUT" name="_method">
-                                            <button class="material-icons icon-image-preview btn-primary">done_outline</button>
-                                        </form>
-                                        <form enctype="multipart/form-data" class="form-horizontal"  action="{{ route('dupaks_penilai.cek_fail', Crypt::encrypt($data->dupak_id)) }}" method="POST">
-                                        @csrf
-                                            <input type="hidden" value="PUT" name="_method">
-                                            <button class="material-icons icon-image-preview btn-danger">clear</button>
-                                        </form>
-                                    </td>
-                                    @endrole
                                 </tr>
                                 @endforeach 
                                 
