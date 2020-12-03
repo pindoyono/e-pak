@@ -445,14 +445,15 @@
                                 <div class="ripple-container"></div>
                         </a>
                     </div> -->
-                    
-                    <div class="col-sm-3">
-                        <button type="submit"  class="btn btn-info btn-round">
-                            <i class="fas fa-save"></i> Simpan
-                            <div class="ripple-container"></div>
-                        </button>
-                    </div>
-                    
+                        @if( $berita_acara->nip_penilai == Auth::user()->nip )
+                                                    
+                        <div class="col-sm-3">
+                            <button type="submit"  class="btn btn-info btn-round">
+                                <i class="fas fa-save"></i> Simpan
+                                <div class="ripple-container"></div>
+                            </button>
+                        </div>
+                        @endif
                     @else
                     <div class="col-sm-3">
                    
