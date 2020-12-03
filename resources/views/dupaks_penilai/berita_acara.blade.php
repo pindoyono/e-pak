@@ -158,7 +158,7 @@
                                     <td width="2%" >1</td>
                                     <td> <b>Unsur Utama</b></td>
                                     <td ></td>
-                                    <td> {{ $berita_acara->dasus }} </td>
+                                    <td><input  step="any" type="number" value={{  $berita_acara->dasus }} name="dasus" id="dasus" class="form-control" min="0" placeholder="LAMA" required /></td>
                                     <td> {{ $berita_acara->dasus }} </td>
                                 </tr>
                                 <tr>
