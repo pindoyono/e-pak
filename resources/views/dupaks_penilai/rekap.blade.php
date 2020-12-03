@@ -60,6 +60,13 @@
                                 <tr>
                                     <td> {{$key+1}}</td>
                                     <td>
+                                        @if($data->cek == 'OK')
+                                            <button class="material-icons icon-image-preview btn-primary">done_outline</button>
+                                        @elseif($data->cek == 'FAIL')
+                                            <button class="material-icons icon-image-preview btn-danger">clear</button>
+                                        @endif
+                                    </td>
+                                    <td>
                                             <a target="_blank" href="{{route('dupaks_penilai.createPDF', Crypt::encrypt($data->dupak_id))}}">
                                                 {{$data->name}}
                                             </a>
@@ -269,6 +276,21 @@
                                                 $data->penilai
                                             }}
                                     </td>
+                                        
+                                    @role('verifikator')
+                                    <td>
+                                        <form enctype="multipart/form-data" class="form-horizontal"  action="{{ route('dupaks_penilai.cek_ok', Crypt::encrypt($data->dupak_id)) }}" method="POST">
+                                        @csrf
+                                            <input type="hidden" value="PUT" name="_method">
+                                            <button class="material-icons icon-image-preview btn-primary">done_outline</button>
+                                        </form>
+                                        <form enctype="multipart/form-data" class="form-horizontal"  action="{{ route('dupaks_penilai.cek_fail', Crypt::encrypt($data->dupak_id)) }}" method="POST">
+                                        @csrf
+                                            <input type="hidden" value="PUT" name="_method">
+                                            <button class="material-icons icon-image-preview btn-danger">clear</button>
+                                        </form>
+                                    </td>
+                                    @endrole
                                 </tr>
                                 @endforeach 
                                 

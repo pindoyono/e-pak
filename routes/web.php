@@ -58,7 +58,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/rekap_pak_tahunan', 'PenilaiDupakController@rekap_pak_tahunan')->name('dupaks_penilai.rekap_pak_tahunan')->middleware('role:guru|penilai|verifikator|super admin');
     Route::get('/scrap_rekap', 'PenilaiDupakController@scrap_rekap')->name('dupaks_penilai.scrap_rekap')->middleware('role:guru|penilai|verifikator|super admin');
     Route::get('/scrap_rekap_tahunan', 'PenilaiDupakController@scrap_rekap_tahunan')->name('dupaks_penilai.scrap_rekap_tahunan')->middleware('role:guru|penilai|verifikator|super admin');
-
+    Route::put('/cek_ok/{id}', 'PenilaiDupakController@cek_ok')->name('dupaks_penilai.cek_ok')->middleware('role:guru|penilai|verifikator|super admin');
+    Route::put('/cek_fail/{id}', 'PenilaiDupakController@cek_fail')->name('dupaks_penilai.cek_fail')->middleware('role:guru|penilai|verifikator|super admin');
+    
     Route::get('/bukti/{id}', 'BerkasController@bukti')->name('berkas.bukti')->middleware('role:guru|penilai|verifikator');
     Route::put('/berkas/simpan/{id}', 'BerkasController@simpan')->name('berkas.simpan')->middleware('role:guru|penilai|verifikator');
     Route::get('/berkas/buat/{id}','BerkasController@buat')->name('berkas.buat')->middleware('role:guru|penilai|verifikator');

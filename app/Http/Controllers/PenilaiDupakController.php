@@ -603,7 +603,7 @@ class PenilaiDupakController extends Controller
         ->join('berita_acaras', 'berita_acaras.dupak_id', '=', 'dupaks.id')
         ->join('biodatas', 'biodatas.user_id', '=', 'users.id')
         ->join('jabatans', 'jabatans.id', '=', 'biodatas.pangkat_golongan')
-        ->select( 'berita_acaras.*', 'users.name','pangkat','jabatan','jabatans.id as idj','dupaks.id as dupak_id','biodatas.pangkat_golongan as pangkat_golongan')
+        ->select( 'berita_acaras.*', 'berita_acaras.id as baid', 'users.name','pangkat','jabatan','jabatans.id as idj','dupaks.id as dupak_id','biodatas.pangkat_golongan as pangkat_golongan')
         ->where('biodatas.karsu', 'KENAIKAN PANGKAT')
         ->orderBy('users.name','asc')
         // ->groupBy('users.name')
@@ -650,4 +650,25 @@ class PenilaiDupakController extends Controller
         return Excel::download(new RekapExportTahunan, 'RekapExport.xlsx');
     }
 
+    public function cek_ok($id)
+    {
+        $id = Crypt::decrypt($id); 
+        $dupak = \App\Dupak::where('id', $id )->first();
+        $data = \App\BeritaAcara::where('dupak_id', $id)->first();
+        $data->cek = 'OK';
+        $data->update();
+        return redirect()->route( 'dupaks_penilai.rekap')->with('toast_success', 'Task chek Successfully!');
+        
+    }
+    
+    public function cek_fail($id)
+    {
+        $id = Crypt::decrypt($id); 
+        $dupak = \App\Dupak::where('id', $id )->first();
+        $data = \App\BeritaAcara::where('dupak_id', $id)->first();
+        $data->cek = 'FAIL';
+        $data->update();
+        return redirect()->route( 'dupaks_penilai.rekap')->with('toast_success', 'Task chek Successfully!');
+
+    }
 }
