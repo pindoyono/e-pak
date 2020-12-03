@@ -47,6 +47,7 @@
                                     <label class="control-label"></label>
                                     <select class="js-example-basic-single form-control"  width="70%" name="jabatan" >
                                         <option value="">Pilih Jabatan</option>
+                                        <option value="Guru">Guru</option>
                                         <option value="Guru Pertama">Guru Pertama</option>
                                         <option value="Guru Muda">Guru Muda</option>
                                         <option value="Guru Madya">Guru Madya</option>
