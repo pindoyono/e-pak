@@ -596,8 +596,6 @@ class PenilaiDupakController extends Controller
 
     public function rekap()
     {
-        
-        
         $data = DB::table('users')
         ->join('dupaks', 'users.id', '=', 'dupaks.user_id')
         ->join('berita_acaras', 'berita_acaras.dupak_id', '=', 'dupaks.id')
@@ -605,7 +603,7 @@ class PenilaiDupakController extends Controller
         ->join('jabatans', 'jabatans.id', '=', 'biodatas.pangkat_golongan')
         ->select( 'berita_acaras.*', 'berita_acaras.id as baid', 'users.name','pangkat','jabatan','jabatans.id as idj','dupaks.id as dupak_id','biodatas.pangkat_golongan as pangkat_golongan')
         ->where('biodatas.karsu', 'KENAIKAN PANGKAT')
-        ->orderBy('users.name','asc')
+        ->orderBy('berita_acaras.cek','asc')
         // ->groupBy('users.name')
         ->get();
 
