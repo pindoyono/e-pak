@@ -11,7 +11,7 @@
                 <div class="card-header card-header-icon" data-background-color="rose">
                     <i class="material-icons"><i class="fas fa-chart-line"></i></i>
                 </div>
-                <h2 class="card-title"> Rekap Kenaikan Pangkat</h2>
+                <h2 class="card-title"> Rekap PAK Tahunan</h2>
                 <div class="card-content">
                     @if(count($errors) > 0)
                         <div class="alert alert-danger">
