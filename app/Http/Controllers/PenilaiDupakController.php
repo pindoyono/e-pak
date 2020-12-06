@@ -568,7 +568,7 @@ class PenilaiDupakController extends Controller
         ->select( '*', 'penolakans.id as idp')
         ->get();
         
-        $lampirans = \App\lampiran::get();
+        $lampirans = \App\Lampiran::get();
         return view('dupaks_penilai.l2pkb', [
                                             'id' => $id,
                                             'data' => $data,
