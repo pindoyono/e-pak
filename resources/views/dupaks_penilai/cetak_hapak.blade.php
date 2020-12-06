@@ -23,12 +23,12 @@ table {
         <!-- TAHUN {{tgl_indo_tahun($dupak->awal)}} -->
     </h3>
     
-    <div style="font-size:12; text-align:left">
+    <div style="font-size:12; text-align:justify">
         Pada hari Ini {{ hari_ini().", ".tgl_indo($now)}} bertempat di Kantor Cabang Dinas Pendidikan Dan Kebudayaan Provinsi Kalimantan Utara
         Wilayah Malinau dan Tana Tidung di Malinau telah dilakukan penilaian terhadap usulan penilaian angka kredit jabatan fungsional guru dengan hasil sebagai berikut:
     </div>
     <table>
-        <tbody style="font-size:11">
+        <tbody style="font-size:11;">
             <tr>
             <td colspan=4 style="font-size:8; text-align:left">
                 Instansi : Dinas Pendidikan dan Kebudayaan Provinsi Kalimantan Utara      
@@ -123,7 +123,7 @@ table {
                 <td colspan=3> <b>Daerah Khusus</b></td>
                 <td> <b>    </b></td>
                 <td> <b>    </b></td>
-                <td> <b>  {{ $berita_acara->dasus }} </b></td>
+                <td style="text-align:right"> <b>  {{ $berita_acara->dasus }} </b></td>
             </tr>
             <tr>
                 <td width="5%" rowspan="20"></td>
@@ -142,15 +142,15 @@ table {
             </tr>
             <tr>
                 <td colspan="3">1) Pendidikan sekolah dan memperoleh gelar ijazah </td>
-                <td>{{ json_decode($berita_acara->pendidikan)->lama }}</td>
-                <td>{{ json_decode($berita_acara->pendidikan)->baru }}</td>
-                <td>{{ json_decode($berita_acara->pendidikan)->total }}</td>
+                <td style="text-align:right" >{{ number_format(json_decode($berita_acara->pendidikan)->lama,3) }}</td>
+                <td style="text-align:right" >{{ number_format(json_decode($berita_acara->pendidikan)->baru,3) }}</td>
+                <td style="text-align:right" >{{ number_format(json_decode($berita_acara->pendidikan)->total,3) }}</td>
             </tr>
             <tr>
                 <td colspan="3">2) Mengikuti pelatihan prajabatan</td>
-                <td>{{ json_decode($berita_acara->prajabatan)->lama }}</td>
-                <td>{{ json_decode($berita_acara->prajabatan)->baru }}</td>
-                <td>{{ json_decode($berita_acara->prajabatan)->total }}</td>
+                <td style="text-align:right" >{{ number_format(json_decode($berita_acara->prajabatan)->lama,3) }}</td>
+                <td style="text-align:right" >{{ number_format(json_decode($berita_acara->prajabatan)->baru,3) }}</td>
+                <td style="text-align:right" >{{ number_format(json_decode($berita_acara->prajabatan)->total,3) }}</td>
             </tr>
             <tr>
                 <td colspan="3">b. Pembelajaran /  bimbingan dan tugas tertentu</td>
@@ -160,21 +160,21 @@ table {
             </tr>
             <tr>
                 <td colspan="3">    1) Proses pembelajaran	</td>
-                <td>{{ json_decode($berita_acara->pembelajaran)->lama }}</td>
-                <td>{{ json_decode($berita_acara->pembelajaran)->baru }}</td>
-                <td>{{ json_decode($berita_acara->pembelajaran)->total }}</td>   
+                <td style="text-align:right" >{{ number_format(json_decode($berita_acara->pembelajaran)->lama,3) }}</td>
+                <td style="text-align:right" >{{ number_format(json_decode($berita_acara->pembelajaran)->baru,3) }}</td>
+                <td style="text-align:right" >{{ number_format(json_decode($berita_acara->pembelajaran)->total,3) }}</td>   
             </tr>
             <tr>
                 <td colspan="3">    2) Proses bimbingan	</td>
-                <td>{{ json_decode($berita_acara->bimbingan)->lama }}</td>
-                <td>{{ json_decode($berita_acara->bimbingan)->baru }}</td>
-                <td>{{ json_decode($berita_acara->bimbingan)->total }}</td>
+                <td style="text-align:right" >{{ number_format(json_decode($berita_acara->bimbingan)->lama,3) }}</td>
+                <td style="text-align:right" >{{ number_format(json_decode($berita_acara->bimbingan)->baru,3) }}</td>
+                <td style="text-align:right" >{{ number_format(json_decode($berita_acara->bimbingan)->total,3) }}</td>
             </tr>
             <tr>
                 <td colspan="3">    3) Tugas lain yang relevan</td>
-                <td>{{ json_decode($berita_acara->tugas_lain)->lama }}</td>
-                <td>{{ json_decode($berita_acara->tugas_lain)->baru }}</td>
-                <td>{{ json_decode($berita_acara->tugas_lain)->total }}</td>
+                <td style="text-align:right" >{{ number_format(json_decode($berita_acara->tugas_lain)->lama,3) }}</td>
+                <td style="text-align:right" >{{ number_format(json_decode($berita_acara->tugas_lain)->baru,3) }}</td>
+                <td style="text-align:right" >{{ number_format(json_decode($berita_acara->tugas_lain)->total,3) }}</td>
             </tr>
             <tr>
                 <td colspan="3">c. Pengembangan Keprofesian</td>
@@ -184,27 +184,28 @@ table {
             </tr>
             <tr>
                 <td colspan="3"> 1) Pengembangan diri</td>
-                <td>{{ json_decode($berita_acara->pd)->lama }}</td>
-                <td>{{ json_decode($berita_acara->pd)->baru }}</td>
-                <td>{{ json_decode($berita_acara->pd)->total }}</td>
+                <td style="text-align:right" >{{ number_format(json_decode($berita_acara->pd)->lama,3) }}</td>
+                <td style="text-align:right" >{{ number_format(json_decode($berita_acara->pd)->baru,3) }}</td>
+                <td style="text-align:right" >{{ number_format(json_decode($berita_acara->pd)->total,3) }}</td>
             </tr>
             <tr>
                 <td colspan="3">2) Publikasi ilmiah</td>
-                <td>{{ json_decode($berita_acara->pi)->lama }}</td>
-                <td>{{ json_decode($berita_acara->pi)->baru }}</td>
-                <td>{{ json_decode($berita_acara->pi)->total }}</td>
+                <td style="text-align:right" >{{ number_format(json_decode($berita_acara->pi)->lama,3) }}</td>
+                <td style="text-align:right" >{{ number_format(json_decode($berita_acara->pi)->baru,3) }}</td>
+                <td style="text-align:right" >{{ number_format(json_decode($berita_acara->pi)->total,3) }}</td>
             </tr>
             <tr>
                 <td colspan="3">  3) Karya Inovatif</td>
-                <td>{{ json_decode($berita_acara->ki)->lama }}</td>
-                <td>{{ json_decode($berita_acara->ki)->baru }}</td>
-                <td>{{ json_decode($berita_acara->ki)->total }}</td>
+                <td style="text-align:right" >{{ number_format(json_decode($berita_acara->ki)->lama,3) }}</td>
+                <td style="text-align:right" >{{ number_format(json_decode($berita_acara->ki)->baru,3) }}</td>
+                <td style="text-align:right" >{{ number_format(json_decode($berita_acara->ki)->total,3) }}</td>
             </tr>
             <tr>
                 <td colspan="3"> <b>Jumlah Unsur Utama</b></td>
-                <td> 
+                <td style="text-align:right"> 
                     <b>
                         {{
+                            number_format(
                             json_decode($berita_acara->pendidikan)->lama + 
                             json_decode($berita_acara->prajabatan)->lama  +
                             json_decode($berita_acara->pembelajaran)->lama +
@@ -212,13 +213,14 @@ table {
                             json_decode($berita_acara->tugas_lain)->lama +
                             json_decode($berita_acara->pd)->lama +
                             json_decode($berita_acara->pi)->lama +
-                            json_decode($berita_acara->ki)->lama
+                            json_decode($berita_acara->ki)->lama,3)
                         }}
                     </b>
                 </td>
-                <td>
+                <td style="text-align:right">
                     <b>
                         {{
+                            number_format(
                             json_decode($berita_acara->pendidikan)->baru + 
                             json_decode($berita_acara->prajabatan)->baru  +
                             json_decode($berita_acara->pembelajaran)->baru +
@@ -226,13 +228,14 @@ table {
                             json_decode($berita_acara->tugas_lain)->baru +
                             json_decode($berita_acara->pd)->baru +
                             json_decode($berita_acara->pi)->baru +
-                            json_decode($berita_acara->ki)->baru
+                            json_decode($berita_acara->ki)->baru,3)
                         }}
                     </b>
                 </td>
-                <td>
+                <td style="text-align:right">
                     <b>
                         {{
+                            number_format(
                             json_decode($berita_acara->pendidikan)->total + 
                             json_decode($berita_acara->prajabatan)->total  +
                             json_decode($berita_acara->pembelajaran)->total +
@@ -240,7 +243,7 @@ table {
                             json_decode($berita_acara->tugas_lain)->total +
                             json_decode($berita_acara->pd)->total +
                             json_decode($berita_acara->pi)->total +
-                            json_decode($berita_acara->ki)->total
+                            json_decode($berita_acara->ki)->total,3)
                         }}
                     </b>
                     </td>
@@ -255,47 +258,48 @@ table {
             <tr>
                 <td width="2%" rowspan="12"></td>
                 <td colspan="3">1. Ijazah yang tidak sesuai</td>
-                <td>{{ json_decode($berita_acara->ijazah_tdk_sesuai)->lama }}</td>
-                <td>{{ json_decode($berita_acara->ijazah_tdk_sesuai)->baru }}</td>
-                <td>{{ json_decode($berita_acara->ijazah_tdk_sesuai)->total }}</td>
+                <td style="text-align:right" >{{ number_format(json_decode($berita_acara->ijazah_tdk_sesuai)->lama,3) }}</td>
+                <td style="text-align:right" >{{ number_format(json_decode($berita_acara->ijazah_tdk_sesuai)->baru,3) }}</td>
+                <td style="text-align:right" >{{ number_format(json_decode($berita_acara->ijazah_tdk_sesuai)->total,3) }}</td>
             </tr>
             <tr>
                 <td colspan="3">2. Pendukung tugas guru</td>
-                <td>{{ json_decode($berita_acara->pendukung)->lama }}</td>
-                <td>{{ json_decode($berita_acara->pendukung)->baru }}</td>
-                <td>{{ json_decode($berita_acara->pendukung)->total }}</td>
+                <td style="text-align:right" >{{ number_format(json_decode($berita_acara->pendukung)->lama,3) }}</td>
+                <td style="text-align:right" >{{ number_format(json_decode($berita_acara->pendukung)->baru,3) }}</td>
+                <td style="text-align:right" >{{ number_format(json_decode($berita_acara->pendukung)->total,3) }}</td>
             </tr>
             <tr>
                 <td colspan="3"><b>Jumlah Unsur Penunjang	</b></td>
-                <td>
+                <td style="text-align:right">
                     <b>
                         {{
-                            json_decode($berita_acara->ijazah_tdk_sesuai)->lama +
-                            json_decode($berita_acara->pendukung)->lama
+                            number_format(json_decode($berita_acara->ijazah_tdk_sesuai)->lama +
+                            json_decode($berita_acara->pendukung)->lama,3)
                         }}
                     </b>
                 </td>
-                <td>
+                <td style="text-align:right">
                     <b>
                         {{
-                            json_decode($berita_acara->ijazah_tdk_sesuai)->baru +
-                            json_decode($berita_acara->pendukung)->baru
+                            number_format(json_decode($berita_acara->ijazah_tdk_sesuai)->baru +
+                            json_decode($berita_acara->pendukung)->baru,3)
                         }}
                     </b>
                 </td> 
-                <td>
+                <td style="text-align:right">
                     <b>
                         {{
-                            json_decode($berita_acara->ijazah_tdk_sesuai)->total +
-                            json_decode($berita_acara->pendukung)->total
+                            number_format(json_decode($berita_acara->ijazah_tdk_sesuai)->total +
+                            json_decode($berita_acara->pendukung)->total,3)
                         }}
                     </b>
                 </td>
             </tr>
             <td colspan="3"><b> Total AK</b></td>
-                <td>
+                <td style="text-align:right">
                     <b>
                         {{
+                            number_format(
                             json_decode($berita_acara->ijazah_tdk_sesuai)->lama +
                             json_decode($berita_acara->pendukung)->lama +
 
@@ -307,18 +311,16 @@ table {
                             json_decode($berita_acara->tugas_lain)->lama +
                             json_decode($berita_acara->pd)->lama +
                             json_decode($berita_acara->pi)->lama +
-                            json_decode($berita_acara->ki)->lama
+                            json_decode($berita_acara->ki)->lama,3)
                         }}
                     </b>
                 </td>
-                <td>
+                <td style="text-align:right">
                     <b>
                         {{
+                            number_format(
                             json_decode($berita_acara->ijazah_tdk_sesuai)->baru +
                             json_decode($berita_acara->pendukung)->baru +
-
-
-
                             json_decode($berita_acara->pendidikan)->baru + 
                             json_decode($berita_acara->prajabatan)->baru  +
                             json_decode($berita_acara->pembelajaran)->baru +
@@ -327,15 +329,16 @@ table {
                             json_decode($berita_acara->pd)->baru +
                             json_decode($berita_acara->pi)->baru +
                             json_decode($berita_acara->ki)->baru
+                            ,3)
                         }}
                     </b>
                 </td> 
-                <td>
+                <td style="text-align:right">
                     <b>
                         {{
+                            number_format(
                             json_decode($berita_acara->ijazah_tdk_sesuai)->total +
                             json_decode($berita_acara->pendukung)->total +
-
 
                             json_decode($berita_acara->pendidikan)->total + 
                             json_decode($berita_acara->prajabatan)->total  +
@@ -346,7 +349,7 @@ table {
                             json_decode($berita_acara->pi)->total +
                             json_decode($berita_acara->ki)->total +
 
-                            $berita_acara->dasus
+                            $berita_acara->dasus,3)
 
                         }}
                     </b>
@@ -391,10 +394,11 @@ table {
         </thead>
         <tbody>
            
-            <tr>
+            <tr >
                 <td><b> AK yg diperoleh </b></td>
-                <td>
+                <td style="text-align:right">
                     {{
+                        number_format(
                             json_decode($berita_acara->ijazah_tdk_sesuai)->total +
                             json_decode($berita_acara->pendukung)->total +
 
@@ -409,82 +413,180 @@ table {
                             json_decode($berita_acara->ki)->total +
 
                             $berita_acara->dasus
+                            ,3)
 
                         }}
                 </td>
-                <td>
+                <td style="text-align:right">
                       {{
-                        json_decode($berita_acara->pd)->total
+                        number_format(
+                        json_decode($berita_acara->pd)->total,3)
                       }}
                 </td>
-                <td>
+                <td style="text-align:right">
                     {{ 
+                        number_format(
                         json_decode($berita_acara->pi)->total +
-                        json_decode($berita_acara->ki)->total 
+                        json_decode($berita_acara->ki)->total ,3)
                     
                     }}
                 </td>
-                <td>
-                        
+                <td style="text-align:right">
+                        {{
+                            number_format(
+                            json_decode($berita_acara->pendidikan)->total + 
+                            json_decode($berita_acara->prajabatan)->total  +
+                            json_decode($berita_acara->pembelajaran)->total +
+                            json_decode($berita_acara->bimbingan)->total +
+                            json_decode($berita_acara->tugas_lain)->total +
+                            json_decode($berita_acara->pd)->total +
+                            json_decode($berita_acara->pi)->total +
+                            json_decode($berita_acara->ki)->total +
+
+                            $berita_acara->dasus
+                            ,3)
+
+                        }}
                 </td>
-                <td>
+                <td style="text-align:right">
+                        {{
+                            number_format(
+                            json_decode($berita_acara->ijazah_tdk_sesuai)->total +
+                            json_decode($berita_acara->pendukung)->total
+                            ,3)
+
+                        }}
                         
                 </td>
             </tr>
             <tr>
                 <td><b> AK yg wajib di peroleh</b></td>
-                <td>
-                     {{ check_jabatan($biodatas->pangkat_golongan , 'target') }}
+                <td style="text-align:right">
+                     {{  number_format(check_jabatan($biodatas->pangkat_golongan , 'akk'),3) }}
                 </td>
-                <td>
-                    {{ check_jabatan($biodatas->pangkat_golongan , 'akpkbpd') }}
+                <td style="text-align:right">
+                    {{ number_format(check_jabatan($biodatas->pangkat_golongan , 'akpkbpd'),3) }}
                 </td>
-                <td>
-                {{ check_jabatan($biodatas->pangkat_golongan , 'akpkbpiki') }} 
+                <td style="text-align:right">
+                    {{ number_format(check_jabatan($biodatas->pangkat_golongan , 'akpkbpiki'),3) }} 
                 </td>
-                <td>
-                {{ check_jabatan($biodatas->pangkat_golongan , 'target')*90/100 }}   
+                <td style="text-align:right">
+                    {{ number_format(check_jabatan($biodatas->pangkat_golongan , 'akk')*90/100,3) }}   
                 </td>
-                <td>
-                {{ check_jabatan($biodatas->pangkat_golongan , 'target')*10/100 }}
+                <td style="text-align:right">
+                    {{ number_format(check_jabatan($biodatas->pangkat_golongan , 'akk')*10/100,3) }}
                 </td>
             </tr>
             <tr>
                 <td> <b>Kelebihan / Kekurangan </b></td>
-                <td>
+                <td style="text-align:right">
+                        {{
+                            number_format(
+                            (json_decode($berita_acara->ijazah_tdk_sesuai)->total +
+                            json_decode($berita_acara->pendukung)->total +
+
+
+                            json_decode($berita_acara->pendidikan)->total + 
+                            json_decode($berita_acara->prajabatan)->total  +
+                            json_decode($berita_acara->pembelajaran)->total +
+                            json_decode($berita_acara->bimbingan)->total +
+                            json_decode($berita_acara->tugas_lain)->total +
+                            json_decode($berita_acara->pd)->total +
+                            json_decode($berita_acara->pi)->total +
+                            json_decode($berita_acara->ki)->total +
+
+                            $berita_acara->dasus)
+                            -
+                            check_jabatan($biodatas->pangkat_golongan , 'akk') 
+                            ,3)
+
+
+                        }}
+                </td>
+                <td style="text-align:right">
+                        {{
+                            number_format(json_decode($berita_acara->pd)->total - check_jabatan($biodatas->pangkat_golongan , 'akpkbpd'),3)
+                        }}
                       
                 </td>
-                <td>
-                      
+                <td style="text-align:right">
+                    {{
+                        number_format(
+                        (json_decode($berita_acara->pi)->total +
+                        json_decode($berita_acara->ki)->total)
+                        -
+                        check_jabatan($biodatas->pangkat_golongan , 'akpkbpiki')
+                        ,3)
+                    }}   
                 </td>
-                <td>
-                       
-                </td>
-                <td>
+                <td style="text-align:right">
+                    {{
+                        number_format(
+                            (json_decode($berita_acara->pendidikan)->total + 
+                            json_decode($berita_acara->prajabatan)->total  +
+                            json_decode($berita_acara->pembelajaran)->total +
+                            json_decode($berita_acara->bimbingan)->total +
+                            json_decode($berita_acara->tugas_lain)->total +
+                            json_decode($berita_acara->pd)->total +
+                            json_decode($berita_acara->pi)->total +
+                            json_decode($berita_acara->ki)->total +
+
+                            $berita_acara->dasus)
+                            -
+                            (check_jabatan($biodatas->pangkat_golongan , 'akk')*90/100)
+                            ,3)
+
+                    }}
                         
                 </td>
-                <td>
-                        
+                <td style="text-align:right">
+                        {{
+                            number_format(
+                            (json_decode($berita_acara->ijazah_tdk_sesuai)->total +
+                            json_decode($berita_acara->pendukung)->total)
+                            -
+                            (check_jabatan($biodatas->pangkat_golongan , 'akk')*10/100)
+                            ,3)
+                        }}
                 </td>
             </tr>
         </tbody>
     </table>
-    <div style="text-align:left;margin-top:100px">
+    <div style="text-align:left;margin-top:10px">
         <div>
             <label for="catatan">
                 <h1>Catatan Perbaikan</h1>
             </label>
         </div>
         <div>
-            @if(!empty($berita_acara->catatan))
-                <textarea name="catatan" id="" cols="210" rows="10">{{$berita_acara->catatan}}</textarea>
-            @else
-                <textarea name="catatan" id="" cols="210" rows="10"></textarea>
-            @endif
+        <table style="font-size:10">
+        <thead >
+            <tr>
+               <td>No</td>
+               <td>Sub Unsur yang Dinilai</td>
+               <td>Jenis Dokumen/Judul</td>
+               <td>Alasan Belum memenuhi Syarat</td>
+               <td>Saran</td>
+            </tr>
+        </thead>
+        <tbody>
+                @foreach($lampirans as $key => $lampiran)
+                    <tr>
+                        <td>{{$key + 1}}</td>
+                        <td>{{$lampiran->kode}}</td>
+                        <td>{{$lampiran->judul}}</td>
+                        <td>{{$lampiran->diskripsi}}</td>
+                        <td>{{$lampiran->saran}}</td>
+                    </tr>
+                @endforeach 
+        </tbody>
+    </table>
         </div>
     </div>
 
     <div style="text-align:left;padding-left:70%">
+    <br>
+    <br>
                             @if(!empty($berita_acara->created_at))
                                 Malinau, {{tgl_indo( customTanggal1($berita_acara->created_at,"Y-m-d") )}}
                             @else

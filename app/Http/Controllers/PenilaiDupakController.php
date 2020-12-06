@@ -531,6 +531,12 @@ class PenilaiDupakController extends Controller
         $now = date('Y-m-d');
         $berita_acara = \App\Hapak::where('dupak_id', $id)->first();
 
+        $lampirans = DB::table('penolakans')
+        ->join('lampirans', 'lampirans.id', '=', 'penolakans.lampiran_id')
+        ->where('berkas_id', $id)
+        ->get();
+
+
         $pdf = \PDF::loadView('dupaks_penilai.cetak_hapak', ['berita_acara' => $berita_acara,
                                                                     'dupak' => $dupak,
                                                                     'biodatas' => $biodatas,
@@ -539,6 +545,7 @@ class PenilaiDupakController extends Controller
                                                                     'kepegawaians' => $kepegawaians,
                                                                     'dupak_id' => $id,
                                                                     'berkas' => $berkas,
+                                                                    'lampirans' => $lampirans,
                                                                     ]
                                                                 );
         $pdf->setPaper('F4', 'potrait');

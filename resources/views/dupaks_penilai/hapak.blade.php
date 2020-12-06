@@ -491,16 +491,16 @@
   
                         <div>
                             <div>
-                                <label for="catatan">
+                                <!-- <label for="catatan">
                                     <h1>Catatan Perbaikan</h1>
-                                </label>
+                                </label> -->
                             </div>
                             <div>
-                                @if(!empty($berita_acara->catatan))
+                                <!-- @if(!empty($berita_acara->catatan))
                                     <textarea name="catatan" id="" cols="140" rows="10">{{$berita_acara->catatan}}</textarea>
                                 @else
                                     <textarea name="catatan" id="" cols="140" rows="10"></textarea>
-                                @endif
+                                @endif -->
                             </div>
                         </div>
                         
@@ -526,29 +526,38 @@
                    
                     </div>
                     
-                   
+                    
                     
                     @else
-                    <div class="col-sm-3">
-                   
-                    </div>
                     
-                    <div class="col-sm-3">
+                    <!-- <div class="col-sm-3">
                         <button type="submit"  class="btn btn-info btn-round">
                             <i class="fas fa-save"></i> Simpan
                             <div class="ripple-container"></div>
                         </button>
-                    </div>
+                    </div> -->
                     @endif
 
                     @endif
+                    <div class="col-sm-8">
+                        <button type="submit"  class="btn btn-info btn-round">
+                            <i class="fas fa-save"></i> Simpan
+                            <div class="ripple-container"></div>
+                        </button>
                 </form>
-                    <div class="col-sm-2">
                     <a href="{{route('dupaks_penilai.index')}}" class="btn btn-rose btn-round">List Usulan <div class="ripple-container"></div></a>
+                    <a target="_blank" href="{{route('dupaks_penilai.lampiran', Crypt::encrypt($dupak->id))}}">
+                            <button class="btn btn-info btn-round">
+                                L2-PKB
+                            </button>
+                        </a>
                     </div>
 
                     <div class="col-sm-4">
                     <div class="col-sm-4">
+                    <div class="col-sm-3">
+                        
+                    </div>
                     </div>
                     <div class="col-sm-8">
 
