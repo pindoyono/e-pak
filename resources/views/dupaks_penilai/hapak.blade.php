@@ -546,12 +546,7 @@
                         </button>
                 </form>
                     <a href="{{route('dupaks_penilai.index')}}" class="btn btn-rose btn-round">List Usulan <div class="ripple-container"></div></a>
-                    <a target="_blank" href="{{route('dupaks_penilai.lampiran', Crypt::encrypt($dupak->id))}}">
-                            <button class="btn btn-info btn-round">
-                                L2-PKB
-                            </button>
-                        </a>
-                    </div>
+                    <a target="_blank" href="{{route('dupaks_penilai.lampiran', Crypt::encrypt($dupak->id))}}" class="btn btn-info btn-round">LP2-PKB <div class="ripple-container"></div></a>
 
                     <div class="col-sm-4">
                     <div class="col-sm-4">
