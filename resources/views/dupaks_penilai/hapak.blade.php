@@ -469,7 +469,7 @@
                                 </tr>
                                 <tr>
                                     <td><b> AK yg wajib di peroleh</b></td>
-                                        <td><b> <input name="akk_wajib" id="akk_wajib"  step="any" type="number" value="{{ check_jabatan($biodatas->pangkat_golongan , 'target') }}" class="form-control" min="0"  readonly /> </b></td>
+                                        <td><b> <input name="akk_wajib" id="akk_wajib"  step="any" type="number" value="{{ check_jabatan($biodatas->pangkat_golongan , 'akk') }}" class="form-control" min="0"  readonly /> </b></td>
                                         <td><b> <input name="akk_wajib_pd" id="akk_wajib_pd" step="any" type="number" value="{{ check_jabatan($biodatas->pangkat_golongan , 'akpkbpd') }}" class="form-control" min="0"  readonly /> </b></td>
                                         <td><b> <input name="akk_wajib_pi" id="akk_wajib_pi" step="any" type="number" value="{{ check_jabatan($biodatas->pangkat_golongan , 'akpkbpiki') }}" class="form-control" min="0"  readonly /> </b></td>
                                         <td><b> <input name="akk_wajib_90" id="akk_wajib_90" step="any" type="number" value="{{ check_jabatan($biodatas->pangkat_golongan , 'akk')*90/100 }}" class="form-control" min="0"  readonly /> </b></td>
