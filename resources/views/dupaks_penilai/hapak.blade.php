@@ -682,7 +682,7 @@
                $('#total_baru').val(total_utama_baru + total_penunjang_baru);
                $('#total_semua').val(total_utama_semua + total_penunjang_semua);
 
-               $('#akk_diperoleh').val(total_utama_semua + total_penunjang_semua);
+               $('#akk_diperoleh').val(total_utama_baru + total_penunjang_baru);
                $('#akk_diperoleh_pd').val(value2e);
                $('#akk_diperoleh_pi').val(value2f + value2g);
                $('#akk_diperoleh_90').val(total_utama_baru);
