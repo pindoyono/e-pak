@@ -682,7 +682,7 @@
                $('#total_baru').val(total_utama_baru + total_penunjang_baru);
                $('#total_semua').val(total_utama_semua + total_penunjang_semua);
 
-               $('#akk_diperoleh').val(total_utama_baru + total_penunjang_baru);
+               $('#akk_diperoleh').val(total_utama_baru + total_penunjang_baru + dasus);
                $('#akk_diperoleh_pd').val(value2e);
                $('#akk_diperoleh_pi').val(value2f + value2g);
                $('#akk_diperoleh_90').val(total_utama_baru);
@@ -741,12 +741,6 @@
                $('#total_lama').val(total_utama_lama + total_penunjang_lama);
                $('#total_baru').val(total_utama_baru + total_penunjang_baru);
                $('#total_semua').val(total_utama_semua + total_penunjang_semua);
-
-               $('#akk_diperoleh').val(total_utama_baru + total_penunjang_baru);
-               $('#akk_diperoleh_pd').val(value2e);
-               $('#akk_diperoleh_pi').val(value2f + value2g);
-               $('#akk_diperoleh_90').val(total_utama_baru);
-               $('#akk_diperoleh_10').val(total_penunjang_baru);
 
                var akk_diperoleh = parseFloat($('#akk_diperoleh').val()) || 0;
                var akk_diperoleh_pd = parseFloat($('#akk_diperoleh_pd').val()) || 0;
