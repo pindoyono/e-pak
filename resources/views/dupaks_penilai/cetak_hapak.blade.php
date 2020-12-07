@@ -113,9 +113,12 @@ table {
                 <td colspan=4>{{$biodatas->alamat}}</td>
             </tr>
 
-            <tr>
+            <tr style="text-align:center">
                 <td width="5%">II</td>
-                <td colspan=7> PENETAPAN ANGKA KREDIT</td>
+                <td colspan=4> PENETAPAN ANGKA KREDIT</td>
+                <td > LAMA</td>
+                <td > BARU</td>
+                <td > JUMLAH</td>
             </tr>
             <tr>
                 <td width="5%"></td>
@@ -399,18 +402,17 @@ table {
                 <td style="text-align:right">
                     {{
                         number_format(
-                            json_decode($berita_acara->ijazah_tdk_sesuai)->total +
-                            json_decode($berita_acara->pendukung)->total +
+                            json_decode($berita_acara->ijazah_tdk_sesuai)->baru +
+                            json_decode($berita_acara->pendukung)->baru +
 
-
-                            json_decode($berita_acara->pendidikan)->total + 
-                            json_decode($berita_acara->prajabatan)->total  +
-                            json_decode($berita_acara->pembelajaran)->total +
-                            json_decode($berita_acara->bimbingan)->total +
-                            json_decode($berita_acara->tugas_lain)->total +
-                            json_decode($berita_acara->pd)->total +
-                            json_decode($berita_acara->pi)->total +
-                            json_decode($berita_acara->ki)->total +
+                            json_decode($berita_acara->pendidikan)->baru + 
+                            json_decode($berita_acara->prajabatan)->baru  +
+                            json_decode($berita_acara->pembelajaran)->baru +
+                            json_decode($berita_acara->bimbingan)->baru +
+                            json_decode($berita_acara->tugas_lain)->baru +
+                            json_decode($berita_acara->pd)->baru +
+                            json_decode($berita_acara->pi)->baru +
+                            json_decode($berita_acara->ki)->baru +
 
                             $berita_acara->dasus
                             ,3)
@@ -420,28 +422,28 @@ table {
                 <td style="text-align:right">
                       {{
                         number_format(
-                        json_decode($berita_acara->pd)->total,3)
+                        json_decode($berita_acara->pd)->baru,3)
                       }}
                 </td>
                 <td style="text-align:right">
                     {{ 
                         number_format(
-                        json_decode($berita_acara->pi)->total +
-                        json_decode($berita_acara->ki)->total ,3)
+                        json_decode($berita_acara->pi)->baru +
+                        json_decode($berita_acara->ki)->baru ,3)
                     
                     }}
                 </td>
                 <td style="text-align:right">
                         {{
                             number_format(
-                            json_decode($berita_acara->pendidikan)->total + 
-                            json_decode($berita_acara->prajabatan)->total  +
-                            json_decode($berita_acara->pembelajaran)->total +
-                            json_decode($berita_acara->bimbingan)->total +
-                            json_decode($berita_acara->tugas_lain)->total +
-                            json_decode($berita_acara->pd)->total +
-                            json_decode($berita_acara->pi)->total +
-                            json_decode($berita_acara->ki)->total +
+                            json_decode($berita_acara->pendidikan)->baru + 
+                            json_decode($berita_acara->prajabatan)->baru  +
+                            json_decode($berita_acara->pembelajaran)->baru +
+                            json_decode($berita_acara->bimbingan)->baru +
+                            json_decode($berita_acara->tugas_lain)->baru +
+                            json_decode($berita_acara->pd)->baru +
+                            json_decode($berita_acara->pi)->baru +
+                            json_decode($berita_acara->ki)->baru +
 
                             $berita_acara->dasus
                             ,3)
@@ -451,8 +453,8 @@ table {
                 <td style="text-align:right">
                         {{
                             number_format(
-                            json_decode($berita_acara->ijazah_tdk_sesuai)->total +
-                            json_decode($berita_acara->pendukung)->total
+                            json_decode($berita_acara->ijazah_tdk_sesuai)->baru +
+                            json_decode($berita_acara->pendukung)->baru
                             ,3)
 
                         }}
@@ -482,18 +484,18 @@ table {
                 <td style="text-align:right">
                         {{
                             number_format(
-                            (json_decode($berita_acara->ijazah_tdk_sesuai)->total +
-                            json_decode($berita_acara->pendukung)->total +
+                            (json_decode($berita_acara->ijazah_tdk_sesuai)->baru +
+                            json_decode($berita_acara->pendukung)->baru +
 
 
-                            json_decode($berita_acara->pendidikan)->total + 
-                            json_decode($berita_acara->prajabatan)->total  +
-                            json_decode($berita_acara->pembelajaran)->total +
-                            json_decode($berita_acara->bimbingan)->total +
-                            json_decode($berita_acara->tugas_lain)->total +
-                            json_decode($berita_acara->pd)->total +
-                            json_decode($berita_acara->pi)->total +
-                            json_decode($berita_acara->ki)->total +
+                            json_decode($berita_acara->pendidikan)->baru + 
+                            json_decode($berita_acara->prajabatan)->baru  +
+                            json_decode($berita_acara->pembelajaran)->baru +
+                            json_decode($berita_acara->bimbingan)->baru +
+                            json_decode($berita_acara->tugas_lain)->baru +
+                            json_decode($berita_acara->pd)->baru +
+                            json_decode($berita_acara->pi)->baru +
+                            json_decode($berita_acara->ki)->baru +
 
                             $berita_acara->dasus)
                             -
@@ -512,8 +514,8 @@ table {
                 <td style="text-align:right">
                     {{
                         number_format(
-                        (json_decode($berita_acara->pi)->total +
-                        json_decode($berita_acara->ki)->total)
+                        (json_decode($berita_acara->pi)->baru +
+                        json_decode($berita_acara->ki)->baru)
                         -
                         check_jabatan($biodatas->pangkat_golongan , 'akpkbpiki')
                         ,3)
@@ -522,14 +524,14 @@ table {
                 <td style="text-align:right">
                     {{
                         number_format(
-                            (json_decode($berita_acara->pendidikan)->total + 
-                            json_decode($berita_acara->prajabatan)->total  +
-                            json_decode($berita_acara->pembelajaran)->total +
-                            json_decode($berita_acara->bimbingan)->total +
-                            json_decode($berita_acara->tugas_lain)->total +
-                            json_decode($berita_acara->pd)->total +
-                            json_decode($berita_acara->pi)->total +
-                            json_decode($berita_acara->ki)->total +
+                            (json_decode($berita_acara->pendidikan)->baru + 
+                            json_decode($berita_acara->prajabatan)->baru  +
+                            json_decode($berita_acara->pembelajaran)->baru +
+                            json_decode($berita_acara->bimbingan)->baru +
+                            json_decode($berita_acara->tugas_lain)->baru +
+                            json_decode($berita_acara->pd)->baru +
+                            json_decode($berita_acara->pi)->baru +
+                            json_decode($berita_acara->ki)->baru +
 
                             $berita_acara->dasus)
                             -
@@ -542,8 +544,8 @@ table {
                 <td style="text-align:right">
                         {{
                             number_format(
-                            (json_decode($berita_acara->ijazah_tdk_sesuai)->total +
-                            json_decode($berita_acara->pendukung)->total)
+                            (json_decode($berita_acara->ijazah_tdk_sesuai)->baru +
+                            json_decode($berita_acara->pendukung)->baru)
                             -
                             (check_jabatan($biodatas->pangkat_golongan , 'akk')*10/100)
                             ,3)
