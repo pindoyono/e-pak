@@ -614,10 +614,25 @@ class PenilaiDupakController extends Controller
         ->orderBy('berita_acaras.cek','asc')
         // ->groupBy('users.name')
         ->get();
-
-
-        
         return view('dupaks_penilai.rekap', [
+                                            'data' => $data,
+                                            ]);
+    }
+
+    public function rekap_3b()
+    {
+        $data = DB::table('users')
+        ->join('dupaks', 'users.id', '=', 'dupaks.user_id')
+        ->join('hapaks', 'hapaks.dupak_id', '=', 'dupaks.id')
+        ->join('biodatas', 'biodatas.user_id', '=', 'users.id')
+        ->join('jabatans', 'jabatans.id', '=', 'biodatas.pangkat_golongan')
+        ->select( 'hapaks.*', 'hapaks.id as baid', 'users.name','pangkat','jabatan','jabatans.id as idj','dupaks.id as dupak_id','biodatas.pangkat_golongan as pangkat_golongan')
+        ->where('biodatas.karsu', 'KENAIKAN PANGKAT')
+        ->where('biodatas.pangkat_golongan','!=' ,'1')
+        ->orderBy('hapaks.cek','asc')
+        // ->groupBy('users.name')
+        ->get();
+        return view('dupaks_penilai.rekap_3b', [
                                             'data' => $data,
                                             ]);
 
@@ -672,6 +687,28 @@ class PenilaiDupakController extends Controller
         $id = Crypt::decrypt($id); 
         $dupak = \App\Dupak::where('id', $id )->first();
         $data = \App\BeritaAcara::where('dupak_id', $id)->first();
+        $data->cek = 'FAIL';
+        $data->update();
+        return redirect()->route( 'dupaks_penilai.rekap')->with('toast_success', 'Task chek Successfully!');
+
+    }
+
+    public function cek_ok_3b($id)
+    {
+        $id = Crypt::decrypt($id); 
+        $dupak = \App\Dupak::where('id', $id )->first();
+        $data = \App\Hapak::where('dupak_id', $id)->first();
+        $data->cek = 'OK';
+        $data->update();
+        return redirect()->route( 'dupaks_penilai.rekap')->with('toast_success', 'Task chek Successfully!');
+        
+    }
+    
+    public function cek_fail_3b($id)
+    {
+        $id = Crypt::decrypt($id); 
+        $dupak = \App\Dupak::where('id', $id )->first();
+        $data = \App\Hapak::where('dupak_id', $id)->first();
         $data->cek = 'FAIL';
         $data->update();
         return redirect()->route( 'dupaks_penilai.rekap')->with('toast_success', 'Task chek Successfully!');

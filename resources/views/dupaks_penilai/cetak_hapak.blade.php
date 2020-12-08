@@ -362,6 +362,7 @@ table {
             </tr>
     </tbody>
     </table>
+    <br>
     <div align="left">
         *) Penyesuaian PAK atau PAK terakhir
         <br>
@@ -577,7 +578,7 @@ table {
                 @foreach($lampirans as $key => $lampiran)
                     <tr>
                         <td>{{$key + 1}}</td>
-                        <td>{{$lampiran->kode}}</td>
+                        <td>{{$lampiran->jenis}}</td>
                         <td>{{$lampiran->judul}}</td>
                         <td>{{$lampiran->diskripsi}}</td>
                         <td>{{$lampiran->saran}}</td>

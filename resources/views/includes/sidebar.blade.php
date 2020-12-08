@@ -155,9 +155,17 @@
             <li class="{{ Request::segment(1) === 'rekap' || Request::segment(1) === 'rekap' ? 'active' : null }}">
                 <a href="{{route('dupaks_penilai.rekap' )}}">
                     <i class="fas fa-chart-line "></i>
-                    <p>Rekap KENPA <span></span></p>
+                    <p>Rekap KENPA (III A) <span></span></p>
                 </a>
             </li>
+
+            <li class="{{ Request::segment(1) === 'rekap_3b' || Request::segment(1) === 'rekap_3b' ? 'active' : null }}">
+                <a href="{{route('dupaks_penilai.rekap_3b' )}}">
+                    <i class="fas fa-chart-line "></i>
+                    <p>Rekap KENPA (Selain III A) <span></span></p>
+                </a>
+            </li>
+
             <li class="{{ Request::segment(1) === 'rekap_pak_tahunan' || Request::segment(1) === 'rekap_pak_tahunan' ? 'active' : null }}">
                 <a href="{{route('dupaks_penilai.rekap_pak_tahunan' )}}">
                     <i class="fas fa-chart-line "></i>

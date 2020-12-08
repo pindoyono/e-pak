@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class PenyesuaianCekOkBeritaAcara extends Migration
+class PenyesuaianOkHapak extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,7 @@ class PenyesuaianCekOkBeritaAcara extends Migration
     public function up()
     {
         //
-         //
-         Schema::table('berita_acaras', function (Blueprint $table) {
+        Schema::table('hapaks', function (Blueprint $table) {
             $table->string("cek")->nullable();
            
         });
