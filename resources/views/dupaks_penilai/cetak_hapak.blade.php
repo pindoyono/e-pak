@@ -298,7 +298,7 @@ table {
                     </b>
                 </td>
             </tr>
-            <td colspan="3"><b> Total AK</b></td>
+            <td colspan="3"><b> Jumlah Unsur Utama dan Penunjang</b></td>
                 <td style="text-align:right">
                     <b>
                         {{
@@ -367,30 +367,30 @@ table {
         <br>
         **) Angka kredit yang diperoleh            
     </div>
-    <table style="font-size:10">
+    <table style="font-size:9;">
         <thead >
             <tr>
-                <td rowspan="2">
+                <td  width="19%" style="font-size:9;text-align:center" rowspan="2">
                       URAIAN  
                 </td>
-                <td  rowspan="2">
+                <td style="font-size:9;text-align:center" width="10%" rowspan="2">
                         AKK
                 </td>
-                <td colspan="3">
+                <td style="font-size:9;text-align:center" colspan="3">
                         UNSUR UTAMA
                 </td>
-                <td rowspan="2">
+                <td width="15%" style="font-size:9;text-align:center" rowspan="2">
                         UNSUR PENUNJANG  MAX 10%
                 </td>
             </tr>
             <tr>
-                <td>
+                <td width="17%" style="font-size:9;text-align:center">
                         Pengembangan Diri
                 </td>
-                <td>
-                        Pub Ilmiah dan K Ilmiah
+                <td  width="17%" style="font-size:9;text-align:center">
+                        P Ilmiah dan K Ilmiah
                 </td>
-                <td>
+                <td style="font-size:9;text-align:center">
                         Jumlah Unsur Utama Min 90%
                 </td>
             </tr>
@@ -402,17 +402,17 @@ table {
                 <td style="text-align:right">
                     {{
                         number_format(
-                            json_decode($berita_acara->ijazah_tdk_sesuai)->baru +
-                            json_decode($berita_acara->pendukung)->baru +
+                            json_decode($berita_acara->ijazah_tdk_sesuai)->total +
+                            json_decode($berita_acara->pendukung)->total +
 
-                            json_decode($berita_acara->pendidikan)->baru + 
-                            json_decode($berita_acara->prajabatan)->baru  +
-                            json_decode($berita_acara->pembelajaran)->baru +
-                            json_decode($berita_acara->bimbingan)->baru +
-                            json_decode($berita_acara->tugas_lain)->baru +
-                            json_decode($berita_acara->pd)->baru +
-                            json_decode($berita_acara->pi)->baru +
-                            json_decode($berita_acara->ki)->baru +
+                            json_decode($berita_acara->pendidikan)->total + 
+                            json_decode($berita_acara->prajabatan)->total  +
+                            json_decode($berita_acara->pembelajaran)->total +
+                            json_decode($berita_acara->bimbingan)->total +
+                            json_decode($berita_acara->tugas_lain)->total +
+                            json_decode($berita_acara->pd)->total +
+                            json_decode($berita_acara->pi)->total +
+                            json_decode($berita_acara->ki)->total +
 
                             $berita_acara->dasus
                             ,3)
@@ -464,7 +464,7 @@ table {
             <tr>
                 <td><b> AK yg wajib di peroleh</b></td>
                 <td style="text-align:right">
-                     {{  number_format(check_jabatan($biodatas->pangkat_golongan , 'akk'),3) }}
+                     {{  number_format(check_jabatan($biodatas->pangkat_golongan , 'target'),3) }}
                 </td>
                 <td style="text-align:right">
                     {{ number_format(check_jabatan($biodatas->pangkat_golongan , 'akpkbpd'),3) }}
@@ -484,22 +484,22 @@ table {
                 <td style="text-align:right">
                         {{
                             number_format(
-                            (json_decode($berita_acara->ijazah_tdk_sesuai)->baru +
-                            json_decode($berita_acara->pendukung)->baru +
+                            (json_decode($berita_acara->ijazah_tdk_sesuai)->total +
+                            json_decode($berita_acara->pendukung)->total +
 
 
-                            json_decode($berita_acara->pendidikan)->baru + 
-                            json_decode($berita_acara->prajabatan)->baru  +
-                            json_decode($berita_acara->pembelajaran)->baru +
-                            json_decode($berita_acara->bimbingan)->baru +
-                            json_decode($berita_acara->tugas_lain)->baru +
-                            json_decode($berita_acara->pd)->baru +
-                            json_decode($berita_acara->pi)->baru +
-                            json_decode($berita_acara->ki)->baru +
+                            json_decode($berita_acara->pendidikan)->total + 
+                            json_decode($berita_acara->prajabatan)->total  +
+                            json_decode($berita_acara->pembelajaran)->total +
+                            json_decode($berita_acara->bimbingan)->total +
+                            json_decode($berita_acara->tugas_lain)->total +
+                            json_decode($berita_acara->pd)->total +
+                            json_decode($berita_acara->pi)->total +
+                            json_decode($berita_acara->ki)->total +
 
                             $berita_acara->dasus)
                             -
-                            check_jabatan($biodatas->pangkat_golongan , 'akk') 
+                            check_jabatan($biodatas->pangkat_golongan , 'target') 
                             ,3)
 
 
@@ -555,9 +555,11 @@ table {
         </tbody>
     </table>
     <div style="text-align:left;margin-top:10px">
-        <div>
+        <div style="font-size:9;" >
             <label for="catatan">
-                <h1>Catatan Perbaikan</h1>
+                LAMPIRAN SURAT HASIL PENILAIAN ANGKA KREDIT GURU (PIKI)<br>
+                Nomor: 01122/B4.4/SKP/KP/2019<br>
+                Tanggal: 10 Juli 2019<br><br>
             </label>
         </div>
         <div>

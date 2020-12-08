@@ -398,56 +398,53 @@ table {
             <tr>
 
                 @if(
-                                            number_format(
-                                            json_decode($berita_acara->ijazah_tdk_sesuai)->total +
-                                            json_decode($berita_acara->pendukung)->total +
-                                            json_decode($berita_acara->pendidikan)->total + 
-                                            json_decode($berita_acara->prajabatan)->total  +
-                                            json_decode($berita_acara->pembelajaran)->total +
-                                            json_decode($berita_acara->bimbingan)->total +
-                                            json_decode($berita_acara->tugas_lain)->total +
-                                            json_decode($berita_acara->pd)->total +
-                                            json_decode($berita_acara->pi)->total +
-                                            json_decode($berita_acara->ki)->total +
-                                            $berita_acara->dasus 
-                                            ,3) 
-                                            
-                                            -
+                    number_format(
+                    json_decode($berita_acara->ijazah_tdk_sesuai)->total +
+                    json_decode($berita_acara->pendukung)->total +
+                    json_decode($berita_acara->pendidikan)->total + 
+                    json_decode($berita_acara->prajabatan)->total  +
+                    json_decode($berita_acara->pembelajaran)->total +
+                    json_decode($berita_acara->bimbingan)->total +
+                    json_decode($berita_acara->tugas_lain)->total +
+                    json_decode($berita_acara->pd)->total +
+                    json_decode($berita_acara->pi)->total +
+                    json_decode($berita_acara->ki)->total +
+                    $berita_acara->dasus 
+                    ,3) 
+                    
+                    -
 
-                                            number_format(
-                                            check_jabatan($biodatas->pangkat_golongan , 'target')
-                                            ,3) >= 0
-                                            
-                                            &&
-                                            
-                                            number_format(json_decode($berita_acara->pd)->total,3) - number_format(check_jabatan($biodatas->pangkat_golongan , 'akpkbpd'),3) >= 0
+                    number_format(
+                    check_jabatan($biodatas->pangkat_golongan , 'target')
+                    ,3) >= 0
+                    
+                    &&
+                    
+                    number_format(json_decode($berita_acara->pd)->total,3) - number_format(check_jabatan($biodatas->pangkat_golongan , 'akpkbpd'),3) >= 0
 
-                                            &&
+                    &&
 
-                                                number_format(
-                                                number_format( number_format(json_decode($berita_acara->pi)->total,3) + number_format(json_decode($berita_acara->ki)->total,3) ,3) 
-                                                -
-                                                number_format( check_jabatan($biodatas->pangkat_golongan , 'akpkbpiki'),3)
-                                                ,3) >= 0
+                        number_format(
+                        number_format( number_format(json_decode($berita_acara->pi)->total,3) + number_format(json_decode($berita_acara->ki)->total,3) ,3) 
+                        -
+                        number_format( check_jabatan($biodatas->pangkat_golongan , 'akpkbpiki'),3)
+                        ,3) >= 0
 
-                                            
-                                        )
+                    
+                )
 
-                                            <td  style="border: 1px solid black;" colspan="7">Dapat dipertimbangkan untuk Kenaikan Pangkat, Golongan Ruang, TMT: 
-                                                {{ check_naik_pangkat($biodatas->pangkat_golongan)->pangkat 
-                                                    .', '.check_naik_pangkat_periode( customTanggal1($berita_acara->created_at,"Y-m-d") ).'  '.
-                                                    date('Y', strtotime($berita_acara->created_at->addYear()))
-                                            }} </td>
-                                        @else
-                                            <td  style="border: 1px solid black;" colspan="7">Tidak Dapat dipertimbangkan untuk Kenaikan Pangkat, Golongan Ruang, TMT: 
-                                                {{ check_naik_pangkat($biodatas->pangkat_golongan)->pangkat 
-                                                    .', '.check_naik_pangkat_periode( customTanggal1($berita_acara->created_at,"Y-m-d") ).'  '.
-                                                    date('Y', strtotime($berita_acara->created_at->addYear()))
-                                            }} </td>
-                                        @endif
-
-
-                
+                    <td  style="border: 1px solid black;" colspan="7">Dapat dipertimbangkan untuk Kenaikan Pangkat, Golongan Ruang, TMT: 
+                        {{ check_naik_pangkat($biodatas->pangkat_golongan)->pangkat 
+                            .', '.check_naik_pangkat_periode( customTanggal1($berita_acara->created_at,"Y-m-d") ).'  '.
+                            date('Y', strtotime($berita_acara->created_at->addYear()))
+                    }} </td>
+                @else
+                    <td  style="border: 1px solid black;" colspan="7">Tidak Dapat dipertimbangkan untuk Kenaikan Pangkat, Golongan Ruang, TMT: 
+                        {{ check_naik_pangkat($biodatas->pangkat_golongan)->pangkat 
+                            .', '.check_naik_pangkat_periode( customTanggal1($berita_acara->created_at,"Y-m-d") ).'  '.
+                            date('Y', strtotime($berita_acara->created_at->addYear()))
+                    }} </td>
+                @endif    
             </tr>
             
     </tbody>
