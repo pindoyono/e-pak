@@ -343,7 +343,8 @@ table {
                             json_decode($berita_acara->tugas_lain)->baru +
                             json_decode($berita_acara->pd)->baru +
                             json_decode($berita_acara->pi)->baru +
-                            json_decode($berita_acara->ki)->baru
+                            json_decode($berita_acara->ki)->baru +
+                            $berita_acara->dasus
                             ,3)
                         }}
                     </b>
