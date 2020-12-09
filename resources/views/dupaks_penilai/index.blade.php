@@ -66,12 +66,8 @@
                                         @endif
                                     @endrole
 
-                                    @role('admin provinsi')
-                                        <a href="{{route('dupaks_penilai.show', Crypt::encrypt($dupak->id))}}">
-                                        <button class="btn btn-success btn-round">
-                                            Lihat Detail
-                                        </button>
-                                        </a>
+                                    <!-- @role('admin provinsi')
+                            
                                         
                                     @else
                                         <a href="{{route('dupaks_penilai.show', Crypt::encrypt($dupak->id))}}">
@@ -79,7 +75,7 @@
                                             Lihat Detail
                                         </button>
                                         </a>
-                                    @endrole
+                                    @endrole -->
                                     @role('penilai')
                                             @if(check_berita_acara($dupak->id) > 0)
                                             <a target="_blank" href="{{route('dupaks_penilai.createPDF', Crypt::encrypt($dupak->id))}}">
