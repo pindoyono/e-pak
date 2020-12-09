@@ -8,7 +8,7 @@ use Maatwebsite\Excel\Concerns\FromView;
 use DB;
 
 
-class RekapExport implements FromView
+class RekapExport3B implements FromView
 {
     /**
     * @return \Illuminate\Support\Collection
@@ -23,13 +23,13 @@ class RekapExport implements FromView
         ->join('jabatans', 'jabatans.id', '=', 'biodatas.pangkat_golongan')
         ->select( 'berita_acaras.*', 'users.name','pangkat','jabatan','jabatans.id as idj','dupaks.id as dupak_id','biodatas.pangkat_golongan as pangkat_golongan')
         ->where('biodatas.karsu', 'KENAIKAN PANGKAT')
-        ->where('biodatas.pangkat_golongan' ,'1')
+        ->where('biodatas.pangkat_golongan','!=' ,'1')
         ->orderBy('users.name','asc')
         // ->groupBy('users.name')
         ->get();
 
 
-        return view('dupaks_penilai.scrap_rekap', [
+        return view('dupaks_penilai.scrap_rekap_3b', [
             'data' => $data,
         ]);
     }

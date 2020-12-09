@@ -11,6 +11,7 @@ use Telegram\Bot\Keyboard\Keyboard;
 use Telegram\Bot\Laravel\Facades\Telegram;
 use Excel;
 use App\Exports\RekapExport;
+use App\Exports\RekapExport3B;
 use App\Exports\RekapExportTahunan;
 
 
@@ -668,8 +669,15 @@ class PenilaiDupakController extends Controller
 
     public function scrap_rekap_tahunan()
     {
-        return Excel::download(new RekapExportTahunan, 'RekapExport.xlsx');
+        return Excel::download(new RekapExportTahunan, 'RekapExportTahunan.xlsx');
     }
+
+    public function scrap_rekap_RekapExport3B()
+    {
+        return Excel::download(new RekapExport3B, 'RekapExport3B.xlsx');
+    }
+
+    
 
     public function cek_ok($id)
     {

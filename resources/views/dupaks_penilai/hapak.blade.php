@@ -113,7 +113,7 @@
                                 <tr>
                                     <td width="5%"> 8</td>
                                     <td colspan=2>Jabatan Guru / TMT</td>
-                                    <td colspan=2>{{  pangkat($biodatas->pangkat_golongan)->jabatan }}</td>
+                                    <td colspan=2>{{  pangkat($biodatas->pangkat_golongan)->jabatan.' / '.tgl_indo($biodatas->tmt_pns) }}</td>
                                 </tr>
                                 <tr>
                                     <td rowspan=2> 9</td>

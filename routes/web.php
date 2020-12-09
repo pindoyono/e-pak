@@ -59,6 +59,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/rekap_pak_tahunan', 'PenilaiDupakController@rekap_pak_tahunan')->name('dupaks_penilai.rekap_pak_tahunan')->middleware('role:guru|penilai|verifikator|super admin');
     Route::get('/scrap_rekap', 'PenilaiDupakController@scrap_rekap')->name('dupaks_penilai.scrap_rekap')->middleware('role:guru|penilai|verifikator|super admin');
     Route::get('/scrap_rekap_tahunan', 'PenilaiDupakController@scrap_rekap_tahunan')->name('dupaks_penilai.scrap_rekap_tahunan')->middleware('role:guru|penilai|verifikator|super admin');
+    Route::get('/scrap_rekap_RekapExport3B', 'PenilaiDupakController@scrap_rekap_RekapExport3B')->name('dupaks_penilai.scrap_rekap_RekapExport3B')->middleware('role:guru|penilai|verifikator|super admin');
     Route::put('/cek_ok/{id}', 'PenilaiDupakController@cek_ok')->name('dupaks_penilai.cek_ok')->middleware('role:guru|penilai|verifikator|super admin');
     Route::put('/cek_fail/{id}', 'PenilaiDupakController@cek_fail')->name('dupaks_penilai.cek_fail')->middleware('role:guru|penilai|verifikator|super admin');
     Route::put('/cek_ok_3b/{id}', 'PenilaiDupakController@cek_ok_3b')->name('dupaks_penilai.cek_ok_3b')->middleware('role:guru|penilai|verifikator|super admin');
