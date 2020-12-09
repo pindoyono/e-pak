@@ -282,6 +282,31 @@
                                     <td>
                                     @if(
                                             number_format(
+                                            (json_decode($data->pendidikan)->total + 
+                                            json_decode($data->prajabatan)->total  +
+                                            json_decode($data->pembelajaran)->total +
+                                            json_decode($data->bimbingan)->total +
+                                            json_decode($data->tugas_lain)->total +
+                                            json_decode($data->pd)->total +
+                                            json_decode($data->pi)->total +
+                                            json_decode($data->ki)->total +
+                                            $data->dasus)-100
+                                            - 
+                                            (check_jabatan($data->pangkat_golongan , 'akk')*90/100)
+                                            ,3) > 0
+                                            
+                                            &&
+
+                                            number_format( 
+                                                (json_decode($data->ijazah_tdk_sesuai)->baru + json_decode($data->pendukung)->baru)
+                                                -
+                                                (check_jabatan($data->pangkat_golongan , 'akk')*10/100)
+                                            
+                                                ,3) < 0
+                                            
+                                            &&
+
+                                            number_format(
                                             json_decode($data->ijazah_tdk_sesuai)->total +
                                             json_decode($data->pendukung)->total +
                                             json_decode($data->pendidikan)->total + 
