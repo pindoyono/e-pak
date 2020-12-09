@@ -67,6 +67,11 @@
                                     @endrole
 
                                     @role('admin provinsi')
+                                        <a href="{{route('dupaks_penilai.show', Crypt::encrypt($dupak->id))}}">
+                                        <button class="btn btn-success btn-round">
+                                            Lihat Detail
+                                        </button>
+                                        </a>
                                         
                                     @else
                                         <a href="{{route('dupaks_penilai.show', Crypt::encrypt($dupak->id))}}">
@@ -115,6 +120,12 @@
                                                 </button>
                                             </a>
                                             @endif
+
+                                            <a href="{{route('dupaks_penilai.show', Crypt::encrypt($dupak->id))}}">
+                                                <button class="btn btn-success btn-round">
+                                                    Lihat Detail
+                                                </button>
+                                            </a>
 
                                     @endrole
 
