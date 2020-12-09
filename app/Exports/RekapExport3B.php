@@ -18,10 +18,10 @@ class RekapExport3B implements FromView
     {
         $data = DB::table('users')
         ->join('dupaks', 'users.id', '=', 'dupaks.user_id')
-        ->join('berita_acaras', 'berita_acaras.dupak_id', '=', 'dupaks.id')
+        ->join('hapaks', 'hapaks.dupak_id', '=', 'dupaks.id')
         ->join('biodatas', 'biodatas.user_id', '=', 'users.id')
         ->join('jabatans', 'jabatans.id', '=', 'biodatas.pangkat_golongan')
-        ->select( 'berita_acaras.*', 'users.name','pangkat','jabatan','jabatans.id as idj','dupaks.id as dupak_id','biodatas.pangkat_golongan as pangkat_golongan')
+        ->select( 'hapaks.*', 'users.name','pangkat','jabatan','jabatans.id as idj','dupaks.id as dupak_id','biodatas.pangkat_golongan as pangkat_golongan')
         ->where('biodatas.karsu', 'KENAIKAN PANGKAT')
         ->where('biodatas.pangkat_golongan','!=' ,'1')
         ->orderBy('users.name','asc')
