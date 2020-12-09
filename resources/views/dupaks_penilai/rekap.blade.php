@@ -157,7 +157,7 @@
                                     </td>
                                     <td>
                                         {{
-                                            number_format(json_decode($data->pd)->total,3) + number_format(json_decode($data->prajabatan)->total,3)
+                                            number_format(json_decode($data->pd)->total,3)
                                         }}
                                     </td>
                                     <td>
