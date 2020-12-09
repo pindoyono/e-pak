@@ -40,7 +40,31 @@
                                 <tr>
                                     <h6>
                                     <td colspan=3>Instansi : Dinas Pendidikan dan Kebudayaan Provinsi Kalimantan Utara</td>
-                                    <td colspan=4 class="td-actions text-right">Masa penilaian : {{tgl_indo($dupak->awal).' - '.tgl_indo($dupak->awal)}}</td>
+                                    <td colspan=4 class="td-actions text-right">
+                                    
+                                        <!-- Masa penilaian : {{ date("Y-m-d",strtotime(date("Y-m-d", strtotime($dupak->awal)) . "+3 months"))."====".tgl_indo($dupak->awal).' - '.tgl_indo($dupak->awal) }} -->
+                                            @if(!empty($berita_acara->created_at))
+                                                @if($biodatas->pangkat_golongan == 1 )
+                                                    {{  tgl_indo($biodatas->tmt_cpns).' - 31 Desember '.date("Y") }}
+                                                @else
+                                                    @if( tgl_indo_tanpa_tahun($biodatas->tmt_pns) == '01 April')
+                                                        {{  tgl_indo( date("Y-m-d",strtotime(date("Y-m-d", strtotime($biodatas->tmt_pns)) . "+3 months") )).' - 31 Desember '.date("Y",strtotime($berita_acara->created_at)) }}
+                                                    @else
+                                                        {{  tgl_indo( date("Y-m-d",strtotime(date("Y-m-d", strtotime($biodatas->tmt_pns)) . "+3 months")) ).' - 31 Desember '.date("Y",strtotime($berita_acara->created_at)) }}
+                                                    @endif
+                                                @endif
+                                            @else
+                                                @if($biodatas->pangkat_golongan == 1 )
+                                                    {{  tgl_indo($biodatas->tmt_cpns).' - 31 Desember '.date("Y") }}
+                                                @else
+                                                    @if( tgl_indo_tanpa_tahun($biodatas->tmt_pns) == '01 April')
+                                                        {{  tgl_indo( date("Y-m-d",strtotime(date("Y-m-d", strtotime($biodatas->tmt_pns)) . "+3 months") )).' - 31 Desember '.date("Y") }}
+                                                    @else
+                                                        {{  tgl_indo( date("Y-m-d",strtotime(date("Y-m-d", strtotime($biodatas->tmt_pns)) . "+3 months")) ).' - 31 Desember '.date("Y") }}
+                                                    @endif
+                                                @endif
+                                            @endif
+                                    </td>
                                     </h6>
                                 </tr>
                             </thead>

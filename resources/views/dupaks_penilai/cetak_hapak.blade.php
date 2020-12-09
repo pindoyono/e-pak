@@ -34,7 +34,27 @@ table {
                 Instansi : Dinas Pendidikan dan Kebudayaan Provinsi Kalimantan Utara      
             </td>
             <td colspan=4 style="font-size:8;text-align:right">
-                Masa penilaian : {{tgl_indo($dupak->awal).' - '.tgl_indo($dupak->awal)}}
+                @if(!empty($berita_acara->created_at))
+                    @if($biodatas->pangkat_golongan == 1 )
+                        {{  tgl_indo($biodatas->tmt_cpns).' - 31 Desember '.date("Y") }}
+                    @else
+                        @if( tgl_indo_tanpa_tahun($biodatas->tmt_pns) == '01 April')
+                            {{  tgl_indo( date("Y-m-d",strtotime(date("Y-m-d", strtotime($biodatas->tmt_pns)) . "+3 months") )).' - 31 Desember '.date("Y",strtotime($berita_acara->created_at)) }}
+                        @else
+                            {{  tgl_indo( date("Y-m-d",strtotime(date("Y-m-d", strtotime($biodatas->tmt_pns)) . "+3 months")) ).' - 31 Desember '.date("Y",strtotime($berita_acara->created_at)) }}
+                        @endif
+                    @endif
+                @else
+                    @if($biodatas->pangkat_golongan == 1 )
+                        {{  tgl_indo($biodatas->tmt_cpns).' - 31 Desember '.date("Y") }}
+                    @else
+                        @if( tgl_indo_tanpa_tahun($biodatas->tmt_pns) == '01 April')
+                            {{  tgl_indo( date("Y-m-d",strtotime(date("Y-m-d", strtotime($biodatas->tmt_pns)) . "+3 months") )).' - 31 Desember '.date("Y") }}
+                        @else
+                            {{  tgl_indo( date("Y-m-d",strtotime(date("Y-m-d", strtotime($biodatas->tmt_pns)) . "+3 months")) ).' - 31 Desember '.date("Y") }}
+                        @endif
+                    @endif
+                @endif
             </td>
             </tr>
             <tr>
@@ -121,20 +141,12 @@ table {
                 <td > JUMLAH</td>
             </tr>
             <tr>
-                <td width="5%"></td>
-                <td width="2%" >0</td>
-                <td colspan=3> <b>Daerah Khusus</b></td>
-                <td> <b>    </b></td>
-                <td> <b>    </b></td>
-                <td style="text-align:right"> <b>  {{ $berita_acara->dasus }} </b></td>
-            </tr>
-            <tr>
                 <td width="5%" rowspan="20"></td>
                 <td width="2%" >1</td>
                 <td colspan=3> <b>Unsur Utama</b></td>
                 <td > <b></b></td>
-                <td > <b></b></td>
-                <td > <b></b></td>
+                <td style="text-align:right"> <b>{{ $berita_acara->dasus }}</b></td>
+                <td style="text-align:right"> <b>{{ $berita_acara->dasus }}</b></td>
             </tr>
             <tr>
                 <td width="2%" rowspan="12"></td>
@@ -362,8 +374,8 @@ table {
             </tr>
     </tbody>
     </table>
-    <br>
-    <div align="left">
+
+    <div align="left" style="margin-top:50px" >
         *) Penyesuaian PAK atau PAK terakhir
         <br>
         **) Angka kredit yang diperoleh            
@@ -603,7 +615,7 @@ table {
                         <br>
                             {{ $berita_acara->penilai }} 
                         <br>
-                            NIP. {{ Auth::user()->nip }}
+                            NIP. {{ $berita_acara->nip_penilai }}
     </div>
 
 
