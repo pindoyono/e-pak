@@ -29,7 +29,7 @@ table {
     </h3>
     
     <div style="font-size:10; text-align:justify">
-        Pada hari ini {{ hari_ini().", ".tgl_indo($now)}} bertempat di Kantor Cabang Dinas Pendidikan dan Kebudayaan Provinsi Kalimantan Utara
+        Pada hari ini {{ hari_buat($berita_acara->created_at).", ".tgl_indo( customTanggal1($berita_acara->created_at,"Y-m-d") ) }} bertempat di Kantor Cabang Dinas Pendidikan dan Kebudayaan Provinsi Kalimantan Utara
         Wilayah Malinau dan Tana Tidung di Malinau telah dilakukan penilaian terhadap usulan penilaian angka kredit jabatan fungsional guru dengan hasil sebagai berikut:
     </div>
     <table>
