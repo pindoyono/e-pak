@@ -459,17 +459,17 @@ table {
                 <td width="10%" >Nama</td>
                 <td  width="2%" >:</td>
                 <td width="57%">{{$users->name}}</td>
-                <td  > Pada Tanggal </td>
-                <td width="1%" >:</td>
-                <td > {{tgl_indo( $now )}} </td>
+                <td >Ditetapkan di</td>
+                <td >:</td>
+                <td >Tanjung Selor</td>
             </tr>
             <tr >
                 <td width="10%" > NIP</td>
                 <td width="2%" >:</td>
                 <td >{{$users->nip}}</td>
-                <td >Ditetapkan di</td>
-                <td >:</td>
-                <td >Tanjung Selor</td>
+                <td  > Pada Tanggal </td>
+                <td width="1%" >:</td>
+                <td > {{tgl_indo( $now )}} </td>
             </tr>
             <tr >
                 <td width="10%" >Alamat</td>
