@@ -28,7 +28,7 @@ table {
         Wilayah Malinau dan Tana Tidung di Malinau telah dilakukan penilaian terhadap usulan penilaian angka kredit jabatan fungsional guru dengan hasil sebagai berikut:
     </div>
     <table>
-        <tbody style="font-size:11;">
+        <tbody style="font-size:9;">
             <tr>
             <td colspan=4 style="font-size:8; text-align:left">
                 Instansi : Dinas Pendidikan dan Kebudayaan Provinsi Kalimantan Utara      
@@ -376,7 +376,7 @@ table {
     </tbody>
     </table>
 
-    <div align="left" style="margin-top:50px" >
+    <div align="left" style="margin-top:0px" >
         *) Penyesuaian PAK atau PAK terakhir
         <br>
         **) Angka kredit yang diperoleh            
