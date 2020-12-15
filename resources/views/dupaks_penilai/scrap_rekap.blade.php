@@ -123,7 +123,7 @@
                 </td>
                 <td>
                     {{
-                        number_format(json_decode($data->pd)->total,3) + number_format(json_decode($data->prajabatan)->total,3)
+                        number_format(json_decode($data->pd)->total,3)
                     }}
                 </td>
                 <td>
@@ -135,14 +135,12 @@
                     {{
                         number_format(
                         ( number_format(json_decode($data->pd)->total,3) - number_format(check_jabatan($data->pangkat_golongan , 'akpkbpd'),3) )
-                        + number_format(json_decode($data->prajabatan)->total,3)
                         ,3) 
                     }}
                 </td>
                 <td>
                     @if(
                         number_format(json_decode($data->pd)->total,3) - number_format(check_jabatan($data->pangkat_golongan , 'akpkbpd'),3)
-                        + number_format(json_decode($data->prajabatan)->total,3)
                          < 0
                     )
                     <span> Tidak Lolos</span>
@@ -207,7 +205,6 @@
                         &&
                         
                         (number_format(json_decode($data->pd)->total,3) - number_format(check_jabatan($data->pangkat_golongan , 'akpkbpd'),3))
-                        + number_format(json_decode($data->prajabatan)->total,3)
                         
                          >= 0
 
