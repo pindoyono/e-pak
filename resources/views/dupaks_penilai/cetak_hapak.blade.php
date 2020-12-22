@@ -605,11 +605,12 @@ table {
     <div style="text-align:left;padding-left:70%">
     <br>
     <br>
-                            @if(!empty($berita_acara->created_at))
+                            <!-- @if(!empty($berita_acara->created_at))
                                 Malinau, {{tgl_indo( customTanggal1($berita_acara->created_at,"Y-m-d") )}}
                             @else
                                 Malinau, {{tgl_indo( $now )}}        
-                            @endif
+                            @endif -->
+                            Malinau, 4 Januari 2021
                         <br>
                         <br>
                         <br>
