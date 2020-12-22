@@ -602,9 +602,7 @@ table {
         </div>
     </div>
 
-    <div style="text-align:left;padding-left:70%">
-    <br>
-    <br>
+    <div style="text-align:left;padding-left:70%;font-size:10;">
                             <!-- @if(!empty($berita_acara->created_at))
                                 Malinau, {{tgl_indo( customTanggal1($berita_acara->created_at,"Y-m-d") )}}
                             @else
@@ -615,9 +613,10 @@ table {
                         <br>
                         <br>
                         <br>
-                            {{ $berita_acara->penilai }} 
                         <br>
-                            NIP. {{ $berita_acara->nip_penilai }}
+                        <b>DR. H. Suriansyah, M.AP. </b>	<br>
+                        Pembina Utama, IV/e	<br>
+                        NIP. 196502011991031009	<br>
     </div>
 
 
