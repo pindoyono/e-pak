@@ -469,7 +469,8 @@ table {
                 <td >{{$users->nip}}</td>
                 <td  > Pada Tanggal </td>
                 <td width="1%" >:</td>
-                <td > {{tgl_indo( $now )}} </td>
+                <!-- <td > {{tgl_indo( $now )}} </td> -->
+                <td > 4 Januari 2021 </td>
             </tr>
             <tr >
                 <td width="10%" >Alamat</td>
