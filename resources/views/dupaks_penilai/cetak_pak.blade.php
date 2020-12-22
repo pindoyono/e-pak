@@ -501,7 +501,7 @@ table {
                         <br>
                         <b>DR. H. Suriansyah, M.AP. </b>	<br>
                         Pembina Utama, IV/e	<br>
-                        196502011991031009	<br>
+                        NIP. 196502011991031009	<br>
 
                     </div>
                 </td>
