@@ -689,6 +689,18 @@ class PenilaiDupakController extends Controller
         return redirect()->route( 'dupaks_penilai.rekap')->with('toast_success', 'Task chek Successfully!');
         
     }
+
+    public function no_pak(Request $request,$id)
+    {
+
+        $id = Crypt::decrypt($id); 
+        $dupak = \App\Dupak::where('id', $id )->first();
+        $data = \App\BeritaAcara::where('dupak_id', $id)->first();
+        $data->no_pak = $request->get('no_pak');
+        $data->update();
+        return redirect()->route( 'dupaks_penilai.rekap')->with('toast_success', 'Task set No PAK Successfully!');
+        
+    }
     
     public function cek_fail($id)
     {
