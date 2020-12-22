@@ -627,7 +627,7 @@ class PenilaiDupakController extends Controller
         ->join('hapaks', 'hapaks.dupak_id', '=', 'dupaks.id')
         ->join('biodatas', 'biodatas.user_id', '=', 'users.id')
         ->join('jabatans', 'jabatans.id', '=', 'biodatas.pangkat_golongan')
-        ->select( 'hapaks.*', 'hapaks.id as baid', 'users.name','pangkat','jabatan','jabatans.id as idj','dupaks.id as dupak_id','biodatas.pangkat_golongan as pangkat_golongan')
+        ->select( 'hapaks.*', 'hapaks.id as baid', 'users.name','pangkat','jabatan','jabatans.id as idj','dupaks.id as dupak_id','dupaks.no_pak as no_pak_dupak','biodatas.pangkat_golongan as pangkat_golongan')
         ->where('biodatas.karsu', 'KENAIKAN PANGKAT')
         ->where('biodatas.pangkat_golongan','!=' ,'1')
         ->orderBy('hapaks.cek','asc')
@@ -701,6 +701,8 @@ class PenilaiDupakController extends Controller
         return redirect()->route( 'dupaks_penilai.rekap')->with('toast_success', 'Task set No PAK Successfully!');
         
     }
+
+   
     
     public function cek_fail($id)
     {
@@ -721,6 +723,18 @@ class PenilaiDupakController extends Controller
         $data->cek = 'OK';
         $data->update();
         return redirect()->route( 'dupaks_penilai.rekap')->with('toast_success', 'Task chek Successfully!');
+        
+    }
+
+    public function no_hapak(Request $request,$id)
+    {
+
+        $id = Crypt::decrypt($id); 
+        $dupak = \App\Dupak::where('id', $id )->first();
+        // $data = \App\Hapak::where('dupak_id', $id)->first();
+        $dupak->no_pak = $request->get('no_pak');
+        $dupak->update();
+        return redirect()->route( 'dupaks_penilai.rekap_3b')->with('toast_success', 'Task set No PAK Successfully!');
         
     }
     

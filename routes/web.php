@@ -66,6 +66,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::put('/cek_fail_3b/{id}', 'PenilaiDupakController@cek_fail_3b')->name('dupaks_penilai.cek_fail_3b')->middleware('role:guru|penilai|verifikator|super admin');
     
     Route::put('/no_pak/{id}', 'PenilaiDupakController@no_pak')->name('dupaks_penilai.no_pak')->middleware('role:guru|penilai|verifikator|super admin|admin provinsi');
+    Route::put('/no_hapak/{id}', 'PenilaiDupakController@no_hapak')->name('dupaks_penilai.no_hapak')->middleware('role:guru|penilai|verifikator|super admin|admin provinsi');
     
     Route::get('/bukti/{id}', 'BerkasController@bukti')->name('berkas.bukti')->middleware('role:guru|penilai|verifikator');
     Route::put('/berkas/simpan/{id}', 'BerkasController@simpan')->name('berkas.simpan')->middleware('role:guru|penilai|verifikator');

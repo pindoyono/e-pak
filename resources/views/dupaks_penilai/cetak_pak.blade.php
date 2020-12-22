@@ -40,9 +40,7 @@ table {
                     PENETAPAN ANGKA KREDIT<br>
             <!-- TAHUN {{tgl_indo_tahun($dupak->awal)}} -->
         Nomor : 823.3/
-        @if(!empty($berita_acara->no_pak))
-        {{$berita_acara->no_pak}}
-        @endif
+        {{$dupak->no_pak}}
         /Disdikbud-A1/KU/I/{{ date('Y', strtotime($now)) }}	
         <b>
         </span>
