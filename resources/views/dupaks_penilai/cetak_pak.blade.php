@@ -124,11 +124,11 @@ table {
                 <td  style="border: 1px solid black;" rowspan=2> 12</td>
                 <td  style="border: 1px solid black;" rowspan=2>Alamat</td>
                 <td  style="border: 1px solid black;">Sekolah</td>
-                <td  style="border: 1px solid black;"colspan=4 style="font-size:9;">{{nama_sekolah($biodatas->sekolah_id)->alamat}}</td>
+                <td  style="border: 1px solid black;"colspan=4 style="font-size:9;">{{ strtolower(nama_sekolah($biodatas->sekolah_id)->alamat) }}</td>
             </tr>
             <tr>
                 <td  style="border: 1px solid black;">Rumah</td>
-                <td  style="border: 1px solid black;" colspan=4 style="font-size:9;">{{$biodatas->alamat}}</td>
+                <td  style="border: 1px solid black;" colspan=4 style="font-size:9;">{{ strtolower($biodatas->alamat) }}</td>
             </tr>
 
             <tr>
