@@ -477,7 +477,7 @@ table {
             <tr >
                 <td width="10%" >Alamat</td>
                 <td width="2%" >:</td>
-                <td >{{$biodatas->alamat}}</td>
+                <td >{{strtolower($biodatas->alamat)}}</td>
                 <td ></td>
                 <td ></td>
                 <td ></td>
