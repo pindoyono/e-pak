@@ -54,7 +54,7 @@ table {
     </div>
 
     <table >
-        <tbody  style="border: 1px solid black;font-size:9;">
+        <tbody  style="border: 1px solid black;font-size:10;">
             <tr>
                 <td style="border: 1px solid black;" width="5%">I</td>
                 <td style="border: 1px solid black;" colspan=7> KETERANGAN PERORANGAN</td>
@@ -124,11 +124,11 @@ table {
                 <td  style="border: 1px solid black;" rowspan=2> 12</td>
                 <td  style="border: 1px solid black;" rowspan=2>Alamat</td>
                 <td  style="border: 1px solid black;">Sekolah</td>
-                <td  style="border: 1px solid black;"colspan=4 style="font-size:9;">{{ strtolower(nama_sekolah($biodatas->sekolah_id)->alamat) }}</td>
+                <td  style="border: 1px solid black;"colspan=4 style="font-size:7;">{{ strtolower(nama_sekolah($biodatas->sekolah_id)->alamat) }}</td>
             </tr>
             <tr>
                 <td  style="border: 1px solid black;">Rumah</td>
-                <td  style="border: 1px solid black;" colspan=4 style="font-size:9;">{{ strtolower($biodatas->alamat) }}</td>
+                <td  style="border: 1px solid black;" colspan=4 style="font-size:7;">{{ strtolower($biodatas->alamat) }}</td>
             </tr>
 
             <tr>
