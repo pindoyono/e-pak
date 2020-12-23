@@ -35,7 +35,7 @@ table {
     </div>
 
     <div>
-        <span style="font-size:14;">
+        <span style="font-size:12;">
         <b>
                     PENETAPAN ANGKA KREDIT<br>
             <!-- TAHUN {{tgl_indo_tahun($dupak->awal)}} -->
