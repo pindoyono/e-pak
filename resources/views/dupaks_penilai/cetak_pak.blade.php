@@ -54,7 +54,7 @@ table {
     </div>
 
     <table >
-        <tbody  style="border: 1px solid black;font-size:10;">
+        <tbody  style="border: 1px solid black;font-size:9;">
             <tr>
                 <td style="border: 1px solid black;" width="5%">I</td>
                 <td style="border: 1px solid black;" colspan=7> KETERANGAN PERORANGAN</td>
