@@ -382,7 +382,7 @@
                                                 <form style="display:inline" enctype="multipart/form-data" class="form-horizontal"  action="{{ route('dupaks_penilai.no_pak', Crypt::encrypt($data->dupak_id)) }}" method="POST">
                                                 @csrf
                                                     <input type="hidden" value="PUT" name="_method">
-                                                    <input name="no_pak" value="{{$data->no_pak}}" placeholder="Isikan No Pak" required />
+                                                    <input name="no_pak" value="{{$data->no_pak_dupak}}" placeholder="Isikan No Pak" required />
                                                     <button class="material-icons icon-image-preview btn-primary">done_outline</button>
                                                 </form>
                                             @endrole
