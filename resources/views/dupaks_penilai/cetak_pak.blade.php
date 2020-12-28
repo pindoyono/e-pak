@@ -472,7 +472,15 @@ table {
                 <td  > Pada Tanggal </td>
                 <td width="1%" >:</td>
                 <!-- <td > {{tgl_indo( $now )}} </td> -->
+                @if(date('Y', strtotime($dupak->awal))=='2017')
+                <td > 17 Januari 2018 </td>
+                @elseif(date('Y', strtotime($dupak->awal))=='2018')
+                <td > 17 Januari 2019 </td>
+                @elseif(date('Y', strtotime($dupak->awal))=='2019')
+                <td > 30 Maret 2020 </td>
+                @elseif(date('Y', strtotime($dupak->awal))=='2020')
                 <td > 4 Januari 2021 </td>
+                @endif
             </tr>
             <tr >
                 <td width="10%" >Alamat</td>
@@ -495,7 +503,18 @@ table {
                 <td colspan="3">
                     <div style="font-size:11;">
                         <span style="">
-                            Sekretaris Daerah,
+                        @if(date('Y', strtotime($dupak->awal))>='2017' || date('Y', strtotime($dupak->awal))=='2018')
+                            Kepala Dinas,
+                        </span> 
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <b>DR. H. Sigit Muryono, M.Pd., Kons </b>	<br>
+                        Pembina Utama Madya	<br>
+                        NIP. 196005211981111001	<br>
+                        @else
+                        Sekretaris Daerah,
                         </span> 
                         <br>
                         <br>
@@ -504,6 +523,7 @@ table {
                         <b>DR. H. Suriansyah, M.AP. </b>	<br>
                         Pembina Utama, IV/e	<br>
                         NIP. 196502011991031009	<br>
+                        @endif
 
                     </div>
                 </td>
