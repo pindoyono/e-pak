@@ -503,7 +503,7 @@ table {
                 <td colspan="3">
                     <div style="font-size:11;">
                         <span style="">
-                        @if(date('Y', strtotime($dupak->awal))>='2017' || date('Y', strtotime($dupak->awal))=='2018')
+                        @if(date('Y', strtotime($dupak->awal))=='2017' || date('Y', strtotime($dupak->awal))=='2018')
                             Kepala Dinas,
                         </span> 
                         <br>
