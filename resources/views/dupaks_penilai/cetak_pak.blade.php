@@ -41,7 +41,7 @@ table {
             <!-- TAHUN {{tgl_indo_tahun($dupak->awal)}} -->
         Nomor : 823.3/
         {{$dupak->no_pak}}
-        /Disdikbud-A1/KU/I/{{ date('Y', strtotime($now)) }}	
+        /Disdikbud-A1/KU/I/{{ date('Y', strtotime($dupak->awal))+1 }}	
         <b>
         </span>
         <br>

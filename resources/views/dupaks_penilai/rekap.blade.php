@@ -30,7 +30,11 @@
                              <thead>
                                 <tr>
                                     <th rowspan="2">No</th>
-                                    <th rowspan="2">Status</th>
+                                    @role('admin provinsi')
+                                        <th rowspan="2">Th PAK</th>                                               
+                                    @else
+                                        <th rowspan="2">Status</th>
+                                    @endrole
                                     <th rowspan="2">Nama</th>
                                     <th colspan="2">USULAN GOL.</th>
                                     <th colspan="4">Angka Kredit</th>
@@ -63,11 +67,19 @@
                                 <tr>
                                     <td> {{$key+1}}</td>
                                     <td>
-                                        @if($data->cek == 'OK')
-                                            <button class="material-icons icon-image-preview btn-primary">done_outline</button>
-                                        @elseif($data->cek == 'FAIL')
-                                            <button class="material-icons icon-image-preview btn-danger">clear</button>
-                                        @endif
+
+                                                @role('admin provinsi')
+                                                    {{tgl_indo_tahun($data->awal)}}
+                                                @else
+                                                @if($data->cek == 'OK')
+                                                            <button class="material-icons icon-image-preview btn-primary">done_outline</button>
+                                                        @elseif($data->cek == 'FAIL')
+                                                            <button class="material-icons icon-image-preview btn-danger">clear</button>
+                                                        @endif
+                                                @endrole
+
+
+                                       
                                     </td>
                                     <td>
                                             <a target="_blank" href="{{route('dupaks_penilai.createPDF', Crypt::encrypt($data->dupak_id))}}">
