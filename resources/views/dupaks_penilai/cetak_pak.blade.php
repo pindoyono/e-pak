@@ -441,11 +441,11 @@ table {
                             date('Y', strtotime($berita_acara->created_at->addYear()))
                     }} </td>
                 @else
-                    <td  style="border: 1px solid black;" colspan="7">Tidak Dapat dipertimbangkan untuk Kenaikan Pangkat, Golongan Ruang, TMT: 
+                    <!-- <td  style="border: 1px solid black;" colspan="7">Tidak Dapat dipertimbangkan untuk Kenaikan Pangkat, Golongan Ruang, TMT: 
                         {{ check_naik_pangkat($biodatas->pangkat_golongan)->pangkat 
                             .', '.check_naik_pangkat_periode( customTanggal1($berita_acara->created_at,"Y-m-d") ).'  '.
                             date('Y', strtotime($berita_acara->created_at->addYear()))
-                    }} </td>
+                    }} </td> -->
                 @endif    
             </tr>
             
