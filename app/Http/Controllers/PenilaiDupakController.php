@@ -654,7 +654,7 @@ class PenilaiDupakController extends Controller
         ->join('berita_acaras', 'berita_acaras.dupak_id', '=', 'dupaks.id')
         ->join('biodatas', 'biodatas.user_id', '=', 'users.id')
         ->join('jabatans', 'jabatans.id', '=', 'biodatas.pangkat_golongan')
-        ->select( 'berita_acaras.*', 'users.name','pangkat','jabatan','jabatans.id as idj','dupaks.id as dupak_id','dupaks.no_pak as no_pak_dupak','biodatas.pangkat_golongan as pangkat_golongan')
+        ->select( 'berita_acaras.*', 'users.name','pangkat','jabatan','jabatans.id as idj','dupaks.id as dupak_id','dupaks.awal','dupaks.no_pak as no_pak_dupak','biodatas.pangkat_golongan as pangkat_golongan')
         ->where('biodatas.karsu', '!=' ,'KENAIKAN PANGKAT')
         ->orderBy('users.name','asc')
         // ->groupBy('users.name')
