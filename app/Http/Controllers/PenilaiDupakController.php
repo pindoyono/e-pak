@@ -654,11 +654,12 @@ class PenilaiDupakController extends Controller
         ->join('berita_acaras', 'berita_acaras.dupak_id', '=', 'dupaks.id')
         ->join('biodatas', 'biodatas.user_id', '=', 'users.id')
         ->join('jabatans', 'jabatans.id', '=', 'biodatas.pangkat_golongan')
-        ->select( 'berita_acaras.*', 'users.name','pangkat','jabatan','jabatans.id as idj','dupaks.id as dupak_id','biodatas.pangkat_golongan as pangkat_golongan')
+        ->select( 'berita_acaras.*', 'users.name','pangkat','jabatan','jabatans.id as idj','dupaks.id as dupak_id','dupaks.no_pak as no_pak_dupak','biodatas.pangkat_golongan as pangkat_golongan')
         ->where('biodatas.karsu', '!=' ,'KENAIKAN PANGKAT')
         ->orderBy('users.name','asc')
         // ->groupBy('users.name')
         ->get();
+
 
         return view('dupaks_penilai.rekap_tahunan', [
                                             'data' => $data
@@ -698,7 +699,7 @@ class PenilaiDupakController extends Controller
         // $data = \App\Hapak::where('dupak_id', $id)->first();
         $dupak->no_pak = $request->get('no_pak');
         $dupak->update();
-        return redirect()->route( 'dupaks_penilai.rekap')->with('toast_success', 'Task set No PAK Successfully!');
+        return  back()->with('toast_success', 'Task set No PAK Successfully!');
         
     }
 
