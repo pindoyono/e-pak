@@ -30,6 +30,9 @@
                              <thead>
                                 <tr>
                                     <th rowspan="2">No</th>
+                                    @role('admin provinsi')
+                                        <th rowspan="2">Th PAK</th>    
+                                    @endrole
                                     <th rowspan="2">Nama</th>
                                     <th colspan="2">USULAN GOL.</th>
                                     <th colspan="4">Angka Kredit</th>
@@ -59,6 +62,12 @@
                                 @foreach($data as $key => $data)
                                 <tr>
                                     <td> {{$key+1}}</td>
+                                    <td>
+
+                                                @role('admin provinsi')
+                                                    {{tgl_indo_tahun($data->awal)}}
+                                                @endrole
+                                    </td>
                                     <td>
                                             <a target="_blank" href="{{route('dupaks_penilai.createPDF', Crypt::encrypt($data->dupak_id))}}">
                                                 {{$data->name}}
