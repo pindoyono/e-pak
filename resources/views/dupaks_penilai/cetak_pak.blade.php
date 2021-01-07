@@ -433,7 +433,7 @@ table {
 
                     
                 )
-                    @if(tgl_indo($dupak->awal) == 2020)
+                    @if(date('Y', strtotime($dupak->awal)) == 2020)
                 <tr>
                     <td  style="border: 1px solid black;" colspan="7">Dapat dipertimbangkan untuk Kenaikan Pangkat, Golongan Ruang, TMT: 
                         {{ check_naik_pangkat($biodatas->pangkat_golongan)->pangkat 
