@@ -437,7 +437,7 @@ table {
                 <tr>
                     <td  style="border: 1px solid black;" colspan="7">Dapat dipertimbangkan untuk Kenaikan Pangkat, Golongan Ruang, TMT: 
                         {{ check_naik_pangkat($biodatas->pangkat_golongan)->pangkat 
-                            .', '.check_naik_pangkat_periode( customTanggal1($berita_acara->created_at,"Y-m-d") ).'  '.
+                            .', 1 April '.
                             date('Y', strtotime($berita_acara->created_at->addYear()))
                     }} </td>
                 </tr>
