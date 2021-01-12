@@ -53,36 +53,36 @@ hr{
             <tr>
                 <td ></td>
                 <td ></td>
-                <td  colspan=2></td>
-                <td  style="text-align:center">Tanjung Selor, 4 Januari 2021</td>
+                <td colspan=3>  </td>
+                <td >Tanjung Selor, 4 Januari 2021</td>
             </tr>
             <tr>
                 <td >No</td>
                 <td >:</td>
-                <td  colspan=2>823.3/   /Disdikbud-A1/KU/I/2021</td>
-                <td  style="text-align:center">Yth. Kepala {{  nama_sekolah($biodatas->sekolah_id)->nama }} </td>
+                <td  colspan=3>823.3/   /Disdikbud-A1/KU/I/2021</td>
+                <td  >Yth. Kepala {{  nama_sekolah($biodatas->sekolah_id)->nama }} </td>
             </tr>
             <tr>
                 <td >Lampiran</td>
                 <td >:</td>
-                <td  colspan=2 >Dua lembar </td>
-                <td  style="padding-left:150px"> di</td>
+                <td  colspan=3 >Dua lembar </td>
+                <td  > di</td>
             </tr>
             <tr>
-                <td >Hal</td>
-                <td >:</td>
-                <td  colspan=2>Hasil Penilaian Angka Kredit Jafung Guru </td>
-                <td style="text-align:center">Tempat</td>
-            </tr>
-            <tr>
-                <td ></td>
-                <td ></td>
-                <td  colspan=3> a.n. {{$users->name}}  ({{  nama_sekolah($biodatas->sekolah_id)->nama }}) </td>
+                <td style="width:100px">Hal</td>
+                <td td style="width:10px">:</td>
+                <td  colspan=3 >Hasil Penilaian Angka Kredit Jafung Guru </td>
+                <td style="width:250px">Tempat</td>
             </tr>
             <tr>
                 <td ></td>
                 <td ></td>
-                <td  colspan=3> Sehubungan dengan surat Kepala {{  nama_sekolah($biodatas->sekolah_id)->nama }} Perihal usul penilaian angka kredit saudara </td>
+                <td  colspan=4> a.n. {{$users->name}}  ({{  nama_sekolah($biodatas->sekolah_id)->nama }}) </td>
+            </tr>
+            <tr>
+                <td ></td>
+                <td ></td>
+                <td  colspan=4> Sehubungan dengan surat Kepala {{  nama_sekolah($biodatas->sekolah_id)->nama }} Perihal usul penilaian angka kredit saudara </td>
             </tr>
     </div>
     <div>
@@ -189,7 +189,7 @@ Yang telah dinilai oleh Tim Penilai Angka Kredit Jabatan Fungsional Guru Provins
                                                 Tidak Memenuhi Syarat
                                             </b>
                                         @endif
- untuk dibuatkan PAK Tahun 2018.										
+ untuk dibuatkan PAK Tahun 2020.										
 Hasil penilaian DUPAK dan bukti fisiknya pada periode  
                 @if(!empty($berita_acara->created_at))
                     @if($biodatas->pangkat_golongan == 1 )
