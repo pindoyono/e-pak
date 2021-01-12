@@ -618,7 +618,7 @@ Hasil penilaian DUPAK dan bukti fisiknya pada periode
                             @else
                                 Malinau, {{tgl_indo( $now )}}        
                             @endif -->
-                            Malinau, 4 Januari 2021
+                            Tanjung Selor, 4 Januari 2021
                         <br>
                         <br>
                         <br>

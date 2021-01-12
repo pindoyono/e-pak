@@ -13,6 +13,7 @@ use Excel;
 use App\Exports\RekapExport;
 use App\Exports\RekapExport3B;
 use App\Exports\RekapExportTahunan;
+use LynX39\LaraPdfMerger\Facades\PdfMerger;
 
 
 
@@ -749,4 +750,25 @@ class PenilaiDupakController extends Controller
         return redirect()->route( 'dupaks_penilai.rekap')->with('toast_success', 'Task chek Successfully!');
 
     }
+
+    public function merger_cpns(){
+        $data = DB::table('users')
+        ->join('biodatas', 'biodatas.user_id', '=', 'users.id')
+        ->join('kepegawaians', 'kepegawaians.user_id', '=', 'users.id')
+        ->select('*')
+        ->where('biodatas.karsu','KENAIKAN PANGKAT')
+        ->where('users.id',112)
+        ->orderBy('users.name','asc')
+        ->get();
+        dd($data);
+        // $pdfMerger = PDFMerger::init();
+        // $pdfMerger->addPDF(asset($data[0]->sk_cpns), 'all');
+        // $pdfMerger->addPDF(asset($data[0]->sk_pangkat), 'all');
+        // $pdfMerger->addPDF(asset($data[0]->sk_jafung), 'all');
+        // $pdfMerger->addPDF(asset($data[0]->sk_jafung), 'all');
+
+        // $pdfMerger->save("file_path.pdf");
+
+    }
+
 }
