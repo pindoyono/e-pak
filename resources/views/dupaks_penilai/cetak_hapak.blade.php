@@ -24,7 +24,7 @@ table {
     </h3>
     
     <div style="font-size:12; text-align:justify">
-        Pada hari Ini {{ hari_ini().", ".tgl_indo($now)}} bertempat di Kantor Cabang Dinas Pendidikan Dan Kebudayaan Provinsi Kalimantan Utara
+        Pada hari Ini 04 Desember 2020 bertempat di Kantor Cabang Dinas Pendidikan Dan Kebudayaan Provinsi Kalimantan Utara
         Wilayah Malinau dan Tana Tidung di Malinau telah dilakukan penilaian terhadap usulan penilaian angka kredit jabatan fungsional guru dengan hasil sebagai berikut:
     </div>
     <table>
@@ -577,7 +577,7 @@ table {
             </label>
         </div>
         <div>
-        <table style="font-size:10">
+        <table style="font-size:9">
         <thead >
             <tr>
                <td>No</td>
