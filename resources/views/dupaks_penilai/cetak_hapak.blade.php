@@ -49,40 +49,44 @@ hr{
     
     
     <div>
-        <table style="font-size:10;">
+        <table  style="font-size:10;">
             <tr>
                 <td ></td>
                 <td ></td>
                 <td colspan=3>  </td>
-                <td >Tanjung Selor, 4 Januari 2021</td>
+                <td></td>
+                <td colspan=2 >Tanjung Selor, 4 Januari 2021</td>
             </tr>
             <tr>
                 <td >No</td>
                 <td >:</td>
                 <td  colspan=3>823.3/   /Disdikbud-A1/KU/I/2021</td>
-                <td  >Yth. Kepala {{  nama_sekolah($biodatas->sekolah_id)->nama }} </td>
+                <td colspan=3 >Yth. Kepala {{  nama_sekolah($biodatas->sekolah_id)->nama }} </td>
             </tr>
             <tr>
                 <td >Lampiran</td>
                 <td >:</td>
                 <td  colspan=3 >Dua lembar </td>
-                <td  > di</td>
+                <td></td>
+                <td colspan=2 >di  --</td>
             </tr>
             <tr>
                 <td style="width:100px">Hal</td>
-                <td td style="width:10px">:</td>
+                <td  style="width:10px">:</td>
                 <td  colspan=3 >Hasil Penilaian Angka Kredit Jafung Guru </td>
-                <td style="width:250px">Tempat</td>
+                <td style="width:20px">  </td>
+                <td style="width:20px"> </td>
+                <td style="width:200px">Tempat</td>
             </tr>
             <tr>
                 <td ></td>
                 <td ></td>
-                <td  colspan=4> a.n. {{$users->name}}  ({{  nama_sekolah($biodatas->sekolah_id)->nama }}) </td>
+                <td  colspan=6> a.n. {{$users->name}}  ({{  nama_sekolah($biodatas->sekolah_id)->nama }}) </td>
             </tr>
             <tr>
                 <td ></td>
                 <td ></td>
-                <td  colspan=4> Sehubungan dengan surat Kepala {{  nama_sekolah($biodatas->sekolah_id)->nama }} Perihal usul penilaian angka kredit saudara </td>
+                <td  colspan=6> Sehubungan dengan surat Kepala {{  nama_sekolah($biodatas->sekolah_id)->nama }} Perihal usul penilaian angka kredit saudara </td>
             </tr>
     </div>
     <div>
