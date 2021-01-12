@@ -219,12 +219,12 @@ Hasil penilaian DUPAK dan bukti fisiknya pada periode
 
 
     <table>
-        <tbody style="font-size:9;">
+        <tbody style="font-size:11;">
             <tr style="text-align:center">
                 <td style="border: 1px solid black;" colspan=4> PENETAPAN ANGKA KREDIT</td>
-                <td style="border: 1px solid black;" > LAMA</td>
-                <td style="border: 1px solid black;" > BARU</td>
-                <td style="border: 1px solid black;" > JUMLAH</td>
+                <td style="border: 1px solid black;" width=100px > LAMA</td>
+                <td style="border: 1px solid black;" width=100px > BARU</td>
+                <td style="border: 1px solid black;" width=100px > JUMLAH</td>
             </tr>
             <tr>
                 <td style="border: 1px solid black;" width="2%" >1</td>
@@ -460,7 +460,6 @@ Hasil penilaian DUPAK dan bukti fisiknya pada periode
             </tr>
     </tbody>
     </table>
-    <br><br>
     <div align="left" style="margin-top:0px" >
         *) Penyesuaian PAK	 <br>						
         Komposisi perolehan angka kredit yang harus dipenuhi adalah sebagai berikut :							    
