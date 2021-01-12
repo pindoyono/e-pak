@@ -33,7 +33,7 @@ hr{
             <tr>
             
                 <td width="10%"> 
-                    <img width="80px" src="{{asset('material/img/kaltara.png')}}" alt="logo"/>
+                    <img width="80px" src="{{public_path('material/img/kaltara.png')}}" alt="logo"/>
                 </td width="80%">
                 <td style="text-align:center;">
                     <b  style="font-size:14">DINAS PENDIDIKAN DAN KEBUDAYAAN </b> <br>
