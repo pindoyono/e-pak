@@ -59,7 +59,7 @@ hr{
             <tr>
                 <td >No</td>
                 <td >:</td>
-                <td  colspan=2>823.3/           /Disdikbud-A1/KU/I/2019</td>
+                <td  colspan=2>823.3/           /Disdikbud-A1/KU/I/2021</td>
                 <td  style="text-align:center">Yth. Kepala {{  nama_sekolah($biodatas->sekolah_id)->nama }} </td>
             </tr>
             <tr>
