@@ -18,6 +18,7 @@ use LynX39\LaraPdfMerger\Facades\PdfMerger;
 
 
 
+
 use Illuminate\Support\Facades\Validator;
 
 class PenilaiDupakController extends Controller
@@ -752,20 +753,24 @@ class PenilaiDupakController extends Controller
     }
 
     public function merger_cpns(){
-        $data = DB::table('users')
+        $datas = DB::table('users')
         ->join('biodatas', 'biodatas.user_id', '=', 'users.id')
         ->join('kepegawaians', 'kepegawaians.user_id', '=', 'users.id')
         ->select('*')
         ->where('biodatas.karsu','KENAIKAN PANGKAT')
-        ->where('users.id',112)
         ->orderBy('users.name','asc')
         ->get();
-        dd($data);
-        // $pdfMerger = PDFMerger::init();
-        // $pdfMerger->addPDF(asset($data[0]->sk_cpns), 'all');
-        // $pdfMerger->addPDF(asset($data[0]->sk_pangkat), 'all');
-        // $pdfMerger->addPDF(asset($data[0]->sk_jafung), 'all');
-        // $pdfMerger->addPDF(asset($data[0]->sk_jafung), 'all');
+        // dd($data);
+        $pdfMerger = PDFMerger::init();
+
+        foreach($datas as $key => $data) {
+            if( file_exists(storage_path('app/public/' . $data->sk_cpns)) ){
+                $pdfMerger->addPDF(( public_path('storage/'.$data->sk_cpns)  ), 'all');
+            }
+          }
+
+        $pdfMerger->merge();
+        $pdfMerger->save("CPNS.pdf", "download");
 
         // $pdfMerger->save("file_path.pdf");
 
