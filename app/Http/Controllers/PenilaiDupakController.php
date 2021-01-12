@@ -776,4 +776,30 @@ class PenilaiDupakController extends Controller
 
     }
 
+
+    public function merger_pns(){
+        $datas = DB::table('users')
+        ->join('biodatas', 'biodatas.user_id', '=', 'users.id')
+        ->join('kepegawaians', 'kepegawaians.user_id', '=', 'users.id')
+        ->select('*')
+        ->where('biodatas.karsu','KENAIKAN PANGKAT')
+        ->orderBy('users.name','asc')
+        ->get();
+        // dd($data);
+        $pdfMerger = PDFMerger::init();
+
+        foreach($datas as $key => $data) {
+            if( file_exists(storage_path('app/public/' . $data->sk_pangkat)) ){
+                $pdfMerger->addPDF(( public_path('storage/'.$data->sk_pangkat)  ), 'all');
+            }
+          }
+
+        $pdfMerger->merge();
+        $pdfMerger->save("PNS.pdf", "download");
+
+        // $pdfMerger->save("file_path.pdf");
+
+    }
+
+
 }
