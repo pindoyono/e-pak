@@ -537,7 +537,6 @@ class PenilaiDupakController extends Controller
         ->where('berkas_id', $id)
         ->get();
 
-
         $pdf = \PDF::loadView('dupaks_penilai.cetak_hapak', ['berita_acara' => $berita_acara,
                                                                     'dupak' => $dupak,
                                                                     'biodatas' => $biodatas,
@@ -549,6 +548,7 @@ class PenilaiDupakController extends Controller
                                                                     'lampirans' => $lampirans,
                                                                     ]
                                                                 );
+
         $pdf->setPaper('F4', 'potrait');
         return $pdf->stream('Hapak.pdf');
     }
