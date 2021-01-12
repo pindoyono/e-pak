@@ -59,7 +59,7 @@ hr{
             <tr>
                 <td >No</td>
                 <td >:</td>
-                <td  colspan=2>823.3/           /Disdikbud-A1/KU/I/2021</td>
+                <td  colspan=2>823.3/   /Disdikbud-A1/KU/I/2021</td>
                 <td  style="text-align:center">Yth. Kepala {{  nama_sekolah($biodatas->sekolah_id)->nama }} </td>
             </tr>
             <tr>
@@ -119,7 +119,77 @@ hr{
             </tr>
         </table>
 
-Yang telah dinilai oleh Tim Penilai Angka Kredit Jabatan Fungsional Guru Provinsi Kalimantan Utara pada tanggal 15 Januari 2019 s.d. 17 Januari 2019, yang bersangkutan dinyatakan memenuhi syarat untuk dibuatkan PAK Tahun 2018.										
+Yang telah dinilai oleh Tim Penilai Angka Kredit Jabatan Fungsional Guru Provinsi Kalimantan Utara pada tanggal 30 November s.d 4 Desember 2020, yang bersangkutan dinyatakan 
+@if(
+                                            number_format(
+                                            json_decode($berita_acara->ijazah_tdk_sesuai)->total +
+                                            json_decode($berita_acara->pendukung)->total +
+                                            json_decode($berita_acara->pendidikan)->total + 
+                                            json_decode($berita_acara->prajabatan)->total  +
+                                            json_decode($berita_acara->pembelajaran)->total +
+                                            json_decode($berita_acara->bimbingan)->total +
+                                            json_decode($berita_acara->tugas_lain)->total +
+                                            json_decode($berita_acara->pd)->total +
+                                            json_decode($berita_acara->pi)->total +
+                                            json_decode($berita_acara->ki)->total +
+                                            $berita_acara->dasus 
+                                            ,3) 
+                                            
+                                            -
+
+                                            number_format(
+                                            check_jabatan($biodatas->pangkat_golongan , 'target')
+                                            ,3) >= 0
+                                            
+                                            &&
+                                            
+                                            number_format(json_decode($berita_acara->pd)->baru,3) - number_format(check_jabatan($biodatas->pangkat_golongan , 'akpkbpd'),3)
+                                            + number_format(json_decode($berita_acara->prajabatan)->baru,3)
+                                             >= 0
+
+                                            &&
+
+                                                number_format(
+                                                number_format( number_format(json_decode($berita_acara->pi)->baru,3) + number_format(json_decode($berita_acara->ki)->baru,3) ,3) 
+                                                -
+                                                number_format( check_jabatan($biodatas->pangkat_golongan , 'akpkbpiki'),3)
+                                                ,3) >= 0
+                                            
+                                            &&
+                                                
+                                                    number_format(
+                                                        (json_decode($berita_acara->pendidikan)->baru + 
+                                                        json_decode($berita_acara->prajabatan)->baru  +
+                                                        json_decode($berita_acara->pembelajaran)->baru +
+                                                        json_decode($berita_acara->bimbingan)->baru +
+                                                        json_decode($berita_acara->tugas_lain)->baru +
+                                                        json_decode($berita_acara->pd)->baru +
+                                                        json_decode($berita_acara->pi)->baru +
+                                                        json_decode($berita_acara->ki)->baru +
+                                                        $berita_acara->dasus)
+                                                        - 
+                                                        (check_jabatan($biodatas->pangkat_golongan , 'akk')*90/100)
+                                                        ,3) >= 0
+                                            &&
+                                                        number_format( 
+                                                            
+                                                            (json_decode($berita_acara->ijazah_tdk_sesuai)->baru + json_decode($berita_acara->pendukung)->baru)
+                                                            -
+                                                            (check_jabatan($biodatas->pangkat_golongan , 'akk')*10/100)
+                                                        
+                                                         ,3) <= 0
+                                            
+                                        )
+                                            <b>
+                                                Memenuhi Syarat
+                                            </b>
+                                             
+                                        @else
+                                            <b>
+                                                Tidak Memenuhi Syarat
+                                            </b>
+                                        @endif
+ untuk dibuatkan PAK Tahun 2018.										
 Hasil penilaian DUPAK dan bukti fisiknya pada periode  
                 @if(!empty($berita_acara->created_at))
                     @if($biodatas->pangkat_golongan == 1 )
