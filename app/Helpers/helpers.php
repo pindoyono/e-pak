@@ -333,6 +333,18 @@ if (! function_exists('tgl_indo_tahun')) {
 }
 
 
+if (! function_exists('no_hapak')) {
+    function no_hapak($dupak_id){
+        $count = \App\Hapak::where('dupak_id', $dupak_id)->count();
+        $no_hapak = \App\Hapak::where('dupak_id', $dupak_id)->first();
+        if($count >0){
+            return $no_hapak->no_pak;
+        }else{
+            return "Isikan No Pak";
+        }
+    }
+}
+
 if (! function_exists('notif')) {
     function notif($user_id){
         $notif = \App\Verifikasi::where('user_id', $user_id)

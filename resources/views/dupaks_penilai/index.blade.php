@@ -40,14 +40,24 @@
                                 @foreach($dupaks as $key => $dupak)
                                 <tr>
                                     <td>{{$key+1}}</td>
-                                    <td>{{$dupak->name}}</td>
+                                    <td>{{$dupak->name."(". $dupak->id.")"}}</td>
                                     <td>{{$dupak->karsu}}</td>
                                     <td>{{$dupak->nama}}</td>
                                     <td>{{ tgl_indo($dupak->awal) .' s/d '.tgl_indo($dupak->akhir)}}</td>
                                     @if($dupak->status=='Terverifikasi')
                                     <td>  <span class="tag label label-success">{{$dupak->status}} {{dinilai($dupak->id)}} </span></td>
                                     @else
-                                    <td>  <span class="tag label label-primary">{{$dupak->status}} {{dinilai($dupak->id)}} </span></td>
+                                    <td>  
+                                        <span class="tag label label-primary">{{$dupak->status}} {{dinilai($dupak->id)}} </span>
+                                            @role('admin provinsi')
+                                                <form style="display:inline" enctype="multipart/form-data" class="form-horizontal"  action="{{ route('dupaks_penilai.no_hapak', Crypt::encrypt($dupak->id)) }}" method="POST">
+                                                @csrf
+                                                    <input type="hidden" value="PUT" name="_method">
+                                                    <input name="no_pak" value="{{ no_hapak($dupak->id) }}" placeholder="Isikan No Pak" required />
+                                                    <button class="material-icons icon-image-preview btn-primary">done_outline</button>
+                                                </form>
+                                            @endrole
+                                    </td>
                                     @endif
                                     <td class="td-actions text-right">
                                     @role('verifikator')

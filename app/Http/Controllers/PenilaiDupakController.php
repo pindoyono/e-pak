@@ -732,11 +732,11 @@ class PenilaiDupakController extends Controller
     {
 
         $id = Crypt::decrypt($id); 
-        $dupak = \App\Dupak::where('id', $id )->first();
-        // $data = \App\Hapak::where('dupak_id', $id)->first();
-        $dupak->no_pak = $request->get('no_pak');
-        $dupak->update();
-        return redirect()->route( 'dupaks_penilai.rekap_3b')->with('toast_success', 'Task set No PAK Successfully!');
+        $data = \App\Hapak::where('dupak_id', $id)->first();
+        $data->no_pak = $request->get('no_pak');
+        $data->update();
+        dd($data);
+        return  back()->with('toast_success', 'Task set No PAK Successfully!');
         
     }
     

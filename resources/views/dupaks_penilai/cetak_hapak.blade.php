@@ -7,7 +7,7 @@
 }
 
 @page{
-  margin: 1em 0.5em;
+  margin: 1em 1em;
 }
 
 table {
@@ -49,7 +49,7 @@ hr{
     
     
     <div>
-        <table  style="font-size:10;">
+        <table  style="font-size:11;text-align:justify">
             <tr>
                 <td ></td>
                 <td ></td>
@@ -60,7 +60,7 @@ hr{
             <tr>
                 <td >No</td>
                 <td >:</td>
-                <td  colspan=3>823.3/   /Disdikbud-A1/KU/I/2021</td>
+                <td  colspan=3>823.3/ {{$berita_acara->no_pak}}  /Disdikbud-A1/KU/I/2021</td>
                 <td colspan=3 >Yth. Kepala {{  nama_sekolah($biodatas->sekolah_id)->nama }} </td>
             </tr>
             <tr>
@@ -90,7 +90,7 @@ hr{
             </tr>
     </div>
     <div>
-        <table style="font-size:10;">
+        <table style="font-size:11;">
             <tr>
                 <td  width=100px> </td>
                 <td  width=100px>Nama </td>
@@ -460,12 +460,13 @@ Hasil penilaian DUPAK dan bukti fisiknya pada periode
             </tr>
     </tbody>
     </table>
-
+    <br><br>
     <div align="left" style="margin-top:0px" >
         *) Penyesuaian PAK	 <br>						
         Komposisi perolehan angka kredit yang harus dipenuhi adalah sebagai berikut :							    
     </div>
-    <table style="font-size:9;">
+    <br>
+    <table style="font-size:10;">
         <thead >
             <tr>
                 <td style="border: 1px solid black;font-size:9;text-align:center" width="19%" rowspan="2">
@@ -652,19 +653,20 @@ Hasil penilaian DUPAK dan bukti fisiknya pada periode
             </tr>
         </tbody>
     </table>
-    <div style="text-align:left;margin-top:10px">
-        <!-- <div style="font-size:9;" >
+    <p>
+    <div style="text-align:left;margin-top:150px">
+        <div style="font-size:9;" >
             <label for="catatan">
                 LAMPIRAN SURAT HASIL PENILAIAN ANGKA KREDIT GURU (PIKI)<br>
                 Nomor: 01122/B4.4/SKP/KP/2019<br>
                 Tanggal: 10 Juli 2019<br><br>
             </label>
-        </div> -->
+        </div>
         <div>
-        <!-- <table style="font-size:9">
+        <table border="1" style="font-size:9">
         <thead >
             <tr>
-               <td>No</td>
+               <td width="2%">No</td>
                <td>Sub Unsur yang Dinilai</td>
                <td>Jenis Dokumen/Judul</td>
                <td>Alasan Belum memenuhi Syarat</td>
@@ -682,9 +684,11 @@ Hasil penilaian DUPAK dan bukti fisiknya pada periode
                     </tr>
                 @endforeach 
         </tbody>
-    </table> -->
+    </table>
         </div>
     </div>
+
+    </p>
 
     <div style="text-align:left;padding-left:70%;font-size:10;">
                             <!-- @if(!empty($berita_acara->created_at))
