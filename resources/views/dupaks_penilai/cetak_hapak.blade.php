@@ -6,10 +6,6 @@
   border: 1px solid black;
 }
 
-@page{
-  margin: 1em 1em;
-}
-
 table {
   width: 100%;
   border-collapse: collapse;
@@ -29,11 +25,11 @@ hr{
 <div class="container center" style="text-align:center;">
 
     <div>
-        <table style="font-size:10">
+        <table style="font-size:9">
             <tr>
             
                 <td width="10%"> 
-                    <img width="80px" src="{{public_path('material/img/kaltara.png')}}" alt="logo"/>
+                    <img width="60px" src="{{public_path('material/img/kaltara.png')}}" alt="logo"/>
                 </td width="80%">
                 <td style="text-align:center;">
                     <b  style="font-size:14">DINAS PENDIDIKAN DAN KEBUDAYAAN </b> <br>
@@ -49,7 +45,7 @@ hr{
     
     
     <div>
-        <table  style="font-size:11;text-align:justify">
+        <table  style="font-size:10;text-align:justify">
             <tr>
                 <td ></td>
                 <td ></td>
