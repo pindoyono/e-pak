@@ -69,6 +69,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/merger_cpns', 'PenilaiDupakController@merger_cpns')->name('dupaks_penilai.merger_cpns')->middleware('role:guru|penilai|verifikator|super admin');
     Route::get('/merger_pns', 'PenilaiDupakController@merger_pns')->name('dupaks_penilai.merger_pns')->middleware('role:guru|penilai|verifikator|super admin');
     Route::get('/merger_pak', 'PenilaiDupakController@merger_pak')->name('dupaks_penilai.merger_pak')->middleware('role:guru|penilai|verifikator|super admin');
+    Route::get('/merger_skp', 'PenilaiDupakController@merger_skp')->name('dupaks_penilai.merger_skp')->middleware('role:guru|penilai|verifikator|super admin');
     
     Route::put('/no_pak/{id}', 'PenilaiDupakController@no_pak')->name('dupaks_penilai.no_pak')->middleware('role:guru|penilai|verifikator|super admin|admin provinsi');
     Route::put('/no_hapak/{id}', 'PenilaiDupakController@no_hapak')->name('dupaks_penilai.no_hapak')->middleware('role:guru|penilai|verifikator|super admin|admin provinsi');

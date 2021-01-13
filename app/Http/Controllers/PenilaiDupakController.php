@@ -974,5 +974,77 @@ class PenilaiDupakController extends Controller
 
     }
 
+    public function merger_skp(){
+        $datas = DB::table('users')
+        ->join('dupaks', 'dupaks.user_id', '=', 'users.id')
+        ->select('*')
+        ->whereIn('users.name', [
+            "Adi Setiawan, S.Pd",
+            "Agustoni Pujianto, S.Pd., M.Pd.",
+            "Aini Fitriya Rahmawati, S.Pd",
+            "Akbar Ginandar, S.Pd.",
+            "Ali Budi Widodo, S.Pd",
+            "Apriani Suyanti Veronika Tarigan, S.Pd",
+            "Ari Setyawan, S.Pd",
+            "Arifuddin Thalib, S.Pd",
+            "Daberly, S.Pd",
+            "Dahlia Habibi, S.Pd",
+            "Darmawan Herwinanto, S.Pd",
+            "Duwi Santo, S.Pd., Gr.",
+            "Erickson Sinaga, S.Pd",
+            "Hana Rifky Puspitasari, S.Pd",
+            "Hariyanto, S.Pd.I",
+            "Herlina Palinoan, S.Pd",
+            "Iffah Nurfiati, S.Pd",
+            "Imam Bashori, S.Pd",
+            "Jerry Simon, S.Pd.",
+            "Junaidy Alexander Sagala, S.Pd",
+            "Juni Fernando Silalahi, S.Pd",
+            "Lilik Budi Suryani,S.Pd.",
+            "Lince Ului, S.Pd.K",
+            "Maisyarah, S.Pd",
+            "Marta Marampa' Pasinggi', S.Pd",
+            "Mohamad Ari, S.Pd",
+            "Niswanto, S.Pd",
+            "Nopel Sem, S.Pd",
+            "Nurwito, S.Pd",
+            "Pangeran, S.Th",
+            "Ramadhan Rema",
+            "Respi Membunga, S.Pd.K",
+            "REVI GUSWITA DEWI, S.Pd",
+            "Ronaldi Pangadongan, S.Pd",
+            "Rosadi, S.Pd",
+            "Roshiana Maria Angelia Dewi Permata Gading, S.Pd",
+            "Safriadi, S.Pd",
+            "Septiasti, S.Pd.K",
+            "Sri Minarti, S.Pd",
+            "Sri Rahayu Rachman, S.S., S.Pd., Gr.",
+            "Suwisser, S.Pd.",
+            "Syafri bin Sakka, S.Pd",
+            "Tri Afif Murtadlo, S.Pd",
+            "Tri Lestari G, S.Pd",
+            "Tri Saputro, S.Pd",
+            "Viktornal",
+            "Wahyu Rachmadayanti, S.Pd",
+            "Wahyudi, S.Pd",
+            "Yuliana , S.Pd",
+        ])
+        ->orderBy('users.name','asc')
+        ->get();
+        // dd($datas);
+        $pdfMerger = PDFMerger::init();
+
+        foreach($datas as $key => $data) {
+            if( file_exists(storage_path('app/public/' . $data->skp)) ){
+                $pdfMerger->addPDF(( public_path('storage/'.$data->skp)  ), 'all');
+            }
+          }
+
+        $pdfMerger->merge();
+        $pdfMerger->save("PNS.pdf", "download");
+
+        // $pdfMerger->save("file_path.pdf");
+
+    }
 
 }
