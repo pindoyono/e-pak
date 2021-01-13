@@ -804,7 +804,6 @@ class PenilaiDupakController extends Controller
             "Jerry Simon, S.Pd.",
             "Junaidy Alexander Sagala, S.Pd",
             "Juni Fernando Silalahi, S.Pd",
-            "Juni Fernando Silalahi, S.Pd",
             "Lilik Budi Suryani,S.Pd.",
             "Lince Ului, S.Pd.K",
             "Maisyarah, S.Pd",
