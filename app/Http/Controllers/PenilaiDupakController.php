@@ -962,8 +962,8 @@ class PenilaiDupakController extends Controller
         $pdfMerger = PDFMerger::init();
 
         foreach($datas as $key => $data) {
-            if( file_exists(storage_path('app/public/' . $data->sk_pangkat)) ){
-                $pdfMerger->addPDF(( public_path('storage/'.$data->sk_pangkat)  ), 'all');
+            if( file_exists(storage_path('app/public/' . $data->pak)) ){
+                $pdfMerger->addPDF(( public_path('storage/'.$data->pak)  ), 'all');
             }
           }
 
