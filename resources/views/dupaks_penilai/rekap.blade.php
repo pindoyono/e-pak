@@ -23,6 +23,11 @@
                         </div>
                     @endif
                     <div class="col-7 text-right">
+                        @role('admin provinsi')
+                            <a href="{{route('dupaks_penilai.merger_pns')}}" target="_blank" class="btn btn-rose"> PNS <div class="ripple-container"></div></a>
+                            <a href="{{route('dupaks_penilai.merger_cpns')}}" target="_blank" class="btn btn-rose"> CPNS <div class="ripple-container"></div></a>
+                        @else
+                        @endrole
                         <a href="{{route('dupaks_penilai.scrap_rekap')}}" target="_blank" class="btn btn-success"> Export Excel <div class="ripple-container"></div></a>
                     </div>
                     <div class="material-datatables card-content table-responsive table-full-width">
