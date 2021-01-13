@@ -27,7 +27,7 @@
                             <a href="{{route('dupaks_penilai.merger_pns')}}" target="_blank" class="btn btn-rose"> SK PNS <div class="ripple-container"></div></a>
                             <a href="{{route('dupaks_penilai.merger_cpns')}}" target="_blank" class="btn btn-rose"> SK CPNS <div class="ripple-container"></div></a>
                             <a href="{{route('dupaks_penilai.merger_pak')}}" target="_blank" class="btn btn-rose"> SK PAK <div class="ripple-container"></div></a>
-                            <a href="{{route('dupaks_penilai.merger_skp')}}" target="_blank" class="btn btn-rose"> SK PAK <div class="ripple-container"></div></a>
+                            <a href="{{route('dupaks_penilai.merger_skp')}}" target="_blank" class="btn btn-rose"> SKP <div class="ripple-container"></div></a>
                         @else
                         @endrole
                         <a href="{{route('dupaks_penilai.scrap_rekap')}}" target="_blank" class="btn btn-success"> Export Excel <div class="ripple-container"></div></a>
