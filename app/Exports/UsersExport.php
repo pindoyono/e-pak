@@ -18,7 +18,7 @@ class UsersExport implements FromCollection, WithHeadings
         ->join('biodatas', 'users.id', '=', 'biodatas.user_id')
         ->join('sekolahs', 'sekolahs.id', '=', 'biodatas.sekolah_id')
         ->join('jabatans', 'jabatans.id', '=', 'biodatas.pangkat_golongan')
-        ->select('users.id','users.name','users.email','users.password',DB::raw('CONCAT(" ",users.nip) as nip'),'jabatans.pangkat','jabatans.pangkat','biodatas.jenis_kelamin','biodatas.tempat_lahir','biodatas.tanggal_lahir',
+        ->select('users.id','users.name','users.email','users.password',DB::raw('CONCAT(" ",users.nip) as nip'),'jabatans.jabatan','jabatans.pangkat','biodatas.jenis_kelamin','biodatas.tempat_lahir','biodatas.tanggal_lahir',
         'biodatas.alamat','biodatas.agama',DB::raw('CONCAT(" ",biodatas.nuptk) as nuptk'),'biodatas.no_sk_cpns','biodatas.tmt_cpns','biodatas.tmt_pns','biodatas.pangkat_golongan',
         'biodatas.kartu_pegawai','biodatas.karsu','biodatas.no_hp','biodatas.jenis_guru','biodatas.tugas_tambahan','biodatas.pendidikan','sekolahs.npsn',
         'sekolahs.nama','sekolahs.alamat','sekolahs.jenis','sekolahs.status')
@@ -35,6 +35,8 @@ class UsersExport implements FromCollection, WithHeadings
             'email',
             'password',
             'nip',
+            'pangkat_golongan',
+            'jabatan',
             'jenis_kelamin',
             'tempat_lahir',
             'tanggal_lahir',
@@ -44,7 +46,6 @@ class UsersExport implements FromCollection, WithHeadings
             'no_sk_cpns',
             'tmt_cpns',
             'tmt_pns',
-            'pangkat_golongan',
             'kartu_pegawai',
             'karsu',
             'Status Kenaikan Pangkat',
