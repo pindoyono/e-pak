@@ -95,7 +95,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/create_biodata/{id}', 'BiodataController@create_biodata')->name('biodatas.create_biodata');
     Route::put('/create_or_update/{id}', 'BiodataController@create_or_update')->name('biodatas.create_or_update');
     
-    Route::get('users.export', 'UserController@export')->name('users.export')->middleware('role:super admin');
+    Route::get('users.export', 'UserController@export')->name('users.export')->middleware('role:super admin|admin provinsi');
     Route::get('importExportView', 'UserController@importExportView')->middleware('role:super admin');
     Route::post('users.import', 'UserController@import')->name('users.import')->middleware('role:super admin');
     Route::get('export', 'KegiatanController@export')->name('kegiatans.export')->middleware('role:super admin');
