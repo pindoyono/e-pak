@@ -21,11 +21,12 @@ class RekapExport3B implements FromView
         ->join('hapaks', 'hapaks.dupak_id', '=', 'dupaks.id')
         ->join('biodatas', 'biodatas.user_id', '=', 'users.id')
         ->join('jabatans', 'jabatans.id', '=', 'biodatas.pangkat_golongan')
-        ->select( 'hapaks.*', 'users.name','pangkat','jabatan','jabatans.id as idj','dupaks.id as dupak_id','biodatas.pangkat_golongan as pangkat_golongan')
+        ->join('sekolahs', 'sekolahs.id', '=', 'biodatas.sekolah_id' )
+        ->select( 'hapaks.*', 'users.name','pangkat','jabatan','sekolahs.nama as sekolah','jabatans.id as idj','dupaks.id as dupak_id','biodatas.pangkat_golongan as pangkat_golongan')
         ->where('biodatas.karsu', 'KENAIKAN PANGKAT')
         ->where('biodatas.pangkat_golongan','!=' ,'1')
         ->orderBy('users.name','asc')
-        // ->groupBy('users.name')
+        ->groupBy('users.name')
         ->get();
 
 
