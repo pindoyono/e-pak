@@ -520,7 +520,7 @@ class PenilaiDupakController extends Controller
                                                                     ]
                                                                 );
         $pdf->setPaper('F4', 'potrait');
-        return $pdf->stream('Berita Acara.pdf');
+        return $pdf->stream('PAK.pdf');
 
     }
 
@@ -701,7 +701,32 @@ class PenilaiDupakController extends Controller
         // $data = \App\Hapak::where('dupak_id', $id)->first();
         $dupak->no_pak = $request->get('no_pak');
         $dupak->update();
-        return  back()->with('toast_success', 'Task set No PAK Successfully!');
+
+
+
+        $dupak = \App\Dupak::where('id', $id )->first();
+        $berkas = \App\Berkas::where('dupak_id', $id )->get();
+        $user = \App\User::findOrFail($dupak->user_id);
+        $biodatas = \App\Biodata::where('user_id', $dupak->user_id)->first();
+        $kepegawaians = \App\Kepegawaian::where('user_id', $dupak->user_id)->get();
+        $now = date('Y-m-d');
+        $berita_acara = \App\BeritaAcara::where('dupak_id', $id)->first();
+
+        $pdf = \PDF::loadView('dupaks_penilai.cetak_pak', ['berita_acara' => $berita_acara,
+                                                                    'dupak' => $dupak,
+                                                                    'biodatas' => $biodatas,
+                                                                    'users' => $user,
+                                                                    'now' => $now,
+                                                                    'kepegawaians' => $kepegawaians,
+                                                                    'dupak_id' => $id,
+                                                                    'berkas' => $berkas,
+                                                                    ]
+                                                                );
+        $pdf->setPaper('F4', 'potrait');
+        return $pdf->download('PAK.pdf');
+
+
+        // return  back()->with('toast_success', 'Task set No PAK Successfully!');
         
     }
 
@@ -736,8 +761,37 @@ class PenilaiDupakController extends Controller
         $data = \App\Hapak::where('dupak_id', $id)->first();
         $data->no_pak = $request->get('no_pak');
         $data->update();
-        dd($data);
-        return  back()->with('toast_success', 'Task set No PAK Successfully!');
+        
+        
+        $dupak = \App\Dupak::where('id', $id )->first();
+        $berkas = \App\Berkas::where('dupak_id', $id )->get();
+        $user = \App\User::findOrFail($dupak->user_id);
+        $biodatas = \App\Biodata::where('user_id', $dupak->user_id)->first();
+        $kepegawaians = \App\Kepegawaian::where('user_id', $dupak->user_id)->get();
+        $now = date('Y-m-d');
+        $berita_acara = \App\Hapak::where('dupak_id', $id)->first();
+
+        $lampirans = DB::table('penolakans')
+        ->join('lampirans', 'lampirans.id', '=', 'penolakans.lampiran_id')
+        ->where('berkas_id', $id)
+        ->get();
+
+        $pdf = \PDF::loadView('dupaks_penilai.cetak_hapak', ['berita_acara' => $berita_acara,
+                                                                    'dupak' => $dupak,
+                                                                    'biodatas' => $biodatas,
+                                                                    'users' => $user,
+                                                                    'now' => $now,
+                                                                    'kepegawaians' => $kepegawaians,
+                                                                    'dupak_id' => $id,
+                                                                    'berkas' => $berkas,
+                                                                    'lampirans' => $lampirans,
+                                                                    ]
+                                                                );
+
+        $pdf->setPaper('F4', 'potrait');
+        return $pdf->download('Hapak.pdf');
+
+        // return  back()->with('toast_success', 'Task set No PAK Successfully!');
         
     }
     
