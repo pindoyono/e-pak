@@ -21,12 +21,12 @@ class RekapExportTahunan implements FromView
         ->join('berita_acaras', 'berita_acaras.dupak_id', '=', 'dupaks.id')
         ->join('biodatas', 'biodatas.user_id', '=', 'users.id')
         ->join('jabatans', 'jabatans.id', '=', 'biodatas.pangkat_golongan')
-        ->select( 'berita_acaras.*', 'users.name','pangkat','jabatan','jabatans.id as idj','dupaks.id as dupak_id','biodatas.pangkat_golongan as pangkat_golongan')
+        ->join('sekolahs', 'sekolahs.id', '=', 'biodatas.sekolah_id' )
+        ->select( 'berita_acaras.*', 'users.name','pangkat','sekolahs.nama as sekolah','jabatan','jabatans.id as idj','dupaks.id as dupak_id','biodatas.pangkat_golongan as pangkat_golongan')
         ->where('biodatas.karsu', 'PAK TAHUNAN')
         ->orderBy('users.name','asc')
         // ->groupBy('users.name')
         ->get();
-
 
         return view('dupaks_penilai.scrap_rekap', [
             'data' => $data,

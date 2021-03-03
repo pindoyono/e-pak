@@ -662,7 +662,7 @@ class PenilaiDupakController extends Controller
         // ->groupBy('users.name')
         ->get();
 
-
+    
         return view('dupaks_penilai.rekap_tahunan', [
                                             'data' => $data
                                             ]);
@@ -672,6 +672,7 @@ class PenilaiDupakController extends Controller
 
     public function scrap_rekap_tahunan()
     {
+
         return Excel::download(new RekapExportTahunan, 'RekapExportTahunan.xlsx');
     }
 

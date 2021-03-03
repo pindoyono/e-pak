@@ -39,8 +39,8 @@
                             {{$data->name}}
                         </a>
                 </td>
-                <td> {{$data->sekolah}}</td>
-                <td>{{ substr($data->pangkat,-5)}}</td>
+                <td> {{ $data->sekolah }}</td>
+                <td>{{ substr($data->pangkat,-5)}} </td>
                 <td>{{ substr(check_naik_pangkat($data->idj)->pangkat,-5)  }}</td>
                 <td>
                     {{
