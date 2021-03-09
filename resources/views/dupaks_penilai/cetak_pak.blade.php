@@ -56,13 +56,13 @@ table {
     <table >
         <tbody  style="border: 1px solid black;font-size:10;">
             <tr>
-                <td style="border: 1px solid black;" width="5%">I</td>
+                <td style="border: 1px solid black;" width="2%">I</td>
                 <td style="border: 1px solid black;" colspan=7> KETERANGAN PERORANGAN</td>
             </tr>
             <tr>
                 <td  style="border: 1px solid black;" rowspan=14></td>
                 <td  style="border: 1px solid black;" width="5%"> 1</td>
-                <td  style="border: 1px solid black;" width="40%" colspan=2>Nama</td>
+                <td  style="border: 1px solid black;" width="50%" colspan=2>Nama</td>
                 <td  style="border: 1px solid black;" colspan=4>{{$users->name}}</td>
             </tr>
             <tr>
@@ -456,7 +456,7 @@ table {
 </div>
 
     <div>
-        <table style="font-size:10" style="border: 1px solid black;">
+        <table style="font-size:9" style="border: 1px solid black;">
             
             <tr style="border: 1px solid black;">
                 <td width="10%" >Nama</td>
