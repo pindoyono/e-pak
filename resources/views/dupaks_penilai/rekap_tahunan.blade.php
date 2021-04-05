@@ -34,6 +34,7 @@
                                         <th rowspan="2">Th PAK</th>    
                                     @endrole
                                     <th rowspan="2">Nama</th>
+                                    <th rowspan="2">Dasus</th>
                                     <th colspan="2">USULAN GOL.</th>
                                     <th colspan="4">Angka Kredit</th>
                                     <th colspan="4">PD</th>
@@ -73,6 +74,7 @@
                                                 {{$data->name}}
                                             </a>
                                     </td>
+                                    <td>{{ $data->dasus }}</td>
                                     <td>{{ substr($data->pangkat,-5)}}</td>
                                     <td>{{ substr(check_naik_pangkat($data->idj)->pangkat,-5)  }}</td>
                                     <td>
