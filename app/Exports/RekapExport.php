@@ -26,7 +26,8 @@ class RekapExport implements FromView
         ->where('biodatas.karsu', 'KENAIKAN PANGKAT')
         ->where('biodatas.pangkat_golongan' ,'1')
         ->orderBy('users.name','asc')
-        ->groupBy('users.name')
+        ->orderBy('dasus', 'desc')
+        // ->groupBy('users.name')
         ->get();
 
 
