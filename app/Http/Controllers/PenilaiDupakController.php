@@ -613,7 +613,7 @@ class PenilaiDupakController extends Controller
         ->join('jabatans', 'jabatans.id', '=', 'biodatas.pangkat_golongan')
         ->select( 'berita_acaras.*', 'berita_acaras.id as baid', 'users.name','pangkat','jabatan','jabatans.id as idj','dupaks.id as dupak_id','dupaks.no_pak as no_pak_dupak','dupaks.awal','biodatas.pangkat_golongan as pangkat_golongan')
         ->where('biodatas.karsu', 'KENAIKAN PANGKAT')
-        // ->where('biodatas.pangkat_golongan' ,'1')
+        ->where('biodatas.pangkat_golongan' ,'1')
         ->orderBy('berita_acaras.cek','asc')
         // ->groupBy('users.name')
         ->get();
@@ -657,7 +657,7 @@ class PenilaiDupakController extends Controller
         ->join('biodatas', 'biodatas.user_id', '=', 'users.id')
         ->join('jabatans', 'jabatans.id', '=', 'biodatas.pangkat_golongan')
         ->select( 'berita_acaras.*', 'users.name','pangkat','jabatan','jabatans.id as idj','dupaks.id as dupak_id','dupaks.awal','dupaks.no_pak as no_pak_dupak','biodatas.pangkat_golongan as pangkat_golongan')
-        ->where('biodatas.karsu', '!=' ,'KENAIKAN PANGKAT')
+        // ->where('biodatas.karsu', '!=' ,'KENAIKAN PANGKAT')
         ->orderBy('users.name','asc')
         // ->groupBy('users.name')
         ->get();
