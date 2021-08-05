@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Crypt;
 use PDF;
-use DB; 
+use DB;
 use Auth;
 use Telegram\Bot\Keyboard\Keyboard;
 use Telegram\Bot\Laravel\Facades\Telegram;
@@ -155,7 +155,7 @@ class PenilaiDupakController extends Controller
         $now = date('Y-m-d');
         $berita_acara = \App\BeritaAcara::where('dupak_id', $id)->first();
         // $berita_acara = json_decode($berita_acara);
-        
+
         return view('dupaks_penilai.berita_acara', ['berita_acara' => $berita_acara,
                                                     'dupak' => $dupak,
                                                     'biodatas' => $biodatas,
@@ -183,7 +183,7 @@ class PenilaiDupakController extends Controller
         $now = date('Y-m-d');
         $berita_acara = \App\Hapak::where('dupak_id', $id)->first();
         // $berita_acara = json_decode($berita_acara);
-        
+
         return view('dupaks_penilai.hapak', ['berita_acara' => $berita_acara,
                                                     'dupak' => $dupak,
                                                     'biodatas' => $biodatas,
@@ -212,52 +212,52 @@ class PenilaiDupakController extends Controller
             'masa_kerja_lama'   => $request->get('lama'),
             'penilai'   => Auth::user()->name,
             'nip_penilai'   => Auth::user()->nip,
-            'pendidikan' => json_encode([ 
+            'pendidikan' => json_encode([
                 'lama' => $request->get('value1'),
                 'baru' => $request->get('value2'),
                 'total' => $request->get('sum'),
             ]),
-            'prajabatan' =>json_encode([ 
+            'prajabatan' =>json_encode([
                 'lama' => $request->get('value1a'),
                 'baru' => $request->get('value2a'),
                 'total' => $request->get('suma'),
             ]),
-            'pembelajaran' => json_encode([ 
+            'pembelajaran' => json_encode([
                 'lama' => $request->get('value1b'),
                 'baru' => $request->get('value2b'),
                 'total' => $request->get('sumb'),
             ]),
-            'bimbingan' => json_encode([ 
+            'bimbingan' => json_encode([
                 'lama' => $request->get('value1c'),
                 'baru' => $request->get('value2c'),
                 'total' => $request->get('sumc'),
             ]),
-            'tugas_lain' => json_encode([ 
+            'tugas_lain' => json_encode([
                 'lama' => $request->get('value1d'),
                 'baru' => $request->get('value2d'),
                 'total' => $request->get('sumd'),
             ]),
-            'pd' => json_encode([ 
+            'pd' => json_encode([
                 'lama' => $request->get('value1e'),
                 'baru' => $request->get('value2e'),
                 'total' => $request->get('sume'),
             ]),
-            'pi' => json_encode([ 
+            'pi' => json_encode([
                 'lama' => $request->get('value1f'),
                 'baru' => $request->get('value2f'),
                 'total' => $request->get('sumf'),
             ]),
-            'ki' => json_encode([ 
+            'ki' => json_encode([
                 'lama' => $request->get('value1g'),
                 'baru' => $request->get('value2g'),
                 'total' => $request->get('sumg'),
             ]),
-            'ijazah_tdk_sesuai' => json_encode([ 
+            'ijazah_tdk_sesuai' => json_encode([
                 'lama' => $request->get('value1h'),
                 'baru' => $request->get('value2h'),
                 'total' => $request->get('sumh'),
             ]),
-            'pendukung' => json_encode([ 
+            'pendukung' => json_encode([
                 'lama' => $request->get('value1i'),
                 'baru' => $request->get('value2i'),
                 'total' => $request->get('sumi'),
@@ -267,71 +267,71 @@ class PenilaiDupakController extends Controller
         $dupak = \App\Dupak::findOrFail($id);
         $dupak->status="Sudah Dinilai";
         $dupak->update();
-        
-        $user = \App\User::find($dupak->user_id)->chat_id_verified;
-        $group_id = \App\Setup::first()->group_id;
-        $telegram_id = $group_id;
 
-        // echo $user;
-        // echo "<br>";
-        // echo $telegram_id;
-        if($user!=""){
-            $telegram_id = $user;
-        }
-        // echo $telegram_id;
-        
-        $users = \App\User::find($dupak->user_id);
+        // $user = \App\User::find($dupak->user_id)->chat_id_verified;
+        // $group_id = \App\Setup::first()->group_id;
+        // $telegram_id = $group_id;
 
-        $text = "Halo, ".$users->name."\n"
-            . "Berkas usulan anda sudah dinilai \n"
-            . "Terimakasih sudah menggunakan Aplikasi E-Pak Guru\n"
-            . "Jika ada saran dan masukan untuk pengembangan aplikasi ini.. silahkan klik link berikut ini \n";
-            
-            if(url('/') == 'http://localhost:8000'){
+        // // echo $user;
+        // // echo "<br>";
+        // // echo $telegram_id;
+        // if($user!=""){
+        //     $telegram_id = $user;
+        // }
+        // // echo $telegram_id;
 
-                $keyboard = Keyboard::make()
-                ->inline()
-                ->row(
-                    Keyboard::inlineButton(['text' => 'Saran Dan Masukan', 'url' => 'http://e-pak.smkn2malinau.sch.id' ]),
-                    Keyboard::inlineButton(['text' => 'List Dupak', 'url' => 'http://e-pak.smkn2malinau.sch.id' ])
-                );
-            }else{
-                $keyboard = Keyboard::make()
-                ->inline()
-                ->row(
-                    Keyboard::inlineButton(['text' => 'Saran Dan Masukan', 'url' => route('sarans.create') ]),
-                    Keyboard::inlineButton(['text' => 'List Dupak', 'url' => route('dupaks.index') ])
-                );
-            }
-                
-            Telegram::sendMessage([
-                'chat_id' => $telegram_id ,
-                'parse_mode' => 'HTML',
-                'reply_markup' => $keyboard,
-                'text' => $text,
-            ]);
+        // $users = \App\User::find($dupak->user_id);
 
-            
-            $details = [
-                    'from' => 'admin@e-pakgurukaltara.com',
-                    'greeting' => 'Halo, '.$users->name,
-                    'body' => 'Berkasi Usulan Anda Sudah di Nilai',
-                    'thanks' => 'Terimakasih Sudah menggunakan Aplikasi E-Pak Guru',
-                    'saran' => 'Jika ada Saran dan Masukan Untuk Pengembang Aplikasi Ini.. silahkan klik link berikut ini ',
-                    'tombol' => "http:/e-pakgurukaltara.com/sarans/create",
-                    'list_notif' => 'Usulan Anda Sudah Dinilai oleh Tim Penilai',
-                    'text_action' => 'List Dupak',
-                    'link1' => route('dupaks.index'),
-                    'subject' => 'Info E-pak Guru',
-                    'salutation' => 'Hormat Kami',
-                    'telegram_id' => env('TELEGRAM_CHANNEL_ID'),
-                    
-            ];
-    
-            $users->notify(new \App\Notifications\TaskDupakComplete($details));
+        // $text = "Halo, ".$users->name."\n"
+        //     . "Berkas usulan anda sudah dinilai \n"
+        //     . "Terimakasih sudah menggunakan Aplikasi E-Pak Guru\n"
+        //     . "Jika ada saran dan masukan untuk pengembangan aplikasi ini.. silahkan klik link berikut ini \n";
+
+        //     if(url('/') == 'http://localhost:8000'){
+
+        //         $keyboard = Keyboard::make()
+        //         ->inline()
+        //         ->row(
+        //             Keyboard::inlineButton(['text' => 'Saran Dan Masukan', 'url' => 'http://e-pak.smkn2malinau.sch.id' ]),
+        //             Keyboard::inlineButton(['text' => 'List Dupak', 'url' => 'http://e-pak.smkn2malinau.sch.id' ])
+        //         );
+        //     }else{
+        //         $keyboard = Keyboard::make()
+        //         ->inline()
+        //         ->row(
+        //             Keyboard::inlineButton(['text' => 'Saran Dan Masukan', 'url' => route('sarans.create') ]),
+        //             Keyboard::inlineButton(['text' => 'List Dupak', 'url' => route('dupaks.index') ])
+        //         );
+        //     }
+
+        //     Telegram::sendMessage([
+        //         'chat_id' => $telegram_id ,
+        //         'parse_mode' => 'HTML',
+        //         'reply_markup' => $keyboard,
+        //         'text' => $text,
+        //     ]);
+
+
+        //     $details = [
+        //             'from' => 'admin@e-pakgurukaltara.com',
+        //             'greeting' => 'Halo, '.$users->name,
+        //             'body' => 'Berkasi Usulan Anda Sudah di Nilai',
+        //             'thanks' => 'Terimakasih Sudah menggunakan Aplikasi E-Pak Guru',
+        //             'saran' => 'Jika ada Saran dan Masukan Untuk Pengembang Aplikasi Ini.. silahkan klik link berikut ini ',
+        //             'tombol' => "http:/e-pakgurukaltara.com/sarans/create",
+        //             'list_notif' => 'Usulan Anda Sudah Dinilai oleh Tim Penilai',
+        //             'text_action' => 'List Dupak',
+        //             'link1' => route('dupaks.index'),
+        //             'subject' => 'Info E-pak Guru',
+        //             'salutation' => 'Hormat Kami',
+        //             'telegram_id' => env('TELEGRAM_CHANNEL_ID'),
+
+        //     ];
+
+            // $users->notify(new \App\Notifications\TaskDupakComplete($details));
 
         $id = Crypt::encrypt($id);
-        
+
         return redirect()->route('dupaks_penilai.index',$id)->with('toast_success', 'Task Created Successfully!');
     }
 
@@ -353,52 +353,52 @@ class PenilaiDupakController extends Controller
             'catatan'   => $request->get('catatan'),
             'penilai'   => Auth::user()->name,
             'nip_penilai'   => Auth::user()->nip,
-            'pendidikan' => json_encode([ 
+            'pendidikan' => json_encode([
                 'lama' => $request->get('value1'),
                 'baru' => $request->get('value2'),
                 'total' => $request->get('sum'),
             ]),
-            'prajabatan' =>json_encode([ 
+            'prajabatan' =>json_encode([
                 'lama' => $request->get('value1a'),
                 'baru' => $request->get('value2a'),
                 'total' => $request->get('suma'),
             ]),
-            'pembelajaran' => json_encode([ 
+            'pembelajaran' => json_encode([
                 'lama' => $request->get('value1b'),
                 'baru' => $request->get('value2b'),
                 'total' => $request->get('sumb'),
             ]),
-            'bimbingan' => json_encode([ 
+            'bimbingan' => json_encode([
                 'lama' => $request->get('value1c'),
                 'baru' => $request->get('value2c'),
                 'total' => $request->get('sumc'),
             ]),
-            'tugas_lain' => json_encode([ 
+            'tugas_lain' => json_encode([
                 'lama' => $request->get('value1d'),
                 'baru' => $request->get('value2d'),
                 'total' => $request->get('sumd'),
             ]),
-            'pd' => json_encode([ 
+            'pd' => json_encode([
                 'lama' => $request->get('value1e'),
                 'baru' => $request->get('value2e'),
                 'total' => $request->get('sume'),
             ]),
-            'pi' => json_encode([ 
+            'pi' => json_encode([
                 'lama' => $request->get('value1f'),
                 'baru' => $request->get('value2f'),
                 'total' => $request->get('sumf'),
             ]),
-            'ki' => json_encode([ 
+            'ki' => json_encode([
                 'lama' => $request->get('value1g'),
                 'baru' => $request->get('value2g'),
                 'total' => $request->get('sumg'),
             ]),
-            'ijazah_tdk_sesuai' => json_encode([ 
+            'ijazah_tdk_sesuai' => json_encode([
                 'lama' => $request->get('value1h'),
                 'baru' => $request->get('value2h'),
                 'total' => $request->get('sumh'),
             ]),
-            'pendukung' => json_encode([ 
+            'pendukung' => json_encode([
                 'lama' => $request->get('value1i'),
                 'baru' => $request->get('value2i'),
                 'total' => $request->get('sumi'),
@@ -408,7 +408,7 @@ class PenilaiDupakController extends Controller
         $dupak = \App\Dupak::findOrFail($id);
         $dupak->status="Sudah Dinilai";
         $dupak->update();
-        
+
         $user = \App\User::find($dupak->user_id)->chat_id_verified;
         $group_id = \App\Setup::first()->group_id;
         $telegram_id = $group_id;
@@ -420,14 +420,14 @@ class PenilaiDupakController extends Controller
             $telegram_id = $user;
         }
         // echo $telegram_id;
-        
+
         $users = \App\User::find($dupak->user_id);
 
         $text = "Halo, ".$users->name."\n"
             . "Berkas usulan anda sudah dinilai \n"
             . "Terimakasih sudah menggunakan Aplikasi E-Pak Guru\n"
             . "Jika ada saran dan masukan untuk pengembangan aplikasi ini.. silahkan klik link berikut ini \n";
-            
+
             if(url('/') == 'http://localhost:8000'){
 
                 $keyboard = Keyboard::make()
@@ -444,7 +444,7 @@ class PenilaiDupakController extends Controller
                     Keyboard::inlineButton(['text' => 'List Dupak', 'url' => route('dupaks.index') ])
                 );
             }
-                
+
             Telegram::sendMessage([
                 'chat_id' => $telegram_id ,
                 'parse_mode' => 'HTML',
@@ -452,7 +452,7 @@ class PenilaiDupakController extends Controller
                 'text' => $text,
             ]);
 
-            
+
             $details = [
                     'from' => 'admin@e-pakgurukaltara.com',
                     'greeting' => 'Halo, '.$users->name,
@@ -466,13 +466,13 @@ class PenilaiDupakController extends Controller
                     'subject' => 'Info E-pak Guru',
                     'salutation' => 'Hormat Kami',
                     'telegram_id' => env('TELEGRAM_CHANNEL_ID'),
-                    
+
             ];
-    
+
             $users->notify(new \App\Notifications\TaskDupakComplete($details));
 
         $id = Crypt::encrypt($id);
-        
+
         return redirect()->route('dupaks_penilai.index',$id)->with('toast_success', 'Task Created Successfully!');
     }
 
@@ -563,14 +563,14 @@ class PenilaiDupakController extends Controller
     public function lampiran($id)
     {
         $id =  Crypt::decrypt($id);
-        
+
         $data = DB::table('penolakans')
         ->join('lampirans', 'lampirans.id', '=', 'penolakans.lampiran_id')
         // ->join('berkas', 'berkas.dupak_id', '=', 'penolakans.berkas_id')
         ->where('penolakans.berkas_id', $id)
         ->select( '*', 'penolakans.id as idp')
         ->get();
-        
+
         $lampirans = \App\Lampiran::get();
         return view('dupaks_penilai.l2pkb', [
                                             'id' => $id,
@@ -588,7 +588,7 @@ class PenilaiDupakController extends Controller
             "lampiran_id" => "required",
             "judul" => "required",
         ]);
-        	
+
         if ($validator->fails()) {
             return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
         }
@@ -649,8 +649,8 @@ class PenilaiDupakController extends Controller
 
     public function rekap_pak_tahunan()
     {
-        
-        
+
+
         $data = DB::table('users')
         ->join('dupaks', 'users.id', '=', 'dupaks.user_id')
         ->join('berita_acaras', 'berita_acaras.dupak_id', '=', 'dupaks.id')
@@ -662,7 +662,7 @@ class PenilaiDupakController extends Controller
         // ->groupBy('users.name')
         ->get();
 
-    
+
         return view('dupaks_penilai.rekap_tahunan', [
                                             'data' => $data
                                             ]);
@@ -681,23 +681,23 @@ class PenilaiDupakController extends Controller
         return Excel::download(new RekapExport3B, 'RekapExport3B.xlsx');
     }
 
-    
+
 
     public function cek_ok($id)
     {
-        $id = Crypt::decrypt($id); 
+        $id = Crypt::decrypt($id);
         $dupak = \App\Dupak::where('id', $id )->first();
         $data = \App\BeritaAcara::where('dupak_id', $id)->first();
         $data->cek = 'OK';
         $data->update();
         return redirect()->route( 'dupaks_penilai.rekap')->with('toast_success', 'Task chek Successfully!');
-        
+
     }
 
     public function no_pak(Request $request,$id)
     {
 
-        $id = Crypt::decrypt($id); 
+        $id = Crypt::decrypt($id);
         $dupak = \App\Dupak::where('id', $id )->first();
         // $data = \App\Hapak::where('dupak_id', $id)->first();
         $dupak->no_pak = $request->get('no_pak');
@@ -728,14 +728,14 @@ class PenilaiDupakController extends Controller
 
 
         // return  back()->with('toast_success', 'Task set No PAK Successfully!');
-        
+
     }
 
-   
-    
+
+
     public function cek_fail($id)
     {
-        $id = Crypt::decrypt($id); 
+        $id = Crypt::decrypt($id);
         $dupak = \App\Dupak::where('id', $id )->first();
         $data = \App\BeritaAcara::where('dupak_id', $id)->first();
         $data->cek = 'FAIL';
@@ -746,24 +746,24 @@ class PenilaiDupakController extends Controller
 
     public function cek_ok_3b($id)
     {
-        $id = Crypt::decrypt($id); 
+        $id = Crypt::decrypt($id);
         $dupak = \App\Dupak::where('id', $id )->first();
         $data = \App\Hapak::where('dupak_id', $id)->first();
         $data->cek = 'OK';
         $data->update();
         return redirect()->route( 'dupaks_penilai.rekap')->with('toast_success', 'Task chek Successfully!');
-        
+
     }
 
     public function no_hapak(Request $request,$id)
     {
 
-        $id = Crypt::decrypt($id); 
+        $id = Crypt::decrypt($id);
         $data = \App\Hapak::where('dupak_id', $id)->first();
         $data->no_pak = $request->get('no_pak');
         $data->update();
-        
-        
+
+
         $dupak = \App\Dupak::where('id', $id )->first();
         $berkas = \App\Berkas::where('dupak_id', $id )->get();
         $user = \App\User::findOrFail($dupak->user_id);
@@ -793,12 +793,12 @@ class PenilaiDupakController extends Controller
         return $pdf->download('Hapak.pdf');
 
         // return  back()->with('toast_success', 'Task set No PAK Successfully!');
-        
+
     }
-    
+
     public function cek_fail_3b($id)
     {
-        $id = Crypt::decrypt($id); 
+        $id = Crypt::decrypt($id);
         $dupak = \App\Dupak::where('id', $id )->first();
         $data = \App\Hapak::where('dupak_id', $id)->first();
         $data->cek = 'FAIL';
